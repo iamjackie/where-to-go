@@ -12,6 +12,7 @@ a{color:var(--accent)}a:hover{text-decoration:underline}
 .hero .sub{color:var(--muted);font-size:.95em;max-width:720px;margin:8px auto 0}
 .c{max-width:860px;margin:0 auto;padding:0 20px}
 h2{font-size:1.3em;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+h3{font-size:1.05em;margin:20px 0 8px;color:var(--accent)}
 .wd-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
 .wd{background:var(--card);border-radius:12px;padding:12px;text-align:center;border:1px solid var(--border)}
 .wd .dt{font-size:.8em;color:var(--muted)}.wd .ic{font-size:1.5em;margin:4px 0}.wd .tp{font-weight:600}.wd .ds{font-size:.8em;color:var(--sun)}
@@ -21,12 +22,12 @@ h2{font-size:1.3em;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid
 .charge h4{color:#60a5fa;font-size:.93em;margin-bottom:5px}.charge p{font-size:.84em;color:var(--muted)}
 .poi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:12px 0}
 .poi h4{font-size:.98em;margin-bottom:4px}.poi p,.poi ul{font-size:.86em;color:var(--muted)}.poi ul{padding-left:18px;margin-top:5px}.poi ul li{margin-bottom:3px}
-.tags{margin:6px 0;display:flex;flex-wrap:wrap;gap:6px}
-.tags span{font-size:.73em;padding:2px 7px;border-radius:8px}
+.tags{margin:6px 0;display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:.73em;padding:2px 7px;border-radius:8px}
 .t-free{background:#10b98120;color:#34d399;border:1px solid #059669}
 .t-pay{background:#f59e0b20;color:#fbbf24;border:1px solid #f59e0b}
 .t-time{background:#3b82f620;color:#60a5fa;border:1px solid #3b82f6}
 .t-drive{background:#8b5cf620;color:#a78bfa;border:1px solid #8b5cf6}
+.t-walk{background:#ec489920;color:#f472b6;border:1px solid #ec4899}
 .t-eat{background:#ef444420;color:#f87171;border:1px solid #ef4444}
 .t-star{background:#f59e0b30;color:#fbbf24;border:1px solid #f59e0b}
 .stay{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
@@ -37,7 +38,6 @@ h2{font-size:1.3em;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid
 .day-hdr{background:linear-gradient(90deg,var(--accent),#818cf8);color:var(--bg);padding:10px 18px;border-radius:12px;font-weight:700;font-size:1.05em;margin:26px 0 14px}
 .step{border-left:3px solid var(--border);padding-left:16px;margin:14px 0}
 .step .time{font-size:.84em;color:var(--accent);font-weight:600}.step .desc{font-size:.87em;color:var(--muted);margin-top:3px}
-/* Tabs */
 .tabs{display:flex;gap:0;margin:20px 0 0;border-bottom:2px solid var(--border)}
 .tab-btn{padding:10px 24px;background:var(--card);color:var(--muted);border:1px solid var(--border);border-bottom:none;border-radius:12px 12px 0 0;cursor:pointer;font-size:.92em;font-weight:600;margin-right:-1px}
 .tab-btn.active{background:var(--bg);color:var(--accent);border-bottom:2px solid var(--bg);margin-bottom:-2px}
@@ -63,10 +63,10 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
   <div class="wd"><div class="dt">4/5 周日</div><div class="ic">☀️</div><div class="tp">28°/16°</div><div class="ds">晴</div></div>
   <div class="wd"><div class="dt">4/6 周一</div><div class="ic">☀️</div><div class="tp">28°/14°</div><div class="ds">晴</div></div>
 </div>
-<div class="tip"><b>三天全晴！</b>白天27-28°短袖+薄外套，<b>紫外线极强必须防晒(SPF50+)</b>。夜间14-16°纯电开空调无压力。</div>
+<div class="tip"><b>三天全晴！</b>西昌被称为"一座春天栖息的城市"，年日照2500h+。白天27-28°短袖+薄外套，<b>紫外线极强必须防晒(SPF50+)</b>。夜间14-16°纯电开空调无压力。</div>
 
-<h2>🛤 沿途风景：雅西高速——中国最美高速天路</h2>
-<p style="color:var(--muted);font-size:.88em;margin-bottom:12px">雅西高速被央视评为<b>"中国最美高速"</b>，全程穿越崇山峻岭，翻越泥巴山、拖乌山，跨越大渡河，海拔从700m爬升至2200m，每前进1km平均爬升7.5m。沿途本身就是风景！</p>
+<h2>🛤 沿途风景：雅西高速——央视评选"中国最美高速天路"</h2>
+<p style="color:var(--muted);font-size:.88em;margin-bottom:12px">雅西高速全程穿越崇山峻岭，翻越泥巴山、拖乌山，跨越大渡河，海拔从700m爬升至2200m，每前进1km平均爬升7.5m。沿途本身就是风景！</p>
 
 <div class="scenic">
   <h4>🌫 泥巴山隧道（成都→荥经·约130km处）</h4>
@@ -91,17 +91,18 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 
 <h2>🔌 充电规划</h2>
 <div class="charge">
-  <h4>雅西高速充电桩（已确认）</h4>
-  <p><b>① 荥经服务区</b>(~160km) — 国网8桩快充60kW·雅西高速首个充电站·<b>首选补电点</b><br>
+  <h4>📍 雅西高速沿途充电桩（已确认）</h4>
+  <p><b>① 荥经服务区</b>(~160km) — <b>国网8桩快充60kW</b>·雅西高速首个充电站(2020年投运)·<b>首选补电点</b><br>
   <b>② 汉源服务区</b>(~230km) — 有充电桩<br>
   <b>③ 石棉服务区</b>(~260km) — 有充电桩(2025扩容中)<br>
   <b>④ 冕宁服务区</b>(~360km) — 距西昌~80km<br>
-  ⚠️ 假期排队时<b>下高速到县城充电</b>(荥经/石棉/冕宁县城均有特来电/国网·1-5km内)</p>
+  ⚠️ 假期排队时<b>下高速到县城充电</b>(荥经/石棉/冕宁县城均有特来电/国网·1-5km内)。<b>避开菩萨岗服务区</b>（实测2025五一排队严重）。</p>
 </div>
 <div class="charge">
-  <h4>西昌市区充电（非常密集）</h4>
-  <p>万达广场停车场(快充·24h) | 邛海17度附近 | 观海路房车营地 | 特来电/星星充电10+站点</p>
+  <h4>📍 西昌市区充电（非常密集）</h4>
+  <p><b>万达广场停车场</b>(快充·24h) | <b>邛海17度附近</b>(酒店配套) | <b>观海路房车营地</b>(2025新建·有水电) | 特来电/星星充电10+站点</p>
 </div>
+<div class="tip"><b>500-600km续航策略：</b>满电出发→荥经服务区补电(160km处·快充20-30min)→直达西昌(剩余280km)。回程同理。全程无焦虑。</div>
 
 <!-- ==================== 两种方案Tab ==================== -->
 <h2>📋 行程方案（两种选择）</h2>
@@ -114,126 +115,216 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <!-- ===== 轻松版 ===== -->
 <div class="tab-content active" id="tab-chill">
 
-<div class="day-hdr">Day 0 · 4/3 周五晚 — 成都→石棉（仅3h·轻松到达）</div>
+<div class="day-hdr">Day 0 · 4/3 周五晚 — 成都→石棉（仅266km·高德约3.5h）</div>
 <div class="step">
   <div class="time">🚗 20:00 下班吃完饭后出发</div>
-  <div class="desc">不着急，吃完晚饭从容出发。走成雅高速→雅西高速。全程仅260km到石棉，约3h。</div>
+  <div class="desc">不着急，吃完晚饭从容出发。走成雅高速→雅西高速。全程仅266km到石棉，高德导航约3.5h。夜间高速车少。</div>
 </div>
 <div class="step">
   <div class="time">⚡ ~21:30 荥经服务区 快充补电（20min）</div>
-  <div class="desc">行驶约1.5h。国网8桩60kW快充。上厕所、买水、休息。夜间不排队。</div>
+  <div class="desc">行驶约1.5h/160km到达。国网8桩60kW快充。上厕所、买水、休息。夜间不排队。</div>
 </div>
 <div class="step">
-  <div class="time">🌙 ~23:00 到达石棉 · 找地方过夜</div>
-  <div class="desc">石棉服务区或石棉县城停车场过夜。<b>23点睡觉，比凌晨1点到西昌舒服太多！</b></div>
-</div>
-<div class="stay">
-  <h4>推荐过夜：石棉服务区</h4>
-  <p>📍 雅西高速石棉服务区 | 有卫生间·有热水·有小卖部·有充电桩</p>
-  <p class="pros">✅ 不用下高速·安全正规·可以边睡边充电·第二天直接上路</p>
-  <p class="cons">❌ 高速服务区稍吵(大车)·可戴耳塞解决</p>
-</div>
-<div class="stay">
-  <h4>备选：石棉县城（下高速5min）</h4>
-  <p>县城有特来电充电站。更安静，可以找个安静的停车场。但需要下高速再上高速（清明免费不影响）。</p>
+  <div class="time">🌙 ~23:30 到达石棉 · 过夜</div>
+  <div class="desc">从荥经继续1.5h到石棉。<b>23:30睡觉，比凌晨1点到西昌舒服太多！</b></div>
 </div>
 
-<div class="day-hdr">Day 1 · 4/4 周六 — 石棉→西昌（2h）+ 邛海半日游 ☀️ 27°</div>
+<h3>🅿️ 石棉过夜点选择</h3>
+<div class="stay">
+  <h4>① 石棉服务区 ⭐首选</h4>
+  <p>📍 雅西高速石棉服务区</p>
+  <p class="pros">✅ 不用下高速·有卫生间·有热水·有小卖部·有充电桩·可以边睡边充电·第二天直接上路</p>
+  <p class="cons">❌ 高速服务区可能有大车噪音·可戴耳塞解决</p>
+</div>
+<div class="stay">
+  <h4>② 石棉县城（下高速5min）</h4>
+  <p>📍 石棉县城·清明高速免费下上不影响</p>
+  <p class="pros">✅ 更安静·县城有特来电充电站·可以找个安静停车场</p>
+  <p class="cons">❌ 需下高速再上·凌晨找充电桩可能不便</p>
+</div>
+
+<div class="day-hdr">Day 1 · 4/4 周六 — 石棉→西昌(高德184km/2.5h) + 邛海深度游 ☀️ 27°</div>
 <div class="step">
   <div class="time">😴 睡到自然醒 · 08:00-08:30 起床</div>
-  <div class="desc"><b>睡到自然醒！</b>这才是度假该有的状态。不用6点多起。洗漱后在服务区吃个早餐或者车上泡杯咖啡。</div>
+  <div class="desc"><b>睡到自然醒！</b>这才是度假该有的状态。洗漱后在服务区吃个早餐或者车上泡杯咖啡。</div>
 </div>
 <div class="step">
-  <div class="time">🚗 09:00 出发石棉→西昌（180km·约2h）</div>
-  <div class="desc">石棉到西昌仅180km，走雅西高速约2h。<b>白天行驶可以欣赏拖乌山双螺旋隧道和干海子大桥</b>——昨晚夜间没看到的壮观工程奇迹！沿途海拔从800m爬升到2200m再下降到1500m，风景变化极大。</div>
+  <div class="time">🚗 09:00 出发石棉→西昌（高德184km·约2.5h）</div>
+  <div class="desc">石棉到西昌走雅西高速约2.5h。<b>白天行驶可以欣赏拖乌山双螺旋隧道和干海子大桥</b>——昨晚夜间没看到的壮观工程奇迹！沿途海拔从800m爬升到2200m再下降到1500m，风景变化极大。</div>
 </div>
 <div class="step">
-  <div class="time">⚡ ~11:00 到达西昌 · 充电</div>
-  <div class="desc">到西昌后先充电（万达广场/特来电均可），然后出发游玩。</div>
-</div>
-<div class="step">
-  <div class="time">🍽 11:30-12:30 午餐 — 邛海醉虾！</div>
-  <div class="desc">直奔邛海南岸<b>小渔村</b>一带的渔家乐。必点：<b>邛海醉虾</b>（活虾+白酒+酱油+蒜泥+小米辣，鲜甜微醺·48-68元/份）、<b>邛海烤鱼</b>（现捞现烤·58-88元/条）。靠湖的位子边吃边看湖景。人均50-80元。<br>⚠️ 开车的别吃醉虾（有酒），吃烤鱼。</div>
-</div>
-<div class="step">
-  <div class="time">🚲 13:30-17:30 邛海湿地环湖骑行（约4h）</div>
-  <div class="desc">邛海国家湿地公园环湖绿道34km，穿越6大湿地。下载<b>"爱西昌"APP</b>扫码免费入园。<br>
-  <b>租车：</b>共享单车(最便宜)或入口租电助力车/双人车。双人车30元/h封顶3h=90元。电助力续航够环湖。<br>
-  <b>推荐路线（顺时针）：</b>梦里水乡(花海栈道·最热门)→烟雨鹭洲(白鹭芦苇·安静)→西波鹤影(开阔湖景)→观鸟岛(候鸟)→梦回田园(荷花塘)→梦寻花海(最美段·杜鹃格桑花·长坡多)<br>
-  <b>最美段：</b>梦寻花海段和烟雨鹭洲段。不赶时间慢慢骑，边拍边休息。</div>
-</div>
-<div class="step">
-  <div class="time">🔥 18:30-20:30 晚餐 — 西昌火盆烧烤（必吃！！）</div>
-  <div class="desc"><b>西昌火盆烧烤</b>——四川省级天府旅游美食·西昌非遗。铜火盆+炭火+铁签自己烤，涮+烤+焖三合一。<br>
-  <b>推荐店：</b>藿香烧烤(本地人首推老店)、黑哥烧烤(老牌)、胡四哥特色烧烤(抖音热推)、火焰山(携程高分)<br>
-  <b>必点：</b>小猪肉串(5毛/串起·外酥里嫩)、五花肉、凉山黑猪排骨、烤土豆、烤包谷、烤韭菜、西昌卷粉。配<b>西昌生啤</b>。<br>
-  📍 建昌古城附近/长安路烧烤一条街。18:00-18:30到避免等位。2人约120-180元吃到撑。</div>
-</div>
-<div class="step">
-  <div class="time">🌙 21:00 邛海星空 + 营地过夜</div>
-  <div class="desc">邛海边散步看星空（海拔1500m空气通透）。回营地/停车场开空调睡觉。<br>
-  <b>过夜首选：观海路房车营地</b>(72800㎡·220车位·有卫生间/水电)。备选：万达停车场(有充电桩·24h)。</div>
+  <div class="time">⚡ ~11:30 到达西昌 · 充电+午餐</div>
+  <div class="desc">到西昌后先充电（万达广场/特来电均可），然后直奔邛海吃饭。</div>
 </div>
 
-<div class="day-hdr">Day 2 · 4/5 周日 — 螺髻山 或 邛海深度二选一 ☀️ 28°</div>
-<div class="tip"><b>今天可以二选一：</b>① 去螺髻山（需要一整天·体力要求高·冰川湖泊绝美）② 留在邛海深度慢游（泸山+发呆+建昌古城·轻松惬意）。根据你的体力和心情决定！</div>
+<div class="food">
+  <h4>🦐 12:00-13:00 午餐 — 邛海醉虾！</h4>
+  <p>直奔邛海南岸<b>小渔村</b>一带的渔家乐。必点：<b>邛海醉虾</b>（活虾+白酒+酱油+蒜泥+小米辣，鲜甜微醺·48-68元/份）、<b>邛海烤鱼</b>（现捞现烤·58-88元/条）。靠湖的位子边吃边看湖景。人均50-80元。<br>⚠️ 开车的别吃醉虾（有酒），吃烤鱼和其他菜。</p>
+</div>
+
+<div class="poi">
+  <h4>🚲 13:30-17:30 邛海湿地环湖骑行（核心项目·约4h）</h4>
+  <div class="tags"><span class="t-free">湿地免费</span><span class="t-pay">租车30-50元/3h封顶</span><span class="t-time">环湖34km·骑行约4h</span></div>
+  <p>邛海国家湿地公园是<b>全国最大城市湿地公园之一</b>，环湖绿道全长约34km，穿过6大湿地区域。</p>
+  <ul>
+    <li><b>入园方式：</b>下载<b>"爱西昌"APP</b>，实名注册后扫码入园，<b>免费</b>，无需购票。</li>
+    <li><b>租车方式：</b>共享单车(最便宜)或入口租电助力车/双人车/四人车。<b>双人车约30元/h封顶3h=90元</b>，四人车40元/h=120元。电助力续航够环湖。</li>
+    <li><b>推荐路线（顺时针）：</b>梦里水乡(起点·花海栈道·<b>最热门打卡点</b>) → 烟雨鹭洲(白鹭·芦苇荡·<b>安静文艺</b>) → 西波鹤影(开阔湖景·拍照好) → 观鸟岛(候鸟天堂·科普) → 梦回田园(荷花塘·核桃村) → 梦寻花海(<b>景色最美·杜鹃格桑花·长坡多</b>) → 回起点</li>
+    <li><b>最美段：</b>梦寻花海段和烟雨鹭洲段公认最美。梦里水乡最热闹适合拍照。</li>
+    <li><b>骑行耗时：</b>不停留纯骑约2h，边玩边拍边休息约4h。不着急慢慢来。</li>
+  </ul>
+</div>
+
+<div class="food">
+  <h4>🔥 18:00-20:00 晚餐 — 西昌火盆烧烤（头号必吃！！）</h4>
+  <p>西昌火盆烧烤2021年入选<b>四川省省级天府旅游美食</b>、<b>西昌非物质文化遗产</b>。铜火盆放满炭火，上面架铁签自己烤，<b>涮+烤+焖三合一</b>，边烤边吃边聊，极具江湖气。</p>
+  <p><b>推荐店铺（4选1）：</b></p>
+  <ul>
+    <li>🔥 <b>藿香烧烤</b> — 本地人首推老店，107路公交沿线。小肉串5毛/串起，品质稳定。人均60-80元。</li>
+    <li>🔥 <b>黑哥烧烤</b> — 老牌名店，口碑好，环境稍好。人均70-90元。</li>
+    <li>🔥 <b>胡四哥特色烧烤</b> — 2025-2026年抖音热推，可油涮可烤，本地人也爱去。</li>
+    <li>🔥 <b>火焰山火盆烧烤</b> — 携程高评分老店，涮烤焖三合一吃法。</li>
+  </ul>
+  <p><b>必点：</b>小猪肉串（外酥里嫩）、五花肉、凉山黑猪排骨、烤土豆、烤包谷（玉米）、烤韭菜、西昌卷粉。配<b>西昌本地生啤</b>。<br>
+  📍 <b>烧烤一条街</b>在建昌古城附近/长安路一带，晚上非常热闹。<b>18:00到避免等位</b>。2人约120-180元吃到撑。</p>
+</div>
+
+<div class="step">
+  <div class="time">🌙 20:30 邛海夜景散步 + 营地过夜</div>
+  <div class="desc">饭后在邛海边散步，看星空。西昌海拔1500m+空气通透，<b>远离路灯处肉眼可见银河</b>。回营地/停车场开空调睡觉。</div>
+</div>
+
+<h3>🅿️ 西昌过夜点详细对比</h3>
+<div class="stay">
+  <h4>① 邛海观海路房车自驾游露营地 ⭐首选</h4>
+  <p>📍 西昌市海潮路·邛海西岸 | 2025年新建·占地72800㎡·220个停车位·专为房车/床车设计</p>
+  <p class="pros">✅ 有卫生间·有水电·有充电设施·面湖·安全正规·周边有烟雨鹭洲湿地·早上推门即湖景</p>
+  <p class="cons">❌ 具体收费需到场确认(2025新建设施)·清明节可能车位紧张需早到</p>
+</div>
+<div class="stay">
+  <h4>② 邛海古城停车场</h4>
+  <p>📍 环海路十字路口·公交"古城站"旁·规模较大的收费停车场</p>
+  <p class="pros">✅ 有卫生间·有水龙头·位置好(邻近建昌古城和邛海)·步行可达烧烤一条街</p>
+  <p class="cons">❌ 收费停车场(约10-15元/夜)·无充电桩需另找·清明可能略吵</p>
+</div>
+<div class="stay">
+  <h4>③ 西昌万达广场停车场（充电优先选）</h4>
+  <p>📍 万达广场地下停车场</p>
+  <p class="pros">✅ 有快充桩·24h开放·边睡边充·安全·附近有邛海17度等配套</p>
+  <p class="cons">❌ 地下停车场通风一般·不如湖边有情调·距邛海步行约15min</p>
+</div>
+
+<div class="day-hdr">Day 2 · 4/5 周日 — 螺髻山 或 邛海深度 二选一 ☀️ 28°</div>
+<div class="tip"><b>今天可以二选一：</b>① 螺髻山（一整天·体力型·冰川湖泊+杜鹃花绝美） ② 留在邛海慢生活（泸山+发呆+古城·轻松惬意）。根据体力和心情决定！</div>
 
 <div class="poi">
   <h4>选项A：螺髻山一日游（体力型·6-7h）</h4>
-  <div class="tags"><span class="t-pay">门票65元含摆渡车</span><span class="t-pay">索道往返130元</span><span class="t-drive">西昌→景区65km/1.5h</span><span class="t-time">全程6-7h</span></div>
-  <p>07:30出发→09:00摆渡车→索道(40min)→山顶游览3h(黑龙潭·大海子·冰川刻槽·4月杜鹃花开)→13:00索道下山→可选螺髻九十九里温泉瀑布(138元·"世界最大温泉瀑布")→17:00回西昌<br>
-  ⚠️ 山顶海拔3500-4000m注意高反·<b>不建议步行上山</b>(3-4h纯爬无风景)·必须坐索道</p>
+  <div class="tags"><span class="t-pay">门票65元(含摆渡车)</span><span class="t-pay">索道往返130元</span><span class="t-drive">西昌→景区 高德65km/1.5h</span><span class="t-time">全程6-7h</span></div>
+  <p>螺髻山位于西昌南65km处普格县，最高峰4359m。以<b>冰川湖泊群、冰川刻槽、杜鹃花海</b>闻名。</p>
 </div>
+<div class="step">
+  <div class="time">🚗 07:30 出发前往螺髻山（65km·高德约1.5h）</div>
+  <div class="desc">走G248国道经普格县到游客中心。沿途经过彝族村落，能看到穿传统服饰的彝族老乡。路况较好为柏油路。<b>建议7:30出发</b>，索道8:30开始运行，避免排队。</div>
+</div>
+<div class="step">
+  <div class="time">🚌 09:00 摆渡车→索道站 → 🚡 索道上山（40-50min）</div>
+  <div class="desc">游客中心买票后坐摆渡车到索道下站(约15min)。索道单程约40-50min，<b>垂直落差超过1000m</b>，沿途俯瞰峡谷森林非常壮观。<br>
+  💰 <b>门票65元(含摆渡车) + 索道往返130元 = 195元/人</b>。学生票门票半价+索道100元。<br>
+  ⚠️ <b>不建议步行上山</b>：步行4km约3-4h，沿途无风景且极耗体力。</div>
+</div>
+<div class="step">
+  <div class="time">⛰ 10:00-13:00 山顶游览（约3h）</div>
+  <div class="desc">出索道后沿栈道游览：<br>
+  <b>黑龙潭</b>(冰川湖·碧绿如翡翠·最易到达·必看) → <b>大海子</b>(最大冰川湖) → <b>冰川刻槽</b>(第四纪冰川遗迹·地质奇观) → <b>牵手湖</b> → <b>珍珠湖</b><br>
+  海拔3500-4000m，<b>走慢一点</b>避免高反。4月可能有积雪穿防滑鞋。<b>杜鹃花4月开始盛放</b>，漫山杜鹃非常美。栈道维护良好。</div>
+</div>
+<div class="step">
+  <div class="time">🚡 13:00-14:00 索道下山+摆渡车回游客中心</div>
+  <div class="desc">原路返回。下山索道同样壮观。</div>
+</div>
+
+<div class="poi">
+  <h4>♨️ 可选：螺髻九十九里温泉瀑布（另一个景区）</h4>
+  <div class="tags"><span class="t-pay">门票138元</span><span class="t-drive">螺髻山游客中心→温泉 约30min</span><span class="t-time">泡温泉1.5-2h</span></div>
+  <p>位于螺髻山脚下大槽河畔，号称<b>"世界最大温泉瀑布"</b>。温泉水从崖壁上倾泻而下形成天然温泉瀑布，在瀑布下泡温泉的体验全国独一份。<br>
+  ⚠️ 爬完螺髻山后体力可能不够，<b>如果累了可放弃</b>，直接回西昌休息也完全OK。💰 138元/人含更衣室和公共温泉池。</p>
+</div>
+
+<div class="step">
+  <div class="time">🚗 ~16:00 回到西昌</div>
+  <div class="desc">螺髻山→西昌 65km/1.5h。</div>
+</div>
+
 <div class="poi">
   <h4>选项B：邛海慢生活（轻松型·随性安排）</h4>
-  <p>😴 睡到自然醒 → 10:00 邛海日出后的湖光(上午光线最美拍照) → 11:00 泸山(免费·光福寺千年古刹+彝族博物馆·步行1h或索道50元·⚠️猴子多护好手机) → 午餐牛肉米粉 → 下午建昌古城闲逛(2000年历史·免费) + 邛海湖边咖啡馆发呆 → 晚餐：彝族坨坨肉或再来一顿烧烤</p>
+  <p>😴 睡到自然醒 → <b>邛海日出</b>(4月约06:50·推荐观鸟岛湿地或邛海东岸月色风情小镇方向·太阳从湖对面山头升起金光染红湖面配泸山剪影·<b>免费</b>·不想早起可跳过) → 10:00 邛海上午光线最美拍照 → 11:00 <b>泸山</b>(免费·光福寺千年古刹+凉山彝族奴隶社会博物馆全国唯一免费·步行1h或索道50元·<b>⚠️猴子多！不要拿塑料袋/手中食物露出/手机抓紧！</b>) → 午餐牛肉米粉(8-12元/碗) → 下午建昌古城闲逛(2000年历史·免费) + 邛海湖边咖啡馆发呆 → 晚餐：彝族坨坨肉或再来一顿烧烤</p>
+</div>
+
+<div class="food">
+  <h4>🍖 晚餐选择 — 彝族特色 或 再来烧烤</h4>
+  <p><b>彝族坨坨肉</b> — 大块猪/牛/羊肉水煮后蘸辣椒面吃，原始豪迈（推荐"阿依子"等彝族餐厅）<br>
+  <b>建昌板鸭</b> — 西昌名产，腌制风干，外酥里嫩<br>
+  <b>西昌卷粉/川兴凉粉</b> — 当地特色小吃，2-5元/份<br>
+  📍 建昌古城内和唐园附近餐馆多。人均40-70元。</p>
 </div>
 
 <div class="step">
-  <div class="time">🌙 过夜同Day1</div>
-  <div class="desc">营地或酒店。推荐酒店：<b>邛海17度国际度假酒店</b>(湖景房·有充电桩·清明约300-500元)、<b>一米阳光精品酒店</b>(梦里水乡入口·200-400元)。辛苦两天，住一晚酒店洗个热水澡也值。</div>
+  <div class="time">🌙 过夜（可选酒店犒劳自己）</div>
+  <div class="desc">继续营地床车或住一晚酒店。辛苦两天，住酒店洗个热水澡也值。</div>
 </div>
 
-<div class="day-hdr">Day 3 · 4/6 周一 — 返程·走走停停 ☀️ 28°</div>
-<div class="tip"><b>返程不用赶！</b>4/6高速免费到24:00，时间充裕。沿途有好几个值得停留的地方，走走停停回成都。</div>
+<h3>🏨 推荐酒店（如果想住一晚）</h3>
+<div class="stay">
+  <h4>邛海17度国际度假酒店 ⭐⭐⭐⭐</h4>
+  <p>📍 邛海畔万达旁 · 💰 清明约300-500元/晚<br>
+  邛海畔最知名度假酒店，湖景房推窗见海。停车场配有充电桩。交通便利，楼下就是万达广场可购物/充电。</p>
+</div>
+<div class="stay">
+  <h4>邛海梦里水乡·一米阳光精品酒店</h4>
+  <p>📍 梦里水乡湿地入口 · 💰 约200-400元/晚<br>
+  步行1分钟到湿地公园，低头邛海抬头泸山。清早推门可看日出。安静舒适。</p>
+</div>
+
+<div class="day-hdr">Day 3 · 4/6 周一 — 返程·走走停停（不赶路！） ☀️ 28°</div>
+<div class="tip"><b>返程不用赶！</b>4/6清明高速免费到24:00。沿途有好几个值得停留的地方，走走停停回成都，周一晚到家。</div>
 
 <div class="step">
-  <div class="time">😴 08:00 自然醒 · 早餐西昌牛肉米粉</div>
+  <div class="time">😴 08:30 自然醒 · 早餐西昌牛肉米粉</div>
   <div class="desc">当地人每天早上必吃的牛肉米粉（8-12元/碗·大碗实在）。充满电出发。</div>
 </div>
 <div class="step">
-  <div class="time">🚗 09:00 出发返程 · 推荐走走停停路线</div>
-  <div class="desc">可走原路返回(440km/5-6h)，也可走风景路线(540km/7h但沿途更精彩)。</div>
+  <div class="time">🚗 09:30 出发返程</div>
+  <div class="desc">西昌→成都440km，不停留约5.5h。但我们走走停停，更惬意。</div>
 </div>
 
 <div class="scenic">
-  <h4>🛑 返程推荐停留点①：西昌卫星发射中心（可选·冕宁·距西昌60km）</h4>
-  <p>亚洲设备最先进的卫星发射基地。<b>门票免费，景区交通费45元</b>。可参观发射塔架、火箭实物、科技展馆。游览约1.5-2h。如果对航天有兴趣，非常值得。08:00-17:30开放。<br>📍 在冕宁县泽远乡，需从高速下来走约30km。</p>
+  <h4>🛑 返程停留①：西昌卫星发射中心（可选·冕宁·距西昌高德60km/1h）</h4>
+  <p>亚洲设备最先进的卫星发射基地。<b>门票免费，景区交通费45元</b>。可参观发射塔架、火箭实物、科技展馆。游览约1.5-2h。08:00-17:30开放。<br>📍 在冕宁县泽远乡，需从高速下来走约30km。对航天有兴趣的话非常值得。</p>
 </div>
 <div class="scenic">
-  <h4>🛑 返程停留点②：安顺场·红军渡（石棉·下高速11km）</h4>
-  <p>红军强渡大渡河遗址。<b>纪念馆免费</b>，古镇有大渡河边的老街，可逛1-1.5h。2025年新增沉浸式情景剧《安顺记忆》。<br>📍 石棉收费站下高速→11km到安顺场。顺路不绕。</p>
+  <h4>🛑 返程停留②：安顺场·红军渡（石棉·下高速11km）</h4>
+  <p>红军强渡大渡河遗址。<b>纪念馆免费</b>，古镇有大渡河边的老街，可逛1-1.5h。<br>📍 石棉收费站下高速→11km到安顺场。顺路不绕。</p>
 </div>
 <div class="scenic">
-  <h4>🛑 返程停留点③：汉源湖（汉源·下高速即到）</h4>
-  <p>大渡河截流形成的"小泸沽湖"。碧绿湖面+山峦倒影，<b>免费</b>，湿地公园有停车场。拍照20-30min。汉源<b>黄牛肉</b>也很有名（斤称牛肉煮着吃）。</p>
+  <h4>🛑 返程停留③：汉源湖（汉源·下高速即到）</h4>
+  <p>"小泸沽湖"。碧绿湖面+山峦倒影，<b>免费</b>，湿地公园有停车场。拍照20-30min。汉源<b>黄牛肉</b>也很有名（斤称牛肉煮着吃）。4月可能有早樱桃(3-5元/斤)。</p>
 </div>
 <div class="scenic">
-  <h4>🛑 返程停留点④：大渡河金口大峡谷（汉源/金口河·可选远程）</h4>
-  <p>峡谷长26km，最深2690m，比科罗拉多大峡谷还深。<b>全程开车游览·免费</b>。沿途有铁道兵博物馆、古路村(悬崖上的彝族村)、铁索桥、一线天。<b>但需绕行较多（约多2h）</b>，时间充裕再考虑。</p>
+  <h4>🛑 返程停留④：大渡河金口大峡谷（汉源/金口河·可选·需绕行多2h）</h4>
+  <p>峡谷长26km，最深2690m，比科罗拉多大峡谷还深。<b>全程开车游览·免费</b>。有铁道兵博物馆、古路村(悬崖上的彝族村)。<b>需绕行较多</b>，时间充裕再考虑。</p>
 </div>
 
 <div class="step">
-  <div class="time">🍽 12:30 汉源/石棉 午餐 + ⚡补电</div>
-  <div class="desc">在汉源或石棉吃午饭。汉源推荐黄牛肉，石棉推荐石棉烧烤。补电20-30min。4月汉源可能有早樱桃(3-5元/斤)。</div>
+  <div class="time">🍽⚡ 12:30 汉源/石棉 午餐+补电</div>
+  <div class="desc">在汉源或石棉吃午饭。汉源推荐黄牛肉，石棉推荐烧烤。补电20-30min。</div>
 </div>
 <div class="step">
   <div class="time">🚗 13:30 继续返程</div>
-  <div class="desc">石棉/汉源→荥经(可选补电)→雅安→成都。剩余约200km/2.5h。</div>
+  <div class="desc">石棉/汉源→荥经(可选补电)→雅安→成都。剩余约200km/高德约2.5h。</div>
 </div>
 <div class="step">
-  <div class="time">🏠 ~16:00-17:00 回到成都</div>
-  <div class="desc">轻松到家，还有整个晚上休息。比直接赶路回去舒服很多！</div>
+  <div class="time">🏠 ~18:00-20:00 回到成都</div>
+  <div class="desc">看停了几个点决定到家时间。停安顺场+汉源湖约18:00到家，再加卫星基地约20:00到家。周一晚到家完全OK。</div>
 </div>
 
 </div><!-- end tab-chill -->
@@ -241,24 +332,28 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <!-- ===== 效率版 ===== -->
 <div class="tab-content" id="tab-rush">
 
-<div class="day-hdr">Day 0 · 4/3 周五晚 — 成都→西昌（440km·5-6h直达）</div>
+<div class="day-hdr">Day 0 · 4/3 周五晚 — 成都→西昌（高德440km·约5.5h直达）</div>
 <div class="step">
-  <div class="time">🚗 19:00 出发 → 荥经补电 → 01:00抵达西昌</div>
-  <div class="desc">适合精力充沛、想多玩的人。夜间高速车少。到西昌后找有充电桩的地方<b>边睡边充</b>。</div>
+  <div class="time">🚗 19:00 出发 → 荥经补电(20min) → ~01:00 抵达西昌</div>
+  <div class="desc">适合精力充沛、想多玩的人。夜间高速车少。到西昌后找有充电桩的地方<b>边睡边充</b>。推荐万达广场停车场(有快充桩·24h)或观海路房车营地。</div>
 </div>
 <div class="warn"><b>代价：</b>凌晨1点睡→第二天起不来。如果只有两个驾驶员，不太推荐。</div>
 
-<div class="day-hdr">Day 1 · 4/4 周六 — 邛海全天深度游（多出半天）</div>
+<div class="day-hdr">Day 1 · 4/4 周六 — 邛海全天深度游</div>
 <div class="step">
-  <div class="time">内容同轻松版Day1，但可以从早上开始</div>
-  <div class="desc">多出的半天可以：上午邛海骑行半圈 + 下午骑完另外半圈 + 泸山 + 晚上烧烤。节奏更慢更舒服。</div>
+  <div class="time">🌅 06:50 邛海日出（可选·不想早起可跳过）</div>
+  <div class="desc">推荐在<b>观鸟岛湿地</b>或<b>邛海东岸月色风情小镇</b>方向看。太阳从湖对面山头升起，整个湖面被金光染红，配合远处泸山剪影。<b>免费</b>。</div>
+</div>
+<div class="step">
+  <div class="time">多出的半天 → 上午邛海骑行+泸山 → 下午骑完环湖 → 晚上烧烤</div>
+  <div class="desc">效率版的优势在于Day1是完整的一天。可以上午骑半圈+泸山，下午骑另外半圈，晚上烧烤。节奏更慢更舒服。详细行程参考轻松版Day1。</div>
 </div>
 
 <div class="day-hdr">Day 2 · 4/5 周日 — 螺髻山一日游</div>
-<div class="step"><div class="time">内容同轻松版Day2选项A</div><div class="desc">效率版的优势在于Day1和Day2都是整天，不用赶。</div></div>
+<div class="step"><div class="time">详细行程同轻松版Day2选项A</div><div class="desc">效率版的优势在于Day1和Day2都是整天，不用赶。螺髻山详细行程参考上面。</div></div>
 
-<div class="day-hdr">Day 3 · 4/6 周一 — 返程（同轻松版）</div>
-<div class="step"><div class="time">走走停停返程方案同轻松版Day3</div><div class="desc">安顺场+汉源湖+大渡河峡谷，不无聊。</div></div>
+<div class="day-hdr">Day 3 · 4/6 周一 — 返程·走走停停</div>
+<div class="step"><div class="time">走走停停返程方案同轻松版Day3</div><div class="desc">安顺场+汉源湖+卫星基地，详见上面。</div></div>
 
 </div><!-- end tab-rush -->
 
@@ -268,13 +363,20 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <tr><td>高速通行费</td><td style="text-align:right;color:#34d399"><b>免费</b>(清明)</td></tr>
 <tr><td>充电(全程~900km)</td><td style="text-align:right">~120-180元</td></tr>
 <tr><td>邛海湿地</td><td style="text-align:right;color:#34d399">免费(租车~90元)</td></tr>
-<tr><td>螺髻山(门票+索道)×2</td><td style="text-align:right">390元</td></tr>
+<tr><td>螺髻山(门票65+索道130)×2</td><td style="text-align:right">390元</td></tr>
+<tr><td>温泉瀑布138×2(可选)</td><td style="text-align:right">276元</td></tr>
 <tr><td>餐饮3天(烧烤+醉虾+日常)</td><td style="text-align:right">600-900元</td></tr>
 <tr><td>床车过夜</td><td style="text-align:right;color:#34d399">0元</td></tr>
-<tr style="font-weight:700;color:var(--text);border-top:1px solid var(--border)"><td>合计</td><td style="text-align:right">~1200-1700元/2人</td></tr>
-<tr><td style="color:var(--muted)">如住一晚酒店</td><td style="text-align:right">+300-500元</td></tr>
+<tr style="font-weight:700;color:var(--text);border-top:1px solid var(--border)"><td>合计</td><td style="text-align:right">~1200-1800元/2人</td></tr>
+<tr><td style="color:var(--muted)">如住一晚酒店</td><td style="text-align:right">+200-500元</td></tr>
 </table>
 </div>
+
+<h2>⚠️ 避坑提示</h2>
+<div class="warn"><b>泸山猴子：</b>非常多且胆大！不要拿塑料袋、不要手持食物露出、手机抓紧，有人被抢过手机。</div>
+<div class="warn"><b>螺髻山不要步行上山：</b>步行4km/3-4h纯爬且无风景，到山顶已没体力游览。必须坐索道。</div>
+<div class="warn"><b>邛海醉虾：</b>含酒精，开车的人别吃。</div>
+<div class="tip"><b>防晒！</b>西昌海拔1500m紫外线极强，一天不涂防晒就晒伤。SPF50+防晒霜+墨镜+帽子。</div>
 
 </div>
 <footer>保姆级攻略 · 2026.3.30 · 天气:和风天气/中国天气网 · 充电:国网/实测 · 美食:大众点评/小红书<br><a href="index.html">← 返回总览</a></footer>
@@ -284,8 +386,7 @@ function switchTab(id){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
-  event.target.closest('.tab-btn').classList.add('active');
-  if(!event.target.classList.contains('tab-btn'))event.target.closest('.tab-btn').classList.add('active');
+  const btn=event.target.closest('.tab-btn');if(btn)btn.classList.add('active');
 }
 </script>
 </body></html>
