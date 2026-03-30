@@ -363,16 +363,6 @@
   <div class="legend-item"><span class="legend-dot" style="background:#818cf8"></span> 低温 - 注意保暖</div>
 </div>
 
-<div class="filter-bar">
-  <button class="filter-btn active" onclick="filterRoutes('all')">全部方案</button>
-  <button class="filter-btn" onclick="filterRoutes('west')">川西方向</button>
-  <button class="filter-btn" onclick="filterRoutes('north')">北向(广元/陕南)</button>
-  <button class="filter-btn" onclick="filterRoutes('east')">东向(重庆)</button>
-  <button class="filter-btn" onclick="filterRoutes('south')">南向(西昌/云南)</button>
-  <button class="filter-btn" onclick="filterRoutes('yunnan')">昭通方向</button>
-  <button class="filter-btn" onclick="filterRoutes('southeast')">贵州/毕节</button>
-</div>
-
 <!-- ==================== 总览表格 ==================== -->
 <div class="summary-table">
 <h2 style="margin-bottom:16px;font-size:1.3em;">&#128202; 全部方案天气速览（重点看 4/4六·4/5日·4/6一 三天游玩日）</h2>
@@ -442,12 +432,12 @@
   <td style="color:#f87171">~25天</td><td><span class="weather-score score-bad">&#127783; 越来越差·远</span></td>
 </tr>
 <tr style="background:#05966908;">
-  <td style="text-align:left;font-weight:600;">&#9322; 西昌邛海</td><td>南</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td style="text-align:left;font-weight:600;"><a href="xichang.html" style="color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;">&#9322; 西昌邛海</a></td><td>南</td><td style="color:#fbbf24">中</td><td>5-6h</td>
   <td>&#9728;&#65039; <b>晴</b><br>27°~15°</td><td>&#9728;&#65039; <b>晴</b><br>28°~16°</td><td>&#9728;&#65039; <b>晴</b><br>28°~14°</td>
   <td style="color:#34d399">14天</td><td><span class="weather-score score-good">&#9728;&#9728;&#9728; 3天全晴!</span></td>
 </tr>
 <tr style="background:#05966908;">
-  <td style="text-align:left;font-weight:600;">&#9323; 西昌→泸沽湖</td><td>南</td><td style="color:#ef4444">远</td><td>7h+</td>
+  <td style="text-align:left;font-weight:600;"><a href="luguhu.html" style="color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;">&#9323; 西昌→泸沽湖</a></td><td>南</td><td style="color:#ef4444">远</td><td>7h+</td>
   <td>&#9728;&#65039; <b>晴</b><br>~23°~5°</td><td>&#9728;&#65039; <b>晴</b><br>~24°~6°</td><td>&#9728;&#65039; <b>晴</b><br>~23°~5°</td>
   <td style="color:#34d399">~8天</td><td><span class="weather-score score-good">&#9728;&#9728;&#9728; 3天全晴!</span></td>
 </tr>
@@ -475,6 +465,35 @@
 </table>
 </div>
 
+<!-- ==================== 筛选栏 ==================== -->
+<div style="max-width:1200px;margin:32px auto 0;padding:0 24px;">
+<h2 style="font-size:1.2em;margin-bottom:12px;">&#128269; 筛选路线详情卡片</h2>
+</div>
+<div class="filter-bar">
+  <span style="color:var(--muted);font-size:0.85em;line-height:2.2;">方向：</span>
+  <button class="filter-btn active" onclick="filterRoutes('all')">全部</button>
+  <button class="filter-btn" onclick="filterRoutes('west')">川西</button>
+  <button class="filter-btn" onclick="filterRoutes('north')">广元/陕南</button>
+  <button class="filter-btn" onclick="filterRoutes('east')">重庆</button>
+  <button class="filter-btn" onclick="filterRoutes('south')">西昌/云南</button>
+  <button class="filter-btn" onclick="filterRoutes('yunnan')">昭通</button>
+  <button class="filter-btn" onclick="filterRoutes('southeast')">贵州/毕节</button>
+</div>
+<div class="filter-bar" style="margin-top:8px;">
+  <span style="color:var(--muted);font-size:0.85em;line-height:2.2;">距离：</span>
+  <button class="filter-btn" onclick="filterByDist('all')">全部</button>
+  <button class="filter-btn" onclick="filterByDist('near')">近程(3-5h)</button>
+  <button class="filter-btn" onclick="filterByDist('mid')">中程(5-6h)</button>
+  <button class="filter-btn" onclick="filterByDist('far')">远程(6h+)</button>
+</div>
+<div class="filter-bar" style="margin-top:8px;margin-bottom:16px;">
+  <span style="color:var(--muted);font-size:0.85em;line-height:2.2;">天气：</span>
+  <button class="filter-btn" onclick="filterByWeather('all')">全部</button>
+  <button class="filter-btn" onclick="filterByWeather('good')">三天晴好</button>
+  <button class="filter-btn" onclick="filterByWeather('ok')">大部分不雨</button>
+  <button class="filter-btn" onclick="filterByWeather('bad')">有雨风险</button>
+</div>
+
 <!-- ==================== 各方向详细路线 ==================== -->
 
 <!-- ===== 川西方向 ===== -->
@@ -483,7 +502,7 @@
 <div class="routes">
 
 <!-- 路线1: 四姑娘山·丹巴 -->
-<div class="route-card" data-dir="west">
+<div class="route-card" data-dir="west" data-dist="near" data-weather="ok" data-dist="mid" data-weather="ok" data-dist="mid" data-weather="bad" data-dist="near" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9312; 四姑娘山 · 丹巴藏寨</div>
@@ -710,7 +729,7 @@
 <div class="routes">
 
 <!-- 路线5: 广元剑门关 -->
-<div class="route-card" data-dir="north">
+<div class="route-card" data-dir="north" data-dist="mid" data-weather="good" data-dist="near" data-weather="good">
   <div class="route-header">
     <div>
       <div class="route-name">&#9316; 广元 · 剑门关 · 昭化古城</div>
@@ -827,7 +846,7 @@
 <div class="routes">
 
 <!-- 路线7: 武隆 -->
-<div class="route-card" data-dir="east">
+<div class="route-card" data-dir="east" data-dist="far" data-weather="bad" data-dist="far" data-weather="ok" data-dist="far" data-weather="bad" data-dist="mid" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9318; 重庆武隆 · 天生三桥 · 仙女山</div>
@@ -1054,10 +1073,10 @@
 <div class="routes">
 
 <!-- 路线9: 西昌邛海 -->
-<div class="route-card" data-dir="south">
+<div class="route-card" data-dir="south" data-dist="far" data-weather="good" data-dist="mid" data-weather="good">
   <div class="route-header">
     <div>
-      <div class="route-name">&#9322; 西昌 · 邛海 · 螺髻山</div>
+      <div class="route-name">&#9322; 西昌 · 邛海 · 螺髻山 <a href="xichang.html" style="font-size:0.6em;background:#38bdf8;color:#0f172a;padding:3px 12px;border-radius:12px;margin-left:8px;font-weight:600;">查看详细攻略 →</a></div>
       <div class="route-meta">
         <span>&#128663; 单程 ~440km / 5-6h</span>
         <span>&#127968; 海拔 1500-3500m</span>
@@ -1112,7 +1131,7 @@
 <div class="route-card" data-dir="south">
   <div class="route-header">
     <div>
-      <div class="route-name">&#9323; 西昌 → 泸沽湖</div>
+      <div class="route-name">&#9323; 西昌 → 泸沽湖 <a href="luguhu.html" style="font-size:0.6em;background:#38bdf8;color:#0f172a;padding:3px 12px;border-radius:12px;margin-left:8px;font-weight:600;">查看详细攻略 →</a></div>
       <div class="route-meta">
         <span>&#128663; 单程 ~650km / 7-8h</span>
         <span>&#127968; 海拔 1500-2690m</span>
@@ -1171,7 +1190,7 @@
 <div class="routes">
 
 <!-- 路线: 昭通大山包 -->
-<div class="route-card" data-dir="yunnan">
+<div class="route-card" data-dir="yunnan" data-dist="mid" data-weather="bad">
   <div class="route-header">
     <div>
       <div class="route-name">&#9324; 昭通 · 大山包 · 豆沙关</div>
@@ -1233,7 +1252,7 @@
 <div class="routes">
 
 <!-- 路线: 毕节百里杜鹃 -->
-<div class="route-card" data-dir="southeast">
+<div class="route-card" data-dir="southeast" data-dist="mid" data-weather="bad" data-dist="near" data-weather="good" data-dist="mid" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9325; 毕节 · 百里杜鹃 · 织金洞</div>
@@ -1473,43 +1492,62 @@
 </footer>
 
 <script>
+let currentDir = 'all', currentDist = 'all', currentWeather = 'all';
+
 function filterRoutes(dir) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  
+  currentDir = dir;
+  updateBtns('.filter-bar:nth-of-type(1)', dir);
+  applyFilters();
+}
+function filterByDist(dist) {
+  currentDist = dist;
+  updateBtns('.filter-bar:nth-of-type(2)', dist);
+  applyFilters();
+}
+function filterByWeather(w) {
+  currentWeather = w;
+  updateBtns('.filter-bar:nth-of-type(3)', w);
+  applyFilters();
+}
+function updateBtns(selector, val) {
+  // handled by active class below
+}
+function applyFilters() {
   document.querySelectorAll('.route-card').forEach(card => {
-    if (dir === 'all' || card.dataset.dir === dir) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
+    const dir = card.dataset.dir;
+    const dist = card.dataset.dist;
+    const weather = card.dataset.weather;
+    let show = true;
+    if (currentDir !== 'all' && dir !== currentDir) show = false;
+    if (currentDist !== 'all' && dist !== currentDist) show = false;
+    if (currentWeather !== 'all' && weather !== currentWeather) show = false;
+    card.style.display = show ? '' : 'none';
   });
-  
-  // Show/hide section titles
-  const sections = {
-    'west': '川西方向',
-    'north': '北向',
-    'east': '东向',
-    'south': '南向',
-    'southeast': '贵州方向'
-  };
-  
+  // section titles
   document.querySelectorAll('.section-title').forEach(title => {
-    if (dir === 'all') {
+    const text = title.textContent;
+    if (currentDir === 'all' && currentDist === 'all' && currentWeather === 'all') {
       title.style.display = '';
-    } else {
-      const text = title.textContent;
-      let show = false;
-      if (dir === 'west' && text.includes('川西')) show = true;
-      if (dir === 'north' && text.includes('北向')) show = true;
-      if (dir === 'east' && text.includes('东向')) show = true;
-      if (dir === 'south' && text.includes('南向')) show = true;
-      if (dir === 'yunnan' && text.includes('滇东')) show = true;
-      if (dir === 'southeast' && text.includes('贵州')) show = true;
-      title.style.display = show ? '' : 'none';
+      return;
+    }
+    // Check if any visible card in the next routes div
+    let next = title.nextElementSibling;
+    while (next && !next.classList.contains('routes')) next = next.nextElementSibling;
+    if (next) {
+      const visible = next.querySelectorAll('.route-card:not([style*="display: none"])');
+      title.style.display = visible.length > 0 ? '' : 'none';
     }
   });
 }
+// Handle active button states
+document.querySelectorAll('.filter-bar').forEach(bar => {
+  bar.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
 </script>
 
 </body>
