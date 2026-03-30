@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026清明节 成都出发 床车自驾方案集</title>
+<style>
+  :root {
+    --sun: #f59e0b;
+    --rain: #3b82f6;
+    --cloud: #9ca3af;
+    --green: #10b981;
+    --red: #ef4444;
+    --bg: #0f172a;
+    --card: #1e293b;
+    --card2: #334155;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --border: #475569;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+    padding: 48px 24px 36px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 2.2em;
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .hero .subtitle {
+    color: var(--muted);
+    font-size: 1.05em;
+  }
+  .hero .tags {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero .tag {
+    background: var(--card2);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    color: var(--accent);
+    border: 1px solid var(--border);
+  }
+
+  .notice {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #1e293b, #1a2332);
+    border-left: 4px solid var(--sun);
+    border-radius: 8px;
+    font-size: 0.95em;
+  }
+  .notice strong { color: var(--sun); }
+
+  .weather-legend {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 12px 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 0.85em;
+    color: var(--muted);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .section-title {
+    max-width: 1200px;
+    margin: 32px auto 16px;
+    padding: 0 24px;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .badge {
+    font-size: 0.55em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: normal;
+  }
+  .badge-far { background: #7c3aed33; color: #a78bfa; border: 1px solid #7c3aed; }
+  .badge-mid { background: #2563eb33; color: #60a5fa; border: 1px solid #2563eb; }
+  .badge-near { background: #05966933; color: #34d399; border: 1px solid #059669; }
+
+  .routes {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .route-card {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .route-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .route-header {
+    padding: 20px 24px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .route-name {
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+  .route-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .route-meta span {
+    font-size: 0.85em;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .route-path {
+    padding: 0 24px 16px;
+    font-size: 0.9em;
+    color: var(--muted);
+  }
+  .route-path .arrow { color: var(--accent); margin: 0 6px; }
+
+  .route-highlights {
+    padding: 0 24px 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .highlight-tag {
+    background: var(--card2);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8em;
+    color: #e2e8f0;
+  }
+
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+  }
+  .weather-day {
+    padding: 14px 16px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .weather-day:last-child { border-right: none; }
+  .weather-day .date {
+    font-size: 0.75em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .weather-day .icon {
+    font-size: 1.6em;
+    margin-bottom: 4px;
+  }
+  .weather-day .temp {
+    font-size: 0.9em;
+    font-weight: 600;
+  }
+  .weather-day .desc {
+    font-size: 0.75em;
+    margin-top: 2px;
+  }
+
+  .weather-good { background: #05966910; }
+  .weather-ok { background: #d9770610; }
+  .weather-bad { background: #ef444410; }
+
+  .desc-sun { color: var(--sun); }
+  .desc-cloud { color: var(--cloud); }
+  .desc-rain { color: var(--rain); }
+
+  .route-notes {
+    padding: 12px 24px 16px;
+    font-size: 0.85em;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    background: #0f172a40;
+  }
+  .route-notes strong { color: var(--text); }
+
+  .weather-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+  .score-good { background: #05966930; color: #34d399; }
+  .score-ok { background: #d9770630; color: #fbbf24; }
+  .score-bad { background: #ef444430; color: #f87171; }
+
+  .summary-table {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 24px;
+    overflow-x: auto;
+  }
+  .summary-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  .summary-table th, .summary-table td {
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .summary-table th {
+    background: var(--card2);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+  }
+  .summary-table td {
+    background: var(--card);
+  }
+  .summary-table tr:hover td {
+    background: var(--card2);
+  }
+
+  .filter-bar {
+    max-width: 1200px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  .camping-tips {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 24px;
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+  .camping-tips h3 {
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  .tip-item {
+    background: var(--card2);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9em;
+  }
+  .tip-item strong { color: var(--sun); }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 0.8em;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.5em; }
+    .weather-grid { grid-template-columns: repeat(2, 1fr); }
+    .weather-day:nth-child(2) { border-right: none; }
+    .route-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>2026 清明自驾 · 床车旅行方案集</h1>
+  <p class="subtitle">成都出发 · 4/3晚或4/4早出发 · 重点看4/4-6三天天气 · SUV床车自驾</p>
+  <div class="tags">
+    <span class="tag">川西方向</span>
+    <span class="tag">广元/陕南方向</span>
+    <span class="tag">重庆方向</span>
+    <span class="tag">云南/西昌方向</span>
+    <span class="tag">贵州/毕节方向</span>
+    <span class="tag">昭通方向</span>
+  </div>
+</div>
+
+<div class="notice">
+  <strong>&#9888; 天气说明：</strong>天气数据来源于和风天气、中国天气网、IP.cn等（2026年3月30日获取）。评分<strong>仅基于4/4(六)、4/5(日)、4/6(一)三天游玩日</strong>。<strong>纯电SUV可开空调过夜，低温不再是问题，评分核心看：是否下雨 + 白天风景体验 + 路程。</strong>
+</div>
+
+<div class="notice" style="border-left-color:#38bdf8;">
+  <strong>&#128267; 纯电须知：</strong>川西高海拔地区充电桩较少（康定/新都桥/丹巴/大山包需提前规划），广元/汉中/西昌/重庆/毕节/赤水充电桩充足。<strong>务必出发前在高德/特来电APP查好沿途充电桩分布！</strong>
+</div>
+
+<div class="weather-legend">
+  <div class="legend-item"><span class="legend-dot" style="background:#34d399"></span> 晴好/少雨 - 适合床车</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#fbbf24"></span> 多云/偶雨 - 可行但注意</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#f87171"></span> 多雨 - 床车体验差</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#818cf8"></span> 低温 - 注意保暖</div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterRoutes('all')">全部方案</button>
+  <button class="filter-btn" onclick="filterRoutes('west')">川西方向</button>
+  <button class="filter-btn" onclick="filterRoutes('north')">北向(广元/陕南)</button>
+  <button class="filter-btn" onclick="filterRoutes('east')">东向(重庆)</button>
+  <button class="filter-btn" onclick="filterRoutes('south')">南向(西昌/云南)</button>
+  <button class="filter-btn" onclick="filterRoutes('yunnan')">昭通方向</button>
+  <button class="filter-btn" onclick="filterRoutes('southeast')">贵州/毕节</button>
+</div>
+
+<!-- ==================== 总览表格 ==================== -->
+<div class="summary-table">
+<h2 style="margin-bottom:16px;font-size:1.3em;">&#128202; 全部方案天气速览（重点看 4/4六·4/5日·4/6一 三天游玩日）</h2>
+<table>
+<thead>
+<tr>
+  <th style="min-width:160px">方案</th>
+  <th>方向</th>
+  <th>距离</th>
+  <th>车程</th>
+  <th style="min-width:135px">4/4 周六 &#127775;</th>
+  <th style="min-width:135px">4/5 周日 &#127775;</th>
+  <th style="min-width:135px">4/6 周一 &#127775;</th>
+  <th>月雨天</th>
+  <th style="min-width:120px">三日综评</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9312; 四姑娘山·丹巴</td><td>川西</td><td style="color:#34d399">近</td><td>4-5h</td>
+  <td>&#127780; 阴转多云<br>22°~8°</td><td>&#9728;&#65039; 多云见晴<br>25°~10°</td><td>&#9728;&#65039; 多云见晴<br>26°~10°</td>
+  <td style="color:#f87171">26天</td><td><span class="weather-score score-ok">&#127780;&#9728;&#9728; 渐好</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9313; 康定·新都桥</td><td>川西</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td>&#9925; 多云<br>12°~0°</td><td>&#127780; 多云<br>16°~1°</td><td>&#127780; 多云<br>17°~2°</td>
+  <td style="color:#f87171">24天</td><td><span class="weather-score score-ok">&#127780; 3天多云不雨 &#128267;</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9314; 海螺沟·磨西</td><td>川西</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td>&#9925; 多云<br>22°~8°</td><td>&#127780; 升温<br>25°~10°</td><td>&#127780; 升温<br>26°~10°</td>
+  <td style="color:#f87171">26天</td><td><span class="weather-score score-ok">&#127780; 3天无雨·升温</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9315; 毕棚沟·古尔沟</td><td>川西</td><td style="color:#34d399">近</td><td>3-4h</td>
+  <td>&#127780; 升温<br>~17°~4°</td><td>&#127780; 多云<br>~18°~5°</td><td>&#127780; 升温<br>~19°~5°</td>
+  <td style="color:#fbbf24">~20天</td><td><span class="weather-score score-ok">&#127780; 3天多云·夜冷</span></td>
+</tr>
+<tr style="background:#05966908;">
+  <td style="text-align:left;font-weight:600;">&#9316; 广元剑门关</td><td>北</td><td style="color:#34d399">近</td><td>3-4h</td>
+  <td>&#9728;&#65039; <b>晴</b><br>23°~10°</td><td>&#9728;&#65039; <b>晴</b><br>25°~11°</td><td>&#9925; 转阴<br>19°~12°</td>
+  <td style="color:#34d399">14天</td><td><span class="weather-score score-good">&#9728;&#9728;&#9925; 2晴1阴!</span></td>
+</tr>
+<tr style="background:#05966908;">
+  <td style="text-align:left;font-weight:600;">&#9317; 广元→汉中</td><td>北</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td>&#127780; 多云<br>~21°~8°</td><td>&#127780; 多云<br>~22°~8°</td><td>&#9925; 转阴<br>~20°~10°</td>
+  <td style="color:#fbbf24">15天</td><td><span class="weather-score score-good">&#127780;&#127780;&#9925; 2多云1阴</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9318; 重庆武隆</td><td>东</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td>&#9728;&#65039; <b>晴热</b><br>28°~14°</td><td>&#9925; 降温<br>22°~13°</td><td>&#127783;&#65039; <b>可能雨</b><br>19°~12°</td>
+  <td style="color:#f87171">26天</td><td><span class="weather-score score-ok">&#9728;&#9925;&#127783; 越来越差</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9319; 恩施大峡谷</td><td>东</td><td style="color:#ef4444">远</td><td>7h+</td>
+  <td>&#9728;&#65039; <b>晴热</b><br>30°~11°</td><td>&#9925; 转阴<br>22°~14°</td><td>&#127783;&#65039; <b>可能雨</b><br>21°~12°</td>
+  <td style="color:#f87171">23天</td><td><span class="weather-score score-bad">&#9728;&#9925;&#127783; 远+越来越差</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9320; 奉节白帝城·龙缸</td><td>东</td><td style="color:#ef4444">远</td><td>6-7h</td>
+  <td>&#9728;&#65039; <b>晴转多云</b><br>25°~14°</td><td>&#127780; 多云<br>25°~13°</td><td>&#9925; 阴转雨<br>23°~14°</td>
+  <td style="color:#f87171">~22天</td><td><span class="weather-score score-ok">&#9728;&#127780;&#9925; 前好后阴</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9321; 酉阳桃花源</td><td>东</td><td style="color:#ef4444">远</td><td>7h</td>
+  <td>&#127780; 晴转小雨<br>23°~11°</td><td>&#127780; 晴转多云<br>19°~10°</td><td>&#127783;&#65039; <b>雨</b><br>16°~9°</td>
+  <td style="color:#f87171">~25天</td><td><span class="weather-score score-bad">&#127783; 越来越差·远</span></td>
+</tr>
+<tr style="background:#05966908;">
+  <td style="text-align:left;font-weight:600;">&#9322; 西昌邛海</td><td>南</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td>&#9728;&#65039; <b>晴</b><br>27°~15°</td><td>&#9728;&#65039; <b>晴</b><br>28°~16°</td><td>&#9728;&#65039; <b>晴</b><br>28°~14°</td>
+  <td style="color:#34d399">14天</td><td><span class="weather-score score-good">&#9728;&#9728;&#9728; 3天全晴!</span></td>
+</tr>
+<tr style="background:#05966908;">
+  <td style="text-align:left;font-weight:600;">&#9323; 西昌→泸沽湖</td><td>南</td><td style="color:#ef4444">远</td><td>7h+</td>
+  <td>&#9728;&#65039; <b>晴</b><br>~23°~5°</td><td>&#9728;&#65039; <b>晴</b><br>~24°~6°</td><td>&#9728;&#65039; <b>晴</b><br>~23°~5°</td>
+  <td style="color:#34d399">~8天</td><td><span class="weather-score score-good">&#9728;&#9728;&#9728; 3天全晴!</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9324; 昭通·大山包</td><td>滇东</td><td style="color:#fbbf24">中</td><td>6h</td>
+  <td>&#9925; <b>阴</b><br>24°~9°</td><td>&#127783;&#65039; 阴转小雨<br>13°~9°</td><td>&#9925; 阴<br>19°~8°</td>
+  <td style="color:#fbbf24">~16天</td><td><span class="weather-score score-bad">&#9925;&#127783;&#9925; 阴雨阴·差</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9325; 毕节百里杜鹃</td><td>贵州</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td>&#127780; <b>多云</b><br>21°~10°</td><td>&#127780; <b>多云</b><br>22°~9°</td><td>&#127783;&#65039; 雨转阴<br>15°~11°</td>
+  <td style="color:#f87171">~20天</td><td><span class="weather-score score-ok">&#127800;&#127780;&#127780;&#127783; 花期!前2天好</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9326; 赤水丹霞</td><td>贵州</td><td style="color:#34d399">近</td><td>4h</td>
+  <td>&#127780; <b>温暖</b><br>25°~16°</td><td>&#127780; <b>温暖</b><br>25°~16°</td><td>&#9925; 转阴<br>20°~15°</td>
+  <td style="color:#f87171">23天</td><td><span class="weather-score score-good">&#127780;&#127780;&#9925; 2温暖1阴</span></td>
+</tr>
+<tr>
+  <td style="text-align:left;font-weight:600;">&#9327; 遵义→赤水</td><td>贵州</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td>&#127780; 多云<br>22°~13°</td><td>&#9925; 转阴<br>21°~11°</td><td>&#127783;&#65039; <b>降温雨</b><br>15°~10°</td>
+  <td style="color:#f87171">28天</td><td><span class="weather-score score-bad">&#127780;&#9925;&#127783; 越来越差</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ==================== 各方向详细路线 ==================== -->
+
+<!-- ===== 川西方向 ===== -->
+<h2 class="section-title">&#127956; 川西方向</h2>
+
+<div class="routes">
+
+<!-- 路线1: 四姑娘山·丹巴 -->
+<div class="route-card" data-dir="west">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9312; 四姑娘山 · 丹巴藏寨</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~240km / 4-5h</span>
+        <span>&#127968; 海拔 1900-3600m</span>
+        <span class="badge-near" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">近程</span>
+      </div>
+    </div>
+    <span class="weather-score score-bad">&#9888; 雨多偏冷</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 映秀 <span class="arrow">→</span> 卧龙 <span class="arrow">→</span> 巴郎山隧道 <span class="arrow">→</span> 四姑娘山(双桥沟) <span class="arrow">→</span> 小金 <span class="arrow">→</span> 丹巴(甲居藏寨)
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127956; 四姑娘山·雪山群</span>
+    <span class="highlight-tag">&#127968; 甲居藏寨·中国最美乡村</span>
+    <span class="highlight-tag">&#127800; 梨花/桃花季</span>
+    <span class="highlight-tag">&#128247; 摄影天堂</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-ok">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">21° / 8°</div>
+      <div class="desc desc-cloud">多云转阴</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">22° / 8°</div>
+      <div class="desc desc-cloud">阴转多云</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">25° / 10°</div>
+      <div class="desc desc-sun">多云见晴</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">26° / 10°</div>
+      <div class="desc desc-sun">多云见晴</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚出发住四姑娘山镇 → 4/4游双桥沟 → 下午去丹巴，住甲居 → 4/5丹巴拍藏寨梨花 → 4/6返程<br>
+    <strong>床车点位：</strong>四姑娘山镇停车场(海拔3200m夜间冷)、丹巴甲居附近村道<br>
+    <strong>注意：</strong>30天内预计26天有雨，但4/3-6日这几天气温回升趋势好，可能是窗口期。夜间低温8-10°注意保暖。丹巴海拔仅1900m晚上更暖。
+  </div>
+</div>
+
+<!-- 路线2: 康定·新都桥 -->
+<div class="route-card" data-dir="west">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9313; 康定 · 新都桥 · 塔公草原</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~350km / 5-6h</span>
+        <span>&#127968; 海拔 2500-3800m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-bad">&#10052; 冷+多雨</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 雅安 <span class="arrow">→</span> 泸定 <span class="arrow">→</span> 康定 <span class="arrow">→</span> 折多山(4298m) <span class="arrow">→</span> 新都桥 <span class="arrow">→</span> 塔公草原
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#128247; 新都桥·摄影天堂</span>
+    <span class="highlight-tag">&#127956; 折多山垭口·贡嘎远眺</span>
+    <span class="highlight-tag">&#9968; 塔公草原·雅拉雪山</span>
+    <span class="highlight-tag">&#9832; 康定情歌城</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-bad">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#10052;&#65039;</div>
+      <div class="temp">8° / -2°</div>
+      <div class="desc desc-rain">冷·可能雨雪</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">12° / 0°</div>
+      <div class="desc desc-cloud">回暖·多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">16° / 1°</div>
+      <div class="desc desc-sun">升温·多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">17° / 2°</div>
+      <div class="desc desc-sun">升温·多云</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3白天出发到康定 → 4/4翻折多山到新都桥、塔公 → 4/5塔公草原/鱼子西 → 4/6返程<br>
+    <strong>床车点位：</strong>新都桥镇路边观景台、塔公草原附近<br>
+    <strong>&#9888; 警告：</strong>康定站气温4/3仅8°/-2°，<strong>夜间零下，床车过夜极冷</strong>！折多山垭口可能有积雪。30天内24天雨雪。不太推荐本次出行。
+  </div>
+</div>
+
+<!-- 路线3: 海螺沟 -->
+<div class="route-card" data-dir="west">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9314; 海螺沟 · 磨西古镇</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~290km / 5-6h</span>
+        <span>&#127968; 海拔 1600-2850m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-ok">&#9729; 温和·多雨风险</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 雅安 <span class="arrow">→</span> 石棉/泸定 <span class="arrow">→</span> 磨西镇 <span class="arrow">→</span> 海螺沟景区
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#129476; 海螺沟冰川·低海拔冰川</span>
+    <span class="highlight-tag">&#9832; 天然温泉</span>
+    <span class="highlight-tag">&#127800; 磨西古镇春花</span>
+    <span class="highlight-tag">&#127956; 贡嘎雪山东坡</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-ok">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">~21° / ~8°</div>
+      <div class="desc desc-cloud">多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">~22° / ~8°</div>
+      <div class="desc desc-cloud">多云</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">~25° / ~10°</div>
+      <div class="desc desc-sun">升温</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">~26° / ~10°</div>
+      <div class="desc desc-sun">升温</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚出发或4/4白天出发到磨西镇 → 4/4-5游海螺沟(冰川+温泉) → 4/6返程<br>
+    <strong>床车点位：</strong>磨西镇停车场(海拔低温暖)、沿途观景台<br>
+    <strong>注意：</strong>海螺沟景区近年有时开放有时关闭，<strong>出发前务必确认景区开放状态</strong>。区域30天内26天有雨，但温度适中。
+  </div>
+</div>
+
+<!-- 路线4: 毕棚沟 -->
+<div class="route-card" data-dir="west">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9315; 毕棚沟 · 古尔沟温泉</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~200km / 3-4h</span>
+        <span>&#127968; 海拔 2000-3800m</span>
+        <span class="badge-near" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">近程</span>
+      </div>
+    </div>
+    <span class="weather-score score-ok">&#9729; 温和偏冷</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 都江堰 <span class="arrow">→</span> 汶川 <span class="arrow">→</span> 理县 <span class="arrow">→</span> 古尔沟 <span class="arrow">→</span> 毕棚沟
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127956; 毕棚沟·小九寨</span>
+    <span class="highlight-tag">&#9832; 古尔沟天然温泉</span>
+    <span class="highlight-tag">&#127800; 4月杜鹃花开</span>
+    <span class="highlight-tag">&#128663; 车程短·轻松</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-ok">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">~15° / ~3°</div>
+      <div class="desc desc-cloud">偏冷·多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">~17° / ~4°</div>
+      <div class="desc desc-cloud">升温</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">~18° / ~5°</div>
+      <div class="desc desc-sun">升温·多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">~19° / ~5°</div>
+      <div class="desc desc-sun">升温</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚出发住理县或古尔沟 → 4/4游毕棚沟 → 4/5泡古尔沟温泉+周边 → 4/6返程(可顺路桃坪羌寨)<br>
+    <strong>床车点位：</strong>古尔沟温泉小镇停车场、理县县城<br>
+    <strong>注意：</strong>车程短，适合轻松游。夜间低温3-5°注意保暖。毕棚沟景区4月杜鹃花开始盛放。
+  </div>
+</div>
+
+</div>
+
+<!-- ===== 北向：广元/陕南 ===== -->
+<h2 class="section-title">&#127755; 北向 · 广元/陕南方向 <span class="badge badge-good" style="background:#05966930;color:#34d399;border:1px solid #059669;font-size:0.55em;padding:4px 12px;border-radius:20px;">&#11088; 天气推荐</span></h2>
+
+<div class="routes">
+
+<!-- 路线5: 广元剑门关 -->
+<div class="route-card" data-dir="north">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9316; 广元 · 剑门关 · 昭化古城</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~270km / 3-4h</span>
+        <span>&#127968; 海拔 400-900m</span>
+        <span class="badge-near" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">近程</span>
+      </div>
+    </div>
+    <span class="weather-score score-good">&#9728;&#65039; 天气好</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 德阳 <span class="arrow">→</span> 绵阳 <span class="arrow">→</span> 广元 <span class="arrow">→</span> 剑门关 <span class="arrow">→</span> 昭化古城
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#9876; 剑门关·天下第一关(5A)</span>
+    <span class="highlight-tag">&#127968; 昭化古城·三国文化</span>
+    <span class="highlight-tag">&#127858; 广元凉面/核桃饼</span>
+    <span class="highlight-tag">&#128663; 车程短·高速直达</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">25° / 7°</div>
+      <div class="desc desc-sun">晴好·温差大</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">23° / 10°</div>
+      <div class="desc desc-sun">晴到多云</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">25° / 11°</div>
+      <div class="desc desc-sun">晴好</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">19° / 12°</div>
+      <div class="desc desc-cloud">转阴降温</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚到广元/剑阁 → 4/4游剑门关(全天) → 4/5昭化古城+曾家山 → 4/6返程<br>
+    <strong>床车点位：</strong>剑门关景区外停车场、昭化古城停车场、曾家山观景台<br>
+    <strong>&#11088; 推荐理由：</strong>30天内仅14天有雨，清明这4天气温20°+，<strong>天气是所有方案中最好的之一</strong>！海拔低无高反，车程短轻松。
+  </div>
+</div>
+
+<!-- 路线6: 广元→汉中 -->
+<div class="route-card" data-dir="north">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9317; 广元 → 汉中 · 黎坪 · 油菜花</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~400km / 5-6h</span>
+        <span>&#127968; 海拔 300-1700m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-good">&#9728;&#65039; 天气好</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 广元 <span class="arrow">→</span> 宁强(青木川) <span class="arrow">→</span> 汉中 <span class="arrow">→</span> 黎坪国家森林公园
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127793; 汉中油菜花海(4月)</span>
+    <span class="highlight-tag">&#127795; 黎坪国家森林公园</span>
+    <span class="highlight-tag">&#127968; 青木川古镇</span>
+    <span class="highlight-tag">&#9876; 剑门关可顺路</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">~24° / ~7°</div>
+      <div class="desc desc-sun">晴好</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">~21° / ~8°</div>
+      <div class="desc desc-sun">多云</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">~22° / ~8°</div>
+      <div class="desc desc-sun">多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">~20° / ~10°</div>
+      <div class="desc desc-cloud">多云转阴</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚或4/4早出发，走广元北上到汉中 → 4/4游青木川/黎坪 → 4/5汉中油菜花+市区 → 4/6返程经广元剑门关<br>
+    <strong>床车点位：</strong>黎坪景区停车场、青木川古镇停车场、汉中江边<br>
+    <strong>&#11088; 推荐理由：</strong>天气好(15天雨)，4月初正是汉中油菜花尾声、黎坪春色最美时。跨省有新鲜感。
+  </div>
+</div>
+
+</div>
+
+<!-- ===== 东向：重庆方向 ===== -->
+<h2 class="section-title">&#127749; 东向 · 重庆方向</h2>
+
+<div class="routes">
+
+<!-- 路线7: 武隆 -->
+<div class="route-card" data-dir="east">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9318; 重庆武隆 · 天生三桥 · 仙女山</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~420km / 5-6h</span>
+        <span>&#127968; 海拔 200-2000m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-bad">&#127783; 雨多</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 重庆 <span class="arrow">→</span> 武隆 <span class="arrow">→</span> 天生三桥 <span class="arrow">→</span> 仙女山
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127756; 天生三桥·世界自然遗产(5A)</span>
+    <span class="highlight-tag">&#127956; 仙女山高山草甸</span>
+    <span class="highlight-tag">&#127858; 重庆火锅/小面</span>
+    <span class="highlight-tag">&#127910; 变形金刚4取景地</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-ok">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">24° / 13°</div>
+      <div class="desc desc-cloud">温暖·多云</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">28° / 14°</div>
+      <div class="desc desc-sun">晴热·本月最高</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">22° / 13°</div>
+      <div class="desc desc-cloud">降温·多云</div>
+    </div>
+    <div class="weather-day weather-bad">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">19° / 12°</div>
+      <div class="desc desc-rain">降温·可能有雨</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚到重庆吃火锅 → 4/4去武隆天生三桥+龙水峡地缝 → 4/5仙女山草甸 → 4/6返程<br>
+    <strong>床车点位：</strong>仙女山镇停车场(海拔高草甸旁绝佳)、武隆城区<br>
+    <strong>注意：</strong>30天26天雨，但4/3-4这两天可能恰好窗口期。4/6返程日可能下雨，注意路况。仙女山夜间6-9°偏冷。
+  </div>
+</div>
+
+<!-- 路线8: 恩施 -->
+<div class="route-card" data-dir="east">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9319; 恩施大峡谷 · 屏山峡谷</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~650km / 7-8h</span>
+        <span>&#127968; 海拔 300-1700m</span>
+        <span class="badge-far" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">远程</span>
+      </div>
+    </div>
+    <span class="weather-score score-bad">&#127783; 雨多·路远</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 重庆 <span class="arrow">→</span> 万州 <span class="arrow">→</span> 恩施 <span class="arrow">→</span> 恩施大峡谷 / 屏山峡谷
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127756; 恩施大峡谷·东方科罗拉多</span>
+    <span class="highlight-tag">&#128674; 屏山峡谷·悬浮之船</span>
+    <span class="highlight-tag">&#127858; 恩施土家美食</span>
+    <span class="highlight-tag">&#127756; 腾龙洞</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">29° / 12°</div>
+      <div class="desc desc-sun">晴热</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">30° / 11°</div>
+      <div class="desc desc-sun">最高温30°</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">22° / 14°</div>
+      <div class="desc desc-cloud">降温·转阴</div>
+    </div>
+    <div class="weather-day weather-bad">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">21° / 12°</div>
+      <div class="desc desc-rain">可能有雨</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3出发(7h+赶路) → 4/4恩施大峡谷 → 4/5屏山峡谷或腾龙洞 → 4/6返程(又是7h+)<br>
+    <strong>床车点位：</strong>恩施大峡谷停车场、屏山峡谷附近<br>
+    <strong>&#9888; 注意：</strong>单程7h+，<strong>4天时间有些紧张</strong>，来回赶路占2天。30天23天雨。4/3-4可能是晴热窗口但4/5后转阴。适合追求极致风景且不怕赶路的人。
+  </div>
+</div>
+
+<!-- 路线: 奉节白帝城·龙缸 -->
+<div class="route-card" data-dir="east">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9320; 奉节白帝城 · 云阳龙缸</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~500km / 6-7h</span>
+        <span>&#127968; 海拔 200-1700m</span>
+        <span class="badge-far" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">远程</span>
+      </div>
+    </div>
+    <span class="weather-score score-ok">&#127780; 前晴后雨</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 重庆 <span class="arrow">→</span> 万州 <span class="arrow">→</span> 云阳(龙缸) <span class="arrow">→</span> 奉节(白帝城)
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127968; 白帝城·三峡之巅(5A)</span>
+    <span class="highlight-tag">&#127756; 龙缸天坑·世界最长悬挑廊桥</span>
+    <span class="highlight-tag">&#127754; 瞿塘峡·夔门绝壁</span>
+    <span class="highlight-tag">&#127858; 万州烤鱼</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">24° / 12°</div>
+      <div class="desc desc-sun">晴转阴</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">25° / 14°</div>
+      <div class="desc desc-sun">晴转多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">25° / 13°</div>
+      <div class="desc desc-cloud">多云</div>
+    </div>
+    <div class="weather-day weather-bad">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">23° / 14°</div>
+      <div class="desc desc-rain">阴转雨</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3出发到万州(5h)，吃万州烤鱼 → 4/4云阳龙缸+廊桥 → 4/5奉节白帝城+瞿塘峡 → 4/6返程<br>
+    <strong>床车点位：</strong>龙缸景区停车场(山顶露营氛围好)、白帝城停车场<br>
+    <strong>注意：</strong>4/3-5天气不错，4/6转雨正好返程。龙缸云端廊桥+白帝城瞿塘峡的组合值得一去，但单程较远。
+  </div>
+</div>
+
+<!-- 路线: 酉阳桃花源 -->
+<div class="route-card" data-dir="east">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9321; 酉阳桃花源 · 龚滩古镇</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~550km / 7h</span>
+        <span>&#127968; 海拔 300-800m</span>
+        <span class="badge-far" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">远程</span>
+      </div>
+    </div>
+    <span class="weather-score score-ok">&#127780; 前晴后雨</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 重庆 <span class="arrow">→</span> 彭水(阿依河) <span class="arrow">→</span> 酉阳桃花源 <span class="arrow">→</span> 龚滩古镇
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127800; 酉阳桃花源·世外桃源(5A)</span>
+    <span class="highlight-tag">&#127968; 龚滩古镇·乌江画廊</span>
+    <span class="highlight-tag">&#127754; 阿依河·峡谷漂流</span>
+    <span class="highlight-tag">&#127956; 渝东南土家风情</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">23° / 11°</div>
+      <div class="desc desc-sun">晴转阴</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">23° / 11°</div>
+      <div class="desc desc-cloud">晴转小雨</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">19° / 10°</div>
+      <div class="desc desc-cloud">晴转多云</div>
+    </div>
+    <div class="weather-day weather-bad">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">16° / 9°</div>
+      <div class="desc desc-rain">雨·降温</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3出发到彭水或酉阳(7h) → 4/4游酉阳桃花源 → 4/5龚滩古镇+乌江画廊 → 4/6返程<br>
+    <strong>床车点位：</strong>龚滩古镇停车场(乌江边非常美)、酉阳桃花源停车场<br>
+    <strong>注意：</strong>单程7h偏远，但渝东南土家风情+世外桃源+古镇的组合在全国罕见。4/3-4天气最好，抓紧前两天玩。龚滩古镇清明人不多。
+  </div>
+</div>
+
+</div>
+
+<!-- ===== 南向：西昌/云南 ===== -->
+<h2 class="section-title">&#127797; 南向 · 西昌/云南方向 <span class="badge" style="background:#05966930;color:#34d399;border:1px solid #059669;font-size:0.55em;padding:4px 12px;border-radius:20px;">&#11088; 天气最佳</span></h2>
+
+<div class="routes">
+
+<!-- 路线9: 西昌邛海 -->
+<div class="route-card" data-dir="south">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9322; 西昌 · 邛海 · 螺髻山</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~440km / 5-6h</span>
+        <span>&#127968; 海拔 1500-3500m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-good">&#9728;&#65039; 天气最佳!</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 雅安 <span class="arrow">→</span> 石棉 <span class="arrow">→</span> 冕宁 <span class="arrow">→</span> 西昌 <span class="arrow">→</span> 邛海/螺髻山
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127754; 邛海·四川第二大淡水湖</span>
+    <span class="highlight-tag">&#127956; 螺髻山·高山湖泊群</span>
+    <span class="highlight-tag">&#127774; 月城西昌·阳光充沛</span>
+    <span class="highlight-tag">&#127798; 邛海湿地骑行</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">27° / 15°</div>
+      <div class="desc desc-sun">晴·阳光好</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">27° / 15°</div>
+      <div class="desc desc-sun">晴·阳光好</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">28° / 16°</div>
+      <div class="desc desc-sun">晴·温暖</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">28° / 14°</div>
+      <div class="desc desc-sun">晴·舒适</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚出发或4/4早出发到西昌 → 4/4下午邛海湿地骑行 → 4/5螺髻山一日游 → 4/6邛海日出后返程<br>
+    <strong>床车点位：</strong>邛海湿地公园停车场(湖边超美)、螺髻山脚下停车场<br>
+    <strong>&#11088;&#11088; 强烈推荐：</strong>西昌号称"小春城"，<strong>4天全晴27-28°，30天仅14天雨，是天气最好的方案！</strong>邛海边床车过夜体验极佳，夜间14-16°非常舒适。火盆烧烤必吃。
+  </div>
+</div>
+
+<!-- 路线10: 西昌→泸沽湖 -->
+<div class="route-card" data-dir="south">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9323; 西昌 → 泸沽湖</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~650km / 7-8h</span>
+        <span>&#127968; 海拔 1500-2690m</span>
+        <span class="badge-far" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">远程</span>
+      </div>
+    </div>
+    <span class="weather-score score-good">&#9728;&#65039; 天气极佳</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 西昌 <span class="arrow">→</span> 盐源 <span class="arrow">→</span> 泸沽湖
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127754; 泸沽湖·高原明珠</span>
+    <span class="highlight-tag">&#128674; 划船·走婚桥</span>
+    <span class="highlight-tag">&#127774; 日出日落绝美</span>
+    <span class="highlight-tag">&#127956; 格姆女神山</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">~22° / ~5°</div>
+      <div class="desc desc-sun">晴·早晚冷</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">~23° / ~5°</div>
+      <div class="desc desc-sun">晴好</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">~24° / ~6°</div>
+      <div class="desc desc-sun">晴好</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9728;&#65039;</div>
+      <div class="temp">~23° / ~5°</div>
+      <div class="desc desc-sun">晴好</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚出发到西昌 → 4/4早到泸沽湖(西昌到湖3-4h) → 4/4-5环湖两天 → 4/6返程(需8h)<br>
+    <strong>床车点位：</strong>泸沽湖各观景台停车场(湖边过夜绝美！)、里格/洛水附近<br>
+    <strong>&#9888; 注意：</strong>单程7h+，时间略紧但可行。泸沽湖天气极好，<strong>30天仅约8天雨，4月几乎全晴</strong>。高原湖泊夜间5°注意保暖。<strong>如果不怕赶路，这是风景+天气的最佳方案。</strong>
+  </div>
+</div>
+
+</div>
+
+<!-- ===== 滇东：昭通方向 ===== -->
+<h2 class="section-title">&#9968; 滇东 · 昭通方向</h2>
+
+<div class="routes">
+
+<!-- 路线: 昭通大山包 -->
+<div class="route-card" data-dir="yunnan">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9324; 昭通 · 大山包 · 豆沙关</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~540km / 6h</span>
+        <span>&#127968; 海拔 1900-3600m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-ok">&#9925; 阴冷多变</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 宜宾 <span class="arrow">→</span> 水富 <span class="arrow">→</span> 豆沙关(盐津) <span class="arrow">→</span> 昭通 <span class="arrow">→</span> 大山包
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127956; 大山包·高原草甸"小西藏"</span>
+    <span class="highlight-tag">&#127961; 鸡公山·绝壁云海</span>
+    <span class="highlight-tag">&#127968; 豆沙关·五尺道古驿</span>
+    <span class="highlight-tag">&#129414; 黑颈鹤栖息地</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-bad">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">16° / 6°</div>
+      <div class="desc desc-rain">小雨转多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">24° / 9°</div>
+      <div class="desc desc-cloud">阴·升温</div>
+    </div>
+    <div class="weather-day weather-bad">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">13° / 9°</div>
+      <div class="desc desc-rain">阴转小雨·冷</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">19° / 8°</div>
+      <div class="desc desc-cloud">阴</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3出发到昭通(6h) → 4/4上大山包(鸡公山+云海+草甸) → 4/5返回走豆沙关+五尺道 → 4/6经宜宾返成都<br>
+    <strong>床车点位：</strong>大山包景区停车场(海拔3100m草甸旁星空绝佳但冷!)、豆沙关古镇<br>
+    <strong>注意：</strong>大山包海拔3100m，4月夜间可能低至0-5°，<strong>床车过夜需极好保暖装备</strong>。天气多变，4/3和4/5可能有雨，4/4最好。小众秘境人少。
+  </div>
+</div>
+
+</div>
+
+<!-- ===== 贵州方向 ===== -->
+<h2 class="section-title">&#127811; 贵州/毕节方向</h2>
+
+<div class="routes">
+
+<!-- 路线: 毕节百里杜鹃 -->
+<div class="route-card" data-dir="southeast">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9325; 毕节 · 百里杜鹃 · 织金洞</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~450km / 5-6h</span>
+        <span>&#127968; 海拔 1000-2000m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-ok">&#127800; 花期!中间两天好</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 泸州/叙永 <span class="arrow">→</span> 毕节 <span class="arrow">→</span> 百里杜鹃景区 <span class="arrow">→</span> 织金洞
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127800; 百里杜鹃·地球彩带(5A)·正值花期!</span>
+    <span class="highlight-tag">&#127756; 织金洞·中国溶洞之王(5A)</span>
+    <span class="highlight-tag">&#127754; 乌江源百里画廊</span>
+    <span class="highlight-tag">&#127858; 毕节汤圆/威宁荞酥</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-bad">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">16° / 9°</div>
+      <div class="desc desc-rain">阵雨转多云</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">21° / 10°</div>
+      <div class="desc desc-sun">多云·适合赏花</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">22° / 9°</div>
+      <div class="desc desc-sun">多云·最佳赏花</div>
+    </div>
+    <div class="weather-day weather-bad">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">15° / 11°</div>
+      <div class="desc desc-rain">雨转阴·降温</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3出发到毕节(5-6h) → 4/4百里杜鹃景区全天(正值花期!) → 4/5织金洞(中国最美溶洞) → 4/6返程<br>
+    <strong>床车点位：</strong>百里杜鹃景区停车场、织金洞景区停车场<br>
+    <strong>&#127800; 亮点：</strong>4月初是百里杜鹃<strong>最佳花期</strong>！漫山遍野杜鹃花海+世界级溶洞，观赏性极强。4/4-5两天多云非常适合赏花。4/3和4/6有雨，可安排在路上。<strong>清明赏花首选！</strong>
+  </div>
+</div>
+
+<!-- 路线11: 赤水 -->
+<div class="route-card" data-dir="southeast">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9326; 赤水 · 丹霞瀑布群</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~330km / 4h</span>
+        <span>&#127968; 海拔 200-700m</span>
+        <span class="badge-near" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">近程</span>
+      </div>
+    </div>
+    <span class="weather-score score-ok">&#127783; 温暖但多雨</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 泸州 <span class="arrow">→</span> 赤水 <span class="arrow">→</span> 赤水大瀑布 <span class="arrow">→</span> 四洞沟 <span class="arrow">→</span> 竹海
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127754; 赤水大瀑布·5A</span>
+    <span class="highlight-tag">&#127795; 万亩竹海</span>
+    <span class="highlight-tag">&#127956; 丹霞地貌·世界遗产</span>
+    <span class="highlight-tag">&#127754; 四洞沟景区</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-good">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">24° / 15°</div>
+      <div class="desc desc-sun">温暖·多云</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">25° / 16°</div>
+      <div class="desc desc-sun">温暖</div>
+    </div>
+    <div class="weather-day weather-good">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">25° / 16°</div>
+      <div class="desc desc-sun">温暖</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">20° / 15°</div>
+      <div class="desc desc-cloud">降温·转阴</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3晚出发住赤水 → 4/4赤水大瀑布+燕子岩 → 4/5四洞沟+竹海 → 4/6返程(可顺路泸州老窖)<br>
+    <strong>床车点位：</strong>赤水各景区停车场、赤水河谷绿道沿线<br>
+    <strong>注意：</strong>30天23天雨，但4/3-5这几天气温24-25°非常温暖舒适。赤水海拔低，夜间15-16°，<strong>床车过夜温度最舒适的方案！</strong>不过下雨概率较高。
+  </div>
+</div>
+
+<!-- 路线12: 遵义→赤水环线 -->
+<div class="route-card" data-dir="southeast">
+  <div class="route-header">
+    <div>
+      <div class="route-name">&#9327; 遵义 · 赤水 环线</div>
+      <div class="route-meta">
+        <span>&#128663; 单程 ~430km / 5-6h</span>
+        <span>&#127968; 海拔 200-900m</span>
+        <span class="badge-mid" style="padding:2px 10px;border-radius:12px;font-size:0.8em;">中程</span>
+      </div>
+    </div>
+    <span class="weather-score score-bad">&#127783; 雨最多</span>
+  </div>
+  <div class="route-path">
+    成都 <span class="arrow">→</span> 遵义(会址) <span class="arrow">→</span> 茅台镇 <span class="arrow">→</span> 土城(四渡赤水) <span class="arrow">→</span> 赤水 <span class="arrow">→</span> 泸州 <span class="arrow">→</span> 成都
+  </div>
+  <div class="route-highlights">
+    <span class="highlight-tag">&#127970; 遵义会议会址</span>
+    <span class="highlight-tag">&#127862; 茅台酒镇</span>
+    <span class="highlight-tag">&#127754; 赤水丹霞瀑布</span>
+    <span class="highlight-tag">&#9876; 四渡赤水纪念馆</span>
+  </div>
+  <div class="weather-grid">
+    <div class="weather-day weather-ok">
+      <div class="date">4月3日 周五</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">21° / 13°</div>
+      <div class="desc desc-cloud">多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月4日 周六</div>
+      <div class="icon">&#127780;</div>
+      <div class="temp">22° / 13°</div>
+      <div class="desc desc-cloud">多云</div>
+    </div>
+    <div class="weather-day weather-ok">
+      <div class="date">4月5日 周日</div>
+      <div class="icon">&#9925;</div>
+      <div class="temp">21° / 11°</div>
+      <div class="desc desc-cloud">转阴</div>
+    </div>
+    <div class="weather-day weather-bad">
+      <div class="date">4月6日 周一</div>
+      <div class="icon">&#127783;&#65039;</div>
+      <div class="temp">15° / 10°</div>
+      <div class="desc desc-rain">降温·可能有雨</div>
+    </div>
+  </div>
+  <div class="route-notes">
+    <strong>行程建议：</strong>4/3出发到遵义(5h) → 4/4遵义会址+茅台镇 → 4/5土城→赤水大瀑布 → 4/6赤水经泸州返回成都<br>
+    <strong>床车点位：</strong>茅台镇停车场、赤水河谷绿道、土城古镇<br>
+    <strong>注意：</strong>遵义30天28天雨，是所有方案中雨天最多的。不过可以走成环线不走回头路。4/6降温明显只有15°。
+  </div>
+</div>
+
+</div>
+
+<!-- ==================== 床车贴士 ==================== -->
+<div class="camping-tips">
+  <h3>&#128267; 纯电SUV床车自驾贴士</h3>
+  <div class="tips-grid">
+    <div class="tip-item">
+      <strong>&#128267; 充电规划：</strong>出发前用高德/特来电/小桔充电APP查好沿途充电桩。川西高海拔(康定/丹巴/大山包)桩少，务必满电出发+途中补电。
+    </div>
+    <div class="tip-item">
+      <strong>&#127777; 空调过夜：</strong>纯电开空调过夜是核心优势！低温区不再是问题。注意一晚空调约耗8-15度电，确保剩余电量够次日行程。
+    </div>
+    <div class="tip-item">
+      <strong>&#128664; SUV改装：</strong>后排放倒铺充气床垫，备好遮阳帘/隐私窗帘。纯电无怠速噪音，睡眠质量极佳。
+    </div>
+    <div class="tip-item">
+      <strong>&#127783; 雨天方案：</strong>下雨天可安排溶洞(织金洞)、古镇、室内温泉等不受天气影响的景点。
+    </div>
+    <div class="tip-item">
+      <strong>&#9968; 高海拔注意：</strong>川西3000m+地区电池续航可能下降10-20%，冬季更明显。4月气温回升影响较小但需留余量。
+    </div>
+    <div class="tip-item">
+      <strong>&#127859; 饮食：</strong>车载烧水壶+泡面+卤味标配；小型卡式炉可煮火锅。纯电有充足的电可以用车载冰箱。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 综合推荐 ==================== -->
+<div style="max-width:1200px;margin:32px auto;padding:24px;background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:16px;border:1px solid var(--border);">
+  <h3 style="color:var(--accent);margin-bottom:16px;font-size:1.3em;">&#127942; 综合推荐排名（纯电SUV·可开空调过夜·低温不减分·核心看：不下雨+风景+路程）</h3>
+  <div style="display:grid;gap:12px;">
+    <div style="background:var(--card2);padding:16px;border-radius:12px;border-left:4px solid #fbbf24;">
+      <strong style="color:#fbbf24;font-size:1.1em;">&#129351; 第一梯队 · 三天不雨 + 风景绝佳</strong>
+      <p style="margin-top:8px;">
+        <strong>&#9322; 西昌邛海</strong> — <b>三天全晴</b> 27-28°，邛海湖光山色，5-6h可达，充电桩充足。&#11088;&#11088;&#11088;<br>
+        <strong>&#9323; 泸沽湖</strong> — <b>三天全晴</b> 23-24°，高原湖泊绝美！纯电开空调过夜无惧5°夜温。<b>充电需规划(盐源有桩)</b>。风景天花板。&#11088;&#11088;&#11088;<br>
+        <strong>&#9316; 广元剑门关</strong> — <b>2晴1阴</b>，23-25°，仅3h高速直达，充电桩密集，最轻松之选。&#11088;&#11088;<br>
+        <strong>&#9312; 四姑娘山·丹巴</strong> &#11014;&#65039; — 三天<b>越来越晴</b>(阴→晴→晴)！雪山+藏寨+梨花，纯电开暖气不怕8°夜温。<b>充电需留意（小金/丹巴桩少）</b>。&#11088;&#11088;
+      </p>
+    </div>
+    <div style="background:var(--card2);padding:16px;border-radius:12px;border-left:4px solid #34d399;">
+      <strong style="color:#34d399;font-size:1.1em;">&#129352; 第二梯队 · 三天大部分不雨 + 各有亮点</strong>
+      <p style="margin-top:8px;">
+        <strong>&#9326; 赤水丹霞</strong> — <b>2温暖多云+1阴</b>，25°无雨，瀑布群+竹海。近程4h，充电方便。<br>
+        <strong>&#9317; 广元→汉中</strong> — <b>2多云+1阴</b>，全程不雨，跨省新鲜感+油菜花+青木川古镇，充电桩密。<br>
+        <strong>&#9325; 毕节百里杜鹃</strong> — 4/4-5<b>多云适合赏花</b>，4/6返程遇雨无碍。<b>4月花期限定！</b>错过等一年。<br>
+        <strong>&#9314; 海螺沟</strong> — <b>3天无雨持续升温</b> 22→26°，冰川+温泉。需确认景区开放。<br>
+        <strong>&#9313; 康定·新都桥 &#11014;&#65039;</strong> — 纯电开暖气，0°夜温完全不怕！三天多云不雨，4/5-6升至16-17°。<b>折多山+塔公+贡嘎远眺，川西经典</b>。充电需规划。<br>
+        <strong>&#9315; 毕棚沟·古尔沟</strong> &#11014;&#65039; — 三天多云无雨，17-19°。车程最短3h+温泉，<b>纯电开暖气夜间4°毫无压力</b>。
+      </p>
+    </div>
+    <div style="background:var(--card2);padding:16px;border-radius:12px;border-left:4px solid #818cf8;">
+      <strong style="color:#818cf8;font-size:1.1em;">&#129353; 第三梯队 · 有雨但风景值得赌</strong>
+      <p style="margin-top:8px;">
+        <strong>&#9318; 武隆</strong> — 4/4晴热28°是好日子，4/5阴4/6可能雨。把核心景点排4/4。<br>
+        <strong>&#9320; 奉节白帝城</strong> — 4/4-5天气不错(晴/多云25°)，4/6阴转雨正好返程。远6-7h。<br>
+        <strong>&#9324; 昭通大山包</strong> — 4/5有雨且13°，但纯电开暖气不怕冷。大山包云海需碰运气，<b>小众秘境值得赌</b>。充电桩少需规划！
+      </p>
+    </div>
+    <div style="background:var(--card2);padding:16px;border-radius:12px;border-left:4px solid var(--muted);">
+      <strong style="color:var(--muted);font-size:1.1em;">&#9888; 天气趋势差或太远</strong>
+      <p style="margin-top:8px;">
+        <strong>&#9321; 酉阳桃花源</strong> — 越来越差(4/4小雨→4/6雨16°)，且远7h。<br>
+        <strong>&#9327; 遵义环线</strong> — 越来越差(多云→阴→雨15°)，月雨28天。<br>
+        <strong>&#9319; 恩施</strong> — 4/4晴但4/5-6走差，<b>且来回14h+太赶</b>。
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  数据获取时间：2026年3月30日 · 天气来源：和风天气/中国天气网 30天趋势预报<br>
+  建议出发前1-2天再次查看最新7天天气预报以做最终决策 · 祝旅途愉快！
+</footer>
+
+<script>
+function filterRoutes(dir) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  document.querySelectorAll('.route-card').forEach(card => {
+    if (dir === 'all' || card.dataset.dir === dir) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  
+  // Show/hide section titles
+  const sections = {
+    'west': '川西方向',
+    'north': '北向',
+    'east': '东向',
+    'south': '南向',
+    'southeast': '贵州方向'
+  };
+  
+  document.querySelectorAll('.section-title').forEach(title => {
+    if (dir === 'all') {
+      title.style.display = '';
+    } else {
+      const text = title.textContent;
+      let show = false;
+      if (dir === 'west' && text.includes('川西')) show = true;
+      if (dir === 'north' && text.includes('北向')) show = true;
+      if (dir === 'east' && text.includes('东向')) show = true;
+      if (dir === 'south' && text.includes('南向')) show = true;
+      if (dir === 'yunnan' && text.includes('滇东')) show = true;
+      if (dir === 'southeast' && text.includes('贵州')) show = true;
+      title.style.display = show ? '' : 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
