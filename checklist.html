@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚗 床车出行物品清单 & Tips | 三天短途版</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--border:#475569;--sun:#f59e0b;--green:#10b981;--red:#ef4444;--blue:#3b82f6;--purple:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--accent)}a:hover{text-decoration:underline}
+.back{display:inline-block;padding:12px 24px;font-size:.9em}
+.hero{background:linear-gradient(135deg,#0f172a,#1a1a2e,#16213e,#0f172a);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
+.hero h1{font-size:2em;background:linear-gradient(90deg,#f59e0b,#38bdf8,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{color:var(--muted);font-size:.95em;max-width:720px;margin:8px auto 0}
+.c{max-width:900px;margin:0 auto;padding:0 20px}
+h2{font-size:1.3em;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+h3{font-size:1.05em;margin:20px 0 8px;color:var(--accent)}
+.tip{background:var(--card2);border-left:4px solid var(--sun);border-radius:8px;padding:13px 18px;margin:12px 0;font-size:.88em}.tip b{color:var(--sun)}
+.warn{background:var(--card2);border-left:4px solid var(--red);border-radius:8px;padding:13px 18px;margin:12px 0;font-size:.88em}.warn b{color:var(--red)}
+.info{background:var(--card2);border-left:4px solid var(--accent);border-radius:8px;padding:13px 18px;margin:12px 0;font-size:.88em}.info b{color:var(--accent)}
+
+/* 分类卡片 */
+.cat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;margin:16px 0;transition:transform .2s}
+.cat:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.cat-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.cat-icon{font-size:1.5em}
+.cat-title{font-size:1.1em;font-weight:700}
+.cat-badge{font-size:.7em;padding:2px 10px;border-radius:12px;font-weight:600}
+.badge-must{background:#ef444430;color:#f87171;border:1px solid #ef4444}
+.badge-rec{background:#f59e0b30;color:#fbbf24;border:1px solid #f59e0b}
+.badge-opt{background:#10b98130;color:#34d399;border:1px solid #059669}
+.badge-ev{background:#3b82f630;color:#60a5fa;border:1px solid #3b82f6}
+
+/* 物品列表 */
+.items{display:grid;gap:8px}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:8px 12px;background:var(--card2);border-radius:10px;font-size:.88em}
+.item-check{width:20px;height:20px;border-radius:6px;border:2px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;transition:all .2s}
+.item-check.checked{background:var(--green);border-color:var(--green)}
+.item-check.checked::after{content:'✓';color:#fff;font-size:.75em;font-weight:700}
+.item-name{font-weight:600;color:var(--text)}
+.item-desc{color:var(--muted);font-size:.92em;margin-top:2px}
+.item-tag{font-size:.72em;padding:2px 8px;border-radius:8px;white-space:nowrap;align-self:center}
+.tag-must{background:#ef444420;color:#f87171}
+.tag-rec{background:#f59e0b20;color:#fbbf24}
+.tag-opt{background:#10b98120;color:#34d399}
+
+/* Tips 卡片 */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0}
+.tip-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;transition:transform .2s}
+.tip-card:hover{transform:translateY(-2px)}
+.tip-card h4{font-size:.95em;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.tip-card p{font-size:.84em;color:var(--muted)}
+.tip-card .num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7em;font-weight:700;flex-shrink:0}
+
+/* 进度条 */
+.progress-bar{max-width:900px;margin:20px auto;padding:0 20px}
+.progress-wrap{background:var(--card);border-radius:12px;padding:14px 18px;border:1px solid var(--border)}
+.progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.progress-label{font-size:.9em;font-weight:600}
+.progress-count{font-size:.85em;color:var(--muted)}
+.progress-track{height:8px;background:var(--card2);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:4px;transition:width .3s}
+
+footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-top:1px solid var(--border);margin-top:36px}
+
+/* 打印样式 */
+@media print{
+  body{background:#fff;color:#000}
+  .cat,.item{background:#f5f5f5;border-color:#ddd}
+  .item-check{border-color:#999}
+  .back,.progress-wrap{display:none}
+}
+@media(max-width:600px){.hero h1{font-size:1.4em}.tips-grid{grid-template-columns:1fr}}
+</style></head><body>
+<a class="back" href="index.html">← 返回方案总览</a>
+<div class="hero">
+  <h1>🚗 床车出行物品清单 & Tips</h1>
+  <p class="sub">三天短途 · 纯电SUV · 可勾选打包 · 涵盖睡眠/饮食/安全/卫生全场景<br>
+  <b>纯电车优势</b>：无需移动电源，车载电源直接供电！空调过夜零焦虑</p>
+</div>
+
+<!-- 进度条 -->
+<div class="progress-bar">
+  <div class="progress-wrap">
+    <div class="progress-top">
+      <span class="progress-label">📦 打包进度</span>
+      <span class="progress-count" id="progressText">0 / 0 已备齐</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+</div>
+
+<div class="c">
+
+<div class="tip"><b>阅读指南：</b>点击物品左侧方框可以勾选"已备齐"，进度自动更新。标记 <span style="color:#f87171">必备</span> = 不带会影响出行，<span style="color:#fbbf24">推荐</span> = 提升体验，<span style="color:#34d399">可选</span> = 锦上添花。清单状态会自动保存在浏览器中。</div>
+
+<!-- ==================== 1. 睡眠系统 ==================== -->
+<h2>🛏 一、睡眠系统 <span style="font-size:.6em;color:var(--muted);font-weight:400">—— 床车的灵魂</span></h2>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">💤</span>
+    <span class="cat-title">睡眠装备</span>
+    <span class="cat-badge badge-must">核心装备</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="1">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">充气床垫 / 折叠床垫</div><div class="item-desc">SUV后排放倒后铺设。推荐5-8cm厚记忆棉或自动充气床垫。尺寸选车型对应款（淘宝搜"XX车型专用床垫"）。<b>别用太薄的——腰会废</b></div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="2">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">枕头 × 2</div><div class="item-desc">家用枕头或充气枕均可。充气枕省空间但舒适度不如真枕头</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="3">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">被子 / 睡袋</div><div class="item-desc">4月川西/高原夜间5-10°，建议带薄被+毛毯。纯电可开空调，不用太厚的睡袋。一条蚕丝被+一条薄毛毯最灵活</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="4">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">床单 / 床笠</div><div class="item-desc">铺在床垫上，干净卫生。隔脏也容易清洗</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="5">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">遮光隐私窗帘 / 遮阳挡</div><div class="item-desc"><b>极其重要！</b>防隐私+遮光助眠+隔热。选车窗磁吸式最方便，全车一套6-8片。淘宝搜"XX车型专用遮阳帘"</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="6">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">眼罩 + 耳塞</div><div class="item-desc">服务区/路边过夜必备。耳塞挡大车噪音效果立竿见影。硅胶耳塞比海绵耳塞好</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="7">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">车窗防蚊纱网</div><div class="item-desc">开窗通风又不进蚊虫。磁吸式安装方便。4月蚊虫还不算多，但湖边/草地必备</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 2. 饮食系统 ==================== -->
+<h2>🍳 二、饮食系统 <span style="font-size:.6em;color:var(--muted);font-weight:400">—— 有的吃才有灵魂</span></h2>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">🔥</span>
+    <span class="cat-title">烹饪装备</span>
+    <span class="cat-badge badge-rec">推荐携带</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="8">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">车载烧水壶 / 电热杯</div><div class="item-desc">纯电车直接用车载12V接口或逆变器供电。泡面/泡茶/冲咖啡刚需。推荐折叠烧水壶省空间</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="9">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">卡式炉 + 气罐 × 2</div><div class="item-desc">三天够用2罐。可煮面/火锅/煎蛋/热菜。<b>注意：在车外使用！通风处！</b>收纳时气罐和炉子分开放</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="10">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">小锅 + 平底煎锅</div><div class="item-desc">一大一小足够。煮面+煎蛋/香肠。不锈钢比铝锅耐用</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="11">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">餐具套装</div><div class="item-desc">碗筷勺叉各2套+可折叠硅胶碗。一次性筷子多备几双省洗碗麻烦</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="12">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">多功能刀 / 小砧板</div><div class="item-desc">切水果/食材。折叠砧板不占空间</div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+    <div class="item" data-id="13">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">调料小瓶套装</div><div class="item-desc">盐/酱油/辣椒面/花椒面。小分装瓶不占地方</div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+  </div>
+</div>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">🧊</span>
+    <span class="cat-title">食品 & 饮水</span>
+    <span class="cat-badge badge-must">必备补给</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="14">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">饮用水 5L+</div><div class="item-desc">大桶水(带龙头款最方便) + 小瓶矿泉水若干。烧水+饮用+洗漱都需要。山区不便买水</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="15">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">泡面 / 自热饭 × 4-6份</div><div class="item-desc">应急口粮！服务区凌晨没饭吃、景区附近没餐厅时救命。自热米饭不用锅</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="16">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">零食大礼包</div><div class="item-desc">牛肉干/坚果/面包/饼干/卤味/水果。开车嘴巴不能闲着。卤味用密封袋装好</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="17">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">咖啡 / 茶</div><div class="item-desc">挂耳咖啡+速溶奶茶+茶包。早起泡一杯看日出是床车仪式感天花板</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="18">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">车载冰箱 / 保温袋</div><div class="item-desc">纯电车可用车载冰箱(12V供电)保鲜水果/饮料/卤味。没冰箱用保温袋+冰袋也能撑1天</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3. 纯电专属 ==================== -->
+<h2>🔌 三、纯电车专属 <span style="font-size:.6em;color:var(--muted);font-weight:400">—— 电动爹的独特优势</span></h2>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">⚡</span>
+    <span class="cat-title">充电 & 电力</span>
+    <span class="cat-badge badge-ev">纯电必看</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="19">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">随车充电枪（便携充）</div><div class="item-desc">可接家用220V插座应急充电。速度慢但关键时刻救命。有些酒店/农家乐可以借插座充</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="20">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">充电APP (高德/特来电/小桔充电)</div><div class="item-desc"><b>出发前下载并注册好！</b>查沿途充电桩。山区信号弱建议提前截图保存桩位</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="21">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">车载逆变器 (12V→220V)</div><div class="item-desc">纯电很多车自带220V输出口。如果没有，买个逆变器可以用正常电器（烧水壶/电饭煲等）</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="22">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">多口车充 + 数据线若干</div><div class="item-desc">手机/平板/相机/无人机都要充。至少2个快充口。带够各种接口线</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="23">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">充电宝 10000mAh+</div><div class="item-desc">下车游玩时手机续命。山区信号弱手机耗电快</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+  </div>
+</div>
+
+<div class="info"><b>纯电床车的独特优势：</b>开空调过夜一晚约耗8-15度电（夏天制冷多/冬天制热多），相当于30-60km续航。不像油车怠速费油又吵，纯电<b>安静+恒温+零排放</b>，睡眠质量极佳。出发前确认剩余电量够明天行程+一晚空调即可。</div>
+
+<!-- ==================== 4. 洗漱卫生 ==================== -->
+<h2>🧴 四、洗漱 & 卫生 <span style="font-size:.6em;color:var(--muted);font-weight:400">—— 体面地流浪</span></h2>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">🚿</span>
+    <span class="cat-title">洗漱用品</span>
+    <span class="cat-badge badge-must">基础生活</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="24">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">毛巾 × 2 + 浴巾</div><div class="item-desc">速干毛巾优先。深色不怕脏</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="25">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">牙刷牙膏 + 洗面奶</div><div class="item-desc">三天基本洗漱。旅行装省空间</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="26">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">湿巾 (大包) + 免洗洗手液</div><div class="item-desc"><b>用量比你想象的大！</b>擦手/擦桌子/擦车/擦脸。至少2大包。消毒湿巾+普通湿巾各一包</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="27">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">纸巾 / 卷纸 × 2</div><div class="item-desc">车上常备。服务区厕所不一定有纸</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="28">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">垃圾袋 (多备)</div><div class="item-desc">大垃圾袋+小食品袋。车内整洁 = 好心情。脏衣服也用袋子装</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="29">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">换洗衣物 (3天份)</div><div class="item-desc">内衣裤×3 + 速干T恤 + 外套(早晚温差大必带)。压缩袋收纳省空间</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="30">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">拖鞋</div><div class="item-desc">车内穿拖鞋舒服。上下车方便。轻便人字拖或酒店一次性拖鞋</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="31">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">应急厕所/尿壶</div><div class="item-desc">夜间荒郊野外不想出车解决…你懂的。女性可带便携尿壶+隐私帐篷</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 5. 安全应急 ==================== -->
+<h2>🛡 五、安全 & 应急 <span style="font-size:.6em;color:var(--muted);font-weight:400">—— 安全第一</span></h2>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">🏥</span>
+    <span class="cat-title">医药 & 安全</span>
+    <span class="cat-badge badge-must">安全底线</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="32">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">常备药品小药箱</div><div class="item-desc">感冒药/退烧药/止泻药(蒙脱石散)/创可贴/碘伏棉签/晕车药/过敏药(氯雷他定)/止痛药(布洛芬)/肠胃药(藿香正气)。<b>山区买药不方便！</b></div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="33">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">防晒霜 SPF50+ / 墨镜 / 帽子</div><div class="item-desc"><b>高原紫外线是平原的2-3倍！</b>泸沽湖/西昌海拔高+水面反射=双倍暴晒。一天不涂就晒伤</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="34">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">雨伞 / 雨衣</div><div class="item-desc">4月川西天气多变，说下就下。折叠伞+一次性雨衣各备一个</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="35">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">驾驶证 + 身份证</div><div class="item-desc">出门检查第一件事！景区买票/住酒店/检查站都需要。拍照备份到手机</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="36">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">车载灭火器 + 三角警示牌</div><div class="item-desc">法规要求。纯电车尤其要备灭火器。新车一般自带</div></div>
+      <span class="item-tag tag-must">必备</span>
+    </div>
+    <div class="item" data-id="37">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">手电筒 / 头灯</div><div class="item-desc">夜间找东西/上厕所/走夜路。头灯解放双手更方便。买充电式</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="38">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">补胎工具 / 充气泵</div><div class="item-desc">山路碎石多，扎胎概率高。车载充气泵+补胎液。或确认有备胎+千斤顶</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="39">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">防身喷雾</div><div class="item-desc">荒郊野外过夜以防万一。女性出行建议携带</div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 6. 户外休闲 ==================== -->
+<h2>🏕 六、户外 & 休闲 <span style="font-size:.6em;color:var(--muted);font-weight:400">—— 享受在路上</span></h2>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">⛺</span>
+    <span class="cat-title">户外装备</span>
+    <span class="cat-badge badge-opt">提升体验</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="40">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">折叠桌 + 折叠椅 × 2</div><div class="item-desc">车外吃饭/泡茶/发呆必备。铝合金轻便款，折叠后塞后备箱侧面</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="41">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">天幕 / 车边帐</div><div class="item-desc">遮阳挡雨扩展活动空间。吸盘式车边帐安装5分钟。三天以上强烈推荐</div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+    <div class="item" data-id="42">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">蓝牙音箱</div><div class="item-desc">湖边放歌。音量别太大别扰民。小巧防水款最佳</div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+    <div class="item" data-id="43">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">相机 / 无人机</div><div class="item-desc">泸沽湖/邛海拍照绝美。无人机航拍上帝视角。<b>注意：景区禁飞区域不能飞</b></div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+    <div class="item" data-id="44">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">防潮垫 / 野餐垫</div><div class="item-desc">草地上坐/躺。看星空时铺在地上。铝膜防潮垫轻便好用</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="45">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">氛围灯 / LED灯带</div><div class="item-desc">挂车顶或天幕下，夜间氛围感拉满。USB供电纯电车直接插。小红书爆款</div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 7. 收纳整理 ==================== -->
+<h2>📦 七、收纳 & 整理 <span style="font-size:.6em;color:var(--muted);font-weight:400">—— 小空间大学问</span></h2>
+
+<div class="cat">
+  <div class="cat-hdr">
+    <span class="cat-icon">🗂</span>
+    <span class="cat-title">收纳工具</span>
+    <span class="cat-badge badge-rec">强烈推荐</span>
+  </div>
+  <div class="items">
+    <div class="item" data-id="46">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">后备箱收纳箱 × 2</div><div class="item-desc">一个放食物/炊具，一个放日用品。可折叠款不占地方。<b>分类收纳是床车整洁的关键</b></div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="47">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">衣物压缩袋</div><div class="item-desc">把被子/衣服压缩到1/3体积。真空压缩袋最省空间</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+    <div class="item" data-id="48">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">车顶行李箱 / 车顶包</div><div class="item-desc">后排要放倒当床，行李只能放前排/车顶。车顶包比车顶箱便宜轻便。注意限高</div></div>
+      <span class="item-tag tag-opt">可选</span>
+    </div>
+    <div class="item" data-id="49">
+      <div class="item-check" onclick="toggleCheck(this)"></div>
+      <div><div class="item-name">S型挂钩 / 网兜</div><div class="item-desc">挂在座椅背面/车顶把手上，收纳袋子/衣服/毛巾。几块钱但巨好用</div></div>
+      <span class="item-tag tag-rec">推荐</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Tips ==================== -->
+<h2>💡 床车出行 Tips & 避坑指南</h2>
+
+<div class="tips-grid">
+  <div class="tip-card">
+    <h4><span class="num" style="background:#ef444430;color:#f87171">1</span> 选对过夜地点</h4>
+    <p><b>优先级：</b>高速服务区(最安全/有厕所/有充电桩) > 景区正规停车场 > 城镇停车场 > 路边观景台。<b>避免：</b>偏僻无人处、禁停区域、河道旁(涨水风险)。到达后先观察环境，感觉不对就换地方。</p>
+  </div>
+  <div class="tip-card">
+    <h4><span class="num" style="background:#f59e0b30;color:#fbbf24">2</span> 通风 vs 安全</h4>
+    <p>纯电开空调可以关窗睡觉(不像油车有一氧化碳风险)。如果想开窗通风，<b>必须装防蚊纱网</b>，窗户只开一条缝(2-3cm)即可。车内反锁所有车门。贵重物品不外露。</p>
+  </div>
+  <div class="tip-card">
+    <h4><span class="num" style="background:#10b98130;color:#34d399">3</span> 空调过夜电量管理</h4>
+    <p>一晚空调约耗8-15度电(≈30-60km续航)。<b>睡前确认：剩余电量 ≥ 明天行程所需 + 15度空调余量。</b>设温度22-24°最省电。开外循环偶尔换气。</p>
+  </div>
+  <div class="tip-card">
+    <h4><span class="num" style="background:#3b82f630;color:#60a5fa">4</span> 做饭安全</h4>
+    <p>卡式炉<b>必须在车外使用！</b>密闭车内用明火=一氧化碳中毒+爆炸风险。下风口点火避免油烟进车。用完确认火彻底熄灭再收纳。气罐远离高温。</p>
+  </div>
+  <div class="tip-card">
+    <h4><span class="num" style="background:#8b5cf630;color:#a78bfa">5</span> 保持车内整洁</h4>
+    <p>小空间一乱就崩溃。<b>原则：</b>用完立刻归位→脏衣服密封袋装好→垃圾随手扔→食物残渣及时清理(否则引虫/异味)。每天出发前5分钟整理。干净的车=好的心情。</p>
+  </div>
+  <div class="tip-card">
+    <h4><span class="num" style="background:#ec489930;color:#f472b6">6</span> 女性友好Tips</h4>
+    <p>便携尿壶/隐私帐篷解决夜间如厕尴尬。车窗遮阳帘是换衣服的隐私保障。服务区大多有热水可洗漱。湿厕纸比普通纸巾好用100倍。生理期备好暖宝宝。</p>
+  </div>
+  <div class="tip-card">
+    <h4><span class="num" style="background:#06b6d430;color:#22d3ee">7</span> 三天行程节奏</h4>
+    <p><b>Day1</b>：赶路为主，晚上到目的地附近过夜。<b>Day2</b>：核心游玩日，不赶路。<b>Day3</b>：返程，走走停停。每天开车不超5h，两人轮换驾驶。中午犯困必须停车休息20min。</p>
+  </div>
+  <div class="tip-card">
+    <h4><span class="num" style="background:#f59e0b30;color:#fbbf24">8</span> 出发前检查清单</h4>
+    <p><b>① 全车充满电</b> ② 胎压检查(含备胎) ③ 雨刮水加满 ④ 导航离线地图下好(山区无信号) ⑤ 充电桩位置截图保存 ⑥ 告知家人行程 ⑦ 道路救援电话存好</p>
+  </div>
+</div>
+
+<div class="warn"><b>⚠️ 千万别犯的错：</b><br>
+❌ 油车怠速开空调睡觉(一氧化碳中毒！纯电无此风险)<br>
+❌ 车内使用明火/卡式炉(去车外用！)<br>
+❌ 停在禁停区域/河道旁/悬崖边<br>
+❌ 不锁车门就睡觉<br>
+❌ 不预留充电余量就开空调过夜<br>
+❌ 不带晕车药跑山路(800+弯道你懂的)</p>
+</div>
+
+<div class="tip"><b>📱 推荐APP：</b><br>
+🔌 <b>充电：</b>高德地图(搜充电站) / 特来电 / 小桔充电 / 品牌APP(蔚来/特斯拉等)<br>
+🗺 <b>导航：</b>高德地图(提前下载离线包) / 百度地图<br>
+☁️ <b>天气：</b>和风天气(精准到小时) / 中国天气<br>
+🏕 <b>营地：</b>窝窝营地 / 两步路<br>
+📷 <b>攻略：</b>小红书 / 马蜂窝</div>
+
+</div>
+<footer>床车出行物品清单 · 三天短途版 · 纯电SUV适配 · 2026.3<br><a href="index.html">← 返回总览</a></footer>
+
+<script>
+// 勾选逻辑 + 本地存储
+const STORAGE_KEY = 'checklist_state_v1';
+
+function loadState() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch { return {}; }
+}
+
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+  const item = el.closest('.item');
+  const id = item?.dataset.id;
+  if (id) {
+    const state = loadState();
+    state[id] = el.classList.contains('checked');
+    saveState(state);
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  const all = document.querySelectorAll('.item-check');
+  const checked = document.querySelectorAll('.item-check.checked');
+  const pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = checked.length + ' / ' + all.length + ' 已备齐';
+}
+
+// 页面加载恢复状态
+(function init() {
+  const state = loadState();
+  document.querySelectorAll('.item').forEach(item => {
+    const id = item.dataset.id;
+    if (id && state[id]) {
+      item.querySelector('.item-check')?.classList.add('checked');
+    }
+  });
+  updateProgress();
+})();
+</script>
+</body></html>
