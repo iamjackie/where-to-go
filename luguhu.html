@@ -68,11 +68,19 @@ details.section[open] summary::before{transform:rotate(90deg)}
 details.section summary::-webkit-details-marker{display:none}
 details.section .section-body{padding:0 18px 16px;border-top:1px solid var(--border)}
 details.section .section-body .poi,details.section .section-body .warn,details.section .section-body .tip{margin:10px 0;border-radius:10px}
-/* TOC 导航条 — 两行flex-wrap + 可拖拽 */
-.toc-wrap{position:relative;margin-bottom:6px}
-.toc-nav{display:flex;flex-wrap:wrap;gap:8px;padding:14px 0 10px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
-.toc-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
-.toc-nav a:hover,.toc-nav a:active{background:var(--accent);color:var(--bg);border-color:var(--accent);text-decoration:none}
+/* TOC 导航条 — 标签筛选器 */
+.toc-wrap{position:sticky;top:0;z-index:50;background:var(--bg);margin:0 -20px;padding:0 20px;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.toc-nav{display:flex;flex-wrap:wrap;gap:6px;padding:12px 0 10px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.toc-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .25s;white-space:nowrap;-webkit-tap-highlight-color:transparent;cursor:pointer;user-select:none}
+.toc-nav a:hover{background:var(--card2);border-color:var(--accent);color:var(--accent);text-decoration:none}
+.toc-nav a.active{background:var(--accent);color:var(--bg);border-color:var(--accent);text-decoration:none;box-shadow:0 2px 8px rgba(56,189,248,.3)}
+.toc-nav a.show-all{background:transparent;border-style:dashed;color:var(--muted)}
+.toc-nav a.show-all:hover,.toc-nav a.show-all.active{background:var(--sun);color:var(--bg);border-color:var(--sun);border-style:solid}
+/* 内容板块切换 */
+.content-section{transition:opacity .3s ease,max-height .3s ease}
+.content-section.hidden{display:none}
+.section-enter{animation:fadeSlideIn .35s ease both}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 /* 浮动导航 */
 .float-nav{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:100}
 .float-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1em;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:all .2s;text-decoration:none}
@@ -96,6 +104,7 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 <div class="toc-wrap">
 <nav class="toc-nav" id="tocNav">
   <a href="#sec-weather">☀️ 天气</a>
+  <a href="#sec-clothes">👗 穿衣</a>
   <a href="#sec-charge">🔌 充电</a>
   <a href="#sec-spots">🗺 景点</a>
   <a href="#sec-plan">📋 行程</a>
@@ -119,6 +128,45 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 <div class="tip"><b>天气依然很好！</b>泸沽湖(盐源)三天以晴/多云为主，<b>无雨！</b>白天22-25°短袖+外套，<b>早晚7°厚外套</b>（纯电开空调过夜无压力）。<b>紫外线极强</b>：高原+水面反射=双倍暴晒，SPF50+防晒+墨镜+帽子必备。<br>
 <b>注意：</b>西昌4/4-5有阵雨，但泸沽湖这边天气好。Plan A经过西昌时可能遇到小雨，不影响赶路。</div>
+
+<h2 id="sec-clothes">👗 穿衣指南（高原昼夜温差大！）</h2>
+<div class="warn"><b>⚠️ 泸沽湖海拔2690m，昼夜温差超15°！白天短袖+晚上棉服，别觉得夸张！高原一天能过四季。</b></div>
+
+<div class="poi">
+  <h4>🌡️ 温度分时段参考（4月初）</h4>
+  <ul>
+    <li>☀️ <b>白天 10:00-16:00</b> — 22-25°C，体感温热。<b>短袖/薄长袖</b>即可，但太阳落山秒变冷</li>
+    <li>🌅 <b>傍晚 17:00-19:00</b> — 15-18°C，看日落时<b>必须带厚外套</b>（女神湾湖边风大体感更冷）</li>
+    <li>🌙 <b>夜间/清晨 20:00-08:00</b> — <b>7-10°C</b>，湖边体感可低至3-5°。车内睡觉开空调没问题，但<b>出车拍星空/看日出</b>要穿冬装</li>
+  </ul>
+</div>
+
+<div class="poi">
+  <h4>👕 建议穿搭清单（洋葱穿法·随时加减）</h4>
+  <ul>
+    <li>👔 <b>速干T恤/短袖 ×2</b> — 白天穿。纯棉的出汗不干，速干材质更舒服</li>
+    <li>🧥 <b>薄款冲锋衣/防风外套 ×1</b> — <b>白天必备！</b>防风+防小雨+防晒三合一。高原风大，单穿短袖吹一会就冷</li>
+    <li>🧣 <b>厚款抓绒/羽绒内胆 ×1</b> — 看日落+看星空+清晨日出穿。<b>这件是关键！没有它你会后悔</b></li>
+    <li>👖 <b>长裤 ×2</b> — 建议速干运动裤或牛仔裤。环湖走路+上下车方便。<b>不建议穿短裤</b>（早晚冷+防蚊+草丛刮腿）</li>
+    <li>🩴 <b>运动鞋/徒步鞋 ×1</b> — 走婚桥/情人滩踩水可能湿脚，<b>带一双拖鞋/凉鞋</b>备用</li>
+    <li>🧢 <b>遮阳帽/渔夫帽 ×1</b> — 高原紫外线极强！<b>不戴帽子2h就晒伤</b>。宽檐最好</li>
+    <li>🕶 <b>墨镜/偏光镜 ×1</b> — 湖面反射+高原强光=眼睛受不了。开车防眩光也需要</li>
+    <li>🧤 <b>薄手套 ×1</b>（可选）— 清晨拍照时手冻得按不了快门，有一双就舒服多了</li>
+  </ul>
+</div>
+
+<div class="poi">
+  <h4>👗 拍照穿搭建议（泸沽湖出片神器）</h4>
+  <ul>
+    <li>📸 <b>白色/浅色系上衣</b> — 泸沽湖蓝绿色湖水+白色衣服=最出片组合。小红书爆款机位标配</li>
+    <li>📸 <b>红色/橘色围巾/披肩</b> — 搭配蓝天碧湖超亮眼。走婚桥上拍照绝了</li>
+    <li>📸 <b>民族风长裙</b>（女生·可选）— 配合摩梭文化氛围，里格半岛/走婚桥拍照超有感觉。但注意防风，湖边风大会走光</li>
+    <li>📸 <b>避免深色/黑色全身</b> — 蓝色湖水+深色衣服拍出来很暗沉</li>
+  </ul>
+</div>
+
+<div class="tip"><b>💡 穿衣核心原则：</b>洋葱式穿法！随身背个小包，装一件厚外套+帽子+墨镜。白天热了脱，傍晚秒穿。<b>宁可多带不要少带</b>，高原降温比你想的快。<br>
+<b>床车过夜穿衣：</b>车内开空调22-24°睡很舒服，穿平时睡衣即可。但<b>半夜出车上厕所要披厚外套</b>，湖边夜间只有5-7°。</div>
 
 <h2 id="sec-charge">🔌 充电规划（本路线最关键！）</h2>
 <div class="warn"><b>⚠️ 西昌→泸沽湖250km全是山路(G348/S307)，800+弯道，限速40-60km/h，山路电耗比高速高30-50%。250km山路≈350-400km高速电耗。必须在西昌和盐源两个点充满！</b></div>
