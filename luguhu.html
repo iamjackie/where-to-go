@@ -50,7 +50,16 @@ h3{font-size:1.05em;margin:20px 0 8px;color:var(--accent)}
 .badge-a{display:inline-block;background:#10b98128;color:#34d399;border:1px solid #059669;padding:2px 10px;border-radius:12px;font-size:.76em;margin-left:4px}
 .badge-b{display:inline-block;background:#8b5cf628;color:#a78bfa;border:1px solid #8b5cf6;padding:2px 10px;border-radius:12px;font-size:.76em;margin-left:4px}
 footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-top:1px solid var(--border);margin-top:36px}
-@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 12px;font-size:.8em}}
+.pic-btn{display:inline-flex;align-items:center;gap:4px;font-size:.72em;padding:2px 8px;border-radius:8px;background:#38bdf815;color:var(--accent);border:1px solid #38bdf850;cursor:pointer;text-decoration:none;margin-left:6px;transition:all .2s}
+.pic-btn:hover{background:#38bdf830;text-decoration:none}
+.gallery{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.gallery a{display:block;width:80px;height:56px;border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:transform .2s;background:var(--card2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.7em;text-decoration:none}
+.gallery a:hover{transform:scale(1.08);border-color:var(--accent)}
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:999;justify-content:center;align-items:center;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90%;max-height:85vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.lightbox .close-lb{position:absolute;top:16px;right:24px;color:#fff;font-size:2em;cursor:pointer}
+@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 12px;font-size:.8em}.gallery a{width:60px;height:42px}}
 </style></head><body>
 <a class="back" href="index.html">← 返回方案总览</a>
 <div class="hero">
@@ -102,48 +111,48 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <p style="color:var(--muted);font-size:.86em">环湖一圈68km·路况好(铺装路面)·自驾边走边停约4-5h。</p>
 
 <div class="spot">
-  <h4>❶ 四川情人滩 ⭐</h4>
+  <h4>❶ 四川情人滩 ⭐ <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖情人滩" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-free">免费</span><span class="t-time">20-30min</span><span class="t-drive">有路边停车</span></div>
   <p>白色细沙+渐变蓝绿湖水，泸沽湖四川侧最美沙滩。赤脚踩水拍照极出片。<b>上午顺光最佳。</b>小红书热门打卡点。</p>
 </div>
 <div class="spot">
-  <h4>❷ 格姆女神山 ⭐（可坐索道）</h4>
+  <h4>❷ 格姆女神山 ⭐（可坐索道） <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖格姆女神山索道" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-pay">索道90元/人</span><span class="t-time">索道+山顶1.5-2h</span><span class="t-drive">景区有停车场</span></div>
   <p>摩梭神山海拔3754m。索道到山腰女神洞+<b>"天空之镜"观景台</b>(2025新增·360°俯瞰泸沽湖全景·刷爆朋友圈的机位)。<b>推荐坐索道</b>，山顶视角是环湖路上看不到的。时间紧可跳过，把时间留给里格和日落。</p>
 </div>
 <div class="spot">
-  <h4>❸ 里格半岛 ⭐⭐⭐ 泸沽湖第一名片！</h4>
+  <h4>❸ 里格半岛 ⭐⭐⭐ 泸沽湖第一名片！ <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖里格半岛" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-free">免费</span><span class="t-time">30-60min+</span><span class="t-drive">村口停车场10元</span></div>
   <p><b>泸沽湖最标志性景点！</b>三面环水的小半岛，摩梭木屋+精品客栈。从<b>里格观景台</b>（免费）俯拍=所有宣传照的机位。走下去逛半岛+湖边发呆+咖啡馆。<b>日落时半岛被金光笼罩最美。</b><br>
   📸 拍照提示：里格观景台俯拍最经典；下午光线好。<br>
   🏨 里格半岛上精品客栈是泸沽湖住宿<b>最佳位置</b>（也最贵·清明300-600元/晚）。</p>
 </div>
 <div class="spot">
-  <h4>❹ 大落水村 · 篝火晚会</h4>
+  <h4>❹ 大落水村 · 篝火晚会 <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖篝火晚会摩梭" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-pay">篝火30元/人</span><span class="t-time">晚会1-1.5h·20:00开始</span></div>
   <p>最大村落，吃住选择最多。晚上<b>摩梭篝火晚会</b>——围着篝火跳锅庄舞/甲搓舞，游客可加入。气氛非常欢乐。💰 约30元/人，推荐体验。</p>
 </div>
 <div class="spot">
-  <h4>❺ 草海 + 走婚桥 ⭐⭐⭐ 最诗意之地</h4>
+  <h4>❺ 草海 + 走婚桥 ⭐⭐⭐ 最诗意之地 <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖草海走婚桥" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-free">免费</span><span class="t-time">30-60min</span><span class="t-drive">有停车场·有卫生间</span></div>
   <p><b>草海</b>：泸沽湖湾中长满水草的浅水区，春夏翠绿如绿毯。<b>走婚桥</b>：横跨草海的约300m木栈桥，摩梭"走婚"文化象征。<br>
   <b>日落时最美：</b>夕阳把草海染成金黄色，走婚桥剪影倒映水面，美到窒息。<br>
   📸 最佳时间：17:00-18:30。旁边有卫生间和小商店，是<b>床车过夜好选择</b>。</p>
 </div>
 <div class="spot">
-  <h4>❻ 女神湾 ⭐⭐⭐ 日落第一位！</h4>
+  <h4>❻ 女神湾 ⭐⭐⭐ 日落第一位！ <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖女神湾日落" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-free">免费</span><span class="t-time">日落前40min到</span><span class="t-drive">有停车位</span></div>
   <p>又叫赵家湾，泸沽湖西岸，正对格姆女神山。<b>公认的泸沽湖看日落NO.1</b>——湖面蓝→金→橘红→玫瑰紫，约40min。<b>4月日落约18:30-19:00</b>，建议17:30到占位。<br>
   安静无商业，光污染几乎为零。是<b>发呆放空+床车过夜绝佳点(银河肉眼可见!)</b>。</p>
 </div>
 <div class="spot">
-  <h4>❼ 猪槽船 ⭐⭐ 必体验</h4>
+  <h4>❼ 猪槽船 ⭐⭐ 必体验 <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖猪槽船" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-pay">拼船50-80元/人·包船200-300元</span><span class="t-time">30-40min</span></div>
   <p>摩梭传统独木舟。湖水见底(能见度12m+)，船如悬浮。船夫唱摩梭情歌。清晨有晨雾时最梦幻。<br>
   ⚠️ <b>避坑：</b>不要找路边拉客的！在正规码头(里格/大落水/洛洼码头)买票。"包船100元全程"的多半中途加价。按人头收费的正规码头最靠谱。</p>
 </div>
 <div class="spot">
-  <h4>❽ 泸沽湖观景台（景区入口前）</h4>
+  <h4>❽ 泸沽湖观景台（景区入口前） <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖观景台全景" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-free">免费(景区外)</span><span class="t-time">15-20min</span></div>
   <p>进景区前的全景俯瞰点。第一次看到泸沽湖全貌——碧蓝湖面+雪山+湖中岛屿，<b>震撼到说不出话</b>。必停拍照。</p>
 </div>
@@ -187,6 +196,19 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
   <p class="cons">❌ 需下高速·凌晨找充电桩不便</p>
 </div>
 
+<div class="food">
+  <h4>🔥 石棉美食：如果下高速到县城（~23:00前），先来一顿石棉烧烤！</h4>
+  <p>石棉烧烤是四川烧烤界"顶流"，2021年入选<b>四川省天府旅游美食候选</b>。80年代矿区工人融合藏彝饮食创制。特色是<b>"火上飘"</b>——浸泡调料油汤的肉片放上铁板，火苗瞬间灼熟锁住肉汁！</p>
+  <ul>
+    <li>🔥 <b>叶凤烧烤</b> — 本地人首推老店·依大渡河而建·窗外河景·串串+火上飘+铁板烧。携程高评分。人均60-80元。</li>
+    <li>🔥 <b>姜家烤鸡</b> — 整只鸡烤得外酥里嫩金黄流油·石棉招牌·离高速出口近。</li>
+    <li>🔥 <b>贡嘎山烤鸡</b> — 藏香猪+烤鸡·大众点评好评。</li>
+    <li>🔥 <b>左岸特色网烧</b> — 网烧(石棉特色)·菜品新鲜。</li>
+  </ul>
+  <p>📍 石棉县城高速出口附近烧烤店密集。<b>如果23:30后到太晚了</b>，服务区泡面解决，明天西昌再大吃。<br>
+  🍗 石棉另一特色：<b>草科鸡</b>（草科温泉鸡·贡嘎山南坡散养·一鸡三吃：鸡汤+凉拌+爆炒）——但草科镇离石棉县城1h车程，这次路过不方便去，下次专程！</p>
+</div>
+
 <div class="day-hdr">Day 1 · 4/4 周六 — 石棉→西昌(2.5h)→吃饭→泸沽湖(5h) ☀️</div>
 <div class="step">
   <div class="time">😴 07:30 起床·简单早餐</div>
@@ -226,6 +248,17 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
   <div class="time">⚡🍎 ~15:00 盐源县城 补电（20-30min）+买苹果</div>
   <div class="desc">行驶约170km到盐源。<b>快充补至80%+</b>。搜索"国网盐源充电站"或"特来电盐源"。趁机买<b>盐源苹果</b>(3-5元/斤·又脆又甜)，上厕所休息。</div>
 </div>
+<div class="food">
+  <h4>🍎 盐源美食（补电20min期间可尝尝）</h4>
+  <p><b>盐源苹果</b>是必买（全国有名·离太阳最近的苹果·3-5元/斤）。如果补电时间稍长，县城还有：</p>
+  <ul>
+    <li>🍖 <b>盐源坨坨肉</b> — 彝族传统·大块肉水煮蘸辣椒面·粗犷豪迈</li>
+    <li>🍜 <b>盐源凉粉</b> — 当地人气小吃·农贸市场附近·配洋芋(炸土豆)一起吃</li>
+    <li>🥩 <b>盐源满肉(红烧肉)</b> — 盐源传统名菜·选用本地优质猪肉·肥而不腻</li>
+    <li>🐑 <b>羊肉火锅</b> — 当地山羊肉·高原放养·鲜嫩·人均50-70元</li>
+  </ul>
+  <p>📍 充电站附近一般有小馆子。但如果赶时间，买几个苹果路上吃即可，午饭留到泸沽湖。</p>
+</div>
 <div class="step">
   <div class="time">📸 ~17:30 泸沽湖观景台（震撼第一眼！）</div>
   <div class="desc">翻过最后一座山头，进景区前路边有<b>全景观景台</b>（免费·有停车位）。第一次俯瞰整个泸沽湖——碧蓝如宝石+远处雪山+湖中岛屿，<b>震撼到说不出话</b>。必停拍照15min。</div>
@@ -236,8 +269,24 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 </div>
 <div class="step">
   <div class="time">⚡🍽 ~18:00 到达大落水村 · 充电+晚饭</div>
-  <div class="desc"><b>第一件事找充电桩！</b>搜索"泸沽湖景区充电站"(丽江交通集团·3快充6枪)或蔚来换电站。插上充电去吃饭。<br>
-  🍽 <b>摩梭猪膘肉</b>(腌制风干猪肉·摩梭族传统·口感像腊肉更香)、<b>湖鱼酸菜汤</b>(鲜)、<b>荞麦粑粑</b>(蘸蜂蜜)、<b>苏里玛酒</b>(摩梭自酿甜酒·度数低)。人均40-60元。</div>
+  <div class="desc"><b>第一件事找充电桩！</b>搜索"泸沽湖景区充电站"(丽江交通集团·3快充6枪)或蔚来换电站。插上充电去吃饭。</div>
+</div>
+<div class="food">
+  <h4>🍽 泸沽湖·大落水村餐厅推荐</h4>
+  <p><b>摩梭特色菜必点：</b></p>
+  <ul>
+    <li>🥩 <b>摩梭猪膘肉(琵琶肉)</b> — 整猪腌制风干·切片蒸/煎·肥而不腻·口感像升级版腊肉·摩梭人招待贵客的头号菜·48-68元/份</li>
+    <li>🐟 <b>蒸汽石锅鱼/湖鱼酸菜汤</b> — 泸沽湖鲜鱼·鲜嫩·68-98元/锅</li>
+    <li>🫓 <b>荞麦粑粑</b> — 荞麦面饼·蘸蜂蜜吃·清香·10-15元</li>
+    <li>🍶 <b>苏里玛酒</b> — 摩梭自酿甜酒·度数低(约5°)·微甜好喝·10-15元/碗·开车的少喝</li>
+    <li>🩸 <b>猪血肠</b> — 米饭+猪血+韭菜灌肠·泸沽湖独有</li>
+  </ul>
+  <p><b>推荐餐厅：</b></p>
+  <ul>
+    <li>⭐ <b>品味泸沽湖餐厅(大落水店)</b> — 携程当地风味榜No.1·评分4.9·159条点评·人均88元·摩梭铜锅宴+琵琶肉+疯狂椒麻鱼·有摩梭乐队演出·环境泸沽湖最好·📍大落水村停车场旁2楼</li>
+    <li>⭐ <b>阿妈菌香园土鸡火锅</b> — 大落水村内·高原菌菇+土鸡·汤鲜味美·好评如潮·人均50-70元</li>
+    <li>🔥 <b>摩梭火焰烧烤</b> — 大众点评推荐·摩梭烤肉+高原牦牛肉+土猪五花·蘸灵魂酱料·📍湖滨路距大落水码头步行240m·晚餐首选</li>
+  </ul>
 </div>
 <div class="step">
   <div class="time">🌅 ~18:30-19:00 赶上日落！</div>
@@ -353,8 +402,18 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <div class="scenic">
   <h4>🛑 返程走走停停（缓解长途疲劳）</h4>
   <p><b>① 安顺场·红军渡</b>（石棉下高速11km）— 红军强渡大渡河遗址，纪念馆<b>免费</b>，古镇逛1-1.5h。顺路不绕。<br>
-  <b>② 汉源湖</b>（汉源下高速即到）— "小泸沽湖"，碧绿湖面+山峦倒影，<b>免费</b>拍照20-30min。汉源黄牛肉也有名。<br>
+  <b>② 汉源湖</b>（汉源下高速即到）— "小泸沽湖"，碧绿湖面+山峦倒影，<b>免费</b>拍照20-30min。<br>
   停1-2个点既休息了又不浪费。</p>
+</div>
+<div class="food">
+  <h4>🍽 返程沿途美食推荐</h4>
+  <ul>
+    <li>🥩 <b>汉源九襄黄牛肉</b> — <b>四川省天府旅游美食</b>·茶马古道传承·高山放养黄牛·斤称煮着吃·肉质细嫩·人均60-80元。汉源县城/九襄镇有100+家黄牛肉馆，下高速即到。<b>强烈推荐！</b></li>
+    <li>🌶 <b>汉源贡椒鱼</b> — 汉源花椒全国闻名(贡品级)·用本地花椒做的花椒鱼·麻鲜交织·人均50-70元</li>
+    <li>🫙 <b>汉源坛子肉</b> — 传统瓦罐炖肉·肥而不腻·酥烂入味·当地特色</li>
+    <li>🍒 <b>汉源甜樱桃</b> — 4月初可能有早熟品种·路边有卖·3-5元/斤·顺路买一袋</li>
+    <li>🔥 <b>石棉烧烤</b> — 如果去时没吃到，返程在石棉补上！叶凤烧烤/姜家烤鸡（详见Day0推荐）</li>
+  </ul>
 </div>
 
 <div class="step">
