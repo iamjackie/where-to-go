@@ -366,6 +366,15 @@
 <!-- ==================== 总览表格 ==================== -->
 <div class="summary-table">
 <h2 style="margin-bottom:16px;font-size:1.3em;">&#128202; 全部方案天气速览（4/4六·4/5日·4/6一）<span style="font-size:.6em;color:var(--muted);font-weight:400;margin-left:8px;">3/31中央气象台更新</span></h2>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;font-size:.78em;color:var(--muted);">
+  <span>&#9728;&#65039; 晴</span>
+  <span>&#127780; 多云</span>
+  <span>&#9925; 阴</span>
+  <span style="color:#60a5fa">&#127782;&#65039; 阵雨(短暂·影响小)</span>
+  <span style="color:#fbbf24">&#127783;&#65039; 小雨(可出行)</span>
+  <span style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨(影响较大)</span>
+  <span style="color:#ef4444">&#128168; 大雨(不建议出行)</span>
+</div>
 <table>
 <thead>
 <tr>
@@ -375,7 +384,11 @@
   <th>车程</th>
   <th style="min-width:135px">4/4 周六 &#127775;</th>
   <th style="min-width:135px">4/5 周日 &#127775;</th>
-  <th style="min-width:135px">4/6<tbody>
+  <th style="min-width:135px">4/6 周一 &#127775;</th>
+  <th style="min-width:120px">三日综评</th>
+</tr>
+</thead>
+<tbody>
 <!-- 川西 -->
 <tr>
   <td style="text-align:left;font-weight:600;">&#9312; 四姑娘山·丹巴</td><td>川西</td><td style="color:#34d399">近</td><td>4-5h</td>
@@ -384,7 +397,7 @@
 </tr>
 <tr>
   <td style="text-align:left;font-weight:600;">&#9313; 康定·新都桥</td><td>川西</td><td style="color:#fbbf24">中</td><td>5-6h</td>
-  <td>&#9925; 阴<br>17°~3°</td><td>&#127783;&#65039; <b>雨</b><br>18°~1°</td><td>&#127783;&#65039; 雨转多云<br>15°~1°</td>
+  <td>&#9925; 阴<br>17°~3°</td><td>&#127783;&#65039; 小到中雨<br>18°~1°</td><td>&#127783;&#65039; 小雨转多云<br>15°~1°</td>
   <td><span class="weather-score score-bad">&#9925;&#127783;&#127783; 阴+雨·冷</span></td>
 </tr>
 <tr>
@@ -400,7 +413,7 @@
 <!-- 北向 -->
 <tr>
   <td style="text-align:left;font-weight:600;">&#9316; 广元剑门关</td><td>北</td><td style="color:#34d399">近</td><td>3-4h</td>
-  <td>&#9925; <b>阴</b><br>24°~15°</td><td>&#127783;&#65039; <b>雨</b><br>17°~13°</td><td>&#127783;&#65039; 雨转阴<br>16°~11°</td>
+  <td>&#9925; <b>阴</b><br>24°~15°</td><td>&#127783;&#65039; <b>小到中雨</b><br>17°~13°</td><td>&#127783;&#65039; 小雨转阴<br>16°~11°</td>
   <td><span class="weather-score score-bad">&#9925;&#127783;&#127783; 阴+2雨!</span></td>
 </tr>
 <tr style="background:#05966908;">
@@ -411,12 +424,12 @@
 <!-- 东向 -->
 <tr>
   <td style="text-align:left;font-weight:600;">&#9318; 重庆武隆</td><td>东</td><td style="color:#fbbf24">中</td><td>5-6h</td>
-  <td>&#127783;&#65039; <b>雨</b><br>21°~16°</td><td>&#127783;&#65039; <b>雨</b><br>20°~17°</td><td>&#127783;&#65039; <b>雨</b><br>22°~16°</td>
-  <td><span class="weather-score score-bad">&#127783;&#127783;&#127783; 3天全雨!</span></td>
+  <td>&#127783;&#65039; 小到中雨<br>21°~16°</td><td>&#127783;&#65039; 小到中雨<br>20°~17°</td><td>&#127783;&#65039; 小到中雨<br>22°~16°</td>
+  <td><span class="weather-score score-bad">&#127783;&#127783;&#127783; 3天连续雨!</span></td>
 </tr>
 <tr>
   <td style="text-align:left;font-weight:600;">&#9319; 恩施大峡谷</td><td>东</td><td style="color:#ef4444">远</td><td>7h+</td>
-  <td>&#127783;&#65039; <b>雨</b><br>23°~16°</td><td>&#127783;&#65039; <b>雨</b><br>19°~15°</td><td>&#9925; 阴<br>18°~14°</td>
+  <td>&#127783;&#65039; 小到中雨<br>23°~16°</td><td>&#127783;&#65039; 小到中雨<br>19°~15°</td><td>&#9925; 阴<br>18°~14°</td>
   <td><span class="weather-score score-bad">&#127783;&#127783;&#9925; 2雨1阴·远</span></td>
 </tr>
 <tr>
@@ -432,7 +445,7 @@
 <!-- 南向 -->
 <tr>
   <td style="text-align:left;font-weight:600;"><a href="xichang.html" style="color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;">&#9322; 西昌邛海</a></td><td>南</td><td style="color:#fbbf24">中</td><td>5-6h</td>
-  <td>&#9925; 多云转阵雨<br>29°~13°</td><td>&#127783;&#65039; 阵雨转小雨<br>28°~15°</td><td>&#9728;&#65039; <b>晴</b><br>28°~14°</td>
+  <td>&#127782;&#65039; 多云转阵雨<br>29°~13°</td><td>&#127782;&#65039; 阵雨转小雨<br>28°~15°</td><td>&#9728;&#65039; <b>晴</b><br>28°~14°</td>
   <td><span class="weather-score score-ok">&#9925;&#127783;&#9728; 前雨后晴</span></td>
 </tr>
 <tr style="background:#05966908;">
@@ -454,13 +467,13 @@
 </tr>
 <tr>
   <td style="text-align:left;font-weight:600;">&#9326; 赤水丹霞</td><td>贵州</td><td style="color:#34d399">近</td><td>4h</td>
-  <td>&#127783;&#65039; <b>雨</b><br>21°~18°</td><td>&#9925; 阴转雨<br>22°~18°</td><td>&#127783;&#65039; <b>雨</b><br>22°~17°</td>
-  <td><span class="weather-score score-bad">&#127783;&#127783;&#127783; 3天雨!</span></td>
+  <td>&#127783;&#65039; 小到中雨<br>21°~18°</td><td>&#9925; 阴转小雨<br>22°~18°</td><td>&#127783;&#65039; 小到中雨<br>22°~17°</td>
+  <td><span class="weather-score score-bad">&#127783;&#127783;&#127783; 3天连续雨!</span></td>
 </tr>
 <tr>
   <td style="text-align:left;font-weight:600;">&#9327; 遵义→赤水</td><td>贵州</td><td style="color:#fbbf24">中</td><td>5-6h</td>
-  <td>&#127783;&#65039; <b>雨</b><br>21°~14°</td><td>&#127783;&#65039; <b>雨</b><br>17°~13°</td><td>&#127783;&#65039; <b>雨</b><br>20°~14°</td>
-  <td><span class="weather-score score-bad">&#127783;&#127783;&#127783; 3天全雨!</span></td>
+  <td>&#127783;&#65039; 小到中雨<br>21°~14°</td><td>&#127783;&#65039; 小到中雨<br>17°~13°</td><td>&#127783;&#65039; 小到中雨<br>20°~14°</td>
+  <td><span class="weather-score score-bad">&#127783;&#127783;&#127783; 3天连续雨!</span></td>
 </tr>
 </tbody>
 </table>
