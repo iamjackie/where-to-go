@@ -4,7 +4,7 @@
 <title>⑪ 西昌邛海·螺髻山 保姆级攻略 | 纯电SUV床车</title>
 <style>
 :root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--border:#475569;--sun:#f59e0b;--green:#10b981;--red:#ef4444;--blue:#3b82f6}
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:16px}body{font-family:-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
 a{color:var(--accent)}a:hover{text-decoration:underline}
 .back{display:inline-block;padding:12px 24px;font-size:.9em}
 .hero{background:linear-gradient(135deg,#0f172a,#2d1810,#0f172a);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
@@ -50,7 +50,29 @@ h3{font-size:1.05em;margin:20px 0 8px;color:var(--accent)}
 footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-top:1px solid var(--border);margin-top:36px}
 .pic-btn{display:inline-flex;align-items:center;gap:4px;font-size:.72em;padding:2px 8px;border-radius:8px;background:#38bdf815;color:var(--accent);border:1px solid #38bdf850;cursor:pointer;text-decoration:none;margin-left:6px;transition:all .2s}
 .pic-btn:hover{background:#38bdf830;text-decoration:none}
-@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 14px;font-size:.82em}}
+/* 可折叠区块 */
+details.section{background:var(--card);border:1px solid var(--border);border-radius:12px;margin:12px 0;overflow:hidden}
+details.section summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.98em;color:var(--text);list-style:none;display:flex;align-items:center;gap:8px;user-select:none;transition:background .2s}
+details.section summary:hover{background:var(--card2)}
+details.section summary::before{content:'▶';font-size:.7em;color:var(--accent);transition:transform .25s;flex-shrink:0}
+details.section[open] summary::before{transform:rotate(90deg)}
+details.section summary::-webkit-details-marker{display:none}
+details.section .section-body{padding:0 18px 16px;border-top:1px solid var(--border)}
+details.section .section-body .poi,details.section .section-body .warn,details.section .section-body .tip{margin:10px 0;border-radius:10px}
+/* TOC 导航条 — 两行flex-wrap + 可拖拽 */
+.toc-wrap{position:relative;margin-bottom:6px}
+.toc-nav{display:flex;flex-wrap:wrap;gap:8px;padding:14px 0 10px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.toc-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.toc-nav a:hover,.toc-nav a:active{background:var(--accent);color:var(--bg);border-color:var(--accent);text-decoration:none}
+/* 浮动导航 */
+.float-nav{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:100}
+.float-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1em;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:all .2s;text-decoration:none}
+.float-btn:hover{background:var(--accent);color:var(--bg);transform:scale(1.1);text-decoration:none}
+.float-btn.top-btn{opacity:0;pointer-events:none;transition:opacity .3s}
+.float-btn.top-btn.show{opacity:1;pointer-events:auto}
+/* 打印样式 */
+@media print{body{background:#fff;color:#000}.hero{background:#f0f0f0;-webkit-text-fill-color:#000}.c,.poi,.food,.stay,.charge,.tip,.warn,.scenic,.step{background:#f8f8f8;border-color:#ddd;color:#000}.poi p,.poi ul,.food p,.food ul,.stay p,.charge p,.step .desc{color:#333}.float-nav,.back,.pic-btn,.tab-btn,.toc-nav{display:none!important}details.section{border:none}details.section .section-body{display:block!important;border-top:none}details.section summary::before{display:none}h2{break-before:auto}a{color:#1a73e8}}
+@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 14px;font-size:.82em}.float-nav{bottom:16px;right:12px}.float-btn{width:38px;height:38px;font-size:.95em}}
 </style></head><body>
 <a class="back" href="index.html">← 返回方案总览</a>
 <a class="back" href="checklist.html" style="float:right;color:#fbbf24;">📋 物品清单 →</a>
@@ -60,7 +82,22 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 </div>
 <div class="c">
 
-<h2>☀️ 三天天气 <span style="font-size:.6em;color:var(--muted);font-weight:400">3/31中央气象台更新</span></h2>
+<div class="toc-wrap">
+<nav class="toc-nav" id="tocNav">
+  <a href="#sec-weather">☀️ 天气</a>
+  <a href="#sec-scenery">🛤 沿途风景</a>
+  <a href="#sec-charge">🔌 充电</a>
+  <a href="#sec-plan">📋 行程</a>
+  <a href="#sec-budget">💰 费用</a>
+  <a href="#sec-tips">⚠️ 避坑</a>
+  <a href="#sec-sos">🆘 应急</a>
+  <a href="#sec-offline">📴 离线</a>
+  <a href="#sec-navi">📍 导航</a>
+  <a href="#sec-info">📡 实用</a>
+</nav>
+</div>
+
+<h2 id="sec-weather">☀️ 三天天气 <span style="font-size:.6em;color:var(--muted);font-weight:400">3/31中央气象台更新</span></h2>
 <div class="wd-bar">
   <div class="wd"><div class="dt">4/4 周六</div><div class="ic">⛅</div><div class="tp">29°/13°</div><div class="ds">多云转阵雨</div></div>
   <div class="wd"><div class="dt">4/5 周日</div><div class="ic">🌦</div><div class="tp">28°/15°</div><div class="ds">阵雨转小雨</div></div>
@@ -69,7 +106,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <div class="tip"><b>⚠️ 天气有变化！</b>4/4-5有阵雨/小雨可能，<b>4/6转晴</b>。白天仍有28-29°高温，紫外线强。<b>雨不大(阵雨为主)，不影响骑行和游玩</b>，但建议带一把伞。纯电开空调过夜无压力。<br>
 <b>行程建议：</b>4/4如果下雨→室内活动(建昌古城/火盆烧烤/泡温泉)；4/5雨中骑行也别有风味；4/6晴天安排螺髻山最佳。</div>
 
-<h2>🛤 沿途风景：雅西高速——央视评选"中国最美高速天路"</h2>
+<h2 id="sec-scenery">🛤 沿途风景：雅西高速——央视评选"中国最美高速天路"</h2>
 <p style="color:var(--muted);font-size:.88em;margin-bottom:12px">雅西高速全程穿越崇山峻岭，翻越泥巴山、拖乌山，跨越大渡河，海拔从700m爬升至2200m，每前进1km平均爬升7.5m。沿途本身就是风景！</p>
 
 <div class="scenic">
@@ -93,7 +130,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
   <p>红军强渡大渡河遗址。"翼王悲剧地，红军胜利场"——1863年石达开兵败于此，72年后红军在同一渡口强渡成功。<b>全国首批红色旅游景区</b>。纪念馆免费参观。古镇可逛1-2h。<b>距石棉服务区仅11km</b>，返程顺路去非常方便。</p>
 </div>
 
-<h2>🔌 充电规划</h2>
+<h2 id="sec-charge">🔌 充电规划</h2>
 <div class="charge">
   <h4>📍 雅西高速沿途充电桩（已确认）</h4>
   <p><b>① 荥经服务区</b>(~160km) — <b>国网8桩快充60kW</b>·雅西高速首个充电站(2020年投运)·<b>首选补电点</b><br>
@@ -109,7 +146,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <div class="tip"><b>500-600km续航策略：</b>满电出发→荥经服务区补电(160km处·快充20-30min)→直达西昌(剩余280km)。回程同理。全程无焦虑。</div>
 
 <!-- ==================== 两种方案Tab ==================== -->
-<h2>📋 行程方案（两种选择）</h2>
+<h2 id="sec-plan">📋 行程方案（两种选择）</h2>
 
 <div class="tabs">
   <div class="tab-btn active" onclick="switchTab('chill')">😴 轻松版（推荐）<span class="route-badge badge-chill">石棉过夜·不赶路</span></div>
@@ -208,7 +245,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 
 <div class="step">
   <div class="time">🌙 20:30 邛海夜景散步 + 营地过夜</div>
-  <div class="desc">饭后在邛海边散步，看星空。西昌海拔1500m+空气通透，<b>远离路灯处肉眼可见银河</b>。回营地/停车场开空调睡觉。</div>
+  <div class="desc">饭后在邛海边散步，看星空。西昌海拔1500m+空气通透，<b>远离路灯处繁星满天（4月初有月光·银河核心不明显·但比城市星空壮观太多）</b>。回营地/停车场开空调睡觉。</div>
 </div>
 
 <h3>🅿️ 西昌过夜点详细对比</h3>
@@ -384,27 +421,154 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 
 </div><!-- end tab-rush -->
 
-<h2>💰 费用预估（2人·轻松版）</h2>
+<h2 id="sec-budget">💰 费用预估（轻松版）</h2>
 <div class="poi">
-<table style="width:100%;font-size:.86em;color:var(--muted)">
-<tr><td>高速通行费</td><td style="text-align:right;color:#34d399"><b>免费</b>(清明)</td></tr>
-<tr><td>充电(全程~900km)</td><td style="text-align:right">~120-180元</td></tr>
-<tr><td>邛海湿地</td><td style="text-align:right;color:#34d399">免费(租车~90元)</td></tr>
-<tr><td>螺髻山(门票65+索道130)×2</td><td style="text-align:right">390元</td></tr>
-<tr><td>温泉瀑布138×2(可选)</td><td style="text-align:right">276元</td></tr>
-<tr><td>餐饮3天(烧烤+醉虾+日常)</td><td style="text-align:right">600-900元</td></tr>
-<tr><td>床车过夜</td><td style="text-align:right;color:#34d399">0元</td></tr>
-<tr style="font-weight:700;color:var(--text);border-top:1px solid var(--border)"><td>合计</td><td style="text-align:right">~1200-1800元/2人</td></tr>
-<tr><td style="color:var(--muted)">如住一晚酒店</td><td style="text-align:right">+200-500元</td></tr>
+<table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+<thead><tr style="border-bottom:2px solid var(--border)">
+  <th style="text-align:left;padding:8px 6px;color:var(--text)">项目</th>
+  <th style="text-align:right;padding:8px 6px;color:var(--accent);width:100px">👤 1人</th>
+  <th style="text-align:right;padding:8px 6px;color:#a78bfa;width:100px">👥 2人</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:6px">高速通行费</td><td style="text-align:right;color:#34d399;padding:6px"><b>免费</b></td><td style="text-align:right;color:#34d399;padding:6px"><b>免费</b></td></tr>
+<tr><td style="padding:6px">充电 (全程~900km)</td><td style="text-align:right;padding:6px">120-180</td><td style="text-align:right;padding:6px">120-180 <span style="font-size:.75em;color:var(--accent)">共摊</span></td></tr>
+<tr><td style="padding:6px">邛海湿地 (免费·租车)</td><td style="text-align:right;padding:6px">~50</td><td style="text-align:right;padding:6px">~90 <span style="font-size:.75em">(双人车)</span></td></tr>
+<tr><td style="padding:6px">螺髻山 (门票65+索道130)</td><td style="text-align:right;padding:6px">195</td><td style="text-align:right;padding:6px">390</td></tr>
+<tr><td style="padding:6px">温泉瀑布 138/人 <span style="font-size:.8em;color:var(--muted)">(可选)</span></td><td style="text-align:right;padding:6px;opacity:.6">138</td><td style="text-align:right;padding:6px;opacity:.6">276</td></tr>
+<tr><td style="padding:6px">餐饮3天 (烧烤+醉虾+日常)</td><td style="text-align:right;padding:6px">300-500</td><td style="text-align:right;padding:6px">600-900</td></tr>
+<tr><td style="padding:6px">床车过夜</td><td style="text-align:right;color:#34d399;padding:6px">0</td><td style="text-align:right;color:#34d399;padding:6px">0</td></tr>
+<tr style="font-weight:700;color:var(--text);border-top:2px solid var(--border)"><td style="padding:8px 6px">💰 合计</td><td style="text-align:right;padding:8px 6px;color:var(--accent)">~700-1000元</td><td style="text-align:right;padding:8px 6px;color:#a78bfa">~1200-1800元</td></tr>
+<tr><td style="padding:6px;opacity:.7">如住一晚酒店</td><td style="text-align:right;padding:6px;opacity:.7">+200-500</td><td style="text-align:right;padding:6px;opacity:.7">+200-500</td></tr>
+</tbody>
 </table>
+<p style="font-size:.82em;color:var(--muted);margin-top:10px">💡 <b>省钱提示：</b>充电费两人共摊·门票/餐饮按人头。不去温泉瀑布可省 138-276元。人均来看 2人同行更划算。</p>
 </div>
 
-<h2>⚠️ 避坑提示</h2>
+<h2 id="sec-tips">⚠️ 避坑提示</h2>
 <div class="warn"><b>泸山猴子：</b>非常多且胆大！不要拿塑料袋、不要手持食物露出、手机抓紧，有人被抢过手机。</div>
 <div class="warn"><b>螺髻山不要步行上山：</b>步行4km/3-4h纯爬且无风景，到山顶已没体力游览。必须坐索道。</div>
 <div class="warn"><b>邛海醉虾：</b>含酒精，开车的人别吃。</div>
 <div class="tip"><b>防晒！</b>西昌海拔1500m紫外线极强，一天不涂防晒就晒伤。SPF50+防晒霜+墨镜+帽子。</div>
 
+<details class="section" id="sec-sos">
+<summary>🆘 紧急联系 &amp; 救援信息</summary>
+<div class="section-body">
+<div class="warn" style="border-left-color:#ef4444;background:linear-gradient(135deg,#1e293b,#2a1520);">
+  <b>🚨 紧急电话（提前存入手机通讯录！）</b><br>
+  📞 <b>全国高速救援：12122</b>（雅西高速适用·免费拖车到最近出口）<br>
+  📞 <b>交警/报警：110</b> ｜ 急救：<b>120</b> ｜ 火警：<b>119</b><br>
+  📞 <b>道路救援(品牌)：</b>蔚来400-999-6699 ｜ 特斯拉400-910-0707 ｜ 比亚迪400-8986-789 ｜ 小鹏400-819-3388 ｜ 理想400-686-0900<br>
+  📞 <b>保险公司救援：</b>人保95518 ｜ 平安95511 ｜ 太平洋95500（大多免费拖车100km）
+</div>
+<div class="poi">
+  <h4>🏥 沿途医院（以防万一）</h4>
+  <ul>
+    <li><b>石棉县人民医院</b> — 📍高德搜索"石棉县人民医院" ｜ 📞 0835-8862244 ｜ 距高速出口5min</li>
+    <li><b>西昌市人民医院</b> — 📍九眼桥上顺城街 ｜ 📞 0834-3222481 ｜ 三甲·综合急救中心</li>
+    <li><b>西昌凉山州第一人民医院</b> — 📍下顺城街 ｜ 📞 0834-3225965 ｜ 三甲</li>
+    <li><b>普格县人民医院</b>（螺髻山方向） — 📞 0834-4773234</li>
+    <li><b>汉源县人民医院</b>（返程） — 📍 九襄镇 ｜ 📞 0835-4382652</li>
+  </ul>
+</div>
+<div class="tip"><b>💡 保险提醒：</b>建议出发前购买<b>3天短期出行意外险</b>（支付宝/微信搜"旅行险"·10-30元/人·覆盖意外+医疗+道路救援）。螺髻山海拔4000m属于高原活动，确认保险覆盖高原运动。</div>
+</div>
+</details>
+
+<details class="section" id="sec-offline">
+<summary>📴 离线预案（泸沽湖方向极重要·西昌段也请准备）</summary>
+<div class="section-body">
+<div class="warn"><b>⚠️ 山区信号差！</b>石棉→西昌段雅西高速<b>多处隧道无信号</b>（泥巴山隧道10km/拖乌山隧道群）。到了再查就晚了！</div>
+<div class="poi">
+  <h4>📱 出发前必做（在家Wi-Fi下完成）</h4>
+  <ul>
+    <li>📥 <b>高德地图 → 离线地图</b>：下载"四川省"离线包（约600MB）。或至少下载：雅安市+凉山州</li>
+    <li>📸 <b>充电桩位置截图</b>：在高德/特来电APP搜好沿途充电桩，<b>截图保存到手机相册</b>（荥经/石棉/冕宁/西昌市区）</li>
+    <li>📸 <b>本攻略截图/离线保存</b>：用浏览器"保存为PDF"或"添加到主屏幕"。<b>信号差时打不开网页！</b></li>
+    <li>📝 <b>关键电话存手机</b>：上面的救援电话+医院电话+预订酒店电话</li>
+    <li>📋 <b>行程告知家人</b>：把行程路线+预计时间发给家人/朋友，每天报平安</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-navi">
+<summary>📍 导航搜索关键词（一键复制搜索）</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>🗺 关键地点·高德/百度直接搜</h4>
+  <ul>
+    <li>⚡ <b>"荥经服务区充电站"</b> — 雅西高速首个充电点</li>
+    <li>⚡ <b>"石棉服务区"</b> — 过夜首选+充电</li>
+    <li>🔥 <b>"石棉叶凤烧烤"</b> — 到店导航</li>
+    <li>🔥 <b>"石棉姜家烤鸡"</b> — 离高速出口近</li>
+    <li>⚡ <b>"西昌万达广场停车场"</b> — 快充+24h</li>
+    <li>🅿️ <b>"邛海观海路房车自驾游露营地"</b> — 床车过夜首选</li>
+    <li>🅿️ <b>"邛海古城停车场"</b> — 备选过夜点</li>
+    <li>🚲 <b>"邛海梦里水乡湿地"</b> — 骑行起点</li>
+    <li>🔥 <b>"西昌藿香烧烤"</b> — 火盆烧烤首选</li>
+    <li>🔥 <b>"西昌黑哥烧烤"</b> — 火盆烧烤备选</li>
+    <li>⛰ <b>"螺髻山景区游客中心"</b> — 导航终点</li>
+    <li>♨️ <b>"螺髻九十九里温泉瀑布"</b> — 温泉景区</li>
+    <li>🏛 <b>"西昌卫星发射中心"</b> — 返程可选</li>
+    <li>🏛 <b>"石棉安顺场古镇"</b> — 返程红色景点</li>
+    <li>🌊 <b>"汉源湖湿地公园"</b> — 返程拍照</li>
+    <li>🥩 <b>"汉源九襄黄牛肉"</b> — 返程午餐</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-info" open>
+<summary>📡 实用信息</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>📶 手机信号情况</h4>
+  <ul>
+    <li><b>成都→石棉（雅西高速）：</b>大部分有信号，<b>泥巴山隧道(10km)和拖乌山隧道群短暂无信号</b></li>
+    <li><b>石棉→西昌：</b>信号基本正常，个别隧道短暂断网</li>
+    <li><b>西昌市区：</b>4G/5G全覆盖，无忧</li>
+    <li><b>螺髻山景区：</b>山上信号弱，索道区域基本有信号，山顶湖泊区域信号时断时续</li>
+    <li>📡 <b>运营商：</b>电信 > 移动 > 联通（凉山州电信基站最多）</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🏧 现金 & ATM</h4>
+  <p>西昌市区微信/支付宝全覆盖，基本不需要现金。但以下场景<b>可能需要现金</b>：</p>
+  <ul>
+    <li>路边水果摊（汉源樱桃/盐源苹果）——部分老人只收现金</li>
+    <li>部分农家乐/小餐馆</li>
+    <li>停车费（个别小停车场）</li>
+  </ul>
+  <p>💰 建议随身带<b>200-300元现金零钱</b>即可。石棉/西昌/汉源县城均有银行ATM。</p>
+</div>
+<div class="poi">
+  <h4>🏔 海拔与高原反应</h4>
+  <ul>
+    <li><b>西昌市区 1500m</b> — 无高反风险</li>
+    <li><b>螺髻山山顶 3500-4000m</b> — <b>可能轻微高反！</b>症状：头疼、气喘、心跳加速</li>
+    <li><b>应对：</b>走慢一点、不要剧烈运动、多喝水、备<b>葡萄糖口服液</b>（药店2-3元/支）</li>
+    <li><b>可选预防：</b>出发前3天开始服用<b>红景天</b>（药店/网购·仅预防作用）</li>
+    <li>⚠️ 有心脑血管疾病的老人<b>不建议上螺髻山</b></li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🛣 清明高速 & 返程拥堵预警</h4>
+  <ul>
+    <li>🆓 <b>清明高速免费时间：4/3(周四) 00:00 至 4/6(周一) 24:00</b>（7座以下小客车免费）</li>
+    <li>⚠️ <b>返程拥堵预警：</b>4/6下午14:00-20:00雅西高速北段（石棉→雅安）<b>可能较堵</b>（历史数据）</li>
+    <li>💡 <b>建议：</b>4/6上午早出发（8:30-9:30出发最佳），或者避开高峰18:00后出发晚到家</li>
+    <li>📍 <b>易堵点：</b>雅安南收费站、荥经段弯道限速区域</li>
+  </ul>
+</div>
+</div>
+</details>
+
+</div>
+<div class="float-nav">
+  <a class="float-btn top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</a>
+  <a class="float-btn" href="index.html" title="总览">🏠</a>
+  <a class="float-btn" href="luguhu.html" title="泸沽湖攻略">🌊</a>
+  <a class="float-btn" href="checklist.html" title="物品清单">📋</a>
 </div>
 <footer>保姆级攻略 · 2026.3.31 · 天气:中央气象台/中国天气网 · 充电:国网/实测 · 美食:大众点评/小红书<br><a href="index.html">← 返回总览</a> · <a href="checklist.html" style="color:#fbbf24;">📋 物品清单</a> · <a href="luguhu.html">泸沽湖攻略 →</a></footer>
 
@@ -415,5 +579,9 @@ function switchTab(id){
   document.getElementById('tab-'+id).classList.add('active');
   const btn=event.target.closest('.tab-btn');if(btn)btn.classList.add('active');
 }
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('topBtn');
+  if(window.scrollY>600)btn.classList.add('show');else btn.classList.remove('show');
+});
 </script>
 </body></html>

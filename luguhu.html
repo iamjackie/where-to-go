@@ -4,7 +4,7 @@
 <title>⑫ 西昌→泸沽湖 保姆级攻略 | 纯电SUV床车</title>
 <style>
 :root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--border:#475569;--sun:#f59e0b;--green:#10b981;--red:#ef4444;--blue:#3b82f6}
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:16px}body{font-family:-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
 a{color:var(--accent)}a:hover{text-decoration:underline}
 .back{display:inline-block;padding:12px 24px;font-size:.9em}
 .hero{background:linear-gradient(135deg,#0f172a,#0c2340,#0f172a);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
@@ -59,7 +59,29 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 .lightbox.active{display:flex}
 .lightbox img{max-width:90%;max-height:85vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
 .lightbox .close-lb{position:absolute;top:16px;right:24px;color:#fff;font-size:2em;cursor:pointer}
-@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 12px;font-size:.8em}.gallery a{width:60px;height:42px}}
+/* 可折叠区块 */
+details.section{background:var(--card);border:1px solid var(--border);border-radius:12px;margin:12px 0;overflow:hidden}
+details.section summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.98em;color:var(--text);list-style:none;display:flex;align-items:center;gap:8px;user-select:none;transition:background .2s}
+details.section summary:hover{background:var(--card2)}
+details.section summary::before{content:'▶';font-size:.7em;color:var(--accent);transition:transform .25s;flex-shrink:0}
+details.section[open] summary::before{transform:rotate(90deg)}
+details.section summary::-webkit-details-marker{display:none}
+details.section .section-body{padding:0 18px 16px;border-top:1px solid var(--border)}
+details.section .section-body .poi,details.section .section-body .warn,details.section .section-body .tip{margin:10px 0;border-radius:10px}
+/* TOC 导航条 — 两行flex-wrap + 可拖拽 */
+.toc-wrap{position:relative;margin-bottom:6px}
+.toc-nav{display:flex;flex-wrap:wrap;gap:8px;padding:14px 0 10px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.toc-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.toc-nav a:hover,.toc-nav a:active{background:var(--accent);color:var(--bg);border-color:var(--accent);text-decoration:none}
+/* 浮动导航 */
+.float-nav{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:100}
+.float-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1em;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:all .2s;text-decoration:none}
+.float-btn:hover{background:var(--accent);color:var(--bg);transform:scale(1.1);text-decoration:none}
+.float-btn.top-btn{opacity:0;pointer-events:none;transition:opacity .3s}
+.float-btn.top-btn.show{opacity:1;pointer-events:auto}
+/* 打印样式 */
+@media print{body{background:#fff;color:#000}.hero{background:#f0f0f0;-webkit-text-fill-color:#000}.c,.poi,.food,.stay,.charge,.tip,.warn,.scenic,.spot,.step{background:#f8f8f8;border-color:#ddd;color:#000}.poi p,.poi ul,.food p,.food ul,.stay p,.charge p,.step .desc,.spot p{color:#333}.float-nav,.back,.pic-btn,.tab-btn,.toc-nav{display:none!important}details.section{border:none}details.section .section-body{display:block!important;border-top:none}details.section summary::before{display:none}h2{break-before:auto}a{color:#1a73e8}}
+@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 12px;font-size:.8em}.gallery a{width:60px;height:42px}.float-nav{bottom:16px;right:12px}.float-btn{width:38px;height:38px;font-size:.95em}}
 </style></head><body>
 <a class="back" href="index.html">← 返回方案总览</a>
 <a class="back" href="checklist.html" style="float:right;color:#fbbf24;">📋 物品清单 →</a>
@@ -71,7 +93,25 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 </div>
 <div class="c">
 
-<h2>☀️ 泸沽湖三天天气 <span style="font-size:.6em;color:var(--muted);font-weight:400">3/31中央气象台更新</span></h2>
+<div class="toc-wrap">
+<nav class="toc-nav" id="tocNav">
+  <a href="#sec-weather">☀️ 天气</a>
+  <a href="#sec-charge">🔌 充电</a>
+  <a href="#sec-spots">🗺 景点</a>
+  <a href="#sec-plan">📋 行程</a>
+  <a href="#sec-compare">📊 对比</a>
+  <a href="#sec-budget">💰 费用</a>
+  <a href="#sec-tips">⚠️ 避坑</a>
+  <a href="#sec-road">🚗 山路安全</a>
+  <a href="#sec-chargeplan">⚡ 充电应急</a>
+  <a href="#sec-sos">🆘 应急</a>
+  <a href="#sec-offline">📴 离线</a>
+  <a href="#sec-navi">📍 导航</a>
+  <a href="#sec-info">📡 实用</a>
+</nav>
+</div>
+
+<h2 id="sec-weather">☀️ 泸沽湖三天天气 <span style="font-size:.6em;color:var(--muted);font-weight:400">3/31中央气象台更新</span></h2>
 <div class="wd-bar">
   <div class="wd"><div class="dt">4/4 周六</div><div class="ic">☀️</div><div class="tp">24°/7°</div><div class="ds">晴</div></div>
   <div class="wd"><div class="dt">4/5 周日</div><div class="ic">⛅</div><div class="tp">22°/7°</div><div class="ds">多云</div></div>
@@ -80,7 +120,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <div class="tip"><b>天气依然很好！</b>泸沽湖(盐源)三天以晴/多云为主，<b>无雨！</b>白天22-25°短袖+外套，<b>早晚7°厚外套</b>（纯电开空调过夜无压力）。<b>紫外线极强</b>：高原+水面反射=双倍暴晒，SPF50+防晒+墨镜+帽子必备。<br>
 <b>注意：</b>西昌4/4-5有阵雨，但泸沽湖这边天气好。Plan A经过西昌时可能遇到小雨，不影响赶路。</div>
 
-<h2>🔌 充电规划（本路线最关键！）</h2>
+<h2 id="sec-charge">🔌 充电规划（本路线最关键！）</h2>
 <div class="warn"><b>⚠️ 西昌→泸沽湖250km全是山路(G348/S307)，800+弯道，限速40-60km/h，山路电耗比高速高30-50%。250km山路≈350-400km高速电耗。必须在西昌和盐源两个点充满！</b></div>
 
 <div class="charge">
@@ -109,7 +149,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 </div>
 <div class="tip"><b>总充电次数：</b>去程2-3次(荥经+西昌+盐源) + 泸沽湖1-2次 + 返程3次(盐源+西昌+荥经) ≈ 6-8次。每次20-30min。<b>出发前在高德/特来电APP截图保存充电桩位置</b>（山区信号弱）。</div>
 
-<h2>🗺 泸沽湖环湖8大必去景点</h2>
+<h2 id="sec-spots">🗺 泸沽湖环湖8大必去景点</h2>
 <p style="color:var(--muted);font-size:.86em">环湖一圈68km·路况好(铺装路面)·自驾边走边停约4-5h。</p>
 
 <div class="spot">
@@ -145,7 +185,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
   <h4>❻ 女神湾 ⭐⭐⭐ 日落第一位！ <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖女神湾日落" target="_blank">📷 查看实景</a></h4>
   <div class="tags"><span class="t-free">免费</span><span class="t-time">日落前40min到</span><span class="t-drive">有停车位</span></div>
   <p>又叫赵家湾，泸沽湖西岸，正对格姆女神山。<b>公认的泸沽湖看日落NO.1</b>——湖面蓝→金→橘红→玫瑰紫，约40min。<b>4月日落约18:30-19:00</b>，建议17:30到占位。<br>
-  安静无商业，光污染几乎为零。是<b>发呆放空+床车过夜绝佳点(银河肉眼可见!)</b>。</p>
+  安静无商业，光污染几乎为零。是<b>发呆放空+床车过夜绝佳点(满天繁星可见（月光较亮·银河核心不清晰）!)</b>。</p>
 </div>
 <div class="spot">
   <h4>❼ 猪槽船 ⭐⭐ 必体验 <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=泸沽湖猪槽船" target="_blank">📷 查看实景</a></h4>
@@ -162,7 +202,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <div class="tip"><b>📸 拍照光线指南：</b>上午东岸顺光(情人滩·女神山最佳) → 下午/傍晚西岸日落(女神湾·草海走婚桥最佳)。<b>安排好方向出最好的片！</b></div>
 
 <!-- ==================== 两个Plan Tab ==================== -->
-<h2>📋 行程方案</h2>
+<h2 id="sec-plan">📋 行程方案</h2>
 <div class="tabs">
   <div class="tab-btn active" onclick="switchTab('a')">Plan A：西昌吃饭+当天到泸沽湖<span class="badge-a">推荐·3天</span></div>
   <div class="tab-btn" onclick="switchTab('b')">Plan B：跳过西昌直奔泸沽湖<span class="badge-b">3天·极简版</span></div>
@@ -271,7 +311,8 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 </div>
 <div class="step">
   <div class="time">⚡🍽 ~18:00 到达大落水村 · 充电+晚饭</div>
-  <div class="desc"><b>第一件事找充电桩！</b>搜索"泸沽湖景区充电站"(丽江交通集团·3快充6枪)或蔚来换电站。插上充电去吃饭。</div>
+  <div class="desc"><b>第一件事找充电桩！</b>搜索"泸沽湖景区充电站"(丽江交通集团·3快充6枪)或蔚来换电站。插上充电。<br>
+  ⏱ <b>抉择时刻：</b>如果到达时天色还亮（18:00前），<b>建议先不吃饭</b>，快速开到女神湾(15km/20min)赶上日落尾巴！看完日落再回大落水吃。如果已经天黑了就直接吃饭。</div>
 </div>
 <div class="food">
   <h4>🍽 泸沽湖·大落水村餐厅推荐</h4>
@@ -300,14 +341,14 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 </div>
 <div class="step">
   <div class="time">🌙 21:30 湖边过夜 · 银河之夜</div>
-  <div class="desc">开到过夜点。泸沽湖光污染极低，关灯抬头——<b>银河肉眼可见！</b>西南地区最佳观星地之一。开空调舒适入眠。</div>
+  <div class="desc">开到过夜点。泸沽湖光污染极低，关灯抬头——<b>满天繁星（4月初月亮较亮，银河核心不清晰，但星空依然比城市壮观太多）</b>西南地区最佳观星地之一。开空调舒适入眠。</div>
 </div>
 
 <h3>🅿️ 泸沽湖过夜点详细对比</h3>
 <div class="stay">
   <h4>① 女神湾停车场 ⭐首选·最浪漫</h4>
   <p>📍 泸沽湖西岸赵家湾 | 距大落水约15km/20min车程</p>
-  <p class="pros">✅ 极安静·面湖·日落/日出双景·光污染几乎为零(银河!)·有停车空间·不收费·拍星空绝佳</p>
+  <p class="pros">✅ 极安静·面湖·日落/日出双景·光污染几乎为零(繁星！（月光洒湖面也很美）)·有停车空间·不收费·拍星空绝佳</p>
   <p class="cons">❌ 无卫生间(需自备应急)·无充电桩·远离商店和餐馆·距大落水15km</p>
 </div>
 <div class="stay">
@@ -353,7 +394,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <div class="step">
   <div class="time">☕ 13:30-17:00 环湖西线+南线 + 自由时间</div>
   <div class="desc">下午走西线和南线。<b>下午西岸光线适合拍日落方向的照片。</b><br>
-  ❺ <b>走婚桥+草海</b>(免费·30-60min·晨光/日落都美) → ❻ 洛洼码头(安静区域) → 沿西岸各观景台拍照<br><br>
+  ❺ <b>走婚桥+草海</b>(免费·30-60min·晨光/日落都美) → 洛洼码头(安静区域) → 沿西岸各观景台拍照<br><br>
   <b>或者下午自由安排：</b><br>
   · 在里格半岛找一家<b>湖景咖啡馆</b>坐一下午（推荐"半岛咖啡"等·30-40元一杯·窗外就是碧蓝湖水）<br>
   · 去<b>达祖村</b>看摩梭族非遗体验（2025新开放·了解走婚文化·免费）<br>
@@ -472,7 +513,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 
 </div><!-- end tab-b -->
 
-<h2>📊 Plan A vs Plan B 对比</h2>
+<h2 id="sec-compare">📊 Plan A vs Plan B 对比</h2>
 <table class="vs-table">
 <tr><th></th><th>Plan A (西昌吃饭+当天到湖)</th><th>Plan B (跳过西昌直奔)</th></tr>
 <tr><td style="text-align:left"><b>总天数</b></td><td>3天(4/4-6·不请假)</td><td>3天(4/4-6·不请假)</td></tr>
@@ -485,7 +526,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 <tr><td style="text-align:left"><b>推荐度</b></td><td style="color:#fbbf24">⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
 </table>
 
-<h2>🏨 住宿区域对比（如果想住一晚酒店/客栈）</h2>
+<h2 id="sec-stay">🏨 住宿区域对比（如果想住一晚酒店/客栈）</h2>
 <table class="vs-table">
 <tr><th>区域</th><th>特点</th><th>价格(清明)</th><th>适合谁</th></tr>
 <tr><td style="text-align:left"><b>里格半岛</b></td><td style="text-align:left">最美位置·三面环水·日出日落都能看·精品客栈多</td><td>300-600元</td><td>想住最好位置的</td></tr>
@@ -495,31 +536,233 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 </table>
 <div class="tip"><b>订房提示：</b>清明假期建议提前1-2周在携程/美团预订。部分客栈有充电桩，订房时备注"纯电车需充电"问一下。里格半岛客栈数量有限，不预订可能住不到。</div>
 
-<h2>💰 费用预估（2人·Plan A）</h2>
+<h2 id="sec-budget">💰 费用预估（Plan A）</h2>
 <div class="poi">
-<table style="width:100%;font-size:.86em;color:var(--muted)">
-<tr><td>高速通行费</td><td style="text-align:right;color:#34d399"><b>免费</b>(清明)</td></tr>
-<tr><td>充电(全程~1400km·山路电耗高)</td><td style="text-align:right">~200-300元</td></tr>
-<tr><td>泸沽湖门票70×2</td><td style="text-align:right">140元</td></tr>
-<tr><td>猪槽船(拼船)~60×2</td><td style="text-align:right">120元</td></tr>
-<tr><td>格姆女神山索道(可选)90×2</td><td style="text-align:right">180元</td></tr>
-<tr><td>篝火晚会(可选)30×2</td><td style="text-align:right">60元</td></tr>
-<tr><td>西昌午餐(醉虾/烤鱼)</td><td style="text-align:right">~150元</td></tr>
-<tr><td>西昌返程烧烤午餐</td><td style="text-align:right">~150元</td></tr>
-<tr><td>泸沽湖餐饮2天</td><td style="text-align:right">400-600元</td></tr>
-<tr><td>床车过夜(开空调)</td><td style="text-align:right;color:#34d399">0元</td></tr>
-<tr style="font-weight:700;color:var(--text);border-top:1px solid var(--border)"><td>合计(纯床车版)</td><td style="text-align:right">~1400-1900元/2人</td></tr>
-<tr style="color:var(--muted)"><td>如住一晚客栈</td><td style="text-align:right">+200-600元</td></tr>
+<table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+<thead><tr style="border-bottom:2px solid var(--border)">
+  <th style="text-align:left;padding:8px 6px;color:var(--text)">项目</th>
+  <th style="text-align:right;padding:8px 6px;color:var(--accent);width:110px">👤 1人</th>
+  <th style="text-align:right;padding:8px 6px;color:#a78bfa;width:110px">👥 2人</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:6px">高速通行费</td><td style="text-align:right;color:#34d399;padding:6px"><b>免费</b></td><td style="text-align:right;color:#34d399;padding:6px"><b>免费</b></td></tr>
+<tr><td style="padding:6px">充电 (全程~1400km·山路电耗高)</td><td style="text-align:right;padding:6px">200-300</td><td style="text-align:right;padding:6px">200-300 <span style="font-size:.75em;color:var(--accent)">共摊</span></td></tr>
+<tr><td style="padding:6px">泸沽湖门票 70/人</td><td style="text-align:right;padding:6px">70</td><td style="text-align:right;padding:6px">140</td></tr>
+<tr><td style="padding:6px">猪槽船 (拼船) ~60/人</td><td style="text-align:right;padding:6px">60</td><td style="text-align:right;padding:6px">120</td></tr>
+<tr><td style="padding:6px">格姆女神山索道 90/人 <span style="font-size:.8em;color:var(--muted)">(可选)</span></td><td style="text-align:right;padding:6px;opacity:.6">90</td><td style="text-align:right;padding:6px;opacity:.6">180</td></tr>
+<tr><td style="padding:6px">篝火晚会 30/人 <span style="font-size:.8em;color:var(--muted)">(可选)</span></td><td style="text-align:right;padding:6px;opacity:.6">30</td><td style="text-align:right;padding:6px;opacity:.6">60</td></tr>
+<tr><td style="padding:6px">西昌午餐 (醉虾/烤鱼)</td><td style="text-align:right;padding:6px">60-80</td><td style="text-align:right;padding:6px">~150</td></tr>
+<tr><td style="padding:6px">西昌返程烧烤午餐</td><td style="text-align:right;padding:6px">80-100</td><td style="text-align:right;padding:6px">~150</td></tr>
+<tr><td style="padding:6px">泸沽湖餐饮2天</td><td style="text-align:right;padding:6px">200-350</td><td style="text-align:right;padding:6px">400-600</td></tr>
+<tr><td style="padding:6px">床车过夜 (开空调)</td><td style="text-align:right;color:#34d399;padding:6px">0</td><td style="text-align:right;color:#34d399;padding:6px">0</td></tr>
+<tr style="font-weight:700;color:var(--text);border-top:2px solid var(--border)"><td style="padding:8px 6px">💰 合计</td><td style="text-align:right;padding:8px 6px;color:var(--accent)">~800-1100元</td><td style="text-align:right;padding:8px 6px;color:#a78bfa">~1400-1900元</td></tr>
+<tr><td style="padding:6px;opacity:.7">如住一晚客栈</td><td style="text-align:right;padding:6px;opacity:.7">+200-600</td><td style="text-align:right;padding:6px;opacity:.7">+200-600</td></tr>
+</tbody>
 </table>
+<p style="font-size:.82em;color:var(--muted);margin-top:10px">💡 <b>省钱提示：</b>充电费不随人数增加·门票/船票按人头。不坐索道/不参加篝火可各省 90-180元。人均来看 2人同行更划算。</p>
 </div>
 
-<h2>⚠️ 避坑提示</h2>
+<h2 id="sec-tips">⚠️ 避坑提示</h2>
 <div class="warn"><b>盐源必须补电：</b>西昌→泸沽湖250km山路，电耗是高速的1.3-1.5倍。不在盐源补电可能趴窝！</div>
 <div class="warn"><b>猪槽船：</b>不要找路边拉客的！在正规码头(里格/大落水/洛洼)买票。"包船100元"的多半中途加价。</div>
 <div class="warn"><b>山路800+弯道：</b>西昌→泸沽湖全程弯道极多，容易晕车。准备晕车药/塑料袋。靠山一侧坐。</div>
 <div class="warn"><b>高原电池：</b>海拔2690m+山路，电池续航可能下降10-20%。充电时间可能略长。留余量！</div>
 <div class="tip"><b>防晒！</b>泸沽湖海拔2690m+水面反射=双倍紫外线。一天不涂防晒就晒伤。SPF50+防晒霜+墨镜+帽子。</div>
 
+<details class="section" id="sec-road" open>
+<summary>🚗 山路安全详细提示（西昌→泸沽湖·最关键！）</summary>
+<div class="section-body">
+<div class="warn" style="border-left-color:#ef4444;background:linear-gradient(135deg,#1e293b,#2a1520);">
+  <b>🚨 这段路不是开玩笑的！250km山路·800+弯道·限速40-60km/h</b><br>
+  全程翻越<b>磨盘山(1700m)+小高山垭口(3200m)</b>，连续回头弯、发卡弯、悬崖路段。<b>敬畏山路，安全第一！</b>
+</div>
+<div class="poi">
+  <h4>⚠️ 具体险段警示</h4>
+  <ul>
+    <li>🔴 <b>磨盘山连续回头弯（西昌出发~60km处）</b> — 从河谷急升至1700m，连续20+个回头弯。<b>弯道处必鸣笛！</b>注意对向来车。</li>
+    <li>🔴 <b>小高山垭口（~130km处·海拔3200m）</b> — 全程最高点。<b>会车困难路段</b>多处仅单车道宽度。遇到对向大车要提前找宽处避让。4月可能有路面结冰/积雪（早上7点前）。</li>
+    <li>🟡 <b>盐源→泸沽湖最后50km</b> — 路况相对好但弯道仍多，傍晚光线变暗注意开灯。</li>
+    <li>🔴 <b>全程禁止夜间行驶！！</b>山路无路灯、弯道无防护、对向车灯刺眼，<b>夜间出事概率翻10倍</b>。<b>必须天黑前到达目的地。</b></li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🛡️ 山路安全驾驶要点</h4>
+  <ul>
+    <li>✅ <b>限速40-60：</b>不要超速！弯道减速至20-30km/h</li>
+    <li>✅ <b>弯道鸣笛：</b>每个弯道前必按喇叭提醒对向车</li>
+    <li>✅ <b>保持车距：</b>与前车保持50m+距离，山路常有急刹</li>
+    <li>✅ <b>下坡用动能回收：</b>纯电优势！用强动能回收代替频繁踩刹车，避免刹车过热</li>
+    <li>✅ <b>不要长时间占道：</b>靠右行驶，山路弯道不超车</li>
+    <li>✅ <b>两人轮换驾驶：</b>每1.5-2h换一次，疲劳驾驶是山路第一杀手</li>
+    <li>✅ <b>备好晕车药+塑料袋：</b>副驾/后排极易晕车</li>
+    <li>⚠️ <b>雨天打滑：</b>如遇雨天，弯道路面湿滑→降速至限速的60%，开雾灯。如有落石路段标志→快速通过不要停留</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-chargeplan">
+<summary>⚡ 充电应急方案（趴窝了怎么办？）</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>🔋 如果盐源充电桩坏了/排队太久</h4>
+  <ul>
+    <li><b>方案A：</b>盐源县城内搜索<b>"特来电盐源"</b>或<b>"国网盐源"</b>，县城内有2-3个充电站分布，不止一个点</li>
+    <li><b>方案B：</b>盐源有部分酒店/餐馆提供<b>220V插座</b>，用<b>随车便携充电枪</b>应急充电（速度慢但能续命·充1h约跑15-20km）</li>
+    <li><b>方案C：</b>如果电量实在不够到泸沽湖，<b>不要硬撑！</b>在盐源住一晚慢充过夜，第二天满电再走</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🆘 如果半路趴窝了</h4>
+  <ul>
+    <li>📞 <b>第一步：打品牌救援热线</b>（蔚来/特斯拉/比亚迪等·见下方紧急电话）→ 品牌免费派移动充电车或拖车</li>
+    <li>📞 <b>第二步：保险公司</b>（人保95518/平安95511）→ 大多免费拖车100km</li>
+    <li>📞 <b>第三步：12122高速救援</b>（仅限高速路段·山路不适用）</li>
+    <li>💡 <b>预防：</b>西昌出发前充至100%，盐源补至80%+。<b>全程开ECO模式+强动能回收</b>，实际电耗可降低15-20%</li>
+    <li>💡 <b>关闭不必要耗电：</b>关座椅加热/方向盘加热/大音量音响，空调设26°而非20°</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-sos">
+<summary>🆘 紧急联系 &amp; 救援信息</summary>
+<div class="section-body">
+<div class="warn" style="border-left-color:#ef4444;background:linear-gradient(135deg,#1e293b,#2a1520);">
+  <b>🚨 紧急电话（提前存入手机通讯录！）</b><br>
+  📞 <b>全国高速救援：12122</b>（雅西高速适用）<br>
+  📞 <b>交警/报警：110</b> ｜ 急救：<b>120</b> ｜ 火警：<b>119</b><br>
+  📞 <b>道路救援(品牌)：</b>蔚来400-999-6699 ｜ 特斯拉400-910-0707 ｜ 比亚迪400-8986-789 ｜ 小鹏400-819-3388 ｜ 理想400-686-0900<br>
+  📞 <b>保险公司救援：</b>人保95518 ｜ 平安95511 ｜ 太平洋95500（大多免费拖车100km）
+</div>
+<div class="poi">
+  <h4>🏥 沿途医院</h4>
+  <ul>
+    <li><b>西昌市人民医院</b> — 📍九眼桥上顺城街 ｜ 📞 0834-3222481 ｜ 三甲</li>
+    <li><b>盐源县人民医院</b> — 📍盐源县城 ｜ 📞 0834-6362934</li>
+    <li><b>泸沽湖镇卫生院</b> — 📍泸沽湖镇 ｜ 仅基础医疗·<b>重症需送盐源或西昌</b></li>
+    <li><b>石棉县人民医院</b>（返程） — 📞 0835-8862244</li>
+    <li><b>汉源县人民医院</b>（返程） — 📞 0835-4382652</li>
+  </ul>
+  <p style="color:var(--red);font-size:.84em;margin-top:6px">⚠️ 泸沽湖景区内<b>无大型医院</b>，最近三甲在西昌（250km/5h车程）。出发前购买含<b>紧急医疗转运</b>的旅行险！</p>
+</div>
+<div class="tip"><b>💡 保险提醒：</b>建议购买<b>3天短期出行意外险</b>（支付宝/微信搜"旅行险"·10-30元/人）。确认覆盖：高原活动(2690m)+道路救援+紧急医疗转运。</div>
+</div>
+</details>
+
+<details class="section" id="sec-offline">
+<summary>📴 离线预案（本路线最重要！！）</summary>
+<div class="section-body">
+<div class="warn"><b>⚠️ 泸沽湖路上大段无信号！</b>西昌→盐源段山区<b>移动/联通几乎无信号</b>，电信稍好但也不稳定。盐源→泸沽湖段同样信号极差。<b>到了泸沽湖景区内大落水/里格有4G，但环湖路上很多区域无信号！</b></div>
+<div class="poi">
+  <h4>📱 出发前必做（在家/西昌Wi-Fi下完成！）</h4>
+  <ul>
+    <li>📥 <b>高德地图 → 离线地图</b>：下载<b>"四川省"+"云南省"</b>离线包（泸沽湖跨川滇）。约1.2GB但关键时刻救命</li>
+    <li>📸 <b>充电桩截图保存</b>：盐源充电站位置、泸沽湖景区充电站位置、蔚来换电站位置——全部截图！</li>
+    <li>📸 <b>本攻略保存离线</b>：浏览器"保存为PDF"或Safari"添加到主屏幕"。<b>山路上打不开任何网页！</b></li>
+    <li>📝 <b>关键电话存手机通讯录</b>：救援电话+医院+预订住宿+充电站客服</li>
+    <li>📋 <b>行程告知家人</b>：把路线+预计到达时间发家人群。约定"到泸沽湖后报平安"（路上可能失联4-5h）</li>
+    <li>🎵 <b>下载音乐/播客</b>：山路5h没信号，提前下好歌单/播客/有声书</li>
+    <li>💰 <b>提前买好泸沽湖门票</b>：微信搜"泸沽湖景区"公众号可提前购票，避免现场无网络无法支付</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-navi">
+<summary>📍 导航搜索关键词（一键复制搜索）</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>🗺 关键地点·高德/百度直接搜</h4>
+  <ul>
+    <li>⚡ <b>"西昌万达广场停车场"</b> — 出发前充满电</li>
+    <li>⚡ <b>"国网盐源充电站"</b> 或 <b>"特来电盐源"</b> — 中途补电关键点</li>
+    <li>⚡ <b>"泸沽湖景区充电站"</b> — 丽江交通集团·3快充6枪</li>
+    <li>⚡ <b>"蔚来换电站泸沽湖"</b> — 蔚来车主首选</li>
+    <li>🎫 <b>"泸沽湖景区四川入口"</b> — 购票入口</li>
+    <li>🏖 <b>"泸沽湖情人滩"</b> — 环湖第一站</li>
+    <li>🚡 <b>"格姆女神山索道"</b> — 索道乘坐点</li>
+    <li>🏝 <b>"里格半岛"</b> — 泸沽湖名片</li>
+    <li>🌉 <b>"泸沽湖走婚桥"</b> — 草海景点</li>
+    <li>🌅 <b>"女神湾/赵家湾"</b> — 日落第一位·过夜推荐</li>
+    <li>🅿️ <b>"泸沽湖大落水村停车场"</b> — 充电+过夜</li>
+    <li>🅿️ <b>"草海走婚桥停车场"</b> — 过夜备选</li>
+    <li>🍽 <b>"品味泸沽湖餐厅"</b> — 大落水最佳餐厅</li>
+    <li>🍽 <b>"阿妈菌香园"</b> — 菌菇土鸡火锅</li>
+    <li>🔥 <b>"西昌藿香烧烤"</b> — 返程午餐</li>
+    <li>🥩 <b>"汉源九襄黄牛肉"</b> — 返程美食</li>
+    <li>🏛 <b>"石棉安顺场古镇"</b> — 返程红色景点</li>
+    <li>🌊 <b>"汉源湖湿地公园"</b> — 返程拍照</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-info" open>
+<summary>📡 实用信息</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>📶 手机信号情况（非常重要）</h4>
+  <ul>
+    <li><b>西昌市区：</b>4G/5G全覆盖</li>
+    <li><b>西昌→盐源（山路170km）：</b>🔴 <b>大段无信号！</b>移动/联通基本无服务，电信有断续信号。<b>不要指望导航实时更新！</b></li>
+    <li><b>盐源县城：</b>4G正常</li>
+    <li><b>盐源→泸沽湖（80km）：</b>🟡 信号时有时无，最后20km进入景区后逐渐恢复</li>
+    <li><b>泸沽湖大落水/里格：</b>4G基本覆盖（电信最好）</li>
+    <li><b>环湖路上：</b>🟡 女神湾/草海/蒗放 区域信号弱或无</li>
+    <li>📡 <b>运营商排名：</b>电信 ≫ 移动 > 联通。<b>如果是联通用户建议开通"天际通"临时漫游或借一张电信卡</b></li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🏧 现金 & ATM</h4>
+  <p><b>泸沽湖部分消费需要现金！</b></p>
+  <ul>
+    <li>🚣 <b>猪槽船</b>——部分个体船夫只收现金（正规码头可扫码）</li>
+    <li>🔥 <b>篝火晚会</b>——30元/人部分收现金</li>
+    <li>🍎 路边水果摊/小摊贩</li>
+    <li>🅿️ 部分景点小型停车场</li>
+  </ul>
+  <p>💰 建议带<b>500元现金(含零钱)</b>。盐源县城有银行ATM，泸沽湖大落水有ATM但不保证有钱可取。<b>在西昌就取好现金！</b></p>
+</div>
+<div class="poi">
+  <h4>🏔 海拔与高原反应</h4>
+  <ul>
+    <li><b>西昌 1500m</b> — 无高反</li>
+    <li><b>小高山垭口 3200m</b>（路过·不停留） — 车内无感，下车拍照可能轻微气喘</li>
+    <li><b>泸沽湖 2690m</b> — 大部分人无明显反应，但<b>剧烈运动时</b>可能气喘/头疼</li>
+    <li><b>格姆女神山顶 3754m</b> — ⚠️ 可能有轻微高反</li>
+    <li><b>应对：</b>走慢一点、不剧烈运动、多喝水、备<b>葡萄糖口服液</b>（药店2-3元/支）</li>
+    <li><b>可选预防：</b>出发前3天服<b>红景天</b></li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🎫 门票预约提醒</h4>
+  <ul>
+    <li><b>泸沽湖门票 70元/人</b> — 微信搜"泸沽湖景区"公众号可提前购买。<b>清明节可能限流！建议提前1-2天购票</b></li>
+    <li><b>格姆女神山索道 90元/人</b> — 现场购买即可·清明排队约15-30min</li>
+    <li><b>篝火晚会 30元/人</b> — 现场购买·不需预约</li>
+    <li><b>猪槽船</b> — 现场正规码头购买即可</li>
+    <li>💡 <b>优惠政策：</b>60岁以上老人/军人/残疾人凭证件门票<b>免费</b>；学生票<b>半价35元</b></li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🛣 清明高速 & 返程拥堵预警</h4>
+  <ul>
+    <li>🆓 <b>清明高速免费时间：4/3(周四) 00:00 至 4/6(周一) 24:00</b>（7座以下小客车免费）</li>
+    <li>⚠️ <b>返程拥堵预警：</b>4/6下午14:00-20:00雅西高速北段（石棉→雅安）历史拥堵高发</li>
+    <li>💡 <b>建议：</b>泸沽湖→西昌这段不受影响（山路无拥堵），关键是<b>西昌→成都段</b>。尽量14:00前上雅西高速</li>
+    <li>⚠️ <b>注意：</b>4/6 24:00高速免费截止，<b>必须在24:00前通过最后一个收费站</b>！西昌→成都5.5h+停留，最晚17:00从西昌出发</li>
+  </ul>
+</div>
+</div>
+</details>
+
+</div>
+<div class="float-nav">
+  <a class="float-btn top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</a>
+  <a class="float-btn" href="index.html" title="总览">🏠</a>
+  <a class="float-btn" href="xichang.html" title="西昌攻略">🏖</a>
+  <a class="float-btn" href="checklist.html" title="物品清单">📋</a>
 </div>
 <footer>保姆级攻略 · 2026.3.31 · 天气:中央气象台/中国天气网 · 充电:国网/蔚来/丽江交通集团 · 景点:携程/马蜂窝/小红书/大众点评<br><a href="index.html">← 返回总览</a> · <a href="checklist.html" style="color:#fbbf24;">📋 物品清单</a> · <a href="xichang.html">西昌攻略 →</a></footer>
 
@@ -530,5 +773,9 @@ function switchTab(id){
   document.getElementById('tab-'+id).classList.add('active');
   const btn=event.target.closest('.tab-btn');if(btn)btn.classList.add('active');
 }
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('topBtn');
+  if(window.scrollY>600)btn.classList.add('show');else btn.classList.remove('show');
+});
 </script>
 </body></html>

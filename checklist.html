@@ -61,6 +61,13 @@ h3{font-size:1.05em;margin:20px 0 8px;color:var(--accent)}
 
 footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-top:1px solid var(--border);margin-top:36px}
 
+/* 浮动导航 */
+.float-nav{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:100}
+.float-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1em;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:all .2s;text-decoration:none}
+.float-btn:hover{background:var(--accent);color:var(--bg);transform:scale(1.1);text-decoration:none}
+.float-btn.top-btn{opacity:0;pointer-events:none;transition:opacity .3s}
+.float-btn.top-btn.show{opacity:1;pointer-events:auto}
+
 /* 打印样式 */
 @media print{
   body{background:#fff;color:#000}
@@ -68,7 +75,7 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
   .item-check{border-color:#999}
   .back,.progress-wrap{display:none}
 }
-@media(max-width:600px){.hero h1{font-size:1.4em}.tips-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.hero h1{font-size:1.4em}.tips-grid{grid-template-columns:1fr}.float-nav{bottom:16px;right:12px}.float-btn{width:38px;height:38px;font-size:.95em}}
 </style></head><body>
 <a class="back" href="index.html">← 返回方案总览</a>
 <div class="hero">
@@ -497,6 +504,12 @@ footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-
 📷 <b>攻略：</b>小红书 / 马蜂窝</div>
 
 </div>
+<div class="float-nav">
+  <a class="float-btn top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</a>
+  <a class="float-btn" href="index.html" title="总览">🏠</a>
+  <a class="float-btn" href="xichang.html" title="西昌攻略">🏖</a>
+  <a class="float-btn" href="luguhu.html" title="泸沽湖攻略">🌊</a>
+</div>
 <footer>床车出行物品清单 · 三天短途版 · 纯电SUV适配 · 2026.3<br><a href="index.html">← 返回总览</a></footer>
 
 <script>
@@ -544,5 +557,9 @@ function updateProgress() {
   });
   updateProgress();
 })();
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('topBtn');
+  if(window.scrollY>600)btn.classList.add('show');else btn.classList.remove('show');
+});
 </script>
 </body></html>
