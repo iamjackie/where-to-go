@@ -71,11 +71,11 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 /* TOC 导航条 — 标签筛选器 */
 .toc-wrap{position:sticky;top:0;z-index:50;background:var(--bg);margin:0 -20px;padding:0 20px;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .toc-nav{display:flex;flex-wrap:wrap;gap:6px;padding:12px 0 10px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
-.toc-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .25s;white-space:nowrap;-webkit-tap-highlight-color:transparent;cursor:pointer;user-select:none}
-.toc-nav a:hover{background:var(--card2);border-color:var(--accent);color:var(--accent);text-decoration:none}
-.toc-nav a.active{background:var(--accent);color:var(--bg);border-color:var(--accent);text-decoration:none;box-shadow:0 2px 8px rgba(56,189,248,.3)}
-.toc-nav a.show-all{background:transparent;border-style:dashed;color:var(--muted)}
-.toc-nav a.show-all:hover,.toc-nav a.show-all.active{background:var(--sun);color:var(--bg);border-color:var(--sun);border-style:solid}
+.toc-nav .toc-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .25s;white-space:nowrap;-webkit-tap-highlight-color:transparent;cursor:pointer;user-select:none}
+.toc-nav .toc-link:hover{background:var(--card2);border-color:var(--accent);color:var(--accent);text-decoration:none}
+.toc-nav .toc-link.active{background:var(--accent);color:var(--bg);border-color:var(--accent);text-decoration:none;box-shadow:0 2px 8px rgba(56,189,248,.3)}
+.toc-nav .toc-link.show-all{background:transparent;border-style:dashed;color:var(--muted)}
+.toc-nav .toc-link.show-all:hover,.toc-nav .toc-link.show-all.active{background:var(--sun);color:var(--bg);border-color:var(--sun);border-style:solid}
 /* 内容板块切换 */
 .content-section{transition:opacity .3s ease,max-height .3s ease}
 .content-section.hidden{display:none}
@@ -88,7 +88,7 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 .float-btn.top-btn{opacity:0;pointer-events:none;transition:opacity .3s}
 .float-btn.top-btn.show{opacity:1;pointer-events:auto}
 /* 打印样式 */
-@media print{body{background:#fff;color:#000}.hero{background:#f0f0f0;-webkit-text-fill-color:#000}.c,.poi,.food,.stay,.charge,.tip,.warn,.scenic,.spot,.step{background:#f8f8f8;border-color:#ddd;color:#000}.poi p,.poi ul,.food p,.food ul,.stay p,.charge p,.step .desc,.spot p{color:#333}.float-nav,.back,.pic-btn,.tab-btn,.toc-nav{display:none!important}details.section{border:none}details.section .section-body{display:block!important;border-top:none}details.section summary::before{display:none}h2{break-before:auto}a{color:#1a73e8}}
+@media print{body{background:#fff;color:#000}.hero{background:#f0f0f0;-webkit-text-fill-color:#000}.c,.poi,.food,.stay,.charge,.tip,.warn,.scenic,.spot,.step{background:#f8f8f8;border-color:#ddd;color:#000}.poi p,.poi ul,.food p,.food ul,.stay p,.charge p,.step .desc,.spot p{color:#333}.float-nav,.back,.pic-btn,.tab-btn,.toc-nav,.toc-wrap,.toc-link{display:none!important}.content-section.hidden{display:block!important}details.section{border:none}details.section .section-body{display:block!important;border-top:none}details.section summary::before{display:none}h2{break-before:auto}a{color:#1a73e8}}
 @media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 12px;font-size:.8em}.gallery a{width:60px;height:42px}.float-nav{bottom:16px;right:12px}.float-btn{width:38px;height:38px;font-size:.95em}}
 </style></head><body>
 <a class="back" href="index.html">← 返回方案总览</a>
@@ -103,23 +103,25 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 
 <div class="toc-wrap">
 <nav class="toc-nav" id="tocNav">
-  <a href="#sec-weather">☀️ 天气</a>
-  <a href="#sec-clothes">👗 穿衣</a>
-  <a href="#sec-charge">🔌 充电</a>
-  <a href="#sec-spots">🗺 景点</a>
-  <a href="#sec-plan">📋 行程</a>
-  <a href="#sec-compare">📊 对比</a>
-  <a href="#sec-budget">💰 费用</a>
-  <a href="#sec-tips">⚠️ 避坑</a>
-  <a href="#sec-road">🚗 山路安全</a>
-  <a href="#sec-chargeplan">⚡ 充电应急</a>
-  <a href="#sec-sos">🆘 应急</a>
-  <a href="#sec-offline">📴 离线</a>
-  <a href="#sec-navi">📍 导航</a>
-  <a href="#sec-info">📡 实用</a>
+  <span class="toc-link show-all active" data-section="all">📖 全部</span>
+  <span class="toc-link" data-section="sec-weather">☀️ 天气</span>
+  <span class="toc-link" data-section="sec-clothes">👗 穿衣</span>
+  <span class="toc-link" data-section="sec-charge">🔌 充电</span>
+  <span class="toc-link" data-section="sec-spots">🗺 景点</span>
+  <span class="toc-link" data-section="sec-plan">📋 行程</span>
+  <span class="toc-link" data-section="sec-compare">📊 对比</span>
+  <span class="toc-link" data-section="sec-budget">💰 费用</span>
+  <span class="toc-link" data-section="sec-tips">⚠️ 避坑</span>
+  <span class="toc-link" data-section="sec-road">🚗 山路</span>
+  <span class="toc-link" data-section="sec-chargeplan">⚡ 充电应急</span>
+  <span class="toc-link" data-section="sec-sos">🆘 应急</span>
+  <span class="toc-link" data-section="sec-offline">📴 离线</span>
+  <span class="toc-link" data-section="sec-navi">📍 导航</span>
+  <span class="toc-link" data-section="sec-info">📡 实用</span>
 </nav>
 </div>
 
+<div class="content-section" data-id="sec-weather">
 <h2 id="sec-weather">☀️ 泸沽湖三天天气 <span style="font-size:.6em;color:var(--muted);font-weight:400">3/31中央气象台更新</span></h2>
 <div class="wd-bar">
   <div class="wd"><div class="dt">4/4 周六</div><div class="ic">☀️</div><div class="tp">24°/7°</div><div class="ds">晴</div></div>
@@ -128,7 +130,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 <div class="tip"><b>天气依然很好！</b>泸沽湖(盐源)三天以晴/多云为主，<b>无雨！</b>白天22-25°短袖+外套，<b>早晚7°厚外套</b>（纯电开空调过夜无压力）。<b>紫外线极强</b>：高原+水面反射=双倍暴晒，SPF50+防晒+墨镜+帽子必备。<br>
 <b>注意：</b>西昌4/4-5有阵雨，但泸沽湖这边天气好。Plan A经过西昌时可能遇到小雨，不影响赶路。</div>
+</div>
 
+<div class="content-section" data-id="sec-clothes">
 <h2 id="sec-clothes">👗 穿衣指南（高原昼夜温差大！）</h2>
 <div class="warn"><b>⚠️ 泸沽湖海拔2690m，昼夜温差超15°！白天短袖+晚上棉服，别觉得夸张！高原一天能过四季。</b></div>
 
@@ -167,7 +171,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 
 <div class="tip"><b>💡 穿衣核心原则：</b>洋葱式穿法！随身背个小包，装一件厚外套+帽子+墨镜。白天热了脱，傍晚秒穿。<b>宁可多带不要少带</b>，高原降温比你想的快。<br>
 <b>床车过夜穿衣：</b>车内开空调22-24°睡很舒服，穿平时睡衣即可。但<b>半夜出车上厕所要披厚外套</b>，湖边夜间只有5-7°。</div>
+</div>
 
+<div class="content-section" data-id="sec-charge">
 <h2 id="sec-charge">🔌 充电规划（本路线最关键！）</h2>
 <div class="warn"><b>⚠️ 西昌→泸沽湖250km全是山路(G348/S307)，800+弯道，限速40-60km/h，山路电耗比高速高30-50%。250km山路≈350-400km高速电耗。必须在西昌和盐源两个点充满！</b></div>
 
@@ -196,7 +202,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
   返程约需8-9h（含充电吃饭）。</p>
 </div>
 <div class="tip"><b>总充电次数：</b>去程2-3次(荥经+西昌+盐源) + 泸沽湖1-2次 + 返程3次(盐源+西昌+荥经) ≈ 6-8次。每次20-30min。<b>出发前在高德/特来电APP截图保存充电桩位置</b>（山区信号弱）。</div>
+</div>
 
+<div class="content-section" data-id="sec-spots">
 <h2 id="sec-spots">🗺 泸沽湖环湖8大必去景点</h2>
 <p style="color:var(--muted);font-size:.86em">环湖一圈68km·路况好(铺装路面)·自驾边走边停约4-5h。</p>
 
@@ -248,12 +256,14 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 
 <div class="tip"><b>📸 拍照光线指南：</b>上午东岸顺光(情人滩·女神山最佳) → 下午/傍晚西岸日落(女神湾·草海走婚桥最佳)。<b>安排好方向出最好的片！</b></div>
+</div>
 
 <!-- ==================== 两个Plan Tab ==================== -->
+<div class="content-section" data-id="sec-plan">
 <h2 id="sec-plan">📋 行程方案</h2>
 <div class="tabs">
-  <div class="tab-btn active" onclick="switchTab('a')">Plan A：西昌吃饭+当天到泸沽湖<span class="badge-a">推荐·3天</span></div>
-  <div class="tab-btn" onclick="switchTab('b')">Plan B：跳过西昌直奔泸沽湖<span class="badge-b">3天·极简版</span></div>
+  <div class="tab-btn active" data-tab="a">Plan A：西昌吃饭+当天到泸沽湖<span class="badge-a">推荐·3天</span></div>
+  <div class="tab-btn" data-tab="b">Plan B：跳过西昌直奔泸沽湖<span class="badge-b">3天·极简版</span></div>
 </div>
 
 <!-- ===== Plan A ===== -->
@@ -560,7 +570,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 
 </div><!-- end tab-b -->
+</div>
 
+<div class="content-section" data-id="sec-compare">
 <h2 id="sec-compare">📊 Plan A vs Plan B 对比</h2>
 <table class="vs-table">
 <tr><th></th><th>Plan A (西昌吃饭+当天到湖)</th><th>Plan B (跳过西昌直奔)</th></tr>
@@ -583,7 +595,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 <tr><td style="text-align:left"><b>草海/洛洼</b></td><td style="text-align:left">离走婚桥近·晨雾最美·人少·新开发区域</td><td>150-300元</td><td>想小众体验的</td></tr>
 </table>
 <div class="tip"><b>订房提示：</b>清明假期建议提前1-2周在携程/美团预订。部分客栈有充电桩，订房时备注"纯电车需充电"问一下。里格半岛客栈数量有限，不预订可能住不到。</div>
+</div>
 
+<div class="content-section" data-id="sec-budget">
 <h2 id="sec-budget">💰 费用预估（Plan A）</h2>
 <div class="poi">
 <table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
@@ -609,14 +623,18 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </table>
 <p style="font-size:.82em;color:var(--muted);margin-top:10px">💡 <b>省钱提示：</b>充电费不随人数增加·门票/船票按人头。不坐索道/不参加篝火可各省 90-180元。人均来看 2人同行更划算。</p>
 </div>
+</div>
 
+<div class="content-section" data-id="sec-tips">
 <h2 id="sec-tips">⚠️ 避坑提示</h2>
 <div class="warn"><b>盐源必须补电：</b>西昌→泸沽湖250km山路，电耗是高速的1.3-1.5倍。不在盐源补电可能趴窝！</div>
 <div class="warn"><b>猪槽船：</b>不要找路边拉客的！在正规码头(里格/大落水/洛洼)买票。"包船100元"的多半中途加价。</div>
 <div class="warn"><b>山路800+弯道：</b>西昌→泸沽湖全程弯道极多，容易晕车。准备晕车药/塑料袋。靠山一侧坐。</div>
 <div class="warn"><b>高原电池：</b>海拔2690m+山路，电池续航可能下降10-20%。充电时间可能略长。留余量！</div>
 <div class="tip"><b>防晒！</b>泸沽湖海拔2690m+水面反射=双倍紫外线。一天不涂防晒就晒伤。SPF50+防晒霜+墨镜+帽子。</div>
+</div>
 
+<div class="content-section" data-id="sec-road">
 <details class="section" id="sec-road" open>
 <summary>🚗 山路安全详细提示（西昌→泸沽湖·最关键！）</summary>
 <div class="section-body">
@@ -648,7 +666,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 </div>
 </details>
+</div>
 
+<div class="content-section" data-id="sec-chargeplan">
 <details class="section" id="sec-chargeplan">
 <summary>⚡ 充电应急方案（趴窝了怎么办？）</summary>
 <div class="section-body">
@@ -672,7 +692,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 </div>
 </details>
+</div>
 
+<div class="content-section" data-id="sec-sos">
 <details class="section" id="sec-sos">
 <summary>🆘 紧急联系 &amp; 救援信息</summary>
 <div class="section-body">
@@ -697,7 +719,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 <div class="tip"><b>💡 保险提醒：</b>建议购买<b>3天短期出行意外险</b>（支付宝/微信搜"旅行险"·10-30元/人）。确认覆盖：高原活动(2690m)+道路救援+紧急医疗转运。</div>
 </div>
 </details>
+</div>
 
+<div class="content-section" data-id="sec-offline">
 <details class="section" id="sec-offline">
 <summary>📴 离线预案（本路线最重要！！）</summary>
 <div class="section-body">
@@ -716,7 +740,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 </div>
 </details>
+</div>
 
+<div class="content-section" data-id="sec-navi">
 <details class="section" id="sec-navi">
 <summary>📍 导航搜索关键词（一键复制搜索）</summary>
 <div class="section-body">
@@ -745,7 +771,9 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 </div>
 </details>
+</div>
 
+<div class="content-section" data-id="sec-info">
 <details class="section" id="sec-info" open>
 <summary>📡 实用信息</summary>
 <div class="section-body">
@@ -804,6 +832,7 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 </div>
 </div>
 </details>
+</div>
 
 </div>
 <div class="float-nav">
@@ -815,15 +844,84 @@ details.section .section-body .poi,details.section .section-body .warn,details.s
 <footer>保姆级攻略 · 2026.3.31 · 天气:中央气象台/中国天气网 · 充电:国网/蔚来/丽江交通集团 · 景点:携程/马蜂窝/小红书/大众点评<br><a href="index.html">← 返回总览</a> · <a href="checklist.html" style="color:#fbbf24;">📋 物品清单</a> · <a href="xichang.html">西昌攻略 →</a></footer>
 
 <script>
-function switchTab(id){
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  const btn=event.target.closest('.tab-btn');if(btn)btn.classList.add('active');
-}
-window.addEventListener('scroll',function(){
-  var btn=document.getElementById('topBtn');
-  if(window.scrollY>600)btn.classList.add('show');else btn.classList.remove('show');
+document.addEventListener('DOMContentLoaded', function(){
+
+  /* ========== 标签筛选：点击TOC标签只显示对应板块 ========== */
+  var tocLinks = document.querySelectorAll('#tocNav .toc-link[data-section]');
+  var allSections = document.querySelectorAll('.content-section');
+
+  function filterSection(sectionId, clickedLink){
+    // 切换按钮active状态
+    for(var i=0;i<tocLinks.length;i++){
+      tocLinks[i].classList.remove('active');
+    }
+    clickedLink.classList.add('active');
+
+    if(sectionId === 'all'){
+      for(var j=0;j<allSections.length;j++){
+        allSections[j].classList.remove('hidden');
+        allSections[j].classList.add('section-enter');
+      }
+    } else {
+      for(var j=0;j<allSections.length;j++){
+        var s = allSections[j];
+        if(s.getAttribute('data-id') === sectionId){
+          s.classList.remove('hidden');
+          s.classList.add('section-enter');
+        } else {
+          s.classList.add('hidden');
+          s.classList.remove('section-enter');
+        }
+      }
+      // 如果有details元素在这个section里，自动展开
+      var target = document.querySelector('.content-section[data-id="'+sectionId+'"] details');
+      if(target) target.setAttribute('open','');
+    }
+
+    // 滚动到内容区顶部
+    var tocWrap = document.querySelector('.toc-wrap');
+    if(tocWrap){
+      window.scrollTo({top: tocWrap.offsetTop + tocWrap.offsetHeight - 10, behavior:'smooth'});
+    }
+  }
+
+  for(var i=0;i<tocLinks.length;i++){
+    (function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var sectionId = link.getAttribute('data-section');
+        filterSection(sectionId, link);
+        return false;
+      });
+    })(tocLinks[i]);
+  }
+
+  /* ========== Plan A/B 标签页切换 ========== */
+  var tabBtns = document.querySelectorAll('.tab-btn[data-tab]');
+  for(var i=0;i<tabBtns.length;i++){
+    (function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-tab');
+        var allTabs = document.querySelectorAll('.tab-btn');
+        var allContents = document.querySelectorAll('.tab-content');
+        for(var j=0;j<allTabs.length;j++) allTabs[j].classList.remove('active');
+        for(var j=0;j<allContents.length;j++) allContents[j].classList.remove('active');
+        var target = document.getElementById('tab-'+id);
+        if(target) target.classList.add('active');
+        btn.classList.add('active');
+      });
+    })(tabBtns[i]);
+  }
+
+  /* ========== 回到顶部按钮 ========== */
+  window.addEventListener('scroll',function(){
+    var btn=document.getElementById('topBtn');
+    if(btn){
+      if(window.scrollY>600) btn.classList.add('show'); else btn.classList.remove('show');
+    }
+  });
+
 });
 </script>
 </body></html>
