@@ -266,6 +266,9 @@
   .summary-table tr:hover td {
     background: var(--card2);
   }
+  .summary-table a:hover {
+    color: var(--accent) !important;
+  }
 
   .filter-bar {
     max-width: 1200px;
@@ -373,7 +376,10 @@
 
 <!-- ==================== 总览表格 ==================== -->
 <div class="summary-table">
-<h2 style="margin-bottom:16px;font-size:1.3em;">&#128202; 全部方案天气速览（4/4六·4/5日·4/6一）<span style="font-size:.6em;color:var(--muted);font-weight:400;margin-left:8px;">4/2中国天气网更新·景区站</span></h2>
+<h2 style="margin-bottom:16px;font-size:1.3em;">&#128202; 全部方案天气速览（4/4六·4/5日·4/6一）<div style="max-width:1200px;margin:0 auto 12px;padding:0 24px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+  <a href="sc-county-weather.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:10px;background:#1e293b;color:#38bdf8;font-size:0.85em;text-decoration:none;border:1px solid #38bdf830;transition:all .2s;" onmouseover="this.style.background='#38bdf820';this.style.borderColor='#38bdf8'" onmouseout="this.style.background='#1e293b';this.style.borderColor='#38bdf830'">&#128202; 查看四川76个县市天气详情 <span style="color:#94a3b8;font-size:0.85em;">&rsaquo;</span></a>
+  <span style="font-size:.78em;color:var(--muted);">4/2中国天气网更新·景区站</span>
+</div></h2>
 <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;font-size:.78em;color:var(--muted);">
   <span>&#9728;&#65039; 晴</span>
   <span>&#127780; 多云</span>
@@ -399,7 +405,7 @@
 <tbody>
 <!-- 川西 -->
 <tr>
-  <td style="text-align:left;font-weight:600;"><a href="si-gu-niang-shan.html" style="color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;">&#9312; 四姑娘山·丹巴</a></td><td>川西</td><td style="color:#34d399">近</td><td>4-5h</td>
+  <td style="text-align:left;font-weight:600;"><a href="si-gu-niang-shan.html" style="color:var(--text);text-decoration:none;">&#9312; 四姑娘山·丹巴 <span style="color:var(--accent);font-size:0.85em;">&rsaquo;</span></a></td><td>川西</td><td style="color:#34d399">近</td><td>4-5h</td>
   <td>&#9925; 阴<br>21°~11°</td><td style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨转小雨<br>20°~13°</td><td style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨转小雨<br>19°~12°</td>
   <td><span class="weather-score score-bad">&#9925;&#127783;&#127783;&#127783; 阴·中雨·中雨</span></td>
 </tr>
@@ -452,12 +458,12 @@
 </tr>
 <!-- 南向 -->
 <tr>
-  <td style="text-align:left;font-weight:600;"><a href="xichang.html" style="color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;">&#9322; 西昌邛海</a></td><td>南</td><td style="color:#fbbf24">中</td><td>5-6h</td>
+  <td style="text-align:left;font-weight:600;"><a href="xichang.html" style="color:var(--text);text-decoration:none;">&#9322; 西昌邛海 <span style="color:var(--accent);font-size:0.85em;">&rsaquo;</span></a></td><td>南</td><td style="color:#fbbf24">中</td><td>5-6h</td>
   <td>&#9728;&#65039; <b>阴转晴</b><br>29°~13°</td><td>&#127782;&#65039; 阵雨<br>29°~14°</td><td>&#9728;&#65039; <b>晴转多云</b><br>27°~13°</td>
   <td><span class="weather-score score-good">&#9728;&#65039;&#127782;&#127783;&#127783; 晴·阵雨·晴</span></td>
 </tr>
 <tr style="background:#05966908;">
-  <td style="text-align:left;font-weight:600;"><a href="luguhu.html" style="color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;">&#9323; 泸沽湖</a></td><td>南</td><td style="color:#ef4444">远</td><td>7h+</td>
+  <td style="text-align:left;font-weight:600;"><a href="luguhu.html" style="color:var(--text);text-decoration:none;">&#9323; 泸沽湖 <span style="color:var(--accent);font-size:0.85em;">&rsaquo;</span></a></td><td>南</td><td style="color:#ef4444">远</td><td>7h+</td>
   <td>&#127783;&#65039; 小雨转多云<br>19°~3°</td><td>&#9925; 阴<br>20°~3°</td><td>&#9925; 阴<br>19°~3°</td>
   <td><span class="weather-score score-ok">&#127783;&#127783;&#127783;&#127783; 小雨转阴·凉</span></td>
 </tr>
@@ -524,7 +530,7 @@
 <div class="routes">
 
 <!-- 路线1: 四姑娘山·丹巴 -->
-<div class="route-card" data-dir="west" data-dist="near" data-weather="ok" data-dist="mid" data-weather="ok" data-dist="mid" data-weather="bad" data-dist="near" data-weather="ok">
+<div class="route-card" data-dir="west" data-dist="near" data-weather="bad">
   <div class="route-header">
     <div>
       <div class="route-name">&#9312; 四姑娘山 · 丹巴藏寨 <a href="si-gu-niang-shan.html" style="font-size:0.6em;background:#38bdf8;color:#0f172a;padding:3px 12px;border-radius:12px;margin-left:8px;font-weight:600;">查看详细攻略 →</a></div>
@@ -579,7 +585,7 @@
 </div>
 
 <!-- 路线2: 康定·新都桥 -->
-<div class="route-card" data-dir="west">
+<div class="route-card" data-dir="west" data-dist="mid" data-weather="bad">
   <div class="route-header">
     <div>
       <div class="route-name">&#9313; 康定 · 新都桥 · 塔公草原</div>
@@ -634,7 +640,7 @@
 </div>
 
 <!-- 路线3: 海螺沟 -->
-<div class="route-card" data-dir="west">
+<div class="route-card" data-dir="west" data-dist="mid" data-weather="bad">
   <div class="route-header">
     <div>
       <div class="route-name">&#9314; 海螺沟 · 磨西古镇</div>
@@ -689,7 +695,7 @@
 </div>
 
 <!-- 路线4: 毕棚沟 -->
-<div class="route-card" data-dir="west">
+<div class="route-card" data-dir="west" data-dist="near" data-weather="bad">
   <div class="route-header">
     <div>
       <div class="route-name">&#9315; 毕棚沟 · 古尔沟温泉</div>
@@ -751,7 +757,7 @@
 <div class="routes">
 
 <!-- 路线5: 广元剑门关 -->
-<div class="route-card" data-dir="north" data-dist="mid" data-weather="good" data-dist="near" data-weather="good">
+<div class="route-card" data-dir="north" data-dist="near" data-weather="good">
   <div class="route-header">
     <div>
       <div class="route-name">&#9316; 广元 · 剑门关 · 昭化古城</div>
@@ -806,7 +812,7 @@
 </div>
 
 <!-- 路线6: 广元→汉中 -->
-<div class="route-card" data-dir="north">
+<div class="route-card" data-dir="north" data-dist="mid" data-weather="good">
   <div class="route-header">
     <div>
       <div class="route-name">&#9317; 广元 → 汉中 · 黎坪 · 油菜花</div>
@@ -868,7 +874,7 @@
 <div class="routes">
 
 <!-- 路线7: 武隆 -->
-<div class="route-card" data-dir="east" data-dist="far" data-weather="bad" data-dist="far" data-weather="ok" data-dist="far" data-weather="bad" data-dist="mid" data-weather="ok">
+<div class="route-card" data-dir="east" data-dist="mid" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9318; 重庆武隆 · 天生三桥 · 仙女山</div>
@@ -923,7 +929,7 @@
 </div>
 
 <!-- 路线8: 恩施 -->
-<div class="route-card" data-dir="east">
+<div class="route-card" data-dir="east" data-dist="far" data-weather="bad">
   <div class="route-header">
     <div>
       <div class="route-name">&#9319; 恩施大峡谷 · 屏山峡谷</div>
@@ -978,7 +984,7 @@
 </div>
 
 <!-- 路线: 奉节白帝城·龙缸 -->
-<div class="route-card" data-dir="east">
+<div class="route-card" data-dir="east" data-dist="far" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9320; 奉节白帝城 · 云阳龙缸</div>
@@ -1033,7 +1039,7 @@
 </div>
 
 <!-- 路线: 酉阳桃花源 -->
-<div class="route-card" data-dir="east">
+<div class="route-card" data-dir="east" data-dist="far" data-weather="bad">
   <div class="route-header">
     <div>
       <div class="route-name">&#9321; 酉阳桃花源 · 龚滩古镇</div>
@@ -1095,7 +1101,7 @@
 <div class="routes">
 
 <!-- 路线9: 西昌邛海 -->
-<div class="route-card" data-dir="south" data-dist="far" data-weather="good" data-dist="mid" data-weather="good">
+<div class="route-card" data-dir="south" data-dist="mid" data-weather="good">
   <div class="route-header">
     <div>
       <div class="route-name">&#9322; 西昌 · 邛海 · 螺髻山 <a href="xichang.html" style="font-size:0.6em;background:#38bdf8;color:#0f172a;padding:3px 12px;border-radius:12px;margin-left:8px;font-weight:600;">查看详细攻略 →</a></div>
@@ -1150,7 +1156,7 @@
 </div>
 
 <!-- 路线10: 西昌→泸沽湖 -->
-<div class="route-card" data-dir="south">
+<div class="route-card" data-dir="south" data-dist="far" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9323; 西昌 → 泸沽湖 <a href="luguhu.html" style="font-size:0.6em;background:#38bdf8;color:#0f172a;padding:3px 12px;border-radius:12px;margin-left:8px;font-weight:600;">查看详细攻略 →</a></div>
@@ -1212,7 +1218,7 @@
 <div class="routes">
 
 <!-- 路线: 昭通大山包 -->
-<div class="route-card" data-dir="yunnan" data-dist="mid" data-weather="bad">
+<div class="route-card" data-dir="yunnan" data-dist="mid" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9324; 昭通 · 大山包 · 豆沙关</div>
@@ -1274,7 +1280,7 @@
 <div class="routes">
 
 <!-- 路线: 毕节百里杜鹃 -->
-<div class="route-card" data-dir="southeast" data-dist="mid" data-weather="bad" data-dist="near" data-weather="good" data-dist="mid" data-weather="ok">
+<div class="route-card" data-dir="southeast" data-dist="mid" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9325; 毕节 · 百里杜鹃 · 织金洞</div>
@@ -1329,7 +1335,7 @@
 </div>
 
 <!-- 路线11: 赤水 -->
-<div class="route-card" data-dir="southeast">
+<div class="route-card" data-dir="southeast" data-dist="near" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9326; 赤水 · 丹霞瀑布群</div>
@@ -1384,7 +1390,7 @@
 </div>
 
 <!-- 路线12: 遵义→赤水环线 -->
-<div class="route-card" data-dir="southeast">
+<div class="route-card" data-dir="southeast" data-dist="mid" data-weather="ok">
   <div class="route-header">
     <div>
       <div class="route-name">&#9327; 遵义 · 赤水 环线</div>
