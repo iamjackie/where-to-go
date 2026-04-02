@@ -216,6 +216,12 @@
   .desc-cloud { color: var(--cloud); }
   .desc-rain { color: var(--rain); }
 
+  /* 汇总表天气单元格按降雨程度分色 */
+  .td-heavy-rain  { background: #ef444418 !important; color: #fca5a5; }  /* 中雨/大雨 · 红底 */
+  .td-light-rain  { background: #f59e0b12 !important; color: #fcd34d; }  /* 小雨 · 黄底 */
+  .td-shower      { background: #3b82f610 !important; color: #93c5fd; }  /* 阵雨 · 蓝底 */
+  .td-overcast    { background: #9ca3af0c !important; }                  /* 阴 · 灰底 */
+
   .route-notes {
     padding: 12px 24px 16px;
     font-size: 0.85em;
@@ -385,9 +391,9 @@
   <span>&#9728;&#65039; 晴</span>
   <span>&#127780; 多云</span>
   <span>&#9925; 阴</span>
-  <span style="color:#60a5fa">&#127782;&#65039; 阵雨(短暂·影响小)</span>
-  <span style="color:#fbbf24">&#127783;&#65039; 小雨(可出行)</span>
-  <span style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨(影响较大)</span>
+  <span class="td-shower" style="display:inline;padding:2px 8px;border-radius:4px;">&#127782;&#65039; 阵雨(短暂·影响小)</span>
+  <span class="td-light-rain" style="display:inline;padding:2px 8px;border-radius:4px;">&#127783;&#65039; 小雨(可出行)</span>
+  <span class="td-heavy-rain" style="display:inline;padding:2px 8px;border-radius:4px;">&#127783;&#65039;&#127783;&#65039; 中雨(影响较大)</span>
   <span style="color:#ef4444">&#128168; 大雨(不建议出行)</span>
 </div>
 <table>
@@ -407,7 +413,7 @@
 <!-- 川西 -->
 <tr>
   <td style="text-align:left;font-weight:600;"><a href="si-gu-niang-shan.html" style="color:var(--text);text-decoration:none;">&#9312; 四姑娘山·丹巴 <span style="color:var(--accent);font-size:0.85em;">&rsaquo;</span></a></td><td>川西</td><td style="color:#34d399">近</td><td>4-5h</td>
-  <td>&#9925; 阴<br>21°~11°</td><td style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨转小雨<br>20°~13°</td><td style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨转小雨<br>19°~12°</td>
+  <td>&#9925; 阴<br>21°~11°</td><td>&#127783;&#65039;&#127783;&#65039; 中雨转小雨<br>20°~13°</td><td>&#127783;&#65039;&#127783;&#65039; 中雨转小雨<br>19°~12°</td>
   <td><span class="weather-score score-bad">&#9925;&#127783;&#127783;&#127783; 阴·中雨·中雨</span></td>
 </tr>
 <tr>
@@ -422,7 +428,7 @@
 </tr>
 <tr>
   <td style="text-align:left;font-weight:600;">&#9315; 毕棚沟·古尔沟</td><td>川西</td><td style="color:#34d399">近</td><td>3-4h</td>
-  <td>&#127783;&#65039; 小雨<br>11°~0°</td><td style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨<br>11°~1°</td><td style="color:#f87171">&#127783;&#65039;&#127783;&#65039; 中雨转雨夹雪<br>7°~0°</td>
+  <td>&#127783;&#65039; 小雨<br>11°~0°</td><td>&#127783;&#65039;&#127783;&#65039; 中雨<br>11°~1°</td><td>&#127783;&#65039;&#127783;&#65039; 中雨转雨夹雪<br>7°~0°</td>
   <td><span class="weather-score score-bad">&#127783;&#127783;&#127783;&#127783; 雨+中雨+雪</span></td>
 </tr>
 <!-- 北向 -->
@@ -1609,6 +1615,34 @@ window.addEventListener('scroll',function(){
   var btn=document.getElementById('topBtn');
   if(window.scrollY>600)btn.classList.add('show');else btn.classList.remove('show');
 });
+
+// 汇总表天气单元格按降雨程度自动着色
+(function(){
+  var table = document.querySelector('.summary-table table');
+  if (!table) return;
+  var rows = table.querySelectorAll('tbody tr');
+  rows.forEach(function(tr) {
+    // 跳过方向分组行（th 开头的行或合并行）
+    var cells = tr.querySelectorAll('td');
+    // 天气列是第5、6、7列（index 4,5,6），综评列是第8列
+    [4,5,6].forEach(function(colIdx) {
+      if (!cells[colIdx]) return;
+      var text = cells[colIdx].textContent || '';
+      // 按优先级匹配（从严重到轻微）
+      if (/大雨/.test(text)) {
+        cells[colIdx].classList.add('td-heavy-rain');
+      } else if (/中雨/.test(text)) {
+        cells[colIdx].classList.add('td-heavy-rain');
+      } else if (/小雨/.test(text)) {
+        cells[colIdx].classList.add('td-light-rain');
+      } else if (/阵雨/.test(text)) {
+        cells[colIdx].classList.add('td-shower');
+      } else if (/^[☁️⛅🌧☔⛈💨❄]/.test(text.trim()) && /阴/.test(text)) {
+        cells[colIdx].classList.add('td-overcast');
+      }
+    });
+  });
+})();
 </script>
 
 </body>
