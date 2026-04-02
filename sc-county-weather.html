@@ -1,44 +1,268 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>四川各县市 4/4-6 天气速查</title>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026清明 · 四川省76县天气 & 景点速查（车程已核实）</title>
 <style>
-:root{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--border:#475569;--green:#34d399;--yellow:#fbbf24;--red:#f87171}
+:root{--sun:#f59e0b;--rain:#3b82f6;--cloud:#9ca3af;--green:#10b981;--red:#ef4444;--bg:#0f172a;--card:#1e293b;--card2:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--border:#475569}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);padding:24px;max-width:1200px;margin:0 auto}
-h1{font-size:1.6em;text-align:center;margin-bottom:4px;background:linear-gradient(90deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sub{text-align:center;color:var(--muted);font-size:.9em;margin-bottom:24px}
-.stats{display:flex;gap:16px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
-.stat{padding:8px 20px;border-radius:12px;font-size:.9em;font-weight:600}
-.stat-g{background:#05966925;color:var(--green);border:1px solid #05966960}
-.stat-o{background:#d9770625;color:var(--yellow);border:1px solid #d9770660}
-.stat-b{background:#ef444425;color:var(--red);border:1px solid #ef444460}
-h2{font-size:1.2em;margin:24px 0 12px;display:flex;align-items:center;gap:8px}
-h2 .c{font-size:.6em;padding:3px 10px;border-radius:12px;font-weight:normal}
-table{width:100%;border-collapse:collapse;font-size:.85em;margin-bottom:16px}
-th,td{padding:10px 12px;border:1px solid var(--border);text-align:center}
-th{background:var(--card);position:sticky;top:0;font-weight:600}
-tr:hover td{background:#33415580}
-.note{color:var(--muted);font-size:.8em;text-align:center;margin-top:16px}
-</style></head><body>
-<h1>四川省县市 4/4-6 清明假期天气速查</h1>
-<p class="sub">数据来源：中国天气网 · 76 个县市 · 按天气评分排序</p>
-<div class="stats">
-  <div class="stat stat-g">✅ 晴好 14 个</div>
-  <div class="stat stat-o">⚠️ 可行 33 个</div>
-  <div class="stat stat-b">❌ 多雨 29 个</div>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:0}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);padding:40px 24px 28px;text-align:center;border-bottom:1px solid var(--border)}
+.hero h1{font-size:2em;background:linear-gradient(90deg,#38bdf8,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.hero .subtitle{color:var(--muted);font-size:1em}
+.hero .tags{margin-top:12px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.hero .tag{background:var(--card2);padding:4px 14px;border-radius:20px;font-size:0.82em;color:var(--accent);border:1px solid var(--border)}
+.container{max-width:1400px;margin:0 auto;padding:24px}
+.section{margin-bottom:36px}
+.section h2{font-size:1.3em;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section h2 .count{font-size:0.55em;padding:3px 10px;border-radius:12px;font-weight:normal}
+.c-good{color:#34d399;background:#05966925;border:1px solid #059669}
+.c-ok{color:#fbbf24;background:#d9770625;border:1px solid #d97706}
+.c-bad{color:#f87171;background:#ef444425;border:1px solid #ef4444}
+/* 排序按钮 */
+.sort-bar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.sort-bar span{color:var(--muted);font-size:.85em}
+.sort-btn{padding:5px 14px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:.82em;transition:all .2s}
+.sort-btn:hover,.sort-btn.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+/* 图例 */
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:.78em;color:var(--muted);align-items:center}
+.legend-item{display:flex;align-items:center;gap:4px}
+.legend-dot{display:inline-block;padding:1px 8px;border-radius:4px;font-size:.9em}
+.legend-dot.s5a{background:#f59e0b30;color:#fbbf24;border:1px solid #f59e0b60}
+.legend-dot.s4a{background:#10b98120;color:#34d399;border:1px solid #10b98140}
+.legend-dot.normal{background:#33415560;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:0.88em}
+th,td{padding:10px 14px;border:1px solid var(--border);text-align:center;vertical-align:middle}
+th{background:var(--card2);font-weight:600;position:sticky;top:0;z-index:1}
+td{background:var(--card)}
+tr:hover td{background:var(--card2)}
+.city-name{text-align:left;font-weight:600;white-space:nowrap}
+.drive-time{font-size:0.78em;color:var(--muted);font-weight:400}
+.drive-time.borderline{color:#fbbf24}
+.spots{text-align:left;font-size:0.82em;color:var(--muted);max-width:340px}
+.spots span{display:inline-block;margin:2px 4px 2px 0;padding:1px 6px;border-radius:4px;background:#33415580;font-size:0.95em}
+/* 景点分级着色 */
+.spots .s5a{background:#f59e0b25;color:#fbbf24;border:1px solid #f59e0b50;font-weight:600}
+.spots .s4a{background:#10b98118;color:#34d399;border:1px solid #10b98135}
+.spots .s3a{background:#38bdf812;color:#60a5fa;border:1px solid #38bdf825}
+.weather-good td:first-child{border-left:3px solid #34d399}
+.weather-ok td:first-child{border-left:3px solid #fbbf24}
+.weather-bad td:first-child{border-left:3px solid #f87171}
+.note{max-width:1400px;margin:24px auto;padding:14px 20px;background:linear-gradient(135deg,#1e293b,#1a2332);border-left:4px solid var(--sun);border-radius:8px;font-size:0.9em}
+.note strong{color:var(--sun)}
+.back-link{text-align:center;margin:0 auto 32px}
+.back-link a{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:12px;background:var(--card);color:var(--accent);font-size:0.9em;text-decoration:none;border:1px solid var(--border)}
+.back-link a:hover{background:var(--card2)}
+footer{text-align:center;padding:32px;color:var(--muted);font-size:0.78em;border-top:1px solid var(--border);margin-top:40px}
+@media(max-width:768px){.hero h1{font-size:1.4em}table{font-size:0.78em}th,td{padding:6px 8px}.spots{max-width:160px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>2026 清明 · 四川省天气 &amp; 景点速查</h1>
+  <p class="subtitle">成都出发 · <b style="color:#34d399">车程已核实</b> · 76 个县市 · 4/4-6 三天天气 · 代表性景点</p>
+  <div class="tags">
+    <span class="tag">川西高原(12县)</span>
+    <span class="tag">川北(8县)</span>
+    <span class="tag">川南/宜宾(8县)</span>
+    <span class="tag">成都平原(15县)</span>
+    <span class="tag">攀西(16县)</span>
+    <span class="tag">甘孜/阿坝其他(17县)</span>
+  </div>
 </div>
 
-<h2>✅ 三天晴好（不下雨）<span class="c" style="background:#05966930;color:var(--green);border:1px solid #059669">最佳选择</span></h2>
-<table><thead><tr><th style="min-width:100px">县市</th><th>4/4 周六</th><th>4/5 周日</th><th>4/6 周一</th><th>评分</th></tr></thead>
-<tbody><tr><td style="text-align:left;font-weight:600">德昌</td><td>⛅ 多云 27°/16°</td><td>☁️ 阴 29°/18°</td><td>⛅ 多云 28°/18°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">会理</td><td>☀️ 晴 27°/14°</td><td>☁️ 阴 28°/17°</td><td>⛅ 多云 29°/15°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">会东</td><td>⛅ 多云 26°/14°</td><td>⛅ 多云 28°/16°</td><td>⛅ 多云 29°/15°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">旺苍</td><td>⛅ 多云 27°/13°</td><td>⛅ 多云 27°/15°</td><td>☁️ 阴 25°/14°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">什邡</td><td>☀️ 晴 25°/13°</td><td>⛅ 多云 27°/16°</td><td>☁️ 阴 25°/15°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">中江</td><td>⛅ 多云 25°/14°</td><td>☁️ 阴 26°/16°</td><td>☁️ 阴 24°/16°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">广元</td><td>⛅ 多云 25°/13°</td><td>⛅ 多云 26°/15°</td><td>☁️ 阴 23°/14°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">苍溪</td><td>☀️ 晴 24°/14°</td><td>⛅ 多云 24°/14°</td><td>☁️ 阴 24°/16°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">仁寿</td><td>⛅ 多云 25°/14°</td><td>⛅ 多云 23°/16°</td><td>☁️ 阴 24°/14°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">彭山</td><td>☀️ 晴 25°/15°</td><td>☁️ 阴 23°/15°</td><td>☁️ 阴 24°/15°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">剑阁</td><td>☀️ 晴 23°/13°</td><td>⛅ 多云 24°/15°</td><td>☁️ 阴 21°/15°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">青川</td><td>⛅ 多云 21°/10°</td><td>⛅ 多云 21°/11°</td><td>☁️ 阴 20°/11°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">稻城</td><td>⛅ 多云 17°/1°</td><td>⛅ 多云 17°/4°</td><td>⛅ 多云 18°/3°</td><td>✅晴好</td></tr><tr><td style="text-align:left;font-weight:600">若尔盖</td><td>⛅ 多云 12°/-3°</td><td>☁️ 阴 11°/-2°</td><td>☁️ 阴 12°/-2°</td><td>✅晴好</td></tr></tbody></table>
+<div class="note">
+  <strong>车程核实说明：</strong>所有县市均标注了成都出发的驾车时间（基于高德/百度地图保守估计）。<span style="color:#fbbf24">黄色车程</span>=清明堵车可能超时，需预留弹性时间。数据来源：中国天气网，2026/4/2 更新。
+</div>
 
-<h2>⚠️ 大部分不雨（有阵雨风险）<span class="c" style="background:#d9770630;color:var(--yellow);border:1px solid #d97706">可行</span></h2>
-<table><thead><tr><th style="min-width:100px">县市</th><th>4/4 周六</th><th>4/5 周日</th><th>4/6 周一</th><th>评分</th></tr></thead>
-<tbody><tr><td style="text-align:left;font-weight:600">汉源</td><td>🌦 小雨 29°/18°</td><td>🌦 小雨 25°/20°</td><td>🌦 小雨 27°/20°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">金堂</td><td>⛅ 多云 26°/13°</td><td>☁️ 阴 26°/15°</td><td>🌦 小雨 24°/15°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">峨边</td><td>🌦 小雨 26°/17°</td><td>☁️ 阴 24°/18°</td><td>🌦 小雨 26°/17°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">邛崃</td><td>⛅ 多云 25°/15°</td><td>🌦 小雨 25°/14°</td><td>🌦 小雨 25°/14°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">广汉</td><td>⛅ 多云 25°/12°</td><td>☁️ 阴 26°/15°</td><td>🌦 小雨 24°/15°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">北川</td><td>🌦 小雨 24°/15°</td><td>🌦 小雨 25°/15°</td><td>🌦 小雨 25°/16°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">乐山</td><td>⛅ 多云 26°/14°</td><td>🌦 小雨 24°/17°</td><td>🌦 小雨 24°/16°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">眉山</td><td>⛅ 多云 25°/13°</td><td>☁️ 阴 25°/16°</td><td>🌦 小雨 24°/15°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">盐源</td><td>🌦 小雨 25°/8°</td><td>⛅ 多云 24°/10°</td><td>⛅ 多云 25°/10°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">崇州</td><td>⛅ 多云 24°/11°</td><td>🌦 小雨 25°/14°</td><td>🌦 小雨 24°/14°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">夹江</td><td>⛅ 多云 25°/14°</td><td>🌦 小雨 24°/16°</td><td>🌦 小雨 24°/16°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">青神</td><td>⛅ 多云 25°/13°</td><td>☁️ 阴 24°/17°</td><td>🌦 小雨 24°/16°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">古蔺</td><td>⛅ 多云 29°/16°</td><td>☁️ 阴 21°/18°</td><td>🌦 小雨 23°/17°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">平武</td><td>☀️ 晴 24°/13°</td><td>🌦 小雨 25°/14°</td><td>☁️ 阴 23°/15°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">美姑</td><td>⛅ 多云 24°/13°</td><td>🌦 小雨 25°/13°</td><td>🌦 小雨 23°/13°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">宜宾</td><td>⛅ 多云 26°/16°</td><td>☁️ 阴 22°/18°</td><td>🌦 小雨 24°/17°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">丹棱</td><td>⛅ 多云 24°/14°</td><td>☁️ 阴 24°/17°</td><td>🌦 小雨 23°/15°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">大邑</td><td>☀️ 晴 23°/13°</td><td>🌦 小雨 24°/15°</td><td>🌦 小雨 23°/15°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">洪雅</td><td>⛅ 多云 24°/15°</td><td>🌦 小雨 22°/15°</td><td>🌦 小雨 24°/14°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">蒲江</td><td>⛅ 多云 23°/14°</td><td>☁️ 阴 22°/13°</td><td>🌦 小雨 23°/14°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">名山</td><td>☀️ 晴 23°/14°</td><td>🌦 小雨 22°/13°</td><td>🌦 小雨 23°/14°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">雅江</td><td>🌦 小雨 23°/6°</td><td>🌦 小雨 21°/8°</td><td>🌦 小雨 22°/9°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">荥经</td><td>⛅ 多云 22°/14°</td><td>🌦 小雨 20°/13°</td><td>🌦 小雨 23°/14°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">九寨沟</td><td>🌦 小雨 22°/8°</td><td>🌦 小雨 21°/10°</td><td>☁️ 阴 21°/10°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">江油</td><td>☀️ 晴 20°/12°</td><td>🌦 小雨 21°/12°</td><td>🌦 小雨 21°/14°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">黑水</td><td>⛅ 多云 21°/7°</td><td>🌦 小雨 23°/9°</td><td>🌦 小雨 18°/10°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">雷波</td><td>🌦 小雨 23°/12°</td><td>☁️ 阴 17°/14°</td><td>🌦 小雨 18°/13°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">马尔康</td><td>⛅ 多云 20°/4°</td><td>🌦 小雨 20°/7°</td><td>🌦 小雨 17°/7°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">昭觉</td><td>🌦 小雨 23°/8°</td><td>🌦 小雨 17°/10°</td><td>🌦 小雨 17°/10°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">茂县</td><td>🌦 小雨 20°/10°</td><td>🌦 小雨 17°/11°</td><td>🌦 小雨 18°/11°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">松潘</td><td>⛅ 多云 13°/0°</td><td>⛅ 多云 15°/1°</td><td>🌦 小雨 13°/2°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">理塘</td><td>☁️ 阴 12°/-2°</td><td>⛅ 多云 10°/-2°</td><td>🌦 小雨 12°/0°</td><td>⚠️可行</td></tr><tr><td style="text-align:left;font-weight:600">红原</td><td>⛅ 多云 10°/-5°</td><td>⛅ 多云 12°/-4°</td><td>🌦 小雨 9°/-4°</td><td>⚠️可行</td></tr></tbody></table>
+<div class="container">
 
-<h2>❌ 有雨风险（中雨/多雨）<span class="c" style="background:#ef444430;color:var(--red);border:1px solid #ef4444">谨慎</span></h2>
-<table><thead><tr><th style="min-width:100px">县市</th><th>4/4 周六</th><th>4/5 周日</th><th>4/6 周一</th><th>评分</th></tr></thead>
-<tbody><tr><td style="text-align:left;font-weight:600">西昌</td><td>🌦 小雨 29°/14°</td><td>🌦 小雨 25°/16°</td><td>🌧 中雨 26°/15°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">石棉</td><td>🌦 小雨 26°/19°</td><td>🌦 小雨 27°/18°</td><td>🌧 中雨 26°/18°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">天全</td><td>⛅ 多云 25°/16°</td><td>🌦 小雨 25°/18°</td><td>🌧 中雨 25°/17°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">合江</td><td>⛅ 多云 29°/16°</td><td>☁️ 阴 22°/17°</td><td>🌧 中雨 24°/17°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">绵竹</td><td>⛅ 多云 24°/15°</td><td>🌧 中雨 25°/15°</td><td>🌧 中雨 25°/16°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">金川</td><td>⛅ 多云 26°/9°</td><td>🌦 小雨 23°/12°</td><td>🌧 中雨 25°/12°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">冕宁</td><td>🌧 中雨 27°/13°</td><td>🌧 中雨 21°/15°</td><td>🌧 中雨 24°/15°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">甘洛</td><td>⛅ 多云 24°/17°</td><td>🌦 小雨 24°/15°</td><td>🌧 中雨 24°/16°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">喜德</td><td>🌦 小雨 27°/11°</td><td>🌧 中雨 21°/13°</td><td>🌦 小雨 24°/13°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">彭州</td><td>⛅ 多云 23°/14°</td><td>🌧 中雨 23°/14°</td><td>🌦 小雨 24°/15°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">犍为</td><td>⛅ 多云 25°/15°</td><td>☁️ 阴 21°/16°</td><td>🌧 中雨 24°/15°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">沐川</td><td>☀️ 晴 25°/15°</td><td>🌦 小雨 21°/16°</td><td>🌧 中雨 24°/16°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">芦山</td><td>⛅ 多云 23°/12°</td><td>🌦 小雨 23°/15°</td><td>🌧 中雨 23°/15°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">汶川</td><td>☀️ 晴 25°/13°</td><td>🌦 小雨 22°/16°</td><td>🌧 中雨 22°/14°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">都江堰</td><td>⛅ 多云 23°/14°</td><td>🌦 小雨 23°/16°</td><td>🌧 中雨 22°/15°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">雅安</td><td>⛅ 多云 23°/12°</td><td>🌦 小雨 22°/15°</td><td>🌧 中雨 23°/14°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">小金</td><td>🌦 小雨 23°/9°</td><td>🌧 中雨 22°/11°</td><td>🌧 中雨 21°/11°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">马边</td><td>☀️ 晴 22°/16°</td><td>🌦 小雨 20°/16°</td><td>🌧 中雨 22°/16°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">丹巴</td><td>🌦 小雨 22°/9°</td><td>🌦 小雨 22°/12°</td><td>⛈ 大雨 20°/12°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">理县</td><td>🌦 小雨 23°/11°</td><td>🌧 中雨 21°/13°</td><td>🌧 中雨 20°/12°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">越西</td><td>🌦 小雨 26°/10°</td><td>🌦 小雨 18°/14°</td><td>🌧 中雨 20°/12°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">九龙</td><td>🌦 小雨 20°/6°</td><td>🌦 小雨 20°/7°</td><td>🌧 中雨 18°/9°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">宝兴</td><td>⛅ 多云 19°/12°</td><td>🌦 小雨 18°/12°</td><td>🌧 中雨 20°/12°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">新龙</td><td>⛅ 多云 20°/1°</td><td>🌦 小雨 20°/2°</td><td>🌧 中雨 17°/2°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">道孚</td><td>☀️ 晴 19°/4°</td><td>🌦 小雨 17°/5°</td><td>🌧 中雨 18°/6°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">泸定</td><td>🌦 小雨 21°/11°</td><td>🌦 小雨 15°/13°</td><td>🌧 中雨 15°/12°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">炉霍</td><td>☀️ 晴 16°/0°</td><td>🌦 小雨 17°/2°</td><td>🌧 中雨 16°/3°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">康定</td><td>🌦 小雨 18°/7°</td><td>🌧 中雨 15°/9°</td><td>🌧 中雨 13°/8°</td><td>❌多雨</td></tr><tr><td style="text-align:left;font-weight:600">色达</td><td>☀️ 晴 10°/-7°</td><td>🌦 小雨 10°/-5°</td><td>🌧 中雨 10°/-6°</td><td>❌多雨</td></tr></tbody></table>
+<!-- ============ 晴好 ============ -->
+<div class="section" id="good">
+<h2>☀️ 三天晴好（无雨） <span class="count c-good">14 个县市</span></h2>
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot s5a">5A/世界遗产</span></div>
+  <div class="legend-item"><span class="legend-dot s4a">4A/知名景区</span></div>
+  <div class="legend-item"><span class="legend-dot normal">其他景点</span></div>
+</div>
+<div class="sort-bar"><span>排序：</span>
+  <button class="sort-btn active" onclick="sortTable('good',0)">默认</button>
+  <button class="sort-btn" onclick="sortTable('good',3)">按车程 ↑</button>
+  <button class="sort-btn" onclick="sortTable('good',3,'desc')">按车程 ↓</button>
+</div>
+<table id="table-good">
+<thead><tr><th>地级市</th><th>县市</th><th>车程</th><th>代表性景点</th><th>4/4 周六</th><th>4/5 周日</th><th>4/6 周一</th><th>温度</th></tr></thead>
+<tbody>
+<tr class="weather-good"><td>凉山</td><td class="city-name">德昌</td><td class="drive-time">~5h</td><td class="spots"><span>🌿 角半沟樱花谷</span><span>🏘️ 钟鼓楼古镇</span><span>🏞️ 傈僳水寨</span></td><td>⛅ 多云<br>27°/16°</td><td>☁️ 阴<br>29°/18°</td><td>⛅ 多云<br>28°/18°</td><td><b>27-29°</b></td></tr>
+<tr class="weather-good"><td>凉山</td><td class="city-name">会理</td><td class="drive-time">~5.5h</td><td class="spots"><span class="s4a">🏘️ 会理古城(4A)</span><span>🌸 会理石榴</span><span>🏞️ 龙肘山</span></td><td>☀️ 晴<br>27°/14°</td><td>☁️ 阴<br>28°/17°</td><td>⛅ 多云<br>29°/15°</td><td><b>27-29°</b></td></tr>
+<tr class="weather-good"><td>凉山</td><td class="city-name">会东</td><td class="drive-time">~6h</td><td class="spots"><span>🏞️ 老君峰</span><span>🌊 奇石谷</span><span>🌸 高原蓝花楹</span></td><td>⛅ 多云<br>26°/14°</td><td>⛅ 多云<br>28°/16°</td><td>⛅ 多云<br>29°/15°</td><td><b>26-29°</b></td></tr>
+<tr class="weather-good"><td>广元</td><td class="city-name">旺苍</td><td class="drive-time">~4h</td><td class="spots"><span>🏞️ 米仓山大峡谷</span><span>🏘️ 中国红军城</span><span>🌿 木门会议旧址</span></td><td>⛅ 多云<br>27°/13°</td><td>⛅ 多云<br>27°/15°</td><td>☁️ 阴<br>25°/14°</td><td><b>25-27°</b></td></tr>
+<tr class="weather-good"><td>德阳</td><td class="city-name">什邡</td><td class="drive-time">~1.5h</td><td class="spots"><span class="s4a">🏔️ 蓥华山</span><span>♨️ 罗浮山温泉</span><span>🏘️ 什邡雪茄小镇</span></td><td>☀️ 晴<br>25°/13°</td><td>⛅ 多云<br>27°/16°</td><td>☁️ 阴<br>25°/15°</td><td><b>25-27°</b></td></tr>
+<tr class="weather-good"><td>德阳</td><td class="city-name">中江</td><td class="drive-time">~1.5h</td><td class="spots"><span>🏯 黄继光纪念馆</span><span>🏞️ 铜山风景区</span><span>🌸 石笋谷</span></td><td>⛅ 多云<br>25°/14°</td><td>☁️ 阴<br>26°/16°</td><td>☁️ 阴<br>24°/16°</td><td><b>24-26°</b></td></tr>
+<tr class="weather-good"><td>广元</td><td class="city-name">广元</td><td class="drive-time">~3.5h</td><td class="spots"><span class="s5a">⚔️ 剑门关(5A)</span><span>🏘️ 昭化古城(4A)</span><span>🏞️ 皇泽寺</span></td><td>⛅ 多云<br>25°/13°</td><td>⛅ 多云<br>26°/15°</td><td>☁️ 阴<br>23°/14°</td><td><b>23-26°</b></td></tr>
+<tr class="weather-good"><td>广元</td><td class="city-name">苍溪</td><td class="drive-time">~3.5h</td><td class="spots"><span>🌸 苍溪梨花溪</span><span>🏘️ 苍溪红军渡</span><span>🏞️ 西武当山</span></td><td>☀️ 晴<br>24°/14°</td><td>⛅ 多云<br>24°/14°</td><td>☁️ 阴<br>24°/16°</td><td><b>24°</b></td></tr>
+<tr class="weather-good"><td>眉山</td><td class="city-name">仁寿</td><td class="drive-time">~1.5h</td><td class="spots"><span>🏞️ 黑龙滩(4A)</span><span>🌸 牛角寨大佛</span><span>🌳 仁寿城市湿地公园</span></td><td>⛅ 多云<br>25°/14°</td><td>⛅ 多云<br>23°/16°</td><td>☁️ 阴<br>24°/14°</td><td><b>23-25°</b></td></tr>
+<tr class="weather-good"><td>眉山</td><td class="city-name">彭山</td><td class="drive-time">~1h</td><td class="spots"><span>🏞️ 彭祖山(4A)</span><span>🌸 江口古镇</span><span>🍒 寿乡柑橘</span></td><td>☀️ 晴<br>25°/15°</td><td>☁️ 阴<br>23°/15°</td><td>☁️ 阴<br>24°/15°</td><td><b>23-25°</b></td></tr>
+<tr class="weather-good"><td>广元</td><td class="city-name">剑阁</td><td class="drive-time">~3h</td><td class="spots"><span class="s5a">⚔️ 剑门关(5A)</span><span>⛰️ 翠云廊古柏</span><span>🏘️ 剑阁古城</span></td><td>☀️ 晴<br>23°/13°</td><td>⛅ 多云<br>24°/15°</td><td>☁️ 阴<br>21°/15°</td><td><b>21-24°</b></td></tr>
+<tr class="weather-good"><td>广元</td><td class="city-name">青川</td><td class="drive-time">~4.5h</td><td class="spots"><span>🏞️ 唐家河自然保护区</span><span>🏘️ 青溪古城</span><span>🌊 东河口地震遗址</span></td><td>⛅ 多云<br>21°/10°</td><td>⛅ 多云<br>21°/11°</td><td>☁️ 阴<br>20°/11°</td><td><b>20-21°</b></td></tr>
+<tr class="weather-good"><td>甘孜</td><td class="city-name">稻城</td><td class="drive-time borderline">~10h⚠️</td><td class="spots"><span class="s5a">🏔️ 亚丁三神山(5A)</span><span>🌸 稻城白塔</span><span>🏞️ 红草地</span></td><td>⛅ 多云<br>17°/1°</td><td>⛅ 多云<br>17°/4°</td><td>⛅ 多云<br>18°/3°</td><td><b>17-18°</b></td></tr>
+<tr class="weather-good"><td>阿坝</td><td class="city-name">若尔盖</td><td class="drive-time borderline">~8h⚠️</td><td class="spots"><span class="s4a">🐎 若尔盖花湖(4A)</span><span>🏞️ 黄河九曲第一湾</span><span>🏕️ 热尔大草原</span></td><td>⛅ 多云<br>12°/-3°</td><td>☁️ 阴<br>11°/-2°</td><td>☁️ 阴<br>12°/-2°</td><td><b>11-12°</b></td></tr>
+</tbody></table>
+</div>
 
-<p class="note">天气数据仅供参考，出发前请再次确认最新预报 | 成都出发自驾 · 纯电SUV床车</p>
-</body></html>
+<!-- ============ 可行 ============ -->
+<div class="section" id="ok">
+<h2>🌤️ 大部分不雨（有阵雨风险） <span class="count c-ok">33 个县市</span></h2>
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot s5a">5A/世界遗产</span></div>
+  <div class="legend-item"><span class="legend-dot s4a">4A/知名景区</span></div>
+  <div class="legend-item"><span class="legend-dot normal">其他景点</span></div>
+</div>
+<div class="sort-bar"><span>排序：</span>
+  <button class="sort-btn active" onclick="sortTable('ok',0)">默认</button>
+  <button class="sort-btn" onclick="sortTable('ok',3)">按车程 ↑</button>
+  <button class="sort-btn" onclick="sortTable('ok',3,'desc')">按车程 ↓</button>
+</div>
+<table id="table-ok">
+<thead><tr><th>地级市</th><th>县市</th><th>车程</th><th>代表性景点</th><th>4/4 周六</th><th>4/5 周日</th><th>4/6 周一</th><th>温度</th></tr></thead>
+<tbody>
+<tr class="weather-ok"><td>雅安</td><td class="city-name">汉源</td><td class="drive-time">~3h</td><td class="spots"><span>🌊 汉源湖(小泸沽湖)</span><span>🏔️ 大渡河大峡谷</span><span>🫐 汉源甜樱桃</span></td><td>🌦 小雨<br>29°/18°</td><td>🌦 小雨<br>25°/20°</td><td>🌦 小雨<br>27°/20°</td><td><b>25-29°</b></td></tr>
+<tr class="weather-ok"><td>成都</td><td class="city-name">金堂</td><td class="drive-time">~1h</td><td class="spots"><span>🏞️ 五凤溪古镇(4A)</span><span>🌊 沱江小三峡</span><span>🌸 金堂油菜花</span></td><td>⛅ 多云<br>26°/13°</td><td>☁️ 阴<br>26°/15°</td><td>🌦 小雨<br>24°/15°</td><td><b>24-26°</b></td></tr>
+<tr class="weather-ok"><td>乐山</td><td class="city-name">峨边</td><td class="drive-time">~2.5h</td><td class="spots"><span class="s4a">🏔️ 黑竹沟(4A)</span><span>🌊 大渡河金口大峡谷</span><span>🌿 峨边彝族风情</span></td><td>🌦 小雨<br>26°/17°</td><td>☁️ 阴<br>24°/18°</td><td>🌦 小雨<br>26°/17°</td><td><b>24-26°</b></td></tr>
+<tr class="weather-ok"><td>成都</td><td class="city-name">邛崃</td><td class="drive-time">~1h</td><td class="spots"><span class="s4a">🏔️ 天台山(4A)</span><span>🏘️ 平乐古镇(4A)</span><span>🍷 邛崃酒庄</span></td><td>⛅ 多云<br>25°/15°</td><td>🌦 小雨<br>25°/14°</td><td>🌦 小雨<br>25°/14°</td><td><b>25°</b></td></tr>
+<tr class="weather-ok"><td>德阳</td><td class="city-name">广汉</td><td class="drive-time">~1h</td><td class="spots"><span class="s5a">🏛️ 三星堆博物馆(5A)</span><span>🏯 广汉文庙</span><span>🌸 松林桃花</span></td><td>⛅ 多云<br>25°/12°</td><td>☁️ 阴<br>26°/15°</td><td>🌦 小雨<br>24°/15°</td><td><b>24-26°</b></td></tr>
+<tr class="weather-ok"><td>绵阳</td><td class="city-name">北川</td><td class="drive-time">~2.5h</td><td class="spots"><span class="s5a">🏛️ 北川地震遗址(5A)</span><span>🏞️ 九皇山(4A)</span><span>🌿 北川药王谷</span></td><td>🌦 小雨<br>24°/15°</td><td>🌦 小雨<br>25°/15°</td><td>🌦 小雨<br>25°/16°</td><td><b>24-25°</b></td></tr>
+<tr class="weather-ok"><td>乐山</td><td class="city-name">乐山</td><td class="drive-time">~2h</td><td class="spots"><span class="s5a">🗿 乐山大佛(5A)</span><span class="s4a">🏔️ 峨眉山(4A)</span><span>🏘️ 嘉定坊</span></td><td>⛅ 多云<br>26°/14°</td><td>🌦 小雨<br>24°/17°</td><td>🌦 小雨<br>24°/16°</td><td><b>24-26°</b></td></tr>
+<tr class="weather-ok"><td>眉山</td><td class="city-name">眉山</td><td class="drive-time">~1h</td><td class="spots"><span class="s5a">🏡 三苏祠(4A)</span><span>🏞️ 瓦屋山(4A)</span><span>🌸 眉山樱花</span></td><td>⛅ 多云<br>25°/13°</td><td>☁️ 阴<br>25°/16°</td><td>🌦 小雨<br>24°/15°</td><td><b>24-25°</b></td></tr>
+<tr class="weather-ok"><td>凉山</td><td class="city-name">盐源</td><td class="drive-time">~6h</td><td class="spots"><span>🌊 泸沽湖(西岸)</span><span>🏔️ 公母山</span><span>🍃 盐源苹果之乡</span></td><td>🌦 小雨<br>25°/8°</td><td>⛅ 多云<br>24°/10°</td><td>⛅ 多云<br>25°/10°</td><td><b>24-25°</b></td></tr>
+<tr class="weather-ok"><td>成都</td><td class="city-name">崇州</td><td class="drive-time">~1h</td><td class="spots"><span class="s4a">🏞️ 街子古镇(4A)</span><span>⛰️ 凤栖山</span><span>🌾 崇州桤木河湿地</span></td><td>⛅ 多云<br>24°/11°</td><td>🌦 小雨<br>25°/14°</td><td>🌦 小雨<br>24°/14°</td><td><b>24-25°</b></td></tr>
+<tr class="weather-ok"><td>乐山</td><td class="city-name">夹江</td><td class="drive-time">~2h</td><td class="spots"><span class="s5a">🌿 千佛岩(4A)</span><span>🏞️ 夹江东风堰(世遗)</span><span>🏠 夹江年画</span></td><td>⛅ 多云<br>25°/14°</td><td>🌦 小雨<br>24°/16°</td><td>🌦 小雨<br>24°/16°</td><td><b>24-25°</b></td></tr>
+<tr class="weather-ok"><td>眉山</td><td class="city-name">青神</td><td class="drive-time">~1.5h</td><td class="spots"><span class="s4a">🏞️ 中岩寺(4A)</span><span>🌿 国际竹艺城</span><span>🌊 平羌小三峡</span></td><td>⛅ 多云<br>25°/13°</td><td>☁️ 阴<br>24°/17°</td><td>🌦 小雨<br>24°/16°</td><td><b>24-25°</b></td></tr>
+<tr class="weather-ok"><td>泸州</td><td class="city-name">古蔺</td><td class="drive-time">~4h</td><td class="spots"><span>🍵 古蔺郎酒庄园</span><span>🏔️ 黄荆老林</span><span>🏘️ 太平古镇</span></td><td>⛅ 多云<br>29°/16°</td><td>☁️ 阴<br>21°/18°</td><td>🌦 小雨<br>23°/17°</td><td><b>21-29°</b></td></tr>
+<tr class="weather-ok"><td>绵阳</td><td class="city-name">平武</td><td class="drive-time">~3h</td><td class="spots"><span>🐻 王朗大熊猫保护区</span><span>🏯 报恩寺</span><span>⛰️ 虎牙大峡谷</span></td><td>☀️ 晴<br>24°/13°</td><td>🌦 小雨<br>25°/14°</td><td>☁️ 阴<br>23°/15°</td><td><b>23-25°</b></td></tr>
+<tr class="weather-ok"><td>凉山</td><td class="city-name">美姑</td><td class="drive-time">~5.5h</td><td class="spots"><span>🏞️ 美姑大风顶</span><span>🎭 彝族毕摩文化</span><span>🏔️ 黄茅埂</span></td><td>⛅ 多云<br>24°/13°</td><td>🌦 小雨<br>25°/13°</td><td>🌦 小雨<br>23°/13°</td><td><b>23-25°</b></td></tr>
+<tr class="weather-ok"><td>宜宾</td><td class="city-name">宜宾</td><td class="drive-time">~3h</td><td class="spots"><span class="s5a">🍶 蜀南竹海(5A)</span><span>🏘️ 李庄古镇(4A)</span><span>🍺 五粮液景区</span></td><td>⛅ 多云<br>26°/16°</td><td>☁️ 阴<br>22°/18°</td><td>🌦 小雨<br>24°/17°</td><td><b>22-26°</b></td></tr>
+<tr class="weather-ok"><td>眉山</td><td class="city-name">丹棱</td><td class="drive-time">~1.5h</td><td class="spots"><span>🏔️ 老峨山</span><span>🌸 梅湾湖</span><span>🍃 丹棱冻粑</span></td><td>⛅ 多云<br>24°/14°</td><td>☁️ 阴<br>24°/17°</td><td>🌦 小雨<br>23°/15°</td><td><b>23-24°</b></td></tr>
+<tr class="weather-ok"><td>成都</td><td class="city-name">大邑</td><td class="drive-time">~1h</td><td class="spots"><span class="s4a">🏔️ 西岭雪山(4A)</span><span>🏘️ 安仁古镇(4A)</span><span>🕌 刘氏庄园</span></td><td>☀️ 晴<br>23°/13°</td><td>🌦 小雨<br>24°/15°</td><td>🌦 小雨<br>23°/15°</td><td><b>23-24°</b></td></tr>
+<tr class="weather-ok"><td>眉山</td><td class="city-name">洪雅</td><td class="drive-time">~1.5h</td><td class="spots"><span class="s4a">🏞️ 瓦屋山(4A)</span><span>🏞️ 七里坪</span><span>🌿 柳江古镇</span></td><td>⛅ 多云<br>24°/15°</td><td>🌦 小雨<br>22°/15°</td><td>🌦 小雨<br>24°/14°</td><td><b>22-24°</b></td></tr>
+<tr class="weather-ok"><td>成都</td><td class="city-name">蒲江</td><td class="drive-time">~1h</td><td class="spots"><span class="s4a">🏔️ 石象湖(4A)</span><span>🌿 成佳茶乡</span><span>🏘️ 西来古镇</span></td><td>⛅ 多云<br>23°/14°</td><td>☁️ 阴<br>22°/13°</td><td>🌦 小雨<br>23°/14°</td><td><b>22-23°</b></td></tr>
+<tr class="weather-ok"><td>雅安</td><td class="city-name">名山</td><td class="drive-time">~1.5h</td><td class="spots"><span>🍵 蒙顶山(4A)</span><span>🏞️ 百丈湖</span><span>🌿 骑龙场茶园</span></td><td>☀️ 晴<br>23°/14°</td><td>🌦 小雨<br>22°/13°</td><td>🌦 小雨<br>23°/14°</td><td><b>22-23°</b></td></tr>
+<tr class="weather-ok"><td>甘孜</td><td class="city-name">雅江</td><td class="drive-time">~5h</td><td class="spots"><span>🏔️ 天路十八弯</span><span>🏔️ 剪子弯山</span><span>🎀 康巴藏族风情</span></td><td>🌦 小雨<br>23°/6°</td><td>🌦 小雨<br>21°/8°</td><td>🌦 小雨<br>22°/9°</td><td><b>21-23°</b></td></tr>
+<tr class="weather-ok"><td>雅安</td><td class="city-name">荥经</td><td class="drive-time">~2.5h</td><td class="spots"><span>🏞️ 牛背山</span><span>🏯 严道古城</span><span>🌿 龙苍沟(4A)</span></td><td>⛅ 多云<br>22°/14°</td><td>🌦 小雨<br>20°/13°</td><td>🌦 小雨<br>23°/14°</td><td><b>20-23°</b></td></tr>
+<tr class="weather-ok"><td>阿坝</td><td class="city-name">九寨沟</td><td class="drive-time borderline">~7h⚠️</td><td class="spots"><span class="s5a">💧 九寨沟(5A·世遗)</span><span>🏯 九寨千古情</span><span>⛰️ 甘海子</span></td><td>🌦 小雨<br>22°/8°</td><td>🌦 小雨<br>21°/10°</td><td>☁️ 阴<br>21°/10°</td><td><b>21-22°</b></td></tr>
+<tr class="weather-ok"><td>绵阳</td><td class="city-name">江油</td><td class="drive-time">~2.5h</td><td class="spots"><span class="s4a">🏔️ 窦圌山(4A)</span><span>🏰 李白纪念馆</span><span>🌸 吴家后山辛夷花</span></td><td>☀️ 晴<br>20°/12°</td><td>🌦 小雨<br>21°/12°</td><td>🌦 小雨<br>21°/14°</td><td><b>20-21°</b></td></tr>
+<tr class="weather-ok"><td>阿坝</td><td class="city-name">黑水</td><td class="drive-time">~5h</td><td class="spots"><span class="s4a">🏔️ 达古冰川(4A)</span><span>🏔️ 卡龙沟</span><span>🏘️ 色尔古藏寨</span></td><td>⛅ 多云<br>21°/7°</td><td>🌦 小雨<br>23°/9°</td><td>🌦 小雨<br>18°/10°</td><td><b>18-23°</b></td></tr>
+<tr class="weather-ok"><td>凉山</td><td class="city-name">雷波</td><td class="drive-time">~5h</td><td class="spots"><span>🌊 马湖(4A)</span><span>🏔️ 溪洛渡水电站</span><span>🍃 雷波莼菜</span></td><td>🌦 小雨<br>23°/12°</td><td>☁️ 阴<br>17°/14°</td><td>🌦 小雨<br>18°/13°</td><td><b>17-23°</b></td></tr>
+<tr class="weather-ok"><td>阿坝</td><td class="city-name">马尔康</td><td class="drive-time">~5h</td><td class="spots"><span>🏯 卓克基土司官寨</span><span>🏔️ 梦笔山</span><span>🍂 松岗直波古碉</span></td><td>⛅ 多云<br>20°/4°</td><td>🌦 小雨<br>20°/7°</td><td>🌦 小雨<br>17°/7°</td><td><b>17-20°</b></td></tr>
+<tr class="weather-ok"><td>凉山</td><td class="city-name">昭觉</td><td class="drive-time">~5h</td><td class="spots"><span>⛰️ 博什瓦黑岩画</span><span>🎭 彝族文化</span><span>🏔️ 谷克德高山草甸</span></td><td>🌦 小雨<br>23°/8°</td><td>🌦 小雨<br>17°/10°</td><td>🌦 小雨<br>17°/10°</td><td><b>17-23°</b></td></tr>
+<tr class="weather-ok"><td>阿坝</td><td class="city-name">茂县</td><td class="drive-time">~3h</td><td class="spots"><span class="s4a">🏔️ 叠溪海子</span><span>🏘️ 羌城(4A)</span><span>🏔️ 九顶山</span></td><td>🌦 小雨<br>20°/10°</td><td>🌦 小雨<br>17°/11°</td><td>🌦 小雨<br>18°/11°</td><td><b>17-20°</b></td></tr>
+<tr class="weather-ok"><td>阿坝</td><td class="city-name">松潘</td><td class="drive-time">~5h</td><td class="spots"><span class="s4a">🏘️ 松潘古城(4A)</span><span>🏔️ 黄龙风景区</span><span>🐎 牟尼沟</span></td><td>⛅ 多云<br>13°/0°</td><td>⛅ 多云<br>15°/1°</td><td>🌦 小雨<br>13°/2°</td><td><b>13-15°</b></td></tr>
+<tr class="weather-ok"><td>甘孜</td><td class="city-name">理塘</td><td class="drive-time borderline">~8h⚠️</td><td class="spots"><span class="s4a">🏔️ 理塘草原(4A)</span><span>🏛️ 长青春科尔寺</span><span>🏔️ 毛垭大草原</span></td><td>☁️ 阴<br>12°/-2°</td><td>⛅ 多云<br>10°/-2°</td><td>🌦 小雨<br>12°/0°</td><td><b>10-12°</b></td></tr>
+<tr class="weather-ok"><td>阿坝</td><td class="city-name">红原</td><td class="drive-time borderline">~7h⚠️</td><td class="spots"><span>🐎 瓦切塔林</span><span>🏔️ 月亮湾</span><span>🏞️ 麦洼湿地</span></td><td>⛅ 多云<br>10°/-5°</td><td>⛅ 多云<br>12°/-4°</td><td>🌦 小雨<br>9°/-4°</td><td><b>9-12°</b></td></tr>
+</tbody></table>
+</div>
+
+<!-- ============ 多雨 ============ -->
+<div class="section" id="bad">
+<h2>🌧️ 多雨（中雨/大雨） <span class="count c-bad">29 个县市</span></h2>
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot s5a">5A/世界遗产</span></div>
+  <div class="legend-item"><span class="legend-dot s4a">4A/知名景区</span></div>
+  <div class="legend-item"><span class="legend-dot normal">其他景点</span></div>
+</div>
+<div class="sort-bar"><span>排序：</span>
+  <button class="sort-btn active" onclick="sortTable('bad',0)">默认</button>
+  <button class="sort-btn" onclick="sortTable('bad',3)">按车程 ↑</button>
+  <button class="sort-btn" onclick="sortTable('bad',3,'desc')">按车程 ↓</button>
+</div>
+<table id="table-bad">
+<thead><tr><th>地级市</th><th>县市</th><th>车程</th><th>代表性景点</th><th>4/4 周六</th><th>4/5 周日</th><th>4/6 周一</th><th>温度</th></tr></thead>
+<tbody>
+<tr class="weather-bad"><td>凉山</td><td class="city-name">西昌</td><td class="drive-time">~5.5h</td><td class="spots"><span class="s4a">🌊 邛海(4A)</span><span>🏔️ 螺髻山(4A)</span><span>🏘️ 建昌古城</span></td><td>🌦 小雨<br>29°/14°</td><td>🌦 小雨<br>25°/16°</td><td>🌧 中雨<br>26°/15°</td><td><b>25-29°</b></td></tr>
+<tr class="weather-bad"><td>雅安</td><td class="city-name">石棉</td><td class="drive-time">~3h</td><td class="spots"><span>🏘️ 安顺场古镇</span><span>🌅 汉源湖</span><span>🔥 石棉烧烤</span></td><td>🌦 小雨<br>26°/19°</td><td>🌦 小雨<br>27°/18°</td><td>🌧 中雨<br>26°/18°</td><td><b>26-27°</b></td></tr>
+<tr class="weather-bad"><td>雅安</td><td class="city-name">天全</td><td class="drive-time">~2.5h</td><td class="spots"><span>🏞️ 二郎山喇叭河</span><span>⛰️ 紫石关</span><span>🌿 天全竹海</span></td><td>⛅ 多云<br>25°/16°</td><td>🌦 小雨<br>25°/18°</td><td>🌧 中雨<br>25°/17°</td><td><b>25°</b></td></tr>
+<tr class="weather-bad"><td>泸州</td><td class="city-name">合江</td><td class="drive-time">~3.5h</td><td class="spots"><span class="s4a">🏞️ 佛宝森林公园(4A)</span><span>🏘️ 尧坝古镇</span><span>荔枝之乡</span></td><td>⛅ 多云<br>29°/16°</td><td>☁️ 阴<br>22°/17°</td><td>🌧 中雨<br>24°/17°</td><td><b>22-29°</b></td></tr>
+<tr class="weather-bad"><td>德阳</td><td class="city-name">绵竹</td><td class="drive-time">~1.5h</td><td class="spots"><span class="s4a">🏔️ 九顶山</span><span>🏘️ 年画村(4A)</span><span>🌸 绵竹年画</span></td><td>⛅ 多云<br>24°/15°</td><td>🌧 中雨<br>25°/15°</td><td>🌧 中雨<br>25°/16°</td><td><b>24-25°</b></td></tr>
+<tr class="weather-bad"><td>阿坝</td><td class="city-name">金川</td><td class="drive-time">~5h</td><td class="spots"><span>🌸 金川梨花(最美)</span><span>🏘️ 广法寺</span><span>🏔️ 观音桥</span></td><td>⛅ 多云<br>26°/9°</td><td>🌦 小雨<br>23°/12°</td><td>🌧 中雨<br>25°/12°</td><td><b>23-26°</b></td></tr>
+<tr class="weather-bad"><td>凉山</td><td class="city-name">冕宁</td><td class="drive-time">~5h</td><td class="spots"><span>🏔️ 灵山风景区</span><span>🌊 冶勒湖</span><span>🏡 彝海</span></td><td>🌧 中雨<br>27°/13°</td><td>🌧 中雨<br>21°/15°</td><td>🌧 中雨<br>24°/15°</td><td><b>21-27°</b></td></tr>
+<tr class="weather-bad"><td>凉山</td><td class="city-name">甘洛</td><td class="drive-time">~4h</td><td class="spots"><span>🏔️ 大渡河大峡谷</span><span>🏗️ 海棠古镇</span><span>🎭 彝族文化</span></td><td>⛅ 多云<br>24°/17°</td><td>🌦 小雨<br>24°/15°</td><td>🌧 中雨<br>24°/16°</td><td><b>24°</b></td></tr>
+<tr class="weather-bad"><td>凉山</td><td class="city-name">喜德</td><td class="drive-time">~5h</td><td class="spots"><span>🏔️ 小相岭</span><span>🏘️ 彝族风情</span><span>🌸 喜德核桃</span></td><td>🌦 小雨<br>27°/11°</td><td>🌧 中雨<br>21°/13°</td><td>🌦 小雨<br>24°/13°</td><td><b>21-27°</b></td></tr>
+<tr class="weather-bad"><td>成都</td><td class="city-name">彭州</td><td class="drive-time">~1h</td><td class="spots"><span class="s4a">🏔️ 丹景山(4A)</span><span>🏘️ 白鹿镇</span><span>🌸 彭州牡丹</span></td><td>⛅ 多云<br>23°/14°</td><td>🌧 中雨<br>23°/14°</td><td>🌦 小雨<br>24°/15°</td><td><b>23-24°</b></td></tr>
+<tr class="weather-bad"><td>乐山</td><td class="city-name">犍为</td><td class="drive-time">~2.5h</td><td class="spots"><span>🚂 嘉阳小火车</span><span>🏘️ 罗城古镇</span><span>🏞️ 桫椤湖</span></td><td>⛅ 多云<br>25°/15°</td><td>☁️ 阴<br>21°/16°</td><td>🌧 中雨<br>24°/15°</td><td><b>21-25°</b></td></tr>
+<tr class="weather-bad"><td>乐山</td><td class="city-name">沐川</td><td class="drive-time">~3h</td><td class="spots"><span class="s4a">🌳 沐川竹海(4A)</span><span>🏞️ 箭板古镇</span><span>🌿 沐川森林公园</span></td><td>☀️ 晴<br>25°/15°</td><td>🌦 小雨<br>21°/16°</td><td>🌧 中雨<br>24°/16°</td><td><b>21-25°</b></td></tr>
+<tr class="weather-bad"><td>雅安</td><td class="city-name">芦山</td><td class="drive-time">~2.5h</td><td class="spots"><span>🏛️ 芦山龙门古镇</span><span>🏔️ 大川河</span><span>🌿 飞仙关</span></td><td>⛅ 多云<br>23°/12°</td><td>🌦 小雨<br>23°/15°</td><td>🌧 中雨<br>23°/15°</td><td><b>23°</b></td></tr>
+<tr class="weather-bad"><td>阿坝</td><td class="city-name">汶川</td><td class="drive-time">~2h</td><td class="spots"><span class="s4a">🏘️ 汶川映秀遗址(4A)</span><span>🏯 威州古城</span><span>🏔️ 大禹祭坛</span></td><td>☀️ 晴<br>25°/13°</td><td>🌦 小雨<br>22°/16°</td><td>🌧 中雨<br>22°/14°</td><td><b>22-25°</b></td></tr>
+<tr class="weather-bad"><td>成都</td><td class="city-name">都江堰</td><td class="drive-time">~1h</td><td class="spots"><span class="s5a">💧 都江堰(5A·世遗)</span><span class="s4a">⛰️ 青城山(4A)</span><span>🏙️ 南桥夜景</span></td><td>⛅ 多云<br>23°/14°</td><td>🌦 小雨<br>23°/16°</td><td>🌧 中雨<br>22°/15°</td><td><b>22-23°</b></td></tr>
+<tr class="weather-bad"><td>雅安</td><td class="city-name">雅安</td><td class="drive-time">~2h</td><td class="spots"><span>🌴 碧峰峡(4A)</span><span>🏎️ 蒙顶山</span><span>🏘️ 上里古镇</span></td><td>⛅ 多云<br>23°/12°</td><td>🌦 小雨<br>22°/15°</td><td>🌧 中雨<br>23°/14°</td><td><b>22-23°</b></td></tr>
+<tr class="weather-bad"><td>阿坝</td><td class="city-name">小金</td><td class="drive-time">~5h</td><td class="spots"><span>🌸 小金梨花</span><span>🏘️ 抚边古城</span><span>🏔️ 夹金山</span></td><td>🌦 小雨<br>23°/9°</td><td>🌧 中雨<br>22°/11°</td><td>🌧 中雨<br>21°/11°</td><td><b>21-23°</b></td></tr>
+<tr class="weather-bad"><td>乐山</td><td class="city-name">马边</td><td class="drive-time">~4h</td><td class="spots"><span>🏞️ 大风顶自然保护区</span><span>🏘️ 马边彝族风情</span><span>🍵 马边绿茶</span></td><td>☀️ 晴<br>22°/16°</td><td>🌦 小雨<br>20°/16°</td><td>🌧 中雨<br>22°/16°</td><td><b>20-22°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">丹巴</td><td class="drive-time">~5h</td><td class="spots"><span class="s4a">🏘️ 甲居藏寨(4A)</span><span>🌸 丹巴梨花</span><span>🏔️ 墨尔多山</span></td><td>🌦 小雨<br>22°/9°</td><td>🌦 小雨<br>22°/12°</td><td>⛈ 大雨<br>20°/12°</td><td><b>20-22°</b></td></tr>
+<tr class="weather-bad"><td>阿坝</td><td class="city-name">理县</td><td class="drive-time">~3.5h</td><td class="spots"><span class="s4a">🏔️ 毕棚沟(4A)</span><span>♨️ 古尔沟温泉</span><span>🏘️ 桃坪羌寨</span></td><td>🌦 小雨<br>23°/11°</td><td>🌧 中雨<br>21°/13°</td><td>🌧 中雨<br>20°/12°</td><td><b>20-23°</b></td></tr>
+<tr class="weather-bad"><td>凉山</td><td class="city-name">越西</td><td class="drive-time">~5h</td><td class="spots"><span>🏯 越西古城</span><span>🌊 水观音</span><span>🏔️ 申果庄自然保护区</span></td><td>🌦 小雨<br>26°/10°</td><td>🌦 小雨<br>18°/14°</td><td>🌧 中雨<br>20°/12°</td><td><b>18-26°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">九龙</td><td class="drive-time">~6h</td><td class="spots"><span>🏔️ 伍须海</span><span>🏔️ 日鲁库</span><span>🌿 十二仙女山</span></td><td>🌦 小雨<br>20°/6°</td><td>🌦 小雨<br>20°/7°</td><td>🌧 中雨<br>18°/9°</td><td><b>18-20°</b></td></tr>
+<tr class="weather-bad"><td>雅安</td><td class="city-name">宝兴</td><td class="drive-time">~3h</td><td class="spots"><span>🐼 蜂桶寨熊猫基地</span><span>🏔️ 东拉山大峡谷</span><span>🌳 硗碛藏寨</span></td><td>⛅ 多云<br>19°/12°</td><td>🌦 小雨<br>18°/12°</td><td>🌧 中雨<br>20°/12°</td><td><b>18-20°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">新龙</td><td class="drive-time">~8h</td><td class="spots"><span>🏔️ 措卡湖</span><span>🏔️ 拉日马</span><span>🏕️ 卡瓦洛日</span></td><td>⛅ 多云<br>20°/1°</td><td>🌦 小雨<br>20°/2°</td><td>🌧 中雨<br>17°/2°</td><td><b>17-20°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">道孚</td><td class="drive-time">~6h</td><td class="spots"><span>🏰 八美镇</span><span>🏔️ 墨石公园(4A)</span><span>🎨 道孚民居</span></td><td>☀️ 晴<br>19°/4°</td><td>🌦 小雨<br>17°/5°</td><td>🌧 中雨<br>18°/6°</td><td><b>17-19°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">泸定</td><td class="drive-time">~4h</td><td class="spots"><span>🌉 泸定桥</span><span>🏔️ 海螺沟(4A)</span><span>🏔️ 燕子沟</span></td><td>🌦 小雨<br>21°/11°</td><td>🌦 小雨<br>15°/13°</td><td>🌧 中雨<br>15°/12°</td><td><b>15-21°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">炉霍</td><td class="drive-time">~6h</td><td class="spots"><span>🏛️ 寿灵寺</span><span>🏔️ 卡萨湖</span><span>🎭 炉霍山歌</span></td><td>☀️ 晴<br>16°/0°</td><td>🌦 小雨<br>17°/2°</td><td>🌧 中雨<br>16°/3°</td><td><b>16-17°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">康定</td><td class="drive-time">~4.5h</td><td class="spots"><span>🏔️ 折多山(4298m)</span><span>🏡 新都桥</span><span>⛰️ 贡嘎小环线</span></td><td>🌦 小雨<br>18°/7°</td><td>🌧 中雨<br>15°/9°</td><td>🌧 中雨<br>13°/8°</td><td><b>13-18°</b></td></tr>
+<tr class="weather-bad"><td>甘孜</td><td class="city-name">色达</td><td class="drive-time borderline">~8h⚠️</td><td class="spots"><span>🏛️ 喇荣五明佛学院</span><span>🌌 色达天葬台</span><span>🏔️ 东嘎寺</span></td><td>☀️ 晴<br>10°/-7°</td><td>🌦 小雨<br>10°/-5°</td><td>🌧 中雨<br>10°/-6°</td><td><b>10°</b></td></tr>
+</tbody></table>
+</div>
+
+</div>
+
+<div class="back-link">
+  <a href="index.html">← 返回方案首页</a>
+</div>
+
+<footer>
+  天气数据：2026年4月2日 中国天气网 · 车程数据：高德/百度地图保守估计 · 76个县市<br>
+  ⚠️ 黄色车程标记 = 踩7h线，清明高速可能堵车，建议预留弹性时间<br>
+  景点信息仅供参考，建议出行前确认开放状态 · 景点分级：<span style="color:#fbbf24">金色=5A/世界遗产</span> <span style="color:#34d399">绿色=4A/知名</span> <span style="color:#94a3b8">灰色=其他</span>
+</footer>
+
+<script>
+function sortTable(sectionId, colIndex, order) {
+  var table = document.getElementById('table-' + sectionId);
+  if (!table) return;
+  var tbody = table.querySelector('tbody');
+  var rows = Array.from(tbody.querySelectorAll('tr'));
+  
+  // Update button states
+  var btns = table.parentElement.querySelectorAll('.sort-btn');
+  btns.forEach(function(b) { b.classList.remove('active'); });
+  event.target.classList.add('active');
+
+  if (colIndex === 0) {
+    // Default: restore original order by data-idx if present, otherwise do nothing
+    rows.sort(function(a, b) {
+      return (parseInt(a.dataset.idx) || 0) - (parseInt(b.dataset.idx) || 0);
+    });
+  } else {
+    rows.sort(function(a, b) {
+      var aText = a.cells[colIndex] ? a.cells[colIndex].textContent.trim() : '';
+      var bText = b.cells[colIndex] ? b.cells[colIndex].textContent.trim() : '';
+      // Extract numeric value from drive time like "~5h" or "~8h⚠️"
+      var aVal = parseFloat(aText.replace(/[^0-9.]/g, '')) || 0;
+      var bVal = parseFloat(bText.replace(/[^0-9.]/g, '')) || 0;
+      if (order === 'desc') return bVal - aVal;
+      return aVal - bVal;
+    });
+  }
+
+  rows.forEach(function(row) { tbody.appendChild(row); });
+}
+
+// Store original order on load
+document.querySelectorAll('tbody').forEach(function(tbody) {
+  Array.from(tbody.querySelectorAll('tr')).forEach(function(row, i) {
+    row.dataset.idx = i;
+  });
+});
+</script>
+
+</body>
+</html>
