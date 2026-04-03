@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昭通·大山包 保姆级攻略 | 纯电SUV床车</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--border:#475569;--sun:#f59e0b;--green:#10b981;--red:#ef4444;--blue:#3b82f6}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:16px}body{font-family:-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--accent)}a:hover{text-decoration:underline}
+.back{display:inline-block;padding:12px 24px;font-size:.9em}
+.hero{background:linear-gradient(135deg,#0f172a,#1a2e1a,#0f172a);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
+.hero h1{font-size:2em;background:linear-gradient(90deg,#10b981,#38bdf8,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{color:var(--muted);font-size:.95em;max-width:720px;margin:8px auto 0}
+.c{max-width:860px;margin:0 auto;padding:0 20px}
+h2{font-size:1.3em;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+h3{font-size:1.05em;margin:20px 0 8px;color:var(--accent)}
+.wd-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.wd{background:var(--card);border-radius:12px;padding:12px;text-align:center;border:1px solid var(--border)}
+.wd .dt{font-size:.8em;color:var(--muted)}.wd .ic{font-size:1.5em;margin:4px 0}.wd .tp{font-weight:600}.wd .ds{font-size:.8em;color:var(--sun)}
+.tip{background:var(--card2);border-left:4px solid var(--sun);border-radius:8px;padding:13px 18px;margin:12px 0;font-size:.88em}.tip b{color:var(--sun)}
+.warn{background:var(--card2);border-left:4px solid var(--red);border-radius:8px;padding:13px 18px;margin:12px 0;font-size:.88em}.warn b{color:var(--red)}
+.charge{background:linear-gradient(135deg,#1a2540,#172033);border:1px solid #3b82f640;border-radius:12px;padding:15px 18px;margin:12px 0}
+.charge h4{color:#60a5fa;font-size:.93em;margin-bottom:5px}.charge p{font-size:.84em;color:var(--muted)}
+.poi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:12px 0}
+.poi h4{font-size:.98em;margin-bottom:4px}.poi p,.poi ul{font-size:.86em;color:var(--muted)}.poi ul{padding-left:18px;margin-top:5px}.poi ul li{margin-bottom:3px}
+.tags{margin:6px 0;display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:.73em;padding:2px 7px;border-radius:8px}
+.t-free{background:#10b98120;color:#34d399;border:1px solid #059669}
+.t-pay{background:#f59e0b20;color:#fbbf24;border:1px solid #f59e0b}
+.t-time{background:#3b82f620;color:#60a5fa;border:1px solid #3b82f6}
+.t-drive{background:#8b5cf620;color:#a78bfa;border:1px solid #8b5cf6}
+.t-star{background:#f59e0b30;color:#fbbf24;border:1px solid #f59e0b}
+.stay{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+.stay h4{color:#a78bfa;font-size:.93em;margin-bottom:3px}.stay p{font-size:.84em;color:var(--muted)}
+.stay .pros{color:#34d399;font-size:.82em;margin-top:3px}.stay .cons{color:#f87171;font-size:.82em}
+.food{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+.food h4{color:#fbbf24;font-size:.93em;margin-bottom:3px}.food p,.food ul{font-size:.84em;color:var(--muted)}.food ul{padding-left:16px;margin-top:4px}
+.day-hdr{background:linear-gradient(90deg,var(--accent),#818cf8);color:var(--bg);padding:10px 18px;border-radius:12px;font-weight:700;font-size:1.05em;margin:26px 0 14px}
+.step{border-left:3px solid var(--border);padding-left:16px;margin:14px 0}
+.step .time{font-size:.84em;color:var(--accent);font-weight:600}.step .desc{font-size:.87em;color:var(--muted);margin-top:3px}
+.spot{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+.spot h4{font-size:.95em;margin-bottom:4px}.spot p{font-size:.84em;color:var(--muted);margin-top:4px}
+.scenic{background:linear-gradient(135deg,#1e293b,#1a2332);border:1px solid var(--green);border-radius:12px;padding:14px 18px;margin:12px 0}
+.scenic h4{color:var(--green);font-size:.93em;margin-bottom:4px}.scenic p{font-size:.84em;color:var(--muted)}
+.vs-table{width:100%;border-collapse:collapse;font-size:.84em;margin:14px 0}
+.vs-table th,.vs-table td{padding:10px 12px;border:1px solid var(--border);text-align:center}
+.vs-table th{background:var(--card2);font-weight:600}.vs-table td{background:var(--card)}
+.tabs{display:flex;gap:0;margin:20px 0 0;border-bottom:2px solid var(--border)}
+.tab-btn{padding:10px 20px;background:var(--card);color:var(--muted);border:1px solid var(--border);border-bottom:none;border-radius:12px 12px 0 0;cursor:pointer;font-size:.9em;font-weight:600;margin-right:-1px}
+.tab-btn.active{background:var(--bg);color:var(--accent);border-bottom:2px solid var(--bg);margin-bottom:-2px}
+.tab-content{display:none;padding-top:4px}.tab-content.active{display:block}
+.badge-a{display:inline-block;background:#10b98128;color:#34d399;border:1px solid #059669;padding:2px 10px;border-radius:12px;font-size:.76em;margin-left:4px}
+.badge-b{display:inline-block;background:#8b5cf628;color:#a78bfa;border:1px solid #8b5cf6;padding:2px 10px;border-radius:12px;font-size:.76em;margin-left:4px}
+footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-top:1px solid var(--border);margin-top:36px}
+.pic-btn{display:inline-flex;align-items:center;gap:4px;font-size:.72em;padding:2px 8px;border-radius:8px;background:#38bdf815;color:var(--accent);border:1px solid #38bdf850;cursor:pointer;text-decoration:none;margin-left:6px;transition:all .2s}
+.pic-btn:hover{background:#38bdf830;text-decoration:none}
+/* 可折叠区块 */
+details.section{background:var(--card);border:1px solid var(--border);border-radius:12px;margin:12px 0;overflow:hidden}
+details.section summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.98em;color:var(--text);list-style:none;display:flex;align-items:center;gap:8px;user-select:none;transition:background .2s}
+details.section summary:hover{background:var(--card2)}
+details.section summary::before{content:'▶';font-size:.7em;color:var(--accent);transition:transform .25s;flex-shrink:0}
+details.section[open] summary::before{transform:rotate(90deg)}
+details.section summary::-webkit-details-marker{display:none}
+details.section .section-body{padding:0 18px 16px;border-top:1px solid var(--border)}
+details.section .section-body .poi,details.section .section-body .warn,details.section .section-body .tip{margin:10px 0;border-radius:10px}
+/* TOC 导航条 */
+.toc-wrap{position:sticky;top:0;z-index:50;background:var(--bg);margin:0 -20px;padding:0 20px;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.toc-nav{display:flex;flex-wrap:wrap;gap:6px;padding:12px 0 10px}
+.toc-nav a{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .25s;white-space:nowrap}
+.toc-nav a:hover{background:var(--card2);border-color:var(--accent);color:var(--accent);text-decoration:none}
+/* 浮动导航 */
+.float-nav{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:100}
+.float-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1em;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:all .2s;text-decoration:none}
+.float-btn:hover{background:var(--accent);color:var(--bg);transform:scale(1.1);text-decoration:none}
+.float-btn.top-btn{opacity:0;pointer-events:none;transition:opacity .3s}
+.float-btn.top-btn.show{opacity:1;pointer-events:auto}
+/* 打印样式 */
+@media print{body{background:#fff;color:#000}.hero{background:#f0f0f0;-webkit-text-fill-color:#000}.c,.poi,.food,.stay,.charge,.tip,.warn,.scenic,.spot,.step{background:#f8f8f8;border-color:#ddd;color:#000}.poi p,.poi ul,.food p,.food ul,.stay p,.charge p,.step .desc,.spot p{color:#333}.float-nav,.back,.pic-btn,.tab-btn,.toc-nav,.toc-wrap{display:none!important}details.section{border:none}details.section .section-body{display:block!important;border-top:none}details.section summary::before{display:none}h2{break-before:auto}a{color:#1a73e8}}
+@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 12px;font-size:.8em}.float-nav{bottom:16px;right:12px}.float-btn{width:38px;height:38px;font-size:.95em}}
+</style></head><body>
+<a class="back" href="index.html">← 返回方案总览</a>
+<a class="back" href="checklist.html" style="float:right;color:#fbbf24;">📋 物品清单 →</a>
+<div class="hero">
+  <h1>昭通 · 大山包 · 豆沙关</h1>
+  <p class="sub">成都出发 · 纯电SUV床车 · 周五晚出发 · 单程~540km G85银昆高速<br>
+  <b>Plan A</b>（推荐）：宜宾燃面+豆沙关古镇+大山包日落日出·3天<br>
+  <b>Plan B</b>：直奔大山包+返程蜀南竹海·3天</p>
+</div>
+<div class="c">
+
+<div class="toc-wrap">
+<nav class="toc-nav" id="tocNav">
+  <a href="#sec-weather">☀️ 天气</a>
+  <a href="#sec-scenery">🛤 沿途风景</a>
+  <a href="#sec-charge">🔌 充电</a>
+  <a href="#sec-spots">🗺 景点</a>
+  <a href="#sec-plan">📋 行程</a>
+  <a href="#sec-budget">💰 费用</a>
+  <a href="#sec-tips">⚠️ 避坑</a>
+  <a href="#sec-road">🚗 山路</a>
+  <a href="#sec-chargeplan">⚡ 充电应急</a>
+  <a href="#sec-sos">🆘 应急</a>
+  <a href="#sec-offline">📴 离线</a>
+  <a href="#sec-navi">📍 导航</a>
+  <a href="#sec-info">📡 实用</a>
+</nav>
+</div>
+
+<h2 id="sec-weather">☀️ 三天天气 <span style="font-size:.6em;color:var(--muted);font-weight:400">4/3中国天气网更新（县级站数据·101291001）</span></h2>
+<div class="wd-bar">
+  <div class="wd"><div class="dt">4/4 周六</div><div class="ic">⛅</div><div class="tp">27°/9°</div><div class="ds">多云</div></div>
+  <div class="wd"><div class="dt">4/5 周日</div><div class="ic">☁️</div><div class="tp">26°/11°</div><div class="ds">阴</div></div>
+  <div class="wd"><div class="dt">4/6 周一</div><div class="ic">⛅</div><div class="tp">25°/11°</div><div class="ds">多云</div></div>
+</div>
+<div class="tip"><b>☀️ 三天无雨！第一梯队推荐！</b>昭通市区预报4/4多云27°/9°，4/5阴26°/11°，4/6多云25°/11°。<b>清明假期全程无雨</b>，温度适宜。与上次预报（阵雨）相比大幅好转！<br>
+<b>⚠️ 大山包海拔3100m，比昭通市区低8-10°，风大需厚外套！</b>昭通市区无雨不代表大山包也无雨（高原小气候），建议出发前再查一次。<br>
+<b>行程建议：</b>4/4多云好天气→豆沙关古镇游览；4/5阴→大山包看云海（阴天反而云海更壮观）；4/6多云→返程途经蜀南竹海。</div>
+
+<h3 style="margin-top:18px;color:var(--accent)">📍 主要途经点天气（县级站数据）</h3>
+<div class="poi" style="padding:10px 14px">
+<table style="width:100%;font-size:.82em;color:var(--muted);border-collapse:collapse">
+<tr style="border-bottom:1px solid var(--border)"><th style="text-align:left;padding:6px">途经点</th><th style="padding:6px">4/4 周六</th><th style="padding:6px">4/5 周日</th><th style="padding:6px">4/6 周一</th></tr>
+<tr><td style="padding:5px">内江</td><td style="text-align:center;padding:5px">多云 28°/17°</td><td style="text-align:center;padding:5px">多云转阴 27°/17°</td><td style="text-align:center;padding:5px">多云转小雨 26°/16°</td></tr>
+<tr><td style="padding:5px">自贡</td><td style="text-align:center;padding:5px">多云 30°/18°</td><td style="text-align:center;padding:5px">阴转小雨 28°/18°</td><td style="text-align:center;padding:5px">小雨 25°/17°</td></tr>
+<tr><td style="padding:5px">宜宾</td><td style="text-align:center;padding:5px">多云 27°/16°</td><td style="text-align:center;padding:5px">阴转小雨 25°/17°</td><td style="text-align:center;padding:5px">小雨 22°/16°</td></tr>
+<tr><td style="padding:5px;color:var(--accent)">昭通</td><td style="text-align:center;padding:5px;color:var(--accent)">多云 27°/9°</td><td style="text-align:center;padding:5px;color:var(--accent)">阴 26°/11°</td><td style="text-align:center;padding:5px;color:var(--accent)">多云 25°/11°</td></tr>
+</table>
+<p style="font-size:.78em;margin-top:6px;color:var(--muted)">⚠️ 县级站数据。去程4/4四川段天气好，返程4/6自贡/宜宾可能遇小雨。大山包海拔3100m比昭通低8-10°且风大。</p>
+</div>
+
+<h2 id="sec-scenery">🛤 沿途风景</h2>
+<div class="scenic">
+  <h4>🏔 豆沙关五尺道（秦代古蜀道）</h4>
+  <p>位于宜宾到昭通途中的盐津县。秦代开凿的古蜀道遗迹，千年马蹄印清晰可见。关河峡谷深切，僰人悬棺挂在悬崖上，神秘壮观。<b>免费开放</b>，建议停留2-3h。</p>
+</div>
+<div class="scenic">
+  <h4>🌉 麻昭高速隧道群（宜宾→昭通段）</h4>
+  <p>G85银昆高速进入乌蒙山区后隧道密集（超长隧道群），桥梁多、坡度大。穿越关河峡谷，沿途峡谷风光壮观。<b>部分路段限速80km/h</b>，注意安全。</p>
+</div>
+<div class="scenic">
+  <h4>🏡 豆沙关古镇</h4>
+  <p>清代风格古镇，石板路+古建筑，袁滋题记摩崖（唐代·国家级文物）。逛完古镇+五尺道约2-3h。<b>推荐中午到达</b>，逛完后在古镇吃午饭。</p>
+</div>
+
+<h2 id="sec-charge">🔌 充电规划</h2>
+<div class="charge">
+  <h4>第①段：成都→宜宾（280km·高速·无难度）</h4>
+  <p>满电出发 → <b>内江服务区</b>(~170km处·国网快充) → 宜宾市区。<br>
+  宜宾作为区域中心城市，充电桩密集（国网/特来电/星星充电），万达广场/莱茵春天/大学城均有快充。<br>
+  ⚡ <b>建议在宜宾充满电</b>，接下来宜宾→昭通段山区服务区充电桩稀疏。</p>
+</div>
+<div class="charge">
+  <h4>第②段：宜宾→豆沙关→昭通（260km·高速·山区）</h4>
+  <p>宜宾出发 → <b>水富服务区</b>(~70km处·进云南前最后大型补给·建议快充补电) → 豆沙关古镇(游览2-3h) → 昭通。<br>
+  ⚡ <b>昭通充电</b>：市区国网/特来电均有布局。推荐在昭通万达广场或高速出口附近充电站充满。<br>
+  ⚠️ <b>大山包景区内充电设施非常有限甚至没有</b>！进山前务必在昭通充满电。</p>
+</div>
+<div class="charge">
+  <h4>第③段：大山包→昭通→宜宾→成都（返程~540km）</h4>
+  <p>大山包→昭通补电(20min) → 宜宾充满+午饭(1h) → 成都。<br>
+  返程约需7-8h（含充电吃饭+豆沙关/竹海停留）。</p>
+</div>
+<div class="tip"><b>总充电次数：</b>去程2-3次(内江+水富+昭通) + 昭通1-2次 + 返程2-3次(昭通+宜宾+内江) ≈ 6-8次。每次20-30min。<b>山区信号弱，提前在e充电/特来电APP截图保存充电桩位置。</b></div>
+
+<h2 id="sec-spots">🗺 核心景点</h2>
+
+<div class="spot">
+  <h4>❶ 大山包·鸡公山大峡谷 ⭐⭐⭐ 最壮观！ <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=昭通大山包鸡公山云海" target="_blank">📷 查看实景</a></h4>
+  <div class="tags"><span class="t-pay">门票约70-98元/人</span><span class="t-time">观景2-3h</span><span class="t-drive">昭通→景区 80km/2-3h</span></div>
+  <p>大山包标志性景观！雄伟的峡谷绝壁，对面就是牛栏江大峡谷。<b>云海日出观景台</b>——清晨云海翻涌，太阳从云海中升起，宛如仙境。海拔3100m+，紫外线极强。<b>4月初虽无黑颈鹤（冬季11-3月），但峡谷+云海+草甸风光依然震撼</b>。</p>
+</div>
+
+<div class="spot">
+  <h4>❷ 大山包·大海子/跳墩河湿地 ⭐⭐ <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=昭通大山包大海子湿地" target="_blank">📷 查看实景</a></h4>
+  <div class="tags"><span class="t-free">含在门票内</span><span class="t-time">1-2h</span></div>
+  <p>高山湿地草甸，夏季绿草如茵。4月初春季，草甸刚开始转绿，与远处雪山和峡谷构成独特的高原画卷。冬季是黑颈鹤越冬栖息地（11月-3月核心期）。</p>
+</div>
+
+<div class="spot">
+  <h4>❸ 豆沙关古镇+五尺道+僰人悬棺 ⭐⭐ <a class="pic-btn" href="https://image.baidu.com/search/index?tn=baiduimage&word=盐津豆沙关古镇五尺道" target="_blank">📷 查看实景</a></h4>
+  <div class="tags"><span class="t-free">古镇免费</span><span class="t-pay">部分景点20-30元</span><span class="t-time">2-3h</span><span class="t-drive">宜宾→盐津 120km/1.5h</span></div>
+  <p><b>五尺道</b>：秦代开凿的古蜀道，千年马蹄印清晰可见，走在上面仿佛穿越两千年。<b>僰人悬棺</b>：挂在悬崖上的古代僰人棺木，至今成谜——他们是如何把棺木放到悬崖上的？<b>袁滋题记摩崖</b>：唐代摩崖石刻，国家级文物。<b>关河峡谷风光</b>：峡谷深切，河流奔涌。</p>
+</div>
+
+<div class="tip"><b>📸 拍照提示：</b>鸡公山适合拍大峡谷+云海（清晨最佳）；豆沙关适合拍古镇人文+五尺道马蹄印。大山包高原紫外线极强，SPF50+必备。</div>
+
+<!-- ==================== 两个Plan Tab ==================== -->
+<h2 id="sec-plan">📋 行程方案</h2>
+<div class="tabs">
+  <div class="tab-btn active" data-tab="a">Plan A：豆沙关+大山包<span class="badge-a">推荐·3天</span></div>
+  <div class="tab-btn" data-tab="b">Plan B：大山包+蜀南竹海<span class="badge-b">3天·偏自然</span></div>
+</div>
+
+<!-- ===== Plan A ===== -->
+<div class="tab-content active" id="tab-a">
+<div class="tip"><b>Plan A 核心思路：</b>周五晚开到内江过夜 → 周六上午到宜宾吃燃面 → 下午逛豆沙关古镇 → 傍晚到昭通 → 周日全天大山包 → 周一返程。人文+自然双丰收！</div>
+
+<div class="day-hdr">Day 0 · 4/3 周五晚 — 成都→内江过夜（高德170km·约2h）</div>
+<div class="step">
+  <div class="time">🚗 20:00 下班吃完饭后出发</div>
+  <div class="desc">走G76厦蓉高速→G85银昆高速。全程仅170km到内江。夜间高速车少，轻松。</div>
+</div>
+<div class="step">
+  <div class="time">🌙 ~22:00 内江服务区过夜+充电</div>
+  <div class="desc">内江服务区有卫生间/充电桩。<b>边睡边充满电。</b>22:00就能睡觉。</div>
+</div>
+
+<h3>🅿️ 内江过夜点</h3>
+<div class="stay">
+  <h4>首选：内江服务区</h4>
+  <p class="pros">✅ 不用下高速·有充电桩·边睡边充·安全正规</p>
+  <p class="cons">❌ 可能有大车噪音·戴耳塞解决</p>
+</div>
+
+<div class="food">
+  <h4>🔥 内江美食：甜城特产</h4>
+  <p>内江号称"甜城"，以糖业闻名。<b>如果22:00前到且不想直接睡</b>，下高速吃一碗：</p>
+  <ul>
+    <li>🍜 <b>内江牛肉面</b> — 甜城名吃·牛肉臊子+甜味汤底·独特</li>
+    <li>🍡 <b>黄氏糖水/糖业博物馆</b> — 内江糖业文化代表</li>
+  </ul>
+  <p>📍 如果太晚了就服务区泡面，明天宜宾大吃！</p>
+</div>
+
+<div class="day-hdr">Day 1 · 4/4 周六 — 内江→宜宾(1h)→豆沙关(1.5h)→昭通(2h) ⛅</div>
+<div class="step">
+  <div class="time">😴 07:30 起床·简单早餐</div>
+  <div class="desc">服务区买早餐。今天行程丰富，稍微早起。</div>
+</div>
+<div class="step">
+  <div class="time">🚗 08:00 出发→宜宾（高德110km·约1.5h）</div>
+  <div class="desc">白天走G85银昆高速到宜宾。</div>
+</div>
+<div class="step">
+  <div class="time">⚡ ~09:30 到达宜宾 · 快充至100%（30min）</div>
+  <div class="desc">到宜宾后<b>第一件事充电至100%</b>！接下来260km山区需要满电。推荐莱茵春天/万达广场快充。</div>
+</div>
+
+<div class="food">
+  <h4>🍜 10:00-10:30 宜宾必吃：燃面！</h4>
+  <p>宜宾燃面全国闻名！<b>燃面讲究"干拌无水"——油辣子+花生碎+芽菜+肉臊子，一碗下肚满嘴生香！</b></p>
+  <ul>
+    <li>🔥 <b>老字号燃面馆</b>（多家分店·当地人认可） — 经典宜宾燃面8-12元/碗·再来一碗炖鸡面15元</li>
+    <li>🔥 <b>刘臣街燃面</b> — 本地老店·干拌燃面+辣子鸡面</li>
+    <li>🥤 <b>双河凉糕</b> — 红糖凉糕清甜解暑·宜宾甜品代表·3-5元/碗</li>
+    <li>🫓 <b>李庄白糕</b> — 糯米制作·软糯香甜·5元/份·可打包路上吃</li>
+  </ul>
+  <p>📍 宜宾老城区燃面馆密集，随便找一家人多的都不差。<b>人均15-20元吃撑。</b></p>
+</div>
+
+<div class="step">
+  <div class="time">🚗 10:30 出发→豆沙关（高德120km·约1.5h）</div>
+  <div class="desc">走G85银昆高速。进入山区后隧道变多，注意限速80km/h。沿途经过水富服务区（可补电）。</div>
+</div>
+<div class="step">
+  <div class="time">🏛 12:00-14:30 豆沙关古镇游览</div>
+  <div class="desc">逛古镇石板路(30min) → 五尺道古蜀道+马蹄印(30min) → 僰人悬棺观景台(20min) → 关河峡谷风光(20min) → 袁滋题记摩崖(15min)。<br>
+  <b>全程约2-2.5h，节奏轻松。</b>古镇免费，部分小景点可能收20-30元。</div>
+</div>
+<div class="food">
+  <h4>🍜 14:30-15:00 豆沙关/盐津县午餐</h4>
+  <ul>
+    <li>🍗 <b>盐津乌骨鸡</b> — 盐津县特产！肉质鲜美·炖汤一绝·当地招牌菜·人均40-60元</li>
+    <li>🍜 <b>盐津豆花</b> — 绵软细嫩·蘸辣椒水吃·当地特色小吃</li>
+    <li>🥩 <b>水富燃面/昭通小肉串</b> — 路过可以尝尝</li>
+  </ul>
+  <p>📍 古镇内有小餐馆，也可以在盐津县城吃。</p>
+</div>
+
+<div class="step">
+  <div class="time">🚗 15:00 出发→昭通（高德80km·约1.5h）</div>
+  <div class="desc">G85银昆高速，山区高速隧道密集。沿途经过关河峡谷风光。</div>
+</div>
+<div class="step">
+  <div class="time">⚡ ~16:30 到达昭通 · 快充至100%</div>
+  <div class="desc"><b>在昭通充满电！明天去大山包景区内可能没有充电桩。</b>推荐昭通万达广场/高速出口附近充电站。</div>
+</div>
+
+<div class="food">
+  <h4>🍖 17:30-19:00 昭通晚餐</h4>
+  <p><b>昭通美食三大名片：</b></p>
+  <ul>
+    <li>🍢 <b>昭通小肉串</b> — 昭通第一美食！牛肉小串+辣椒面+孜然，炭火现烤，串串不停往嘴里塞！市区"烧烤一条街"最集中，人均30-50元吃撑</li>
+    <li>🥘 <b>昭通天麻炖鸡</b> — 天麻是昭通特产(全国品质最好)，炖汤滋补鲜甜。适合从大山包回来后补身体。人均50-80元</li>
+    <li>🥟 <b>油糕稀豆粉</b> — 昭通传统早餐(下午也能找到)，油糕外酥里糯+稀豆粉浓香·5-10元/套</li>
+    <li>🥔 <b>昭通炸洋芋</b> — 云南特色，各种调料拌炸土豆，路边摊美味·5-10元</li>
+    <li>🍎 <b>昭通苹果</b> — 全国知名，脆甜多汁（秋季/冬季当季最佳，4月初可能还有储存果）·3-5元/斤</li>
+  </ul>
+  <p>📍 昭通市区烧烤一条街/老城区，晚上最热闹。</p>
+</div>
+<div class="step">
+  <div class="time">🌙 20:00 昭通过夜</div>
+  <div class="desc">找酒店停车场或安全区域过夜。昭通海拔1920m，夜间10°左右，开空调舒适。</div>
+</div>
+
+<h3>🅿️ 昭通过夜点</h3>
+<div class="stay">
+  <h4>首选：昭通万达广场停车场</h4>
+  <p>📍 昭通市昭阳区万达广场</p>
+  <p class="pros">✅ 有卫生间·有充电桩·安全·有餐饮配套</p>
+  <p class="cons">❌ 城区环境·不如自然景区有氛围</p>
+</div>
+
+<div class="day-hdr">Day 2 · 4/5 周日 — 大山包全天游览 ☁️ 26°</div>
+<div class="tip"><b>今天是大山包精华日！</b>阴天反而可能云海更壮观。早起去碰日出云海，全天游览峡谷+草甸。</div>
+
+<div class="step">
+  <div class="time">🌅 06:00 出发前往大山包（80km·约2-3h山路）</div>
+  <div class="desc">早起出发！昭通→大山包走县道，后半段盘山公路弯多路窄，约2-3h。<b>山路注意安全，弯道鸣笛。</b></div>
+</div>
+<div class="step">
+  <div class="time">📸 ~08:30 鸡公山大峡谷·云海观景（最壮观！）</div>
+  <div class="desc">到达鸡公山观景台。如果运气好，<b>脚下是万丈深渊的峡谷，远处是翻涌的云海</b>。4月初虽不是黑颈鹤季，但峡谷+云海+草甸的壮阔感依然震撼。<b>阴天云海可能更浓更壮观！</b><br>
+  📸 拍照提示：广角镜头拍峡谷全景，长焦拍云海细节。注意安全！观景台无护栏处不要靠近边缘。</div>
+</div>
+<div class="step">
+  <div class="time">🚶 09:30-12:00 大海子/跳墩河湿地+草甸漫游</div>
+  <div class="desc">从鸡公山出发，沿景区公路到大海子湿地。<b>高山草甸风光</b>，春季草甸刚开始转绿，远处雪山和峡谷构成独特画卷。可徒步栈道游览。<br>
+  🌿 4月初大山包的高山植物开始复苏，沿途野花零星开放。</div>
+</div>
+<div class="step">
+  <div class="time">🍽 12:30-13:30 午餐（景区农家乐/自带）</div>
+  <div class="desc">景区内有农家乐提供简餐（土鸡、洋芋等），人均30-50元。也可自带干粮。<b>建议自带热水+泡面/自热饭</b>，景区餐饮选择有限。</div>
+</div>
+<div class="step">
+  <div class="time">🚶 14:00-16:00 继续游览/仙人田/牛栏江大峡谷</div>
+  <div class="desc">下午可游览仙人田（高山梯田景观）、牛栏江大峡谷（深切峡谷壮观）。或者找一个无人的草甸发呆——<b>大山包的魅力在于它的原始和辽阔</b>。</div>
+</div>
+<div class="step">
+  <div class="time">🚗 16:00 返程→昭通（2-3h山路）</div>
+  <div class="desc">从大山包返回昭通市区。<b>山路弯多，天黑前务必到达！</b></div>
+</div>
+<div class="step">
+  <div class="time">⚡🍖 ~19:00 昭通补电+晚餐</div>
+  <div class="desc">快充补电。再来一顿昭通小肉串或天麻炖鸡作为告别餐！<b>明天返程路上记得买昭通苹果带回去。</b></div>
+</div>
+
+<div class="day-hdr">Day 3 · 4/6 周一 — 返程·走走停停 ⛅ 25°</div>
+<div class="tip"><b>今天返程~540km。</b>清明高速免费到24:00，<b>周一晚到家即可</b>。沿途可停留豆沙关（去程已玩可跳过）或宜宾。两人轮换驾驶。</div>
+
+<div class="step">
+  <div class="time">🚗 08:00 出发返程</div>
+  <div class="desc">昭通→宜宾→成都。全程高速。</div>
+</div>
+<div class="step">
+  <div class="time">⚡ ~11:00 宜宾补电+午饭（1h）</div>
+  <div class="desc">到达宜宾。<b>再来一顿燃面作为告别餐！</b>顺便补充采购：芽菜、豆腐干、李庄白糕——这些都是可以带回去的宜宾特产。</div>
+</div>
+<div class="step">
+  <div class="time">🚗 12:00 宜宾→成都（高德280km·约3.5h）</div>
+  <div class="desc">走G85银昆高速转G76厦蓉高速。内江服务区可补电一次。</div>
+</div>
+<div class="step">
+  <div class="time">🏠 ~16:00-17:00 回到成都</div>
+  <div class="desc">如果不沿途停留约16:00到家。周一下午到家完全OK！</div>
+</div>
+
+</div><!-- end tab-a -->
+
+<!-- ===== Plan B ===== -->
+<div class="tab-content" id="tab-b">
+<div class="tip"><b>Plan B 适合：</b>不想逛古镇，把时间给自然风光。豆沙关仅路过不停，返程多一天给蜀南竹海。</div>
+
+<div class="day-hdr">Day 0 · 4/3 周五晚 — 同Plan A</div>
+<div class="step">
+  <div class="time">🚗 20:00出发 → 22:00内江服务区过夜</div>
+  <div class="desc">同Plan A。</div>
+</div>
+
+<div class="day-hdr">Day 1 · 4/4 周六 — 内江→宜宾(1.5h)→昭通(2h)</div>
+<div class="step">
+  <div class="time">🚗 07:00 出发 · 宜宾充电+燃面午餐 → 昭通（全程高速~5h）</div>
+  <div class="desc">跳过豆沙关，宜宾吃完燃面充满电后直奔昭通。<b>约15:00到达</b>，比Plan A多半天在昭通。</div>
+</div>
+<div class="step">
+  <div class="time">🏕 15:00-17:00 昭通市区逛逛</div>
+  <div class="desc">可以去昭通古城/龙氏家祠看看，或者去吃昭通小吃。充好电。</div>
+</div>
+
+<div class="day-hdr">Day 2 · 4/5 周日 — 大山包全天游览</div>
+<div class="step">
+  <div class="time">行程同Plan A的Day2</div>
+  <div class="desc">06:00出发→鸡公山云海→大海子湿地→午餐→峡谷→返程昭通。</div>
+</div>
+
+<div class="day-hdr">Day 3 · 4/6 周一 — 昭通→宜宾→蜀南竹海→成都</div>
+<div class="step">
+  <div class="time">🚗 08:00 出发 → 宜宾充电+午餐</div>
+  <div class="desc">昭通→宜宾约4h。</div>
+</div>
+<div class="step">
+  <div class="time">🎋 13:00-16:00 蜀南竹海（50km·距宜宾1h）</div>
+  <div class="desc"><b>蜀南竹海</b>——"中国最美竹林"！门票约100元。核心看点：翡翠长廊（竹林公路拍照绝美）、七彩飞瀑、观海楼（登高看竹海全景）。建议游玩3-4h。<br>
+  🍽 竹海特色：竹荪炖土鸡、竹笋宴、全竹宴。</div>
+</div>
+<div class="step">
+  <div class="time">🏠 ~20:00-21:00 回到成都</div>
+  <div class="desc">蜀南竹海→成都约3.5h。周一晚到家。</div>
+</div>
+
+</div><!-- end tab-b -->
+</div>
+
+<h2 id="sec-budget">💰 费用预估（Plan A）</h2>
+<div class="poi">
+<table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+<thead><tr style="border-bottom:2px solid var(--border)">
+  <th style="text-align:left;padding:8px 6px;color:var(--text)">项目</th>
+  <th style="text-align:right;padding:8px 6px;color:var(--accent);width:110px">👤 1人</th>
+  <th style="text-align:right;padding:8px 6px;color:#a78bfa;width:110px">👥 2人</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:6px">高速通行费</td><td style="text-align:right;color:#34d399;padding:6px"><b>免费</b></td><td style="text-align:right;color:#34d399;padding:6px"><b>免费</b></td></tr>
+<tr><td style="padding:6px">充电 (~1100km)</td><td style="text-align:right;padding:6px">150-250</td><td style="text-align:right;padding:6px">150-250 <span style="font-size:.75em;color:var(--accent)">共摊</span></td></tr>
+<tr><td style="padding:6px">大山包门票 70-98/人</td><td style="text-align:right;padding:6px">70-98</td><td style="text-align:right;padding:6px">140-196</td></tr>
+<tr><td style="padding:6px">豆沙关小景点 20-30/人 <span style="font-size:.8em;color:var(--muted)">(可选)</span></td><td style="text-align:right;padding:6px;opacity:.6">20-30</td><td style="text-align:right;padding:6px;opacity:.6">40-60</td></tr>
+<tr><td style="padding:6px">昭通餐饮2天</td><td style="text-align:right;padding:6px">150-250</td><td style="text-align:right;padding:6px">300-450</td></tr>
+<tr><td style="padding:6px">沿途餐饮(燃面/乌骨鸡)</td><td style="text-align:right;padding:6px">80-120</td><td style="text-align:right;padding:6px">160-240</td></tr>
+<tr><td style="padding:6px">床车过夜 (开空调)</td><td style="text-align:right;color:#34d399;padding:6px">0</td><td style="text-align:right;color:#34d399;padding:6px">0</td></tr>
+<tr style="font-weight:700;color:var(--text);border-top:2px solid var(--border)"><td style="padding:8px 6px">💰 合计</td><td style="text-align:right;padding:8px 6px;color:var(--accent)">~500-750元</td><td style="text-align:right;padding:8px 6px;color:#a78bfa">~800-1200元</td></tr>
+<tr><td style="padding:6px;opacity:.7">Plan B +蜀南竹海门票</td><td style="text-align:right;padding:6px;opacity:.7">+100</td><td style="text-align:right;padding:6px;opacity:.7">+200</td></tr>
+</tbody>
+</table>
+<p style="font-size:.82em;color:var(--muted);margin-top:10px">💡 <b>省钱提示：</b>豆沙关古镇免费（仅小景点收费），高速清明免费。昭通美食便宜（小肉串30-50元/人吃饱）。<b>昭通是所有推荐路线中费用最低的！</b></p>
+</div>
+
+<h2 id="sec-tips">⚠️ 避坑提示</h2>
+<div class="warn"><b>大山包海拔3100m+，可能轻微高反：</b>从成都直接上去可能气喘/头疼。建议在昭通适应一晚再上山。备葡萄糖口服液（药店2-3元/支）。</div>
+<div class="warn"><b>大山包充电桩极度稀缺：</b>进山前务必在昭通充满电！不要抱有"到了再充"的侥幸心理。</div>
+<div class="warn"><b>大山包盘山路弯多：</b>昭通→大山包80km山路，后半段弯道多路窄。雨天谨慎驾驶，冬季可能有暗冰。<b>天黑前必须下到昭通！</b></div>
+<div class="tip"><b>温差极大：</b>昭通市区1920m白天26°，大山包3100m白天可能只有15-18°，夜间5°以下。<b>带厚外套+手套！</b></div>
+<div class="tip"><b>防晒：</b>海拔3100m+高原紫外线极强。SPF50+防晒霜+墨镜+帽子，否则一天晒伤。</div>
+
+<details class="section" id="sec-road" open>
+<summary>🚗 山路安全提示（大山包盘山路）</summary>
+<div class="section-body">
+<div class="warn"><b>⚠️ 昭通→大山包80km山路，后半段弯多路窄！</b></div>
+<div class="poi">
+  <h4>⚠️ 具体注意事项</h4>
+  <ul>
+    <li>🔴 <b>全程禁止夜间行驶</b>！山路无路灯，对向车灯刺眼，夜间出事概率翻10倍</li>
+    <li>🟡 <b>弯道鸣笛</b>：每个弯道前按喇叭提醒对向车</li>
+    <li>🟡 <b>雨天打滑</b>：4月如遇雨，降速至限速的60%</li>
+    <li>🟡 <b>保持车距</b>：与前车保持50m+距离</li>
+    <li>✅ <b>两人轮换驾驶</b>：每1.5-2h换一次</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-chargeplan">
+<summary>⚡ 充电应急方案</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>🔋 如果昭通充电桩坏了/排队</h4>
+  <ul>
+    <li>方案A：搜索"特来电昭通"或"国网昭通"，市区内有多个充电站</li>
+    <li>方案B：部分酒店/餐馆提供220V插座，用便携充电枪应急</li>
+    <li>方案C：如电量不够到成都，在水富服务区补电</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-sos">
+<summary>🆘 紧急联系 &amp; 救援信息</summary>
+<div class="section-body">
+<div class="warn">
+  <b>🚨 紧急电话</b><br>
+  📞 <b>全国高速救援：12122</b><br>
+  📞 <b>交警/报警：110</b> ｜ 急救：<b>120</b><br>
+  📞 <b>道路救援(品牌)：</b>蔚来400-999-6699 ｜ 特斯拉400-910-0707 ｜ 比亚迪400-8986-789<br>
+  📞 <b>保险公司救援：</b>人保95518 ｜ 平安95511（大多免费拖车100km）
+</div>
+<div class="poi">
+  <h4>🏥 沿途医院</h4>
+  <ul>
+    <li><b>宜宾市第一人民医院</b> — 三甲</li>
+    <li><b>昭通市第一人民医院</b> — 三甲</li>
+    <li><b>盐津县人民医院</b></li>
+    <li><b>内江市第一人民医院</b> — 三甲</li>
+  </ul>
+  <p style="color:var(--red);font-size:.84em">⚠️ 大山包景区内<b>无大型医院</b>，最近三甲在昭通（80km/2-3h）。建议购买含<b>紧急医疗转运</b>的旅行险。</p>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-offline">
+<summary>📴 离线预案</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>📱 出发前必做</h4>
+  <ul>
+    <li>📥 <b>高德地图→离线地图</b>：下载"四川省+云南省"</li>
+    <li>📸 <b>充电桩截图保存</b>：内江/宜宾/水富/昭通充电站位置全部截图</li>
+    <li>📸 <b>本攻略保存离线</b>：浏览器"保存为PDF"</li>
+    <li>📝 <b>关键电话存手机</b>：救援+医院+充电站</li>
+    <li>📋 <b>行程告知家人</b>：把路线+预计到达时间发家人群</li>
+    <li>🎵 <b>下载音乐/播客</b>：山路5h需要</li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-navi">
+<summary>📍 导航搜索关键词</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>🗺 关键地点</h4>
+  <ul>
+    <li>⚡ <b>"内江服务区充电站"</b></li>
+    <li>⚡ <b>"宜宾万达广场停车场"</b> 或 <b>"莱茵春天充电站"</b></li>
+    <li>⚡ <b>"水富服务区充电站"</b></li>
+    <li>⚡ <b>"国网昭通充电站"</b> 或 <b>"特来电昭通"</b></li>
+    <li>🏛 <b>"豆沙关古镇"</b> — 盐津县</li>
+    <li>🏞 <b>"大山包景区"</b> 或 <b>"昭阳区大山包镇曾家沟"</b></li>
+    <li>🌄 <b>"大山包鸡公山观景台"</b></li>
+    <li>🏞 <b>"蜀南竹海景区"</b> — Plan B返程</li>
+    <li>🍜 <b>"宜宾燃面"</b> — 评分最高的一家</li>
+    <li>🍖 <b>"昭通烧烤一条街"</b></li>
+  </ul>
+</div>
+</div>
+</details>
+
+<details class="section" id="sec-info" open>
+<summary>📡 实用信息</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>📶 手机信号</h4>
+  <ul>
+    <li><b>成都→宜宾段：</b>4G/5G全覆盖</li>
+    <li><b>宜宾→昭通段：</b>🟡 山区隧道信号时断时续，出隧道即恢复</li>
+    <li><b>昭通市区：</b>4G正常</li>
+    <li><b>昭通→大山包：</b>🟡 后半段山路信号弱，景区内部分区域无信号</li>
+    <li>📡 <b>运营商排名：</b>移动 ≫ 电信 > 联通（云南境内）</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🏧 现金 & ATM</h4>
+  <p>豆沙关古镇/大山包景区消费建议带<b>300元现金</b>。昭通市区ATM充足。<b>在宜宾或昭通取好现金！</b></p>
+</div>
+<div class="poi">
+  <h4>🏔 海拔与高原反应</h4>
+  <ul>
+    <li><b>成都 500m</b> — 无高反</li>
+    <li><b>昭通 1920m</b> — 大部分人无反应</li>
+    <li><b>大山包 3100m</b> — 可能轻微气喘/头疼。走慢一点、不剧烈运动、多喝水</li>
+    <li><b>应对：</b>备葡萄糖口服液；出发前3天可服红景天</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🎫 门票信息</h4>
+  <ul>
+    <li><b>大山包</b>：约70-98元/人（含环保费）·建议提前确认最新价格</li>
+    <li><b>豆沙关古镇</b>：免费（小景点20-30元）</li>
+    <li><b>蜀南竹海</b>：约100元/人 + 观光车40元（Plan B）</li>
+    <li>💡 60岁以上老人/军人/残疾人凭证件门票<b>免费</b>；学生票<b>半价</b></li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🛣 清明高速 & 返程预警</h4>
+  <ul>
+    <li>🆓 <b>清明高速免费：4/3 00:00 至 4/6 24:00</b></li>
+    <li>⚠️ <b>4/6 24:00高速免费截止</b>，最晚17:00从宜宾出发回成都</li>
+    <li>💡 建议返程走G85→G76，不走乐山绕路</li>
+  </ul>
+</div>
+</div>
+</details>
+
+</div>
+<div class="float-nav">
+  <a class="float-btn top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</a>
+  <a class="float-btn" href="index.html" title="总览">🏠</a>
+  <a class="float-btn" href="xichang.html" title="西昌攻略">🏖</a>
+  <a class="float-btn" href="checklist.html" title="物品清单">📋</a>
+</div>
+<footer>保姆级攻略 · 2026.4.3 · 天气:中国天气网<b>县级站</b>·101291001 · 充电:国网/特来电 · 景点:携程/马蜂窝/小红书/大众点评<br><a href="index.html">← 返回总览</a> · <a href="checklist.html" style="color:#fbbf24;">📋 物品清单</a> · <a href="xichang.html">西昌攻略 →</a></footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  /* Plan A/B Tab */
+  var tabBtns = document.querySelectorAll('.tab-btn[data-tab]');
+  for(var i=0;i<tabBtns.length;i++){
+    (function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-tab');
+        var allTabs = document.querySelectorAll('.tab-btn');
+        var allContents = document.querySelectorAll('.tab-content');
+        for(var j=0;j<allTabs.length;j++) allTabs[j].classList.remove('active');
+        for(var j=0;j<allContents.length;j++) allContents[j].classList.remove('active');
+        var target = document.getElementById('tab-'+id);
+        if(target) target.classList.add('active');
+        btn.classList.add('active');
+      });
+    })(tabBtns[i]);
+  }
+  /* 回到顶部 */
+  window.addEventListener('scroll',function(){
+    var btn=document.getElementById('topBtn');
+    if(btn){
+      if(window.scrollY>600) btn.classList.add('show'); else btn.classList.remove('show');
+    }
+  });
+});
+</script>
+</body></html>
