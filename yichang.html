@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宜昌 · 三峡大坝 · 清江画廊 保姆级攻略 | 飞机+租车</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--border:#475569;--sun:#f59e0b;--green:#10b981;--red:#ef4444;--blue:#3b82f6}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:16px}body{font-family:-apple-system,'PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--accent)}a:hover{text-decoration:underline}
+.back{display:inline-block;padding:12px 24px;font-size:.9em}
+.hero{background:linear-gradient(135deg,#0f172a,#0c2340,#0a2a3a,#0f172a);padding:40px 24px 32px;text-align:center;border-bottom:1px solid var(--border)}
+.hero h1{font-size:2em;background:linear-gradient(90deg,#06b6d4,#38bdf8,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{color:var(--muted);font-size:.95em;max-width:720px;margin:8px auto 0}
+.c{max-width:860px;margin:0 auto;padding:0 20px}
+h2{font-size:1.3em;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+h3{font-size:1.05em;margin:20px 0 8px;color:var(--accent)}
+.wd-bar{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.wd{background:var(--card);border-radius:12px;padding:12px;text-align:center;border:1px solid var(--border)}
+.wd .dt{font-size:.8em;color:var(--muted)}.wd .ic{font-size:1.5em;margin:4px 0}.wd .tp{font-weight:600}.wd .ds{font-size:.8em;color:var(--sun)}
+.tip{background:var(--card2);border-left:4px solid var(--sun);border-radius:8px;padding:13px 18px;margin:12px 0;font-size:.88em}.tip b{color:var(--sun)}
+.warn{background:var(--card2);border-left:4px solid var(--red);border-radius:8px;padding:13px 18px;margin:12px 0;font-size:.88em}.warn b{color:var(--red)}
+.rental{background:linear-gradient(135deg,#1a2540,#172033);border:1px solid #3b82f640;border-radius:12px;padding:15px 18px;margin:12px 0}
+.rental h4{color:#60a5fa;font-size:.93em;margin-bottom:5px}.rental p{font-size:.84em;color:var(--muted)}
+.poi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:12px 0}
+.poi h4{font-size:.98em;margin-bottom:4px}.poi p,.poi ul{font-size:.86em;color:var(--muted)}.poi ul{padding-left:18px;margin-top:5px}.poi ul li{margin-bottom:3px}
+.tags{margin:6px 0;display:flex;flex-wrap:wrap;gap:6px}.tags span{font-size:.73em;padding:2px 7px;border-radius:8px}
+.t-free{background:#10b98120;color:#34d399;border:1px solid #059669}
+.t-pay{background:#f59e0b20;color:#fbbf24;border:1px solid #f59e0b}
+.t-time{background:#3b82f620;color:#60a5fa;border:1px solid #3b82f6}
+.t-drive{background:#8b5cf620;color:#a78bfa;border:1px solid #8b5cf6}
+.t-star{background:#f59e0b30;color:#fbbf24;border:1px solid #f59e0b}
+.t-nature{background:#10b98120;color:#34d399;border:1px solid #059669}
+.t-culture{background:#f59e0b20;color:#fbbf24;border:1px solid #f59e0b}
+.t-hist{background:#8b5cf620;color:#a78bfa;border:1px solid #8b5cf6}
+.t-hot{background:#ef444420;color:#f87171;border:1px solid #ef4444}
+.stay{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+.stay h4{color:#a78bfa;font-size:.93em;margin-bottom:3px}.stay p{font-size:.84em;color:var(--muted)}
+.stay .pros{color:#34d399;font-size:.82em;margin-top:3px}.stay .cons{color:#f87171;font-size:.82em}
+.food{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+.food h4{color:#fbbf24;font-size:.93em;margin-bottom:3px}.food p,.food ul{font-size:.84em;color:var(--muted)}.food ul{padding-left:16px;margin-top:4px}
+.day-hdr{background:linear-gradient(90deg,#06b6d4,#38bdf8);color:var(--bg);padding:10px 18px;border-radius:12px;font-weight:700;font-size:1.05em;margin:26px 0 14px}
+.step{border-left:3px solid var(--border);padding-left:16px;margin:14px 0}
+.step .time{font-size:.84em;color:var(--accent);font-weight:600}.step .desc{font-size:.87em;color:var(--muted);margin-top:3px}
+.spot{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+.spot h4{font-size:.95em;margin-bottom:4px}.spot p{font-size:.84em;color:var(--muted);margin-top:4px}
+.scenic{background:linear-gradient(135deg,#1e293b,#1a2332);border:1px solid var(--green);border-radius:12px;padding:14px 18px;margin:12px 0}
+.scenic h4{color:var(--green);font-size:.93em;margin-bottom:4px}.scenic p{font-size:.84em;color:var(--muted)}
+.vs-table{width:100%;border-collapse:collapse;font-size:.84em;margin:14px 0}
+.vs-table th,.vs-table td{padding:10px 12px;border:1px solid var(--border);text-align:center}
+.vs-table th{background:var(--card2);font-weight:600}.vs-table td{background:var(--card)}
+.tabs{display:flex;gap:0;margin:20px 0 0;border-bottom:2px solid var(--border)}
+.tab-btn{padding:10px 20px;background:var(--card);color:var(--muted);border:1px solid var(--border);border-bottom:none;border-radius:12px 12px 0 0;cursor:pointer;font-size:.9em;font-weight:600;margin-right:-1px}
+.tab-btn.active{background:var(--bg);color:var(--accent);border-bottom:2px solid var(--bg);margin-bottom:-2px}
+.tab-content{display:none;padding-top:4px}.tab-content.active{display:block}
+.badge-a{display:inline-block;background:#10b98128;color:#34d399;border:1px solid #059669;padding:2px 10px;border-radius:12px;font-size:.76em;margin-left:4px}
+.badge-b{display:inline-block;background:#8b5cf628;color:#a78bfa;border:1px solid #8b5cf6;padding:2px 10px;border-radius:12px;font-size:.76em;margin-left:4px}
+footer{text-align:center;padding:28px;color:var(--muted);font-size:.78em;border-top:1px solid var(--border);margin-top:36px}
+.pic-btn{display:inline-flex;align-items:center;gap:4px;font-size:.72em;padding:2px 8px;border-radius:8px;background:#38bdf815;color:var(--accent);border:1px solid #38bdf850;cursor:pointer;text-decoration:none;margin-left:6px;transition:all .2s}
+.pic-btn:hover{background:#38bdf830;text-decoration:none}
+/* 可折叠区块 */
+details.section{background:var(--card);border:1px solid var(--border);border-radius:12px;margin:12px 0;overflow:hidden}
+details.section summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.98em;color:var(--text);list-style:none;display:flex;align-items:center;gap:8px;user-select:none;transition:background .2s}
+details.section summary:hover{background:var(--card2)}
+details.section summary::before{content:'▶';font-size:.7em;color:var(--accent);transition:transform .25s;flex-shrink:0}
+details.section[open] summary::before{transform:rotate(90deg)}
+details.section summary::-webkit-details-marker{display:none}
+details.section .section-body{padding:0 18px 16px;border-top:1px solid var(--border)}
+details.section .section-body .poi,details.section .section-body .warn,details.section .section-body .tip{margin:10px 0;border-radius:10px}
+/* TOC 导航条 */
+.toc-wrap{position:sticky;top:0;z-index:50;background:var(--bg);margin:0 -20px;padding:0 20px;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.toc-nav{display:flex;flex-wrap:wrap;gap:6px;padding:12px 0 10px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.toc-nav .toc-link{display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:20px;font-size:.82em;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);text-decoration:none;transition:all .25s;white-space:nowrap;-webkit-tap-highlight-color:transparent;cursor:pointer;user-select:none}
+.toc-nav .toc-link:hover{background:var(--card2);border-color:var(--accent);color:var(--accent);text-decoration:none}
+.toc-nav .toc-link.active{background:var(--accent);color:var(--bg);border-color:var(--accent);text-decoration:none;box-shadow:0 2px 8px rgba(56,189,248,.3)}
+.toc-nav .toc-link.show-all{background:transparent;border-style:dashed;color:var(--muted)}
+.toc-nav .toc-link.show-all:hover,.toc-nav .toc-link.show-all.active{background:var(--sun);color:var(--bg);border-color:var(--sun);border-style:solid}
+/* 内容板块切换 */
+.content-section{transition:opacity .3s ease,max-height .3s ease}
+.content-section.hidden{display:none}
+.section-enter{animation:fadeSlideIn .35s ease both}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+/* 浮动导航 */
+.float-nav{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:100}
+.float-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1em;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:all .2s;text-decoration:none}
+.float-btn:hover{background:var(--accent);color:var(--bg);transform:scale(1.1);text-decoration:none}
+.float-btn.top-btn{opacity:0;pointer-events:none;transition:opacity .3s}
+.float-btn.top-btn.show{opacity:1;pointer-events:auto}
+/* 打印样式 */
+@media print{body{background:#fff;color:#000}.hero{background:#f0f0f0;-webkit-text-fill-color:#000}.c,.poi,.food,.stay,.rental,.tip,.warn,.scenic,.spot,.step{background:#f8f8f8;border-color:#ddd;color:#000}.poi p,.poi ul,.food p,.food ul,.stay p,.rental p,.step .desc,.spot p{color:#333}.float-nav,.back,.pic-btn,.tab-btn,.toc-nav,.toc-wrap,.toc-link{display:none!important}.content-section.hidden{display:block!important}details.section{border:none}details.section .section-body{display:block!important;border-top:none}details.section summary::before{display:none}h2{break-before:auto}a{color:#1a73e8}}
+@media(max-width:600px){.wd-bar{grid-template-columns:1fr}.hero h1{font-size:1.3em}.tab-btn{padding:8px 12px;font-size:.8em}.float-nav{bottom:16px;right:12px}.float-btn{width:38px;height:38px;font-size:.95em}}
+</style></head><body>
+<a class="back" href="index.html">← 返回方案总览</a>
+<a class="back" href="checklist.html" style="float:right;color:#fbbf24;">📋 物品清单 →</a>
+<div class="hero">
+  <h1>宜昌 · 三峡大坝 · 清江画廊</h1>
+  <p class="sub">成都出发 · 飞机+租车 · 周六早去 · 周日傍晚回 · 2天1夜<br>
+  EU2773 成都双流T2 → 宜昌三峡T2 · 问界M7增程自驾<br>
+  三峡大坝自驾通行+清江画廊游船+宜昌夜生活</p>
+</div>
+<div class="c">
+
+<div class="toc-wrap">
+<nav class="toc-nav" id="tocNav">
+  <span class="toc-link show-all active" data-section="all">📖 全部</span>
+  <span class="toc-link" data-section="sec-flight">✈️ 航班</span>
+  <span class="toc-link" data-section="sec-weather">☀️ 天气</span>
+  <span class="toc-link" data-section="sec-clothes">👗 穿衣</span>
+  <span class="toc-link" data-section="sec-rental">🚗 租车</span>
+  <span class="toc-link" data-section="sec-dam">🏗 三峡大坝</span>
+  <span class="toc-link" data-section="sec-gallery">🎨 清江画廊</span>
+  <span class="toc-link" data-section="sec-food">🍜 美食</span>
+  <span class="toc-link" data-section="sec-plan">📋 行程</span>
+  <span class="toc-link" data-section="sec-budget">💰 费用</span>
+  <span class="toc-link" data-section="sec-tips">⚠️ 避坑</span>
+  <span class="toc-link" data-section="sec-sos">🆘 应急</span>
+  <span class="toc-link" data-section="sec-navi">📍 导航</span>
+  <span class="toc-link" data-section="sec-info">📡 实用</span>
+</nav>
+</div>
+
+<!-- ==================== 航班信息 ==================== -->
+<div class="content-section" data-id="sec-flight">
+<h2 id="sec-flight">✈️ 航班信息</h2>
+<div class="poi">
+<table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+<tr style="border-bottom:2px solid var(--border)"><th style="text-align:left;padding:8px;color:var(--text)">航段</th><th style="padding:8px;color:var(--text)">航班号</th><th style="padding:8px;color:var(--text)">时间</th><th style="padding:8px;color:var(--text)">航站楼</th></tr>
+<tr><td style="padding:8px"><b>去程 6/6 周六</b></td><td style="text-align:center;padding:8px">EU2773</td><td style="text-align:center;padding:8px">08:55-10:20</td><td style="text-align:center;padding:8px">成都双流T2→宜昌三峡T2</td></tr>
+<tr><td style="padding:8px"><b>返程 6/7 周日</b></td><td style="text-align:center;padding:8px">—</td><td style="text-align:center;padding:8px">18:00-19:40</td><td style="text-align:center;padding:8px">宜昌三峡T2→成都天府T2</td></tr>
+</table>
+</div>
+<div class="tip"><b>💡 航班提示：</b>飞行时间仅1h25min，非常短。去程早班机，建议5:50前到双流机场。返程18:00起飞，16:30前需到达宜昌三峡机场还车+值机。<br>
+<b>⚠️ 返程注意：</b>宜昌三峡T2→成都天府T2，不是双流！落地后交通方式不同，提前规划。</div>
+</div>
+
+<!-- ==================== 天气 ==================== -->
+<div class="content-section" data-id="sec-weather">
+<h2 id="sec-weather">☀️ 两天天气 <span style="font-size:.6em;color:var(--muted);font-weight:400">6/5查询·县级站数据</span></h2>
+<div class="wd-bar">
+  <div class="wd"><div class="dt">6/6 周六</div><div class="ic">⛅→🌧</div><div class="tp">33°/20°</div><div class="ds">晴转小雨·降水60%</div></div>
+  <div class="wd"><div class="dt">6/7 周日</div><div class="ic">🌧→☁️</div><div class="tp">24°/16°</div><div class="ds">小雨转阴·降水70%</div></div>
+</div>
+<div class="warn"><b>⚠️ 6月宜昌已入梅雨季！</b>6/6白天晴到33°但傍晚可能转雨，6/7全天降水概率70%。<b>必带雨伞/雨衣！</b>三峡大坝观景台雨天无遮挡，注意防滑。清江画廊雨天船上观景受影响不大，但徒步路线湿滑。</div>
+
+<h3 style="margin-top:18px;color:var(--accent)">📍 主要活动地点天气（县级站数据）</h3>
+<div class="poi" style="padding:10px 14px">
+<table style="width:100%;font-size:.82em;color:var(--muted);border-collapse:collapse">
+<tr style="border-bottom:1px solid var(--border)"><th style="text-align:left;padding:6px">地点</th><th style="padding:6px">6/6 周六</th><th style="padding:6px">6/7 周日</th></tr>
+<tr><td style="padding:5px">宜昌市区（威斯汀）</td><td style="text-align:center;padding:5px">晴转小雨 33°/20°</td><td style="text-align:center;padding:5px">小雨转阴 24°/16°</td></tr>
+<tr><td style="padding:5px">三峡大坝（三斗坪）</td><td style="text-align:center;padding:5px">多云转小雨 30°/19°</td><td style="text-align:center;padding:5px">小雨转阴 22°/15°</td></tr>
+<tr><td style="padding:5px;color:var(--accent)">清江画廊（长阳）</td><td style="text-align:center;padding:5px;color:var(--accent)">晴转小雨 31°/20°</td><td style="text-align:center;padding:5px;color:var(--accent)">小雨转阴 23°/16°</td></tr>
+</table>
+<p style="font-size:.78em;margin-top:6px;color:var(--muted)">⚠️ 县级站数据。6月宜昌高温+阵雨交替，体感闷热。三峡大坝江边风大，雨天体感更凉。清江画廊水上体感低2-3°。</p>
+</div>
+</div>
+
+<!-- ==================== 穿衣指南 ==================== -->
+<div class="content-section" data-id="sec-clothes">
+<h2 id="sec-clothes">👗 穿衣指南（6月长江中下游·高温+阵雨）</h2>
+<div class="tip"><b>💡 宜昌6月体感：</b>白天33°闷热潮湿（体感35°+），江边风大但无法散热。晚上24-26°舒适。随身带伞！一天可能经历晴天→暴雨→晴天。</div>
+
+<div class="poi">
+  <h4>🌡️ 温度分时段参考</h4>
+  <ul>
+    <li>☀️ <b>白天 10:00-16:00</b> — 30-33°C，体感闷热。<b>速干T恤+短裤/薄长裤</b>。防晒很重要</li>
+    <li>🌧 <b>阵雨时段</b> — 雨后降温5-8°，体感从闷热变凉快。<b>备一件薄外套/防晒衣</b>，雨后穿</li>
+    <li>🌅 <b>傍晚/夜间 18:00-22:00</b> — 24-26°C，江边有风体感舒适。<b>薄长袖/衬衫</b>即可</li>
+    <li>🏗 <b>三峡大坝观景台</b> — 江边风大+可能下雨，体感比市区低3-5°。<b>防风薄外套+雨衣</b></li>
+  </ul>
+</div>
+
+<div class="poi">
+  <h4>👕 建议穿搭清单</h4>
+  <ul>
+    <li>👔 <b>速干T恤 ×2</b> — 白天穿。6月出汗多，速干比纯棉舒服太多</li>
+    <li>🧥 <b>薄款防风外套/防晒衣 ×1</b> — <b>三峡大坝必备！</b>江边风大+防晒+防雨三合一</li>
+    <li>👖 <b>薄长裤/速干裤 ×1</b> — 大坝观景台+清江画廊徒步适用。<b>短裤也可以</b>但防晒注意</li>
+    <li>🩴 <b>运动鞋/凉鞋各1双</b> — 运动鞋游大坝，凉鞋逛街/下雨备用</li>
+    <li>☂️ <b>折叠伞/雨衣 ×1</b> — <b>必带！</b>6月宜昌随时下雨。雨衣比伞更适合大坝（风大伞打不住）</li>
+    <li>🧢 <b>遮阳帽 ×1</b> — 大坝观景台无遮挡，<b>暴晒30min就红</b></li>
+    <li>🕶 <b>墨镜 ×1</b> — 江面反光强烈+开车防眩光</li>
+    <li>🧴 <b>防晒霜 SPF50+ ×1</b> — <b>必带！</b>6月紫外线强+江面反射，2h补涂一次</li>
+  </ul>
+</div>
+
+<div class="poi">
+  <h4>👔 婚礼穿搭</h4>
+  <ul>
+    <li>👔 <b>男士</b>：薄款西装/衬衫+西裤，6月室内空调房OK</li>
+    <li>👗 <b>女士</b>：连衣裙/小礼服，避免太厚（酒店空调+室外温差大）</li>
+    <li>💡 <b>建议</b>：婚礼后换休闲装再去大坝，穿正装爬观景台太遭罪</li>
+  </ul>
+</div>
+</div>
+
+<!-- ==================== 租车信息 ==================== -->
+<div class="content-section" data-id="sec-rental">
+<h2 id="sec-rental">🚗 租车信息</h2>
+<div class="rental">
+  <h4>📍 神州租车 · 三峡机场服务店</h4>
+  <p>
+  📍 <b>地址：</b>宜昌市猇亭区三峡机场T2停车场（出租车停车场区域）<br>
+  📞 <b>电话：</b>17866491567<br>
+  🕛 <b>营业时间：</b>24小时<br>
+  🚗 <b>车型：</b>问界M7 增程版<br>
+  🅿️ <b>取车位置：</b>T2航站楼到达后，步行至出租车停车场区域，神州租车柜台<br>
+  ⚠️ <b>注意：</b>取车时检查外观+拍照+确认油量/电量。问界M7增程版无续航焦虑，满油满电续航1000km+
+  </p>
+</div>
+
+<div class="rental">
+  <h4>⚡ 问界M7 增程版 驾驶提示</h4>
+  <p>
+  🔋 <b>增程原理：</b>电池驱动+汽油发电。有电用电，没电烧油发电，<b>无纯电续航焦虑</b><br>
+  ⛽ <b>油耗：</b>市区约7-8L/100km，高速约6-7L/100km。2天总里程约200km，耗油约15L<br>
+  🔋 <b>建议模式：</b>市区用<b>纯电优先</b>（省钱安静），高速/长途用<b>燃油优先</b>（保电）<br>
+  ⚠️ <b>还车要求：</b>通常要求油量与取车时一致，<b>还车前加满油</b>！<br>
+  🅿️ <b>还车流程：</b>6/7 下午16:30前到达机场还车点→检查→步行至T2值机
+  </p>
+</div>
+
+<div class="poi">
+  <h4>🗺️ 关键自驾路段</h4>
+  <table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+  <tr style="border-bottom:2px solid var(--border)"><th style="text-align:left;padding:6px;color:var(--text)">路段</th><th style="padding:6px;color:var(--text)">距离</th><th style="padding:6px;color:var(--text)">耗时</th><th style="padding:6px;color:var(--text)">路线</th></tr>
+  <tr><td style="padding:6px">三峡机场→威斯汀酒店</td><td style="text-align:center;padding:6px">~30km</td><td style="text-align:center;padding:6px">40-50min</td><td style="padding:6px">机场高速→G50→伍家岗</td></tr>
+  <tr><td style="padding:6px">威斯汀→三峡大坝</td><td style="text-align:center;padding:6px">~40km</td><td style="text-align:center;padding:6px">~1h</td><td style="padding:6px">三峡专用公路</td></tr>
+  <tr><td style="padding:6px">三峡大坝→清江画廊</td><td style="text-align:center;padding:6px">~40km</td><td style="text-align:center;padding:6px">~1h</td><td style="padding:6px">G318→长阳方向</td></tr>
+  <tr><td style="padding:6px">威斯汀→清江画廊</td><td style="text-align:center;padding:6px">~60km</td><td style="text-align:center;padding:6px">~1.5h</td><td style="padding:6px">G318→长阳</td></tr>
+  <tr><td style="padding:6px">清江画廊→三峡机场</td><td style="text-align:center;padding:6px">~70km</td><td style="text-align:center;padding:6px">~1.5h</td><td style="padding:6px">长阳→G50→机场</td></tr>
+  <tr><td style="padding:6px">威斯汀→三峡机场</td><td style="text-align:center;padding:6px">~30km</td><td style="text-align:center;padding:6px">40-50min</td><td style="padding:6px">G50→机场高速</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ==================== 三峡大坝 ==================== -->
+<div class="content-section" data-id="sec-dam">
+<h2 id="sec-dam">🏗 三峡大坝自驾全攻略</h2>
+<div class="warn"><b>⚠️ 自驾进入三峡大坝必须办理车辆通行证！</b>提前线上办理，否则无法进入坝区。免费办理，但必须提前预约。</div>
+
+<h3>🎫 门票与费用</h3>
+<div class="poi">
+  <table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+  <tr style="border-bottom:2px solid var(--border)"><th style="text-align:left;padding:6px;color:var(--text)">项目</th><th style="text-align:right;padding:6px;color:var(--text)">价格</th><th style="text-align:left;padding:6px;color:var(--text);width:200px">说明</th></tr>
+  <tr><td style="padding:6px">景区门票</td><td style="text-align:right;padding:6px;color:#34d399"><b>免费</b></td><td style="padding:6px;font-size:.8em">中国三峡集团公益开放</td></tr>
+  <tr><td style="padding:6px">换乘车票</td><td style="text-align:right;padding:6px">35元/人</td><td style="padding:6px;font-size:.8em">必买·景区内各景点间接驳</td></tr>
+  <tr><td style="padding:6px">升船机体验</td><td style="text-align:right;padding:6px">168元/人</td><td style="padding:6px;font-size:.8em">可选·体验"乘电梯过坝"</td></tr>
+  <tr><td style="padding:6px">车辆通行证</td><td style="text-align:right;padding:6px;color:#34d399"><b>免费</b></td><td style="padding:6px;font-size:.8em">自驾必须·线上/线下均可办</td></tr>
+  <tr><td style="padding:6px">停车场</td><td style="text-align:right;padding:6px">免费</td><td style="padding:6px;font-size:.8em">游客换乘中心停车场</td></tr>
+  </table>
+  <p style="font-size:.82em;color:var(--accent);margin-top:8px"><b>💰 人均最低35元即可游览三峡大坝！</b>升船机体验视时间决定是否购买。</p>
+</div>
+
+<h3>📋 车辆通行证办理</h3>
+<div class="poi">
+  <h4>方式一：线上办理（推荐✅）</h4>
+  <ul>
+    <li><b>微信小程序：</b>搜索<b>"坝区车辆通行预约系统"</b></li>
+    <li><b>微信公众号：</b>搜索<b>"三峡大坝旅游"</b>→通行证预约</li>
+    <li>📝 <b>所需信息：</b>行驶证+驾驶证+交强险电子保单</li>
+    <li>⏰ <b>办理时间：</b>24小时可申请，审核通常<b>10-30min</b></li>
+    <li>📱 <b>获取方式：</b>审核通过后手机收到电子通行证</li>
+    <li>⚠️ <b>注意：</b>租车行驶证在取车时从神州租车获取，<b>建议取车后立即线上申请</b></li>
+  </ul>
+</div>
+
+<div class="poi">
+  <h4>方式二：线下办理</h4>
+  <ul>
+    <li>📍 <b>办理点1：</b>夜明珠三角地接待站（宜昌方向进入）</li>
+    <li>📍 <b>办理点2：</b>冯家湾武警检查站（宜昌方向进入）</li>
+    <li>📝 <b>所需证件：</b>驾驶证+行驶证+电子保单（原件/照片）</li>
+    <li>⏰ <b>办理时间：</b>约5-10min，免费</li>
+    <li>⚠️ <b>高峰期排队：</b>周末/节假日可能排队30min+，<b>建议线上办</b></li>
+  </ul>
+</div>
+
+<div class="tip"><b>💡 办证建议：</b>取车后第一时间在小程序上申请通行证，开车到坝区时通行证已审批好，直接过检查站。线下办证点排队浪费时间。</div>
+
+<h3>🗺️ 自驾进入路线</h3>
+<div class="poi">
+  <h4>宜昌市区→三峡大坝（推荐路线）</h4>
+  <ul>
+    <li>🚗 <b>路线：</b>宜昌市区→夜明珠→三峡专用公路→游客换乘中心</li>
+    <li>📏 <b>距离：</b>约40km</li>
+    <li>⏱ <b>耗时：</b>约1h</li>
+    <li>📍 <b>导航关键词：</b>"三峡大坝游客换乘中心"</li>
+    <li>🛣️ <b>关键节点：</b>经过夜明珠/冯家湾检查站时出示通行证→进入三峡专用公路→直达游客换乘中心停车场</li>
+  </ul>
+</div>
+
+<h3>🏗 游览路线（约2.5-3.5h）</h3>
+<div class="scenic">
+  <h4>推荐路线：游客中心→坛子岭→185观景平台→截流纪念园→返回</h4>
+  <p>全程乘换乘车接驳，<b>无需自己开车进景区</b>。车停在游客换乘中心停车场。</p>
+</div>
+
+<div class="spot">
+  <h4>❶ 坛子岭 ⭐⭐⭐ 最高点·俯瞰大坝全景</h4>
+  <div class="tags"><span class="t-free">含换乘车票</span><span class="t-time">40-60min</span><span class="t-star">必去</span></div>
+  <p>三峡大坝最高观景点，海拔262m。<b>俯瞰大坝全貌+五级船闸+西陵长江大桥</b>的最佳位置。有电梯可登顶，无体力压力。<br>
+  📸 <b>拍照提示：</b>观景台360°无遮挡，广角拍大坝全景最震撼。晴天逆光时用偏振镜效果更好。</p>
+</div>
+
+<div class="spot">
+  <h4>❷ 185观景平台 ⭐⭐ 与大坝平齐</h4>
+  <div class="tags"><span class="t-free">含换乘车票</span><span class="t-time">20-30min</span></div>
+  <p>海拔185m，与三峡大坝坝顶齐平。<b>近距离看大坝+水库</b>，可看到坝顶的升船机和泄洪口。站在这里才能感受到大坝的巨大规模。</p>
+</div>
+
+<div class="spot">
+  <h4>❸ 截流纪念园 ⭐⭐ 历史纪念+下游看坝</h4>
+  <div class="tags"><span class="t-free">含换乘车票</span><span class="t-time">30-40min</span></div>
+  <p>大坝下游一侧，<b>看大坝正面（泄洪场景在此看）</b>。园内展示大江截流时使用的巨型四面体、截流机械等。<b>泄洪时这里是最佳观看点</b>（6月可能看到泄洪！）。</p>
+</div>
+
+<div class="spot">
+  <h4>④ 升船机体验（可选）⭐⭐ 世界最大</h4>
+  <div class="tags"><span class="t-pay">168元/人</span><span class="t-time">约1h</span></div>
+  <p>乘坐船舶通过三峡升船机——<b>世界最大升船机</b>！船在"电梯"中升降113m过坝。体验约1h。<br>
+  ⚠️ <b>注意：</b>需额外购票168元/人。时间充裕推荐体验，时间紧可跳过。升船机每天班次有限，建议到达后先咨询。</p>
+</div>
+
+<div class="poi">
+  <h4>⏱ 时间分配建议</h4>
+  <ul>
+    <li><b>紧凑版（2.5h）：</b>坛子岭40min + 185平台20min + 截流园30min + 换乘等待60min</li>
+    <li><b>充实版（3.5h）：</b>+ 升船机体验1h</li>
+    <li><b>开放时间：</b>08:00-17:00（3-12月），最晚入园15:00</li>
+    <li>💡 <b>建议周六下午15:00后到达</b>，17:00前游完。此时旅行团减少，人少体验好</li>
+  </ul>
+</div>
+</div>
+
+<!-- ==================== 清江画廊 ==================== -->
+<div class="content-section" data-id="sec-gallery">
+<h2 id="sec-gallery">🎨 清江画廊全攻略</h2>
+<div class="tip"><b>💡 清江画廊 = "八百里清江美如画"</b>——长江支流清江上最美的江段，5A级景区。以<b>乘船游江+登岛徒步</b>为核心体验。距宜昌市区60km/1.5h。</div>
+
+<h3>🎫 门票与线路</h3>
+<div class="poi">
+  <table style="width:100%;font-size:.84em;border-collapse:collapse">
+  <tr style="border-bottom:2px solid var(--border)"><th style="text-align:left;padding:8px;color:var(--text)">线路</th><th style="padding:8px;color:var(--text)">原称</th><th style="padding:8px;color:var(--text)">票价</th><th style="padding:8px;color:var(--text)">时长</th><th style="padding:8px;color:var(--text)">核心体验</th></tr>
+  <tr><td style="padding:8px"><b>圣境游</b></td><td style="text-align:center;padding:8px">A线</td><td style="text-align:center;padding:8px">145元/人</td><td style="text-align:center;padding:8px">~4.5h</td><td style="padding:8px">船游为主+登武落钟离山</td></tr>
+  <tr><td style="padding:8px"><b>影画游</b></td><td style="text-align:center;padding:8px">B线</td><td style="text-align:center;padding:8px">145元/人<br><span style="font-size:.8em;opacity:.7">15:30后100元</span></td><td style="text-align:center;padding:8px">~4h</td><td style="padding:8px">徒步为主+船游</td></tr>
+  </table>
+</div>
+
+<h3>🅰️ 圣境游（原A线）详情</h3>
+<div class="poi">
+  <h4>📍 路线：游客中心→风雨廊桥→时空隧道→旅游码头→船观倒影峡→船观仙人寨→登武落钟离山→船返回</h4>
+  <ul>
+    <li>🚢 <b>前半程：</b>游客中心出发→步行风雨廊桥+时空隧道（拍照很美）→码头登船</li>
+    <li>🚢 <b>船游段：</b>船观倒影峡（水面倒影如画）→船观仙人寨（悬崖古寨）</li>
+    <li>🏔 <b>核心体验：</b>登<b>武落钟离山</b>——土家族发祥地！山上可俯瞰清江全景</li>
+    <li>🚢 <b>返程：</b>武落钟离山码头登船→返回游客中心</li>
+    <li>⏰ <b>发船时间：</b>10:00/11:00/12:00/13:30（以景区当日公告为准）</li>
+    <li>🚶 <b>运动量：</b>轻松·船游为主+武落钟离山步行约40min</li>
+  </ul>
+</div>
+
+<h3>🅱️ 影画游（原B线）详情</h3>
+<div class="poi">
+  <h4>📍 路线：游客中心→风雨廊桥→时空隧道→鼓乐堂→土家风情街→徒步倒影峡→登仙人寨→船观北纬30°岛→返回</h4>
+  <ul>
+    <li>🚶 <b>前半程：</b>游客中心出发→徒步穿越倒影峡（近距离山水体验）→登仙人寨（悬崖古寺+观景台）</li>
+    <li>🚢 <b>后半程：</b>仙人寨登船→船观北纬30°岛→返回</li>
+    <li>🎭 <b>附加：</b>鼓乐堂土家歌舞表演+土家风情街</li>
+    <li>⏰ <b>发船时间：</b>11:30/12:30/13:30/14:30/15:30/16:30</li>
+    <li>🚶 <b>运动量：</b>中等·需徒步2-3h+登仙人寨台阶</li>
+  </ul>
+</div>
+
+<h3>🆚 A线 vs B线 选择建议</h3>
+<div class="poi">
+<table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+<tr style="border-bottom:2px solid var(--border)"><th style="text-align:left;padding:6px;color:var(--text)">对比项</th><th style="padding:6px;color:var(--text)">圣境游(A线)</th><th style="padding:6px;color:var(--text)">影画游(B线)</th></tr>
+<tr><td style="padding:6px">票价</td><td style="text-align:center;padding:6px">145元</td><td style="text-align:center;padding:6px">145元(15:30后100元)</td></tr>
+<tr><td style="padding:6px">时长</td><td style="text-align:center;padding:6px">4.5h</td><td style="text-align:center;padding:6px">4h</td></tr>
+<tr><td style="padding:6px">运动量</td><td style="text-align:center;padding:6px;color:#34d399">轻松·船游为主</td><td style="text-align:center;padding:6px;color:#fbbf24">中等·需徒步</td></tr>
+<tr><td style="padding:6px">核心亮点</td><td style="text-align:center;padding:6px">武落钟离山</td><td style="text-align:center;padding:6px">倒影峡徒步+仙人寨</td></tr>
+<tr><td style="padding:6px">适合人群</td><td style="text-align:center;padding:6px">老人/小孩/想轻松</td><td style="text-align:center;padding:6px">年轻人/爱徒步</td></tr>
+<tr><td style="padding:6px">雨天适配</td><td style="text-align:center;padding:6px;color:#34d399">✅ 船上观景不受影响</td><td style="text-align:center;padding:6px;color:#f87171">❌ 徒步路线湿滑</td></tr>
+</table>
+<p style="color:var(--accent);font-size:.86em;margin-top:10px"><b>💡 6/7可能下雨，推荐A线（圣境游）！</b>雨天船上观景不受影响，徒步路线湿滑不安全。A线船游+武落钟离山，轻松出片。</p>
+</div>
+
+<h3>🚗 自驾交通</h3>
+<div class="poi">
+  <h4>📍 导航信息</h4>
+  <ul>
+    <li>🗺 <b>导航关键词：</b>"长阳清江画廊游客中心"</li>
+    <li>📏 <b>距宜昌威斯汀：</b>约60km，开车约1.5h</li>
+    <li>📏 <b>距三峡大坝：</b>约40km，开车约1h</li>
+    <li>🅿️ <b>停车：</b>景区停车场，5元/天</li>
+    <li>⏰ <b>建议出发时间：</b>6/7早上7:30出发，9:00到达，赶10:00第一班船</li>
+  </ul>
+</div>
+
+<div class="poi">
+  <h4>🎭 《花咚咚的姐》演出</h4>
+  <ul>
+    <li>⏰ <b>演出时间：</b>每日15:00一场</li>
+    <li>🎫 <b>门票：</b>通常含在线路票内或另购约60元</li>
+    <li>🎭 <b>内容：</b>大型土家族原生态歌舞演出，展现土家文化</li>
+    <li>💡 <b>建议：</b>如果赶不上可跳过，核心体验在船游和岛上</li>
+  </ul>
+</div>
+</div>
+
+<!-- ==================== 美食 ==================== -->
+<div class="content-section" data-id="sec-food">
+<h2 id="sec-food">🍜 宜昌美食</h2>
+<div class="tip"><b>宜昌三绝：</b>萝卜饺子🥟 + 凉虾🥤 + 红油小面🍜。来宜昌必吃这三样！</div>
+
+<h3>🏆 宜昌必吃特色</h3>
+<div class="food">
+  <h4>🥟 萝卜饺子 — 宜昌第一小吃</h4>
+  <p>外酥里嫩的炸萝卜丝饼，宜昌人早餐标配。路边摊3-5元一个，<b>趁热吃</b>最香！推荐在CBD小吃街或早餐摊买。</p>
+</div>
+<div class="food">
+  <h4>🥤 凉虾 — 宜昌解暑神器</h4>
+  <p>米浆漏成虾形+红糖水+冰块，宜昌夏天人手一杯。3-5元/杯，<b>6月天热必喝</b>！类似四川凉糕但更爽口。</p>
+</div>
+<div class="food">
+  <h4>🍜 红油小面 — 宜昌人的灵魂早餐</h4>
+  <p>碱水面+红油辣子+葱花，宜昌版"担担面"。8-12元/碗，配上卤蛋和豆干绝了。</p>
+</div>
+<div class="food">
+  <h4>🐟 长江肥鱼 — 宜昌硬菜</h4>
+  <p>清江/长江鲜鱼，肉质细嫩。推荐<b>白刹肥鱼</b>（清蒸/红烧）和<b>腊蹄火锅</b>。人均50-80元。</p>
+</div>
+<div class="food">
+  <h4>🥔 炕洋芋 — 土家特色</h4>
+  <p>小土豆炕至金黄，外酥内糯，撒辣椒面/孜然。5-10元/份，路边摊最正宗。</p>
+</div>
+
+<h3>📍 朋友推荐店</h3>
+<div class="food">
+  <h4>🍧 star星角（CBD店） — 冰锅创造者</h4>
+  <p>
+  📍 <b>地址：</b>气象台小区CBD（小燕子酒楼旁）<br>
+  💰 <b>人均：</b>40-60元<br>
+  ⏰ <b>营业：</b>11:00-22:00<br>
+  📝 <b>什么是冰锅？</b>用牛奶绵绵冰做底，上面放提拉米苏蛋糕/草莓/奥利奥等，浇牛奶和果酱，<b>像吃火锅一样吃冰</b>！颜值超高，拍照出片。<br>
+  🔥 <b>必点：</b>脏脏冰锅（奥利奥+提拉米苏+巧克力酱·最受欢迎）、草莓冰锅、肉酱瀑布披萨<br>
+  💡 <b>注意：</b>冰锅分量大，2-3人一份够了。人气旺可能8点后热门口味售罄
+  </p>
+</div>
+<div class="food">
+  <h4>🍸 来生BROKEN酒吧 — 宜昌最有氛围的酒吧</h4>
+  <p>
+  📍 <b>地址：</b>西陵区二马路55号（正德骨科医院对面）<br>
+  🕛 <b>营业：</b>19:30-01:30<br>
+  📝 <b>风格：</b>未来感+氛围鸡尾酒吧。调酒师创意十足，每杯都有惊喜。评价"宜昌最喜欢的酒吧"<br>
+  💰 <b>人均：</b>80-120元<br>
+  💡 <b>适合：</b>婚礼后和朋友小酌一杯
+  </p>
+</div>
+<div class="food">
+  <h4>🍛 咖喱匠 — 日式咖喱专门店</h4>
+  <p>
+  📝 <b>类型：</b>日式咖喱饭，浓郁咖喱+炸猪排/鸡排。在CBD附近，人均40-60元。适合简单晚餐。</p>
+</div>
+<div class="food">
+  <h4>🍪 矮子馅饼 — 宜昌伴手礼之王</h4>
+  <p>
+  📍 <b>地址：</b>西陵区夷陵大道（雅思超市侧门对面）·老店<br>
+  📍 <b>分店：</b>万达广场2号门对面<br>
+  💰 <b>价格：</b>12元/斤（经典款），18元/斤（新品·板栗/蔓越莓/抹茶红豆）<br>
+  ⏰ <b>营业：</b>8:30-20:00<br>
+  📝 <b>推荐口味：</b>黑芝麻（最经典）、桂花、绿豆、椒盐<br>
+  ⚠️ <b>注意：</b>老店经常排队！万达店人少。保质期短（3-5天），适合带走做伴手礼
+  </p>
+</div>
+
+<h3>🌃 夜生活推荐（6/6 晚上婚礼后）</h3>
+<div class="poi">
+  <h4>🚶 宜昌夜生活路线推荐</h4>
+  <ul>
+    <li>📍 <b>star星角吃冰锅</b>（CBD·11:00-22:00·婚礼后可能已关门·建议6/7中午去）</li>
+    <li>📍 <b>来生BROKEN酒吧</b>（二马路·19:30-01:30·正好婚礼后去！）</li>
+    <li>📍 <b>滨江公园</b>——酒吧旁边就是！长江边散步/看夜景/吹江风</li>
+    <li>📍 <b>夷陵长江大桥</b>——滨江公园旁，夜景灯光秀+桥头常有街头音乐</li>
+    <li>📍 <b>矮子馅饼</b>——顺路买，第二天当早餐/伴手礼</li>
+  </ul>
+  <p style="color:var(--accent);font-size:.86em;margin-top:8px"><b>💡 推荐夜生活路线：</b>婚礼结束→开车到二马路停车→来生酒吧喝一杯→滨江公园散步看长江夜景→走过夷陵长江大桥→取车回酒店</p>
+</div>
+</div>
+
+<!-- ==================== 行程方案 ==================== -->
+<div class="content-section" data-id="sec-plan">
+<h2 id="sec-plan">📋 行程方案</h2>
+
+<div class="day-hdr">Day 1 · 6/6 周六 — 到达→租车→婚礼→三峡大坝→夜生活 ⛅→🌧</div>
+<div class="tip"><b>Day 1 核心：</b>上午飞到+取车 → 中午婚礼 → 下午三峡大坝 → 晚上宜昌夜生活</div>
+
+<div class="step">
+  <div class="time">✈️ 08:55-10:20 EU2773 成都双流T2→宜昌三峡T2</div>
+  <div class="desc">飞行1h25min。到达后步行至T2停车场神州租车柜台。</div>
+</div>
+
+<div class="step">
+  <div class="time">🚗 10:20-11:00 取车+办理通行证</div>
+  <div class="desc"><b>神州租车三峡机场店取车</b>（问界M7增程版）。取车时获取行驶证+保单→<b>立即在微信小程序"坝区车辆通行预约系统"提交通行证申请</b>。拍照上传驾驶证+行驶证+保单，10-30min审核通过。</div>
+</div>
+
+<div class="step">
+  <div class="time">🚗 11:00-11:50 三峡机场→宜昌威斯汀酒店（30km/40-50min）</div>
+  <div class="desc">机场高速→G50→伍家岗出口。宜昌威斯汀酒店位于伍家岗区<b>中建宜昌之星</b>顶端36-51层，<b>宜昌最高建筑</b>，临江而立，举步即达江滩公园。<br>
+  📍 <b>导航：</b>"宜昌威斯汀酒店" 或 "中建宜昌之星"</div>
+</div>
+
+<div class="step">
+  <div class="time">💒 12:00-14:30 宜昌威斯汀酒店参加婚礼</div>
+  <div class="desc">婚礼在威斯汀酒店内举行。酒店36层以上全景视野，长江风光一览无遗。<br>
+  💡 <b>建议：</b>婚礼结束后回房间换休闲装（T恤+运动鞋），再去三峡大坝。正装爬观景台太热太累。</div>
+</div>
+
+<div class="step">
+  <div class="time">🚗 14:30-15:30 威斯汀→三峡大坝（40km/约1h）</div>
+  <div class="desc">宜昌市区→夜明珠→三峡专用公路→三峡大坝游客换乘中心。<br>
+  🛣 <b>关键节点：</b>经过检查站时<b>出示电子通行证</b>（手机截图备用）→进入三峡专用公路→直达停车场。<br>
+  ⚠️ <b>确认通行证已审核通过！</b>如未通过，在冯家湾检查站现场办证（5-10min）。</div>
+</div>
+
+<div class="step">
+  <div class="time">🏗 15:30-18:00 三峡大坝游览（2.5h）</div>
+  <div class="desc"><b>游览路线：</b>游客换乘中心→乘换乘车→坛子岭（40min·俯瞰大坝全景⭐必看）→185观景平台（20min·与大坝平齐）→截流纪念园（30min·下游看坝正面）→乘换乘车返回。<br>
+  🅿️ <b>停车：</b>游客换乘中心停车场（免费）<br>
+  🎫 <b>费用：</b>换乘车票35元/人<br>
+  💡 <b>15:30后旅行团减少</b>，人少体验好。17:00前游完没问题。<br>
+  🌧 <b>雨天提示：</b>观景台无遮挡，带雨衣！坛子岭有室内展览可避雨。</div>
+</div>
+
+<div class="step">
+  <div class="time">🚗 18:00-19:00 三峡大坝→宜昌市区（40km/约1h）</div>
+  <div class="desc">原路返回宜昌市区。6/6傍晚可能有小雨，注意减速。</div>
+</div>
+
+<div class="step">
+  <div class="time">🍜 19:00-20:00 晚餐·宜昌特色</div>
+  <div class="desc"><b>推荐：</b>长江肥鱼/腊蹄火锅（CBD附近·人均50-80元）<br>
+  或在CBD小吃街一站式解决：萝卜饺子+凉虾+红油小面+炕洋芋，人均20-30元吃饱！</div>
+</div>
+
+<div class="step">
+  <div class="time">🌃 20:00-23:00 宜昌夜生活</div>
+  <div class="desc"><b>推荐路线：</b><br>
+  📍 <b>来生BROKEN酒吧</b>（二马路·19:30开·鸡尾酒+氛围·人均80-120元）<br>
+  📍 酒吧出来就是<b>滨江公园</b>——长江边散步/看夜景/吹江风<br>
+  📍 沿江步行到<b>夷陵长江大桥</b>——夜景灯光秀<br>
+  📍 <b>矮子馅饼</b>——顺路买，第二天当早餐（8:30开门，晚上可能已关·建议6/7白天买）<br>
+  💡 <b>star星角冰锅</b>22:00关门，婚礼后可能赶不上，<b>建议6/7中午去</b>。</div>
+</div>
+
+<div class="step">
+  <div class="time">🌙 23:00 返回威斯汀酒店休息</div>
+  <div class="desc">从滨江公园/二马路开车回威斯汀约10min。酒店36层以上客房，长江夜景绝美。<br>
+  ⚡ <b>明早7:30出发去清江画廊，定好闹钟！</b></div>
+</div>
+
+<h3 style="margin-top:20px;color:var(--accent)">📋 Day 1 总结</h3>
+<div class="poi">
+  <h4>✅ Day 1 行程回顾</h4>
+  <ul>
+    <li>✅ <b>08:55-10:20</b> — 飞抵宜昌三峡机场</li>
+    <li>✅ <b>10:20-11:00</b> — 取车+线上办通行证</li>
+    <li>✅ <b>11:00-11:50</b> — 机场→威斯汀酒店</li>
+    <li>✅ <b>12:00-14:30</b> — 参加婚礼 💒</li>
+    <li>✅ <b>14:30-15:30</b> — 威斯汀→三峡大坝</li>
+    <li>✅ <b>15:30-18:00</b> — 三峡大坝游览 🏗</li>
+    <li>✅ <b>18:00-19:00</b> — 返回宜昌市区</li>
+    <li>✅ <b>19:00-20:00</b> — 宜昌特色晚餐</li>
+    <li>✅ <b>20:00-23:00</b> — 夜生活（酒吧+滨江公园+长江大桥）</li>
+  </ul>
+</div>
+
+<hr style="margin:30px 0;border:none;border-top:2px dashed var(--border)">
+
+<div class="day-hdr">Day 2 · 6/7 周日 — 清江画廊→返程 🌧→☁️</div>
+<div class="tip"><b>Day 2 核心：</b>上午清江画廊（A线圣境游4.5h）→ 下午返程还机。时间紧凑！</div>
+
+<div class="step">
+  <div class="time">🌅 07:00 起床+退房</div>
+  <div class="desc">威斯汀退房+早餐。问界M7行李放车上，今天直接从清江画廊去机场。</div>
+</div>
+
+<div class="step">
+  <div class="time">🚗 07:30-09:00 威斯汀→清江画廊（60km/1.5h）</div>
+  <div class="desc">G318→长阳方向。导航"长阳清江画廊游客中心"。<br>
+  🌧 6/7可能小雨，路上注意减速。沿途清江山水风光很美。</div>
+</div>
+
+<div class="step">
+  <div class="time">🎨 09:00-09:30 购票+候船</div>
+  <div class="desc">到达游客中心→购买A线圣境游门票（145元/人）→步行风雨廊桥+时空隧道（拍照点）→码头候船。<br>
+  💡 <b>建议提前在"清江画廊"公众号/携程购票</b>，免排队。<b>带身份证！</b></div>
+</div>
+
+<div class="step">
+  <div class="time">🚢 10:00-14:30 A线圣境游（4.5h）</div>
+  <div class="desc"><b>游览路线：</b><br>
+  🚢 10:00 登船→船观<b>倒影峡</b>（水面倒影如画·30min）<br>
+  🚢 船观<b>仙人寨</b>（悬崖古寨·20min）<br>
+  🏔 登<b>武落钟离山</b>（土家族发祥地·徒步约40min·山顶俯瞰清江全景⭐必拍）<br>
+  🚢 乘船返回游客中心<br>
+  💡 <b>雨天：</b>船上观景不受影响，武落钟离山有遮蔽处。带雨衣！</div>
+</div>
+
+<div class="step">
+  <div class="time">🍧 14:30-15:00 star星角冰锅（长阳县城/CBD）</div>
+  <div class="desc"><b>方案A（时间充裕）：</b>清江画廊→开车回宜昌CBD→star星角吃冰锅（30min）→去机场<br>
+  <b>方案B（时间紧）：</b>清江画廊附近简餐→直奔机场<br>
+  💡 <b>注意：</b>16:30前必须到达机场还车！从清江画廊到机场70km/1.5h，<b>最晚14:30必须出发</b>。</div>
+</div>
+
+<div class="step">
+  <div class="time">🚗 15:00-16:30 清江画廊→三峡机场（70km/1.5h）</div>
+  <div class="desc">长阳→G50高速→机场高速→三峡机场。途中<b>加满油</b>（还车要求油量与取车一致）。<br>
+  📍 <b>导航：</b>"宜昌三峡国际机场T2" 或 "神州租车三峡机场店"</div>
+</div>
+
+<div class="step">
+  <div class="time">🚗 16:30-17:00 还车+值机</div>
+  <div class="desc">T2停车场神州租车还车→检查外观+油量→步行至T2航站楼→值机+安检。<br>
+  ⚠️ <b>预留充足时间！</b>周日安检可能排队，<b>16:30还车+17:00前到值机柜台</b>。</div>
+</div>
+
+<div class="step">
+  <div class="time">✈️ 18:00-19:40 宜昌三峡T2→成都天府T2</div>
+  <div class="desc">航班起飞！飞行1h40min。约19:40到达成都天府机场。<br>
+  ⚠️ <b>注意落地是天府机场</b>，不是双流！天府距市区更远，提前安排接驳。</div>
+</div>
+
+<div class="step">
+  <div class="time">🏠 ~21:00 到家·宜昌之旅圆满结束！</div>
+  <div class="desc">✅ 三峡大坝世界工程震撼体验<br>
+  ✅ 清江画廊八百里山水画卷<br>
+  ✅ 宜昌美食+夜生活<br>
+  ✅ 婚礼见证幸福 💒<br>
+  <b>🌟 短短2天，三峡+清江+美食+婚礼，满载而归！</b></div>
+</div>
+</div>
+
+<!-- ==================== 费用预估 ==================== -->
+<div class="content-section" data-id="sec-budget">
+<h2 id="sec-budget">💰 费用预估</h2>
+<div class="poi">
+<table style="width:100%;font-size:.84em;color:var(--muted);border-collapse:collapse">
+<thead><tr style="border-bottom:2px solid var(--border)">
+  <th style="text-align:left;padding:8px 6px;color:var(--text)">费用分类</th>
+  <th style="text-align:right;padding:8px 6px;color:var(--accent);width:120px">👤 1人预算</th>
+  <th style="text-align:right;padding:8px 6px;color:#a78bfa;width:120px">👥 2人预算</th>
+  <th style="text-align:left;padding:8px 6px;color:var(--muted);width:180px;font-size:.8em">详细说明</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border)"><td colspan="4" style="padding:6px 6px 2px;color:var(--accent);font-weight:600;font-size:.9em">一、交通费用</td></tr>
+<tr><td style="padding:6px">机票（往返）</td><td style="text-align:right;padding:6px">800-1500元</td><td style="text-align:right;padding:6px">1600-3000元</td><td style="padding:6px;font-size:.78em">EU2773+返程·提前买更便宜</td></tr>
+<tr><td style="padding:6px">租车（2天）</td><td style="text-align:right;padding:6px">400-600元 <span style="font-size:.75em;color:var(--accent)">(共摊)</span></td><td style="text-align:right;padding:6px">400-600元</td><td style="padding:6px;font-size:.78em">问界M7·含基础险</td></tr>
+<tr><td style="padding:6px">油费/过路费</td><td style="text-align:right;padding:6px">100-150元 <span style="font-size:.75em;color:var(--accent)">(共摊)</span></td><td style="text-align:right;padding:6px">100-150元</td><td style="padding:6px;font-size:.78em">~200km·油耗7L/100km</td></tr>
+<tr><td style="padding:6px">停车费</td><td style="text-align:right;padding:6px">10-30元</td><td style="text-align:right;padding:6px">10-30元</td><td style="padding:6px;font-size:.78em">大坝免费·清江画廊5元/天</td></tr>
+
+<tr style="border-bottom:1px solid var(--border)"><td colspan="4" style="padding:6px 6px 2px;color:var(--accent);font-weight:600;font-size:.9em">二、景点门票</td></tr>
+<tr><td style="padding:6px">三峡大坝换乘车</td><td style="text-align:right;padding:6px">35元</td><td style="text-align:right;padding:6px">70元</td><td style="padding:6px;font-size:.78em">景区免费·换乘车必买</td></tr>
+<tr><td style="padding:6px">三峡升船机（可选）</td><td style="text-align:right;padding:6px">168元</td><td style="text-align:right;padding:6px">336元</td><td style="padding:6px;font-size:.78em">可选体验</td></tr>
+<tr><td style="padding:6px">清江画廊A线</td><td style="text-align:right;padding:6px">145元</td><td style="text-align:right;padding:6px">290元</td><td style="padding:6px;font-size:.78em">含门票+船票</td></tr>
+
+<tr style="border-bottom:1px solid var(--border)"><td colspan="4" style="padding:6px 6px 2px;color:var(--accent);font-weight:600;font-size:.9em">三、餐饮费用</td></tr>
+<tr><td style="padding:6px">6/6 午餐（婚宴）</td><td style="text-align:right;padding:6px;color:#34d399"><b>0</b></td><td style="text-align:right;padding:6px;color:#34d399"><b>0</b></td><td style="padding:6px;font-size:.78em">婚宴免费</td></tr>
+<tr><td style="padding:6px">6/6 晚餐</td><td style="text-align:right;padding:6px">50-80元</td><td style="text-align:right;padding:6px">100-160元</td><td style="padding:6px;font-size:.78em">肥鱼/火锅 或 CBD小吃</td></tr>
+<tr><td style="padding:6px">6/6 夜生活（酒吧）</td><td style="text-align:right;padding:6px">80-120元</td><td style="text-align:right;padding:6px">160-240元</td><td style="padding:6px;font-size:.78em">来生BROKEN·鸡尾酒</td></tr>
+<tr><td style="padding:6px">6/7 午餐</td><td style="text-align:right;padding:6px">30-50元</td><td style="text-align:right;padding:6px">60-100元</td><td style="padding:6px;font-size:.78em">简餐/star星角冰锅</td></tr>
+<tr><td style="padding:6px">小吃+饮品</td><td style="text-align:right;padding:6px">20-40元</td><td style="text-align:right;padding:6px">40-80元</td><td style="padding:6px;font-size:.78em">萝卜饺子+凉虾+矮子馅饼</td></tr>
+
+<tr style="border-bottom:1px solid var(--border)"><td colspan="4" style="padding:6px 6px 2px;color:var(--accent);font-weight:600;font-size:.9em">四、住宿</td></tr>
+<tr><td style="padding:6px">威斯汀酒店（1晚）</td><td style="text-align:right;padding:6px">—</td><td style="text-align:right;padding:6px">500-800元</td><td style="padding:6px;font-size:.78em">婚礼酒店·含在婚礼预算中？</td></tr>
+
+<tr style="font-weight:700;color:var(--text);border-top:2px solid var(--border)"><td style="padding:10px 6px">💰 1人总预算（不含机票住宿）</td><td style="text-align:right;padding:10px 6px;color:var(--accent)">~500-800元</td><td colspan="2" style="padding:10px 6px;font-size:.86em;color:var(--muted)">不含机票和住宿·含租车均摊+门票+餐饮</td></tr>
+<tr style="font-weight:700;color:var(--text)"><td style="padding:10px 6px">💰 2人总预算（含机票+全部）</td><td style="text-align:right;padding:10px 6px;color:#a78bfa">~3000-4500元</td><td colspan="2" style="padding:10px 6px;font-size:.86em;color:var(--muted)"><b>经济型：</b>3000元(早买机票+简单餐饮)<br><b>舒适型：</b>3800元(全景点+美食+酒吧)<br><b>含升船机：</b>+336元</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- ==================== 避坑提示 ==================== -->
+<div class="content-section" data-id="sec-tips">
+<h2 id="sec-tips">⚠️ 避坑提示</h2>
+<div class="warn"><b>⚠️ 三峡大坝通行证必须提前办！</b>没有通行证无法进入坝区，只能停在检查站外步行（非常远）。取车后立即在小程序申请，开车到坝区时已审批好。</div>
+<div class="warn"><b>⚠️ 6/7返程时间极其紧凑！</b>清江画廊A线4.5h + 开车1.5h到机场 + 还车0.5h + 值机安检1h = 至少7.5h。如果10:00上船，最早14:30下船，15:00出发，16:30到机场。<b>没有缓冲时间！</b>务必严格遵守时间。</div>
+<div class="warn"><b>⚠️ 6月宜昌梅雨季！</b>随时可能暴雨。清江画廊选A线（船游为主）比B线（徒步为主）更安全。带雨衣比伞好（大坝风大+船上风大）。</div>
+<div class="tip"><b>💡 还车油量：</b>神州租车通常要求还车油量与取车一致。2天总里程约200km，耗油约15L。还车前在机场附近加油站加满油！</div>
+<div class="tip"><b>💡 清江画廊购票：</b>建议提前在携程/美团/景区公众号购票，现场排队可能耗时20-30min。带身份证实名入园。</div>
+<div class="tip"><b>💡 三峡大坝最佳拍照时间：</b>下午15:00-17:00，光线从西照向东，大坝正面受光。坛子岭观景台下午逆光，但全景依然震撼。</div>
+<div class="tip"><b>💡 问界M7加油：</b>增程版加95号汽油。宜昌市区加油站密集，机场附近也有。还车前加满即可。</div>
+</div>
+
+<!-- ==================== 紧急联系 ==================== -->
+<div class="content-section" data-id="sec-sos">
+<details class="section" id="sec-sos" open>
+<summary>🆘 紧急联系 & 救援信息</summary>
+<div class="section-body">
+<div class="warn">
+  <b>🚨 紧急电话</b><br>
+  📞 <b>交警/报警：110</b> ｜ 急救：<b>120</b> ｜ 火警：<b>119</b><br>
+  📞 <b>全国高速救援：12122</b><br>
+  📞 <b>神州租车救援：95013</b> ｜ 门店：17866491567<br>
+  📞 <b>保险公司救援：</b>人保95518 ｜ 平安95511
+</div>
+<div class="poi">
+  <h4>🏥 宜昌主要医院</h4>
+  <ul>
+    <li><b>宜昌市中心人民医院</b> — 三甲·西陵区</li>
+    <li><b>宜昌市第一人民医院</b> — 三甲·西陵区</li>
+    <li><b>宜昌市第二人民医院</b> — 三甲</li>
+    <li><b>长阳土家族自治县人民医院</b> — 清江画廊附近</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🚗 租车事故处理</h4>
+  <ul>
+    <li>① 确保人身安全→拨打110报警</li>
+    <li>② 拍照留证（全景+细节+对方车牌）</li>
+    <li>③ 拨打神州租车95013报备</li>
+    <li>④ 联系保险公司（租车含基本险）</li>
+    <li>⚠️ 不要私了！走保险流程</li>
+  </ul>
+</div>
+</div>
+</details>
+</div>
+
+<!-- ==================== 导航关键词 ==================== -->
+<div class="content-section" data-id="sec-navi">
+<details class="section" id="sec-navi">
+<summary>📍 导航搜索关键词</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>🗺 关键地点</h4>
+  <ul>
+    <li>✈️ <b>"宜昌三峡国际机场T2"</b></li>
+    <li>🚗 <b>"神州租车三峡机场店"</b></li>
+    <li>🏨 <b>"宜昌威斯汀酒店"</b> 或 <b>"中建宜昌之星"</b></li>
+    <li>🏗 <b>"三峡大坝游客换乘中心"</b> — 自驾目的地</li>
+    <li>🎨 <b>"长阳清江画廊游客中心"</b> — 清江画廊</li>
+    <li>⛽ <b>"中国石化宜昌伍家岗站"</b> — 还车前加油</li>
+    <li>🍧 <b>"星角 CBD 宜昌"</b> — 冰锅店</li>
+    <li>🍸 <b>"来生BROKEN酒吧"</b> 或 <b>"ANOTHERLIFE来生"</b></li>
+    <li>🍪 <b>"矮子馅饼 西陵后路店"</b> — 老店</li>
+    <li>🍪 <b>"矮子馅饼 万达店"</b> — 分店（人少）</li>
+    <li>🌳 <b>"滨江公园 宜昌"</b> — 夜散步</li>
+    <li>🌉 <b>"夷陵长江大桥"</b> — 夜景</li>
+  </ul>
+</div>
+</div>
+</details>
+</div>
+
+<!-- ==================== 实用信息 ==================== -->
+<div class="content-section" data-id="sec-info">
+<details class="section" id="sec-info" open>
+<summary>📡 实用信息</summary>
+<div class="section-body">
+<div class="poi">
+  <h4>📶 手机信号</h4>
+  <ul>
+    <li><b>宜昌市区：</b>4G/5G全覆盖</li>
+    <li><b>三峡大坝景区：</b>4G正常，部分观景台信号弱</li>
+    <li><b>三峡专用公路：</b>🟡 部分路段信号弱</li>
+    <li><b>清江画廊：</b>4G正常，船上信号时断时续</li>
+    <li>📡 <b>运营商：</b>移动 ≫ 电信 > 联通</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🏧 现金 & 支付</h4>
+  <p>宜昌市区/景区微信支付宝全覆盖。建议带<b>200元现金</b>备用（路边小吃/停车费/矮子馅饼老店）。</p>
+</div>
+<div class="poi">
+  <h4>🌡️ 6月宜昌气候特点</h4>
+  <ul>
+    <li><b>气温：</b>白天30-35°C，夜间20-25°C</li>
+    <li><b>湿度：</b>70-90%，体感闷热</li>
+    <li><b>降水：</b>6月梅雨季，随时可能阵雨/暴雨</li>
+    <li><b>紫外线：</b>强！江面反射加剧，SPF50+必备</li>
+    <li>💡 <b>体感：</b>比成都更闷热更湿。多喝水+防中暑</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>🎫 门票信息汇总</h4>
+  <ul>
+    <li><b>三峡大坝：</b>景区免费 | 换乘车35元/人 | 升船机168元/人（可选）</li>
+    <li><b>清江画廊A线：</b>145元/人（含门票+船票）</li>
+    <li><b>清江画廊B线：</b>145元/人（15:30后100元/人）</li>
+    <li>💡 60岁以上老人/军人/残疾人凭证件门票<b>优惠</b>；学生票<b>半价</b></li>
+    <li>💡 建议提前在携程/美团/景区官方公众号购票</li>
+  </ul>
+</div>
+<div class="poi">
+  <h4>📱 实用APP/小程序</h4>
+  <ul>
+    <li>📋 <b>"坝区车辆通行预约系统"</b> — 大坝通行证线上办理</li>
+    <li>📋 <b>"三峡大坝旅游"</b> — 公众号·通行证+景区信息</li>
+    <li>📋 <b>"清江画廊"</b> — 公众号·购票+船班时间</li>
+    <li>🗺 <b>高德地图</b> — 提前下载湖北离线地图</li>
+    <li>🚗 <b>神州租车APP</b> — 取还车+道路救援</li>
+  </ul>
+</div>
+</div>
+</details>
+</div>
+
+</div>
+<div class="float-nav">
+  <a class="float-btn top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</a>
+  <a class="float-btn" href="index.html" title="总览">🏠</a>
+  <a class="float-btn" href="checklist.html" title="物品清单">📋</a>
+</div>
+<footer>保姆级攻略 · 2026.6.5 · 天气:县级站数据 · 航班:EU2773 · 租车:神州租车 · 景点:携程/马蜂窝/小红书/大众点评<br><a href="index.html">← 返回总览</a> · <a href="checklist.html" style="color:#fbbf24;">📋 物品清单</a></footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  /* ========== TOC标签筛选 ========== */
+  var tocLinks = document.querySelectorAll('#tocNav .toc-link[data-section]');
+  var allSections = document.querySelectorAll('.content-section');
+
+  function filterSection(sectionId, clickedLink){
+    for(var i=0;i<tocLinks.length;i++){
+      tocLinks[i].classList.remove('active');
+    }
+    clickedLink.classList.add('active');
+
+    if(sectionId === 'all'){
+      for(var j=0;j<allSections.length;j++){
+        allSections[j].classList.remove('hidden');
+        allSections[j].classList.add('section-enter');
+      }
+    } else {
+      for(var j=0;j<allSections.length;j++){
+        var s = allSections[j];
+        if(s.getAttribute('data-id') === sectionId){
+          s.classList.remove('hidden');
+          s.classList.add('section-enter');
+        } else {
+          s.classList.add('hidden');
+          s.classList.remove('section-enter');
+        }
+      }
+      var target = document.querySelector('.content-section[data-id="'+sectionId+'"] details');
+      if(target) target.setAttribute('open','');
+    }
+
+    var tocWrap = document.querySelector('.toc-wrap');
+    if(tocWrap){
+      window.scrollTo({top: tocWrap.offsetTop + tocWrap.offsetHeight - 10, behavior:'smooth'});
+    }
+  }
+
+  for(var i=0;i<tocLinks.length;i++){
+    (function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var sectionId = link.getAttribute('data-section');
+        filterSection(sectionId, link);
+        return false;
+      });
+    })(tocLinks[i]);
+  }
+
+  /* ========== 回到顶部按钮 ========== */
+  window.addEventListener('scroll',function(){
+    var btn=document.getElementById('topBtn');
+    if(btn){
+      if(window.scrollY>600) btn.classList.add('show'); else btn.classList.remove('show');
+    }
+  });
+
+});
+</script>
+</body></html>
